@@ -1,0 +1,58 @@
+<div class="main-content">
+  <h2 class="little-space">Do you know your credit score?</h2>
+  <h6>We Use this into to match you with the perfect load options.</h6>
+  <div
+    class="button-list margin-top col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12"
+  >
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.creditScore == '1' }"
+      (click)="proceedToNext('1')"
+    >
+      Excellent (740+)
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.creditScore == '2' }"
+      (click)="proceedToNext('2')"
+    >
+      Good(700 - 739)
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.creditScore == '3' }"
+      (click)="proceedToNext('3')"
+    >
+      Average (640 - 699)
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.creditScore == '4' }"
+      (click)="proceedToNext('4')"
+    >
+      Fair (580 - 639)
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.creditScore == '5' }"
+      (click)="proceedToNext('5')"
+    >
+      Needs Improvement (less then 580)
+    </button>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" class="btn" id="btn-back">Back</button>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

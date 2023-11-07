@@ -1,0 +1,234 @@
+<main>
+  <div class="container py-3">
+    <section class="page-order-sec py-3">
+      <p class="m-0 text-muted">
+        <a
+          [routerLink]="['/app/home']"
+          class="text-decoration-none text-primary"
+          >Home </a
+        ><i class="fa fa-angle-right"></i>
+        <a
+          [routerLink]="['/app/about-us']"
+          class="text-decoration-none text-primary"
+        >
+          About Us </a
+        ><i class="fa fa-angle-right"></i>
+        <a
+          [routerLink]="['/app/email-and-text-updates']"
+          class="text-decoration-none text-muted"
+        >
+          Email And Text Updates</a
+        >
+      </p>
+    </section>
+  </div>
+  <section class="pb-2">
+    <div class="container">
+      <h5 class="text-secondary font-weight-bold">Lorem Ipsum is simply</h5>
+      <div class="align-items-center d-flex justify-content-between mb-4">
+        <h3 class="font-weight-bold m-0 text-primary">
+          Email And Text Updates
+        </h3>
+      </div>
+      <p class="text-muted pr-6-md">
+        <span>
+          - You’ll always be in the know about mortgage rate changes –
+          especially when they drop to new lows.</span
+        ><br />
+        <span
+          >- We’ll make sure you’re up to date on the latest mortgage news and
+          greatest homeowner tips. </span
+        ><br />
+        <span>
+          - You’ll get the scoop on our money-saving promotions, cool
+          sweepstakes and exclusive offers.</span
+        >
+      </p>
+    </div>
+  </section>
+  <section class="pt-2 bg-color-lightgray">
+    <div class="container">
+      <div class="align-items-center d-flex justify-content-between mb-4">
+        <h3 class="font-weight-bold m-0 text-primary">
+          Sign Up For Email Updates.
+        </h3>
+      </div>
+    </div>
+    <div class="container">
+      <form action="" id="personal" #f="ngForm">
+        <div class="row">
+          <div class="col-sm-12 form-group mb-1 ml-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="MortgageRate"
+              name="MortgageRate"
+            />
+            <label class="form-check-label" for="MortgageRate">
+              <p>
+                Mortgage Rate Update – Weekly notices that’ll keep you aware of
+                current mortgage rates
+              </p>
+            </label>
+          </div>
+          <div class="col-sm-12 form-group mb-1 ml-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="ZingBlog"
+              name="zingBlog"
+            />
+            <label class="form-check-label" for="ZingBlog">
+              <p>
+                Zing Blog Update – Semiweekly summaries of recent Zing Blog
+                posts covering amazing insights on home, money and life
+              </p>
+            </label>
+          </div>
+          <div class="col-sm-12 form-group mb-1 ml-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="MortgageNews"
+              name="MortgageNews"
+            />
+            <label class="form-check-label" for="MortgageNews">
+              <p>
+                Mortgage News and Promotions – Monthly emails filled with
+                mortgage news, homeowner tips, special offers and all the
+                happenings at Quicken Loans
+              </p>
+            </label>
+          </div>
+          <div class="col-sm-4 form-group mb-3">
+            <label class="text-primary" for="EmaillAddress">Your email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="EmaillAddress"
+              id="EmaillAddress"
+              placeholder="Email Address"
+              [(ngModel)]="email"
+              required
+              #emailRef="ngModel"
+              pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
+            />
+            <div *ngIf="submitted" class="text-danger d-flex">
+              <div *ngIf="emailRef.errors?.pattern">
+                This is not a valid email address
+              </div>
+              <div *ngIf="emailRef.errors?.required">Email is required</div>
+            </div>
+          </div>
+          <p class="col-sm-12 form-group text-muted">
+            Click <a href="##" class="text-underline text-muted">here</a> to
+            unsubscribe from email at any time.
+          </p>
+        </div>
+        <h3 class="font-weight-bold m-0 text-primary mb-4">
+          Sign Up For Text Updates.
+        </h3>
+        <div class="row">
+          <div class="col-sm-12 form-group mb-1 ml-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="DailyRate"
+              name="DailyRate"
+            />
+            <label class="form-check-label" for="DailyRate">
+              <p>
+                Daily Rate Update – Daily text messages with mortgage rates,
+                money-saving promotions, and more
+              </p>
+            </label>
+          </div>
+          <div class="col-sm-12 form-group mb-1 ml-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="WeeklyRate"
+              name="WeeklyRate"
+            />
+            <label class="form-check-label" for="WeeklyRate">
+              <p>
+                Weekly Rate Alert – Weekly updates on our mortgage rates and
+                exclusive promotions
+              </p>
+            </label>
+          </div>
+          <div class="col-sm-12 form-group my-0 mx-0 text-muted">
+            <p>
+              For Daily Rate Updates, you will receive 25 messages per month.
+              For Weekly Rate Alerts, you will receive 10 messages per month.
+              Mobile terms: Email and Mobile Policy. Msg&Data Rates May Apply.
+              Reply HELP for help. Reply STOP to 26293 to cancel.
+            </p>
+          </div>
+          <div class="col-sm-4 form-group mb-3">
+            <label class="text-primary" for="Phonenumber">Phone number</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Phonenumber"
+              id="Phonenumber"
+              placeholder="Phone Number"
+              [(ngModel)]="phone"
+              required
+              #phoneRef="ngModel"
+              appPhoneMask
+              minlength="11"
+            />
+            <!-- <div
+              *ngIf="submitted && !phoneRef.valid"
+              class="text-danger d-flex"
+            >
+              Phone Number is required
+          </div> -->
+            <div *ngIf="submitted" class="text-danger d-flex">
+              <div *ngIf="phoneRef.errors?.minlength">
+                This is not a valid phone number
+              </div>
+              <div *ngIf="phoneRef.errors?.required">Phone is required</div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group my-4 mx-0 text-muted">
+            <p>
+              By submitting your contact information you agree to our Terms of
+              Use and our Security and Privacy Policy. You also expressly
+              consent to having Quicken Loans, its Family of Companies, our
+              partner companies and potentially our mortgage partners contact
+              you about your inquiry by text message or phone (including
+              automatic telephone dialing system or an artificial or prerecorded
+              voice) to the residential or cellular telephone number you have
+              provided, even if that telephone number is on a corporate, state,
+              or national Do Not Call Registry. You do not have to agree to
+              receive such calls or messages as a condition of getting any
+              services from Quicken Loans or its affiliates. By communicating
+              with us by phone, you consent to calls being recorded and
+              monitored. You also agree that we can share your personal data and
+              contact information with third parties such as mortgage partners,
+              partner companies, and affiliates, and that these parties may use
+              your personal data and contact information for marketing and
+              analytic purposes, and to improve your experience.
+            </p>
+          </div>
+          <div class="col-sm-4 form-group m-0">
+            <button
+              class="btn btn-secondary text-white text-uppercase w-fit-content"
+              type="submit"
+              (click)="signUpClicked(f)"
+            >
+              Sign Me Up
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

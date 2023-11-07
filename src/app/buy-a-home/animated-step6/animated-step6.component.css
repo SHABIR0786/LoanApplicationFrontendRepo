@@ -1,0 +1,11 @@
+@import url("../style.css");
+.form-control {
+  height: 65px;
+  margin-top: 30px;
+  font-size: 20px;
+  height: 83px;
+  padding-left: 25px;
+  background-color: #f47741 !important;
+  color: white !important;
+  border: #f47741;
+}

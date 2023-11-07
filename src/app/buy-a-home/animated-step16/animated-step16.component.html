@@ -1,0 +1,78 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="pb-5">Please enter your name below</h1>
+    <p class="co-borrower">
+      You can always add a co-borrower or edit this entry later.
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p (click)="proceedToPrevious()" class="fa fa-angle-left">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0" style="margin-top: -40px">
+        <div class="BTN px-0">
+          <form [formGroup]="form">
+            <div id="first_name">
+              <h3 style="width: 112px; font-size: 20px">First Name*</h3>
+              <input
+                type="text"
+                id="Fn"
+                placeholder="Enter Your First Name "
+                #fname
+                formControlName="firstname"
+                [(ngModel)]="formData.firstName"
+                [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+              />
+              <div
+                *ngIf="submitted && f.firstname.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.firstname.errors.required">
+                  Enter Your First Name.
+                </div>
+              </div>
+            </div>
+            <div id="last_name">
+              <h3 style="width: 109px; font-size: 20px">Last Name*</h3>
+              <input
+                type="text"
+                id="Ln"
+                required
+                placeholder="Enter Your Last Name "
+                #lname
+                formControlName="lasttname"
+                [(ngModel)]="formData.lastName"
+                [ngClass]="{ 'is-invalid': submitted && f.lasttname.errors }"
+              />
+              <div
+                *ngIf="submitted && f.lasttname.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.lasttname.errors.required">
+                  Enter Your Last Name.
+                </div>
+              </div>
+            </div>
+          </form>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3 mt-3"
+            required
+            (click)="proceedToNext()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p84 mt-5 d-lg-flex d-none">
+      <span>84%</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<!-- Non military Personnel Page no 16 same like purchase-yes-mil interface -->
+
+<div class="main-content">
+  <h2>Are you a current or former member of the US Military?</h2>
+  <h6>
+    Active U.S. Military and veterans may be eligible for VA loan options!
+    <img src="img/info.svg" alt="" />
+  </h6>
+
+  <div
+    class="button-list margin-top"
+  >
+    <a
+      [routerLink]="['/app/purchase/purchase-yes-mil']"
+      class="btn btn-primary btn-style btn-orange"
+      >Yes</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-no-mil']"
+      class="btn btn-primary btn-style btn-active btn-orange"
+      >No</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" class="btn" id="btn-back">Back</button>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- On clicking yes button it will go to the Page no13 purchase-prop-yes component -->
+<!-- Click No button it will move to Page No17 purchase-prop-info17 component -->

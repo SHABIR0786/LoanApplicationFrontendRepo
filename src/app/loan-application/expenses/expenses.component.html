@@ -1,0 +1,316 @@
+<section class="content px-2">
+  <div class="container">
+    <div class="card my-5">
+      <div class="card-body">
+        <form class="row" [formGroup]="form">
+          <div class="col-12 mb-1">
+            <h4>Current Monthly Housing Expenses</h4>
+          </div>
+
+          <div class="col-12 row">
+            <div class="col-12">
+              <label
+                >A monthly housing expense refers to the sum of the principal
+                and interest amount on the primary residence, plus other related
+                expenses.
+              </label>
+              <br />
+              <label
+                >Do you currently rent or own? If you currently live with family
+                <span class="text-danger">*</span>
+                please select Rent.
+              </label>
+            </div>
+            <div class="col-12 mb-2">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="isLiveWithFamilySelectRent"
+                  id="isLiveWithFamilySelectRent"
+                  formControlName="isLiveWithFamilySelectRent"
+                  value="true"
+                />
+                <label class="form-check-label" for="isLiveWithFamilySelectRent"
+                  >Rent</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="isLiveWithFamilySelectRent"
+                  id="isLiveWithFamilySelectRentNo"
+                  formControlName="isLiveWithFamilySelectRent"
+                  value="false"
+                />
+                <label
+                  class="form-check-label"
+                  for="isLiveWithFamilySelectRentNo"
+                  >Own</label
+                >
+              </div>
+              <validation-summary
+                [control]="form.controls.isLiveWithFamilySelectRent"
+              ></validation-summary>
+            </div>
+          </div>
+
+          <div
+            class="col-12"
+            *ngIf="data.isLiveWithFamilySelectRent === 'true'"
+          >
+            <div class="form-group">
+              <label for="rent">
+                Rent
+                <span class="text-danger">*</span>
+              </label>
+              <i
+                class="fa fa-info-circle ml-2"
+                aria-hidden="true"
+                tooltipPlacement="right"
+                tooltip="Your current monthly rent payment."
+              >
+              </i>
+              <input
+                type="text"
+                class="form-control"
+                name="rent"
+                id="rent"
+                formControlName="rent"
+                placeholder="$"
+                prefix="$ "
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <validation-summary
+                [control]="form.controls.rent"
+              ></validation-summary>
+            </div>
+          </div>
+          <div
+            class="col-12"
+            *ngIf="data.isLiveWithFamilySelectRent === 'false'"
+          >
+            <div class="row">
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="firstMortgage">
+                    First Mortgage (P&I)
+                    <span class="text-danger">*</span>
+                  </label>
+                  <i
+                    class="fa fa-info-circle ml-2"
+                    aria-hidden="true"
+                    tooltipPlacement="right"
+                    tooltip="The total amount of your monthly mortgage payment that goes towards the Principal and Interest for your current mortgage"
+                  >
+                  </i>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="firstMortgage"
+                    id="firstMortgage"
+                    formControlName="firstMortgage"
+                    required
+                    placeholder="$"
+                    prefix="$ "
+                    mask="separator.2"
+                    thousandSeparator=","
+                  />
+                  <validation-summary
+                    [control]="form.controls.firstMortgage"
+                  ></validation-summary>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="secondMortgage"> Second Mortgage (P&I) </label>
+                  <i
+                    class="fa fa-info-circle ml-2"
+                    aria-hidden="true"
+                    tooltipPlacement="right"
+                    tooltip="The total monthly payment (principal and interest) for your second mortgage."
+                  >
+                  </i>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="secondMortgage"
+                    id="secondMortgage"
+                    formControlName="secondMortgage"
+                    placeholder="$"
+                    prefix="$ "
+                    mask="separator.2"
+                    thousandSeparator=","
+                  />
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="hazardInsurance"> Hazard Insurance </label>
+                  <i
+                    class="fa fa-info-circle ml-2"
+                    aria-hidden="true"
+                    tooltipPlacement="right"
+                    tooltip="Your current monthly hazard insurance premium. Hazard insurance covers property damage caused by fire, wind, and other similar risks. Sometimes earthquakes and floods are covered. Most lenders require hazard insurance and may incorporate the insurance payment into your monthly first mortgage payment."
+                  >
+                  </i>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="hazardInsurance"
+                    id="hazardInsurance"
+                    formControlName="hazardInsurance"
+                    placeholder="$"
+                    prefix="$ "
+                    mask="separator.2"
+                    thousandSeparator=","
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="realEstateTaxes">
+                    Real Estate Taxes
+                    <span class="text-danger">*</span>
+                  </label>
+                  <i
+                    class="fa fa-info-circle ml-2"
+                    aria-hidden="true"
+                    tooltipPlacement="right"
+                    tooltip="Your current monthly property tax payments. Enter 0 or leave the field blank if the monthly property tax is included in your first mortgage payment."
+                  >
+                  </i>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="realEstateTaxes"
+                    id="realEstateTaxes"
+                    formControlName="realEstateTaxes"
+                    required
+                    placeholder="$"
+                    prefix="$ "
+                    mask="separator.2"
+                    thousandSeparator=","
+                  />
+                  <validation-summary
+                    [control]="form.controls.realEstateTaxes"
+                  ></validation-summary>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="mortgageInsurance">
+                    Mortgage Insurance
+                    <span class="text-danger">*</span>
+                  </label>
+                  <i
+                    class="fa fa-info-circle ml-2"
+                    aria-hidden="true"
+                    tooltipPlacement="right"
+                    tooltip="Your current monthly mortgage insurance premium. Mortgage insurance is an insurance policy that protects a mortgage lender or title holder in the event that the borrower defaults on payments, dies, or is otherwise unable to meet the contractual obligations of the mortgage. Enter 0 or leave the field blank if this payment is included in your first mortgage payment."
+                  >
+                  </i>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="mortgageInsurance"
+                    id="mortgageInsurance"
+                    formControlName="mortgageInsurance"
+                    required
+                    placeholder="$"
+                    prefix="$ "
+                    mask="separator.2"
+                    thousandSeparator=","
+                  />
+                  <validation-summary
+                    [control]="form.controls.mortgageInsurance"
+                  ></validation-summary>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="homeOwnersAssociation">
+                    Homeowners Association
+                    <span class="text-danger">*</span>
+                  </label>
+                  <i
+                    class="fa fa-info-circle ml-2"
+                    aria-hidden="true"
+                    tooltipPlacement="right"
+                    tooltip="Your current monthly homeowner's association dues, if any.
+                  "
+                  >
+                  </i>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="homeOwnersAssociation"
+                    id="homeOwnersAssociation"
+                    formControlName="homeOwnersAssociation"
+                    required
+                    placeholder="$"
+                    prefix="$ "
+                    mask="separator.2"
+                    thousandSeparator=","
+                  />
+                  <validation-summary
+                    [control]="form.controls.homeOwnersAssociation"
+                  ></validation-summary>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12"
+            *ngIf="data.isLiveWithFamilySelectRent === 'true'"
+          >
+            <div class="form-group">
+              <label for="otherHousingExpenses">
+                Other Housing Expenses
+                <span class="text-danger">*</span>
+              </label>
+              <i
+                class="fa fa-info-circle ml-2"
+                aria-hidden="true"
+                tooltipPlacement="right"
+                tooltip="The total of any other monthly housing expenses you are currently paying. For example, utilities, gardening service, pest control, etc."
+              >
+              </i>
+              <input
+                type="text"
+                class="form-control"
+                name="otherHousingExpenses"
+                id="otherHousingExpenses"
+                formControlName="otherHousingExpenses"
+                required
+                placeholder="$"
+                prefix="$ "
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <validation-summary
+                [control]="form.controls.otherHousingExpenses"
+              ></validation-summary>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button class="btn btn-secondary" (click)="proceedToPrevious()">
+              Back
+            </button>
+            <button
+              class="btn btn-secondary float-right"
+              (click)="proceedToNext()"
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

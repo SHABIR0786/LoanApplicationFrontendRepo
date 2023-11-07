@@ -1,0 +1,559 @@
+<section class="content px-2">
+  <div>
+    <div class="card my-5">
+      <div class="card-body">
+        <form [formGroup]="form">
+          <ng-wizard [config]="config">
+            <ng-wizard-step title="Borrower" [state]="">
+              <!-- Borrower Start -->
+
+              <div class="row">
+                <div
+                  class="col-12"
+                  *ngIf="
+                    (data.firstName != null && data.firstName != undefined) ||
+                    (data.lastName != null &&
+                      data.lastName != undefined &&
+                      !isApplyingWithCoBorrower)
+                  "
+                >
+                  <div class="form-group">
+                    <h6></h6>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="firstName">
+                      {{ "First Name" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="firstName"
+                      id="firstName"
+                      formControlName="firstName"
+                      [(ngModel)]="data.firstName"
+                    />
+                    <validation-summary
+                      [control]="form.controls.firstName"
+                    ></validation-summary>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="lastName">
+                      {{ "Last Name" | localize }}
+
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="lastName"
+                      id="lastName"
+                      formControlName="lastName"
+                      [(ngModel)]="data.lastName"
+                    />
+                    <validation-summary
+                      [control]="form.controls.lastName"
+                    ></validation-summary>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="email">
+                      {{ "Email" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      formControlName="email"
+                      [(ngModel)]="data.email"
+                    />
+                    <validation-summary
+                      [control]="form.controls.email"
+                    ></validation-summary>
+                  </div>
+                </div>
+              </div>
+              <!-- Borrower End -->
+
+              <p class="col-12">
+                You can agree, disagree or skip the eConsent agreement below.
+              </p>
+
+              <div class="econsent-wrapper col-12">
+                <h5>
+                  Your Consent To Do Business Electronically (the eDisclosure
+                  Agreement)
+                </h5>
+                <p>
+                  The loan for which you are applying involves various
+                  disclosures, records, and documents ("Loan Documents"),
+                  including this eDisclosure Agreement. The purpose of this
+                  eDisclosure Agreement is to obtain Your consent to receive
+                  certain Loan Documents from Us in electronic form rather than
+                  in paper form. With Your consent, You will also be able to
+                  sign and authorize these Loan Documents electronically, rather
+                  than on paper.
+                </p>
+                <p>
+                  Before We can engage in this transaction electronically, it is
+                  important that You understand Your rights and
+                  responsibilities. Please read the following and affirm Your
+                  consent to conduct business with Us electronically. For
+                  purposes of this eDisclosure Agreement, "eDisclosures" means
+                  the Loan Documents related to this transaction that are
+                  provided electronically, "You" and "Your" mean the borrower(s)
+                  under the applicable loan to which such Loan Documents apply,
+                  and "We", "Our" and "Us" mean the applicable mortgage
+                  broker(s), loan processor(s) or mortgage banker(s) with whom
+                  You are transacting business for such loan(s).
+                </p>
+                <h6>
+                  <b><u>YOUR CONSENT</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    Your consent to participate in this transaction
+                    electronically will apply to all Loan Documents for the
+                    applicable loans for which You are applying. If You provide
+                    Your consent by clicking the "I agree" button at the bottom
+                    of the page, We will conduct this transaction
+                    electronically, instead of providing You with the Loan
+                    Documents in paper form.
+                  </li>
+                  <li>
+                    If a document related to Your loan is not available in
+                    electronic form, a paper copy will be provided to You free
+                    of charge.
+                  </li>
+                  <li>
+                    Conducting this transaction electronically is an option. If
+                    You choose not to accept receipt of eDisclosures, paper Loan
+                    Documents will be mailed to You.
+                  </li>
+                  <li>
+                    If You do not consent to receive these Loan Documents
+                    electronically, or if You subsequently withdraw consent, You
+                    will be provided with paper copies of the Loan Documents for
+                    which You did not consent to receive electronically.
+                    Additionally:<br />You will not be required to pay a fee for
+                    receiving paper copies of the Loan Documents.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>WITHDRAWAL OF CONSENT</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    You have the right to withdraw Your consent at any time. By
+                    declining or revoking Your consent to receive eDisclosures,
+                    We will provide You with the Loan Documents in paper form.
+                  </li>
+                  <li>
+                    If You originally consent to receive eDisclosures, but later
+                    decide to withdraw Your consent, You can do so by clicking
+                    on the "I do not agree" button, or by notifying Us at:<br />Phone:
+                    203-929-2199<br />Address: 7 Trap Falls Road, Shelton, CT
+                    06484
+                  </li>
+                  <li>
+                    If You originally consent to receive eDisclosures, but later
+                    withdraw Your consent, You will be provided with paper
+                    copies of the Loan Documents for which You did not consent
+                    to receive electronically.<br />You will not be required to
+                    pay a fee for withdrawing consent and receiving paper copies
+                    of the Loan Documents.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>OBTAINING PAPER COPIES</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    After Your consent is given, You may request from Us paper
+                    copies of Your Loan Documents. Please send this request to
+                    Us at:<br />Phone: 203-929-2199<br />Address: 7 Trap Falls
+                    Road, Shelton, CT 06484
+                  </li>
+                  <li>
+                    If You request paper copies of the Loan Documents:<br />You
+                    will not be required to pay a fee for receiving paper copies
+                    of the Loan Documents.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>SYSTEM REQUIREMENTS</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    In order to receive eDisclosures, You must have a computer
+                    with Internet access and an Internet email account and
+                    address; an Internet browser using 128-bit encryption or
+                    higher, Adobe Acrobat 7.0 or higher, SSL encryption and
+                    access to a printer or the ability to download information
+                    in order to keep copies of Your eDisclosures for Your
+                    records.
+                  </li>
+                  <li>
+                    If the software or hardware requirements change in the
+                    future, We will notify You of the change. If You choose to
+                    withdraw Your consent upon notification of the change, You
+                    will be able to do so without penalty. Paper copies of such
+                    Loan Documents will be mailed to You if You choose to
+                    withdraw Your consent.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>HOW WE CAN REACH YOU</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    You must promptly notify Us if there is a change in Your
+                    email address or in other information needed to contact You
+                    electronically. You can contact Us at:<br />Phone:
+                    203-929-2199<br />Address: 7 Trap Falls Road, Shelton, CT
+                    06484
+                  </li>
+                  <li>
+                    We will not assume liability for non-receipt of notification
+                    of the availability of eDisclosures in the event Your email
+                    address on file is invalid; Your email or Internet service
+                    provider filters the notification as "spam" or "junk mail";
+                    there is a malfunction in Your computer, browser, Internet
+                    service and/or software; or for other reasons beyond Our
+                    control.
+                  </li>
+                </ul>
+                <p>
+                  Please click the button at the bottom of the page to consent
+                  to do business electronically and to view Loan Documents
+                  electronically.
+                </p>
+              </div>
+              <!-- </div> -->
+              <div class="col-12 mb-3">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="agreeEConsent"
+                    id="agreeEConsentYes"
+                    [value]="true"
+                    formControlName="agreeEConsent"
+                    [(ngModel)]="data.agreeEConsent"
+                  />
+                  <label class="form-check-label" for="agreeEConsentYes"
+                    >Agree</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="agreeEConsent"
+                    id="agreeEConsentNo"
+                    [value]="false"
+                    formControlName="agreeEConsent"
+                    [(ngModel)]="data.agreeEConsent"
+                  />
+                  <label class="form-check-label" for="agreeEConsentNo"
+                    >Don't Agree</label
+                  >
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-secondary" (click)="proceedToPrevious()">
+                  Back
+                </button>
+                <button
+                  class="btn btn-secondary float-right"
+                  (click)="
+                    isApplyingWithCoBorrower
+                      ? proceedToNext('wizardStep', 1)
+                      : proceedToNext()
+                  "
+                >
+                  Next
+                </button>
+              </div>
+            </ng-wizard-step>
+
+            <ng-wizard-step title="CoBorrower" *ngIf="isApplyingWithCoBorrower">
+              <!-- Co-Borrower Start -->
+
+              <div class="row" *ngIf="isApplyingWithCoBorrower">
+                <div class="col-12">
+                  <div class="form-group"></div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="firstName">
+                      {{ "First Name" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="CoborrowerFirstName"
+                      id="CoborrowerFirstName"
+                      formControlName="CoborrowerFirstName"
+                      [(ngModel)]="data.CoborrowerFirstName"
+                    />
+                    <validation-summary
+                      [control]="form.controls.CoborrowerFirstName"
+                    ></validation-summary>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="lastName">
+                      {{ "Last Name" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="CoborrowerLastName"
+                      id="CoborrowerLastName"
+                      formControlName="CoborrowerLastName"
+                      [(ngModel)]="data.CoborrowerLastName"
+                    />
+                    <validation-summary
+                      [control]="form.controls.CoborrowerLastName"
+                    ></validation-summary>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="email">
+                      {{ "Email" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="CoborrowerEmail"
+                      id="CoborrowerEmail"
+                      formControlName="CoborrowerEmail"
+                      [(ngModel)]="data.CoborrowerEmail"
+                    />
+                    <validation-summary
+                      [control]="form.controls.CoborrowerEmail"
+                    ></validation-summary>
+                  </div>
+                </div>
+              </div>
+              <!-- Co-Borrower End -->
+
+              <p class="col-12">
+                You can agree, disagree or skip the eConsent agreement below.
+              </p>
+
+              <div class="econsent-wrapper col-12">
+                <h5>
+                  Your Consent To Do Business Electronically (the eDisclosure
+                  Agreement)
+                </h5>
+                <p>
+                  The loan for which you are applying involves various
+                  disclosures, records, and documents ("Loan Documents"),
+                  including this eDisclosure Agreement. The purpose of this
+                  eDisclosure Agreement is to obtain Your consent to receive
+                  certain Loan Documents from Us in electronic form rather than
+                  in paper form. With Your consent, You will also be able to
+                  sign and authorize these Loan Documents electronically, rather
+                  than on paper.
+                </p>
+                <p>
+                  Before We can engage in this transaction electronically, it is
+                  important that You understand Your rights and
+                  responsibilities. Please read the following and affirm Your
+                  consent to conduct business with Us electronically. For
+                  purposes of this eDisclosure Agreement, "eDisclosures" means
+                  the Loan Documents related to this transaction that are
+                  provided electronically, "You" and "Your" mean the borrower(s)
+                  under the applicable loan to which such Loan Documents apply,
+                  and "We", "Our" and "Us" mean the applicable mortgage
+                  broker(s), loan processor(s) or mortgage banker(s) with whom
+                  You are transacting business for such loan(s).
+                </p>
+                <h6>
+                  <b><u>YOUR CONSENT</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    Your consent to participate in this transaction
+                    electronically will apply to all Loan Documents for the
+                    applicable loans for which You are applying. If You provide
+                    Your consent by clicking the "I agree" button at the bottom
+                    of the page, We will conduct this transaction
+                    electronically, instead of providing You with the Loan
+                    Documents in paper form.
+                  </li>
+                  <li>
+                    If a document related to Your loan is not available in
+                    electronic form, a paper copy will be provided to You free
+                    of charge.
+                  </li>
+                  <li>
+                    Conducting this transaction electronically is an option. If
+                    You choose not to accept receipt of eDisclosures, paper Loan
+                    Documents will be mailed to You.
+                  </li>
+                  <li>
+                    If You do not consent to receive these Loan Documents
+                    electronically, or if You subsequently withdraw consent, You
+                    will be provided with paper copies of the Loan Documents for
+                    which You did not consent to receive electronically.
+                    Additionally:<br />You will not be required to pay a fee for
+                    receiving paper copies of the Loan Documents.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>WITHDRAWAL OF CONSENT</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    You have the right to withdraw Your consent at any time. By
+                    declining or revoking Your consent to receive eDisclosures,
+                    We will provide You with the Loan Documents in paper form.
+                  </li>
+                  <li>
+                    If You originally consent to receive eDisclosures, but later
+                    decide to withdraw Your consent, You can do so by clicking
+                    on the "I do not agree" button, or by notifying Us at:<br />Phone:
+                    203-929-2199<br />Address: 7 Trap Falls Road, Shelton, CT
+                    06484
+                  </li>
+                  <li>
+                    If You originally consent to receive eDisclosures, but later
+                    withdraw Your consent, You will be provided with paper
+                    copies of the Loan Documents for which You did not consent
+                    to receive electronically.<br />You will not be required to
+                    pay a fee for withdrawing consent and receiving paper copies
+                    of the Loan Documents.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>OBTAINING PAPER COPIES</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    After Your consent is given, You may request from Us paper
+                    copies of Your Loan Documents. Please send this request to
+                    Us at:<br />Phone: 203-929-2199<br />Address: 7 Trap Falls
+                    Road, Shelton, CT 06484
+                  </li>
+                  <li>
+                    If You request paper copies of the Loan Documents:<br />You
+                    will not be required to pay a fee for receiving paper copies
+                    of the Loan Documents.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>SYSTEM REQUIREMENTS</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    In order to receive eDisclosures, You must have a computer
+                    with Internet access and an Internet email account and
+                    address; an Internet browser using 128-bit encryption or
+                    higher, Adobe Acrobat 7.0 or higher, SSL encryption and
+                    access to a printer or the ability to download information
+                    in order to keep copies of Your eDisclosures for Your
+                    records.
+                  </li>
+                  <li>
+                    If the software or hardware requirements change in the
+                    future, We will notify You of the change. If You choose to
+                    withdraw Your consent upon notification of the change, You
+                    will be able to do so without penalty. Paper copies of such
+                    Loan Documents will be mailed to You if You choose to
+                    withdraw Your consent.
+                  </li>
+                </ul>
+                <h6>
+                  <b><u>HOW WE CAN REACH YOU</u></b>
+                </h6>
+                <ul>
+                  <li>
+                    You must promptly notify Us if there is a change in Your
+                    email address or in other information needed to contact You
+                    electronically. You can contact Us at:<br />Phone:
+                    203-929-2199<br />Address: 7 Trap Falls Road, Shelton, CT
+                    06484
+                  </li>
+                  <li>
+                    We will not assume liability for non-receipt of notification
+                    of the availability of eDisclosures in the event Your email
+                    address on file is invalid; Your email or Internet service
+                    provider filters the notification as "spam" or "junk mail";
+                    there is a malfunction in Your computer, browser, Internet
+                    service and/or software; or for other reasons beyond Our
+                    control.
+                  </li>
+                </ul>
+                <p>
+                  Please click the button at the bottom of the page to consent
+                  to do business electronically and to view Loan Documents
+                  electronically.
+                </p>
+              </div>
+              <!-- </div> -->
+              <div class="col-12 mb-3">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="CoborrowerAgreeEConsent"
+                    id="CoborrowerAgreeEConsent"
+                    [value]="true"
+                    formControlName="CoborrowerAgreeEConsent"
+                    [(ngModel)]="data.CoborrowerAgreeEConsent"
+                  />
+                  <label class="form-check-label" for="CoborrowerAgreeEConsent"
+                    >Agree</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="CoborrowerAgreeEConsent"
+                    id="CoborrowerAgreeEConsent"
+                    [value]="false"
+                    formControlName="CoborrowerAgreeEConsent"
+                    [(ngModel)]="data.CoborrowerAgreeEConsent"
+                  />
+                  <label class="form-check-label" for="CoborrowerAgreeEConsent"
+                    >Don't Agree</label
+                  >
+                </div>
+              </div>
+              <div class="col-12">
+                <button
+                  class="btn btn-secondary"
+                  (click)="proceedToPrevious('wizardStep')"
+                >
+                  Back
+                </button>
+                <button
+                  class="btn btn-secondary float-right"
+                  (click)="proceedToNext()"
+                >
+                  Next
+                </button>
+              </div>
+            </ng-wizard-step>
+          </ng-wizard>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,829 @@
+<div>
+  <h4 class="section-title">Demographic Information of Borrower</h4>
+  <div class="info-block">
+    <p>This section asks about your ethnicity, sex, and race.</p>
+  </div>
+  <div class="my-3">
+    <p>
+      <b>The purpose of collecting this information</b> is to help ensure that
+      all applicants are treated fairly and that the housing needs of
+      communities and neighborhoods are being fulfilled. For residential
+      mortgage lending, Federal law requires that we ask applicants for their
+      demographic information (ethnicity, sex, and race) in order to monitor our
+      compliance with equal credit opportunity, fair housing, and home mortgage
+      disclosure laws. You are not required to provide this information, but are
+      encouraged to do so. You may select one or more designations for
+      "Ethnicity" and one or more designations for "Race."
+      <b>The law provides that we may not discriminate</b> on the basis of this
+      information, or on whether you choose to provide it. However, if you
+      choose not to provide the information and you have made this application
+      in person, Federal regulations require us to note your ethnicity, sex, and
+      race on the basis of visual observation or surname. The law also provides
+      that we may not discriminate on the basis of age or marital status
+      information you provide in this application. If you do not wish to provide
+      some or all of this information, please check below.
+    </p>
+  </div>
+  <div class="form-block">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="demographic-info">
+            <p><b>Ethnicity:</b> Check one or more</p>
+            <div>
+              <div class="form-check">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideEthnicInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isHispanicOrLatino"
+                  name="isHispanicOrLatino"
+                  #isHispanicOrLatino="ngModel"
+                  [(ngModel)]="demographicInfoModels.isHispanicOrLatino"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Hispanic or Latino
+                </label>
+              </div>
+            </div>
+            <div class="mt-2 pl-3">
+              <div class="form-check form-check-inline">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideEthnicInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isMexican"
+                  name="isMexican"
+                  #isMexican="ngModel"
+                  [(ngModel)]="demographicInfoModels.isMexican"
+                />
+                <label class="form-check-label" for="inlineCheckbox1"
+                  >Mexican</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideEthnicInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isPuertoRican"
+                  name="isPuertoRican"
+                  #isPuertoRican="ngModel"
+                  [(ngModel)]="demographicInfoModels.isPuertoRican"
+                />
+                <label class="form-check-label" for="inlineCheckbox2"
+                  >Puerto Rican</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideEthnicInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isCuban"
+                  name="isCuban"
+                  #isCuban="ngModel"
+                  [(ngModel)]="demographicInfoModels.isCuban"
+                />
+                <label class="form-check-label" for="inlineCheckbox3"
+                  >Cuban</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideEthnicInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isOtherHispanicOrLatino"
+                  name="isOtherHispanicOrLatino"
+                  #isOtherHispanicOrLatino="ngModel"
+                  [(ngModel)]="demographicInfoModels.isOtherHispanicOrLatino"
+                />
+                <label class="form-check-label" for="inlineCheckbox3"
+                  >Other Hispanic or Latino – Print origin:</label
+                >
+              </div>
+              <div>
+                <p>
+                  For example: Argentinean, Colombian, Dominican, Nicaraguan,
+                  Salvadoran, Spaniard, and so on.
+                </p>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="form-check">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideEthnicInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isNotHispanicOrLatino"
+                  name="isNotHispanicOrLatino"
+                  #isNotHispanicOrLatino="ngModel"
+                  [(ngModel)]="demographicInfoModels.isNotHispanicOrLatino"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Not Hispanic or Latino
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="canNotProvideEthnicInfo"
+                  name="canNotProvideEthnicInfo"
+                  #canNotProvideEthnicInfo="ngModel"
+                  [(ngModel)]="demographicInfoModels.canNotProvideEthnicInfo"
+                  (change)="disbaleEnthicity(canNotProvideEthnicInfo.value)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  I do not wish to provide this information
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="demographic-info">
+            <div class="mt-2">
+              <b>Sex</b>
+              <div class="form-check">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideSexInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isFemale"
+                  name="isFemale"
+                  #isFemale="ngModel"
+                  [(ngModel)]="demographicInfoModels.isFemale"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Female
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="form-check">
+                <input
+                  [disabled]="
+                    demographicInfoModels.canNotProvideSexInfo == true
+                  "
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isMale"
+                  name="isMale"
+                  #isMale="ngModel"
+                  [(ngModel)]="demographicInfoModels.isMale"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Male
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="canNotProvideSexInfo"
+                  name="canNotProvideSexInfo"
+                  #canNotProvideSexInfo="ngModel"
+                  [(ngModel)]="demographicInfoModels.canNotProvideSexInfo"
+                  (change)="disbaleGender(canNotProvideSexInfo.value)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  I do not wish to provide this information
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <p><b>Race:</b> Check one or more</p>
+          <div style="border-bottom: 1px solid #000">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isAmericanIndianOrAlaskaNative"
+                name="isAmericanIndianOrAlaskaNative"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                #isAmericanIndianOrAlaskaNative="ngModel"
+                [(ngModel)]="
+                  demographicInfoModels.isAmericanIndianOrAlaskaNative
+                "
+              />
+              <label class="form-check-label" for="defaultCheck1"
+                >American Indian or Alaska Native – Print name of
+                enrolled</label
+              >
+            </div>
+          </div>
+
+          <div class="pl-3">
+            <p>or principal tribe :</p>
+          </div>
+
+          <div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isAsian"
+                name="isAsian"
+                #isAsian="ngModel"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                [(ngModel)]="demographicInfoModels.isAsian"
+              />
+              <label class="form-check-label" for="defaultCheck1">Asian</label>
+            </div>
+          </div>
+
+          <div class="pl-3">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                id="isAsianIndian"
+                name="isAsianIndian"
+                #isAsianIndian="ngModel"
+                [(ngModel)]="demographicInfoModels.isAsianIndian"
+              />
+              <label class="form-check-label" for="inlineCheckbox1"
+                >Asian Indian</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                id="isChinese"
+                name="isChinese"
+                #isChinese="ngModel"
+                [(ngModel)]="demographicInfoModels.isChinese"
+              />
+              <label class="form-check-label" for="inlineCheckbox2"
+                >Chinese</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                id="isFilipino"
+                name="isFilipino"
+                #isFilipino="ngModel"
+                [(ngModel)]="demographicInfoModels.isFilipino"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >Filipino</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isJapanese"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                name="isJapanese"
+                #isJapanese="ngModel"
+                [(ngModel)]="demographicInfoModels.isJapanese"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >Japanese</label
+              >
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                id="isKorean"
+                name="isKorean"
+                #isKorean="ngModel"
+                [(ngModel)]="demographicInfoModels.isKorean"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >Korean</label
+              >
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                id="isVietnamese"
+                name="isVietnamese"
+                #isVietnamese="ngModel"
+                [(ngModel)]="demographicInfoModels.isVietnamese"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >Vietnamese</label
+              >
+            </div>
+            <div></div>
+
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                id="isOtherAsian"
+                name="isOtherAsian"
+                #isOtherAsian="ngModel"
+                [(ngModel)]="demographicInfoModels.isOtherAsian"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >Other Asian</label
+              >
+            </div>
+
+            <div class="form-check form-check-inline frm-fld-input">
+              <label class="form-check-label" for="inlineCheckbox3">
+                Print race:</label
+              >
+              <input
+                type="text"
+                id="otherAsianRace"
+                class="bottom_border"
+                name="otherAsianRace"
+                maxlength="50"
+                #otherAsianRace="ngModel"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                [(ngModel)]="demographicInfoModels.otherAsianRace"
+              />
+            </div>
+
+            <div>
+              <p>
+                For example: Hmong, Laotian, Thai, Pakistani, Cambodian, and so
+                on.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                id="isBlackOrAfricanAmerican"
+                name="isBlackOrAfricanAmerican"
+                #isBlackOrAfricanAmerican="ngModel"
+                [(ngModel)]="demographicInfoModels.isBlackOrAfricanAmerican"
+              />
+              <label class="form-check-label" for="inlineCheckbox1"
+                >Black or African American
+              </label>
+            </div>
+
+            <div class="form-check form-check-inline pl-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isNativeHawaiianOrOtherPacificIslander"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                name="isNativeHawaiianOrOtherPacificIslander"
+                #isNativeHawaiianOrOtherPacificIslander="ngModel"
+                [(ngModel)]="
+                  demographicInfoModels.isNativeHawaiianOrOtherPacificIslander
+                "
+              />
+              <label class="form-check-label" for="inlineCheckbox1"
+                >Native Hawaiian or Other Pacific Islander</label
+              >
+            </div>
+
+            <div></div>
+
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isOtherPacificIslander"
+                name="isOtherPacificIslander"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                #isOtherPacificIslander="ngModel"
+                [(ngModel)]="demographicInfoModels.isOtherPacificIslander"
+              />
+              <label class="form-check-label" for="inlineCheckbox2"
+                >Other Pacific Islander</label
+              >
+            </div>
+
+            <div class="form-check form-check-inline frm-fld-input">
+              <label class="form-check-label" for="inlineCheckbox3">
+                Print race:</label
+              >
+              <input
+                type="text"
+                id="otherPacificIslanderRace"
+                name="otherPacificIslanderRace"
+                maxlength="50"
+                #otherPacificIslanderRace="ngModel"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                [(ngModel)]="demographicInfoModels.otherPacificIslanderRace"
+              />
+            </div>
+
+            <div class="pl-3">
+              <p>For example: Fijian, Tongan, and so on.</p>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isWhite"
+                name="isWhite"
+                [disabled]="demographicInfoModels.canNotProvideRaceInfo == true"
+                #isWhite="ngModel"
+                [(ngModel)]="demographicInfoModels.isWhite"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >White</label
+              >
+            </div>
+            <br />
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="canNotProvideRaceInfo"
+                name="canNotProvideRaceInfo"
+                #canNotProvideRaceInfo="ngModel"
+                [(ngModel)]="demographicInfoModels.canNotProvideRaceInfo"
+                (change)="disbaleRace(canNotProvideRaceInfo.value)"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >I do not wish to provide this information</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <h4 style="font-size: 14px; font-family: 600; color: black">
+      To Be Completed by Financial Institution (for application taken in
+      person):
+    </h4>
+  </div>
+
+  <div class="form-block disabled">
+    <div class="row">
+      <div class="col-9 txt mt-0">
+        <ol style="list-style: none">
+          <li
+            style="
+              font-size: 14px !important;
+              font-weight: 500;
+              font-family: 'Avenir' !important;
+              color: #000;
+            "
+          >
+            Was the ethnicity of the Borrower collected on the basis of visual
+            observation or surname?
+          </li>
+        </ol>
+      </div>
+      <div class="col-3 txt">
+        <div class="frm-fld-input">
+          <div class="row mt-2 ml-4">
+            <div class="col-2">
+              <div style="display: flex; justify-content: center">
+                <input
+                  type="radio"
+                  name="question8"
+                  id="question8"
+                  value="Yes"
+                  style="
+                    width: 85px;
+                    -ms-transform: scale(1.5);
+                    -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+                  "
+                  required
+                  class="disabled"
+                />
+                <label class="text-gray ml-2" style="font-size: 18px"
+                  >Yes</label
+                >
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  margin-left: 40px;
+                "
+              >
+                <input
+                  type="radio"
+                  name="question8"
+                  id="question8"
+                  value="No"
+                  style="
+                    width: 80px;
+                    -ms-transform: scale(1.5);
+                    -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+                  "
+                  required
+                  class="disabled"
+                />
+                <label class="text-gray ml-2" style="font-size: 18px">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-9 txt mt-0">
+        <ol style="list-style: none">
+          <li
+            style="
+              font-size: 14px !important;
+              font-weight: 500;
+              font-family: 'Avenir' !important;
+              color: #000;
+            "
+          >
+            Was the sex of the Borrower collected on the basis of visual
+            observation or surname?
+          </li>
+        </ol>
+      </div>
+      <div class="col-3 txt">
+        <div class="frm-fld-input">
+          <div class="row mt-2 ml-4">
+            <div class="col-2">
+              <div style="display: flex; justify-content: center">
+                <input
+                  type="radio"
+                  name="question9"
+                  id="question9"
+                  value="Yes"
+                  style="
+                    width: 85px;
+                    -ms-transform: scale(1.5);
+                    -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+                  "
+                  required
+                  class="disabled"
+                />
+                <label class="text-gray ml-2" style="font-size: 18px"
+                  >Yes</label
+                >
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  margin-left: 40px;
+                "
+              >
+                <input
+                  type="radio"
+                  name="question9"
+                  id="question9"
+                  value="No"
+                  style="
+                    width: 80px;
+                    -ms-transform: scale(1.5);
+                    -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+                  "
+                  required
+                  class="disabled"
+                />
+                <label class="text-gray ml-2" style="font-size: 18px">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-9 txt mt-0">
+        <ol style="list-style: none">
+          <li
+            style="
+              font-size: 14px !important;
+              font-weight: 500;
+              font-family: 'Avenir' !important;
+              color: #000;
+            "
+          >
+            Was the race of the Borrower collected on the basis of visual
+            observation or surname?
+          </li>
+        </ol>
+      </div>
+      <div class="col-3 txt">
+        <div class="frm-fld-input">
+          <div class="row mt-2 ml-4">
+            <div class="col-2">
+              <div style="display: flex; justify-content: center">
+                <input
+                  type="radio"
+                  name="question10"
+                  id="question10"
+                  value="Yes"
+                  style="
+                    width: 85px;
+                    -ms-transform: scale(1.5);
+                    -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+                  "
+                  required
+                  class="disabled"
+                />
+                <label class="text-gray ml-2" style="font-size: 18px"
+                  >Yes</label
+                >
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  margin-left: 40px;
+                "
+              >
+                <input
+                  type="radio"
+                  name="question10"
+                  id="question10"
+                  value="No"
+                  style="
+                    width: 80px;
+                    -ms-transform: scale(1.5);
+                    -webkit-transform: scale(1.5);
+                    transform: scale(1.5);
+                  "
+                  required
+                  class="disabled"
+                />
+                <label class="text-gray ml-2" style="font-size: 18px">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h4 style="font-size: 14px; font-family: 600; color: black">
+      The Demographic Information was provided through:
+    </h4>
+  </div>
+
+  <div class="form-block">
+    <div
+      style="display: inline-flex; justify-content: center; align-items: center"
+    >
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 12px;
+        "
+      >
+        <input type="radio" id="html1" name="fav_language" value="HTML1" />
+        <label
+          class="pl-3"
+          for="html1"
+          style="
+            font-size: 14px !important;
+            font-family: 'Avenir';
+            color: black !important;
+            font-weight: 500;
+          "
+          >Face-to-Face Interview (includes Electronic Media w/ Video
+          Component)</label
+        >
+      </div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 12px;
+        "
+      >
+        <input type="radio" id="html2" name="fav_language" value="HTML2" />
+        <label
+          class="pl-3"
+          for="html2"
+          style="
+            font-size: 14px !important;
+            font-family: 'Avenir';
+            color: black !important;
+            font-weight: 500;
+          "
+          >Telephone Interview</label
+        >
+      </div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 12px;
+        "
+      >
+        <input type="radio" id="html3" name="fav_language" value="HTML3" />
+        <label
+          class="pl-3"
+          for="html3"
+          style="
+            font-size: 14px !important;
+            font-family: 'Avenir';
+            color: black !important;
+            font-weight: 500;
+          "
+          >Fax or Mail</label
+        >
+      </div>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 12px;
+        "
+      >
+        <input type="radio" id="html4" name="fav_language" value="HTML4" />
+        <label
+          class="pl-3"
+          for="html4"
+          style="
+            font-size: 14px !important;
+            font-family: 'Avenir';
+            color: black !important;
+            font-weight: 500;
+          "
+          >Email or Internet</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+  <div class="row borrower-block">
+    <div class="col-sm-8">
+      <div class="input-group">
+        <div class="input-group-text">Borrower Name:</div>
+        <input
+          type="text"
+          maxlength="30"
+          class="form-control"
+          id="specificSizeInputGroupUsername"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row text-right mt-5">
+    <div class="col-sm-12">
+      <button class="btn btn-fill" (click)="create()">Next</button>
+    </div>
+  </div>
+</div>

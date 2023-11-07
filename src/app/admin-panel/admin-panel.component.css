@@ -1,0 +1,29 @@
+hr {
+  border: 1px solid #091a52 !important;
+  margin-bottom: 2rem !important;
+}
+
+label {
+  color: #091a52 !important;
+  font-size: small !important;
+}
+
+h5 {
+  color: #091a52 !important;
+}
+
+input,
+textarea {
+  border: 1px solid #545454;
+  border-radius: 6px;
+  font-size: small !important;
+}
+
+td {
+  font-weight: 700px;
+}
+
+.modal-dialog {
+  max-width: none;
+  width: 60%;
+}

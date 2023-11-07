@@ -1,0 +1,712 @@
+<main>
+  <div class="container">
+    <section class="page-order-sec py-3 border-bottom-0">
+      <p class="m-0 text-primary">
+        Home<span class="text-muted ml-3 d-inline-block">
+          <i class="fa fa-angle-right"></i> Home Affordability Calculator</span
+        >
+      </p>
+    </section>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h5 class="text-secondary">Know About</h5>
+          <h2 class="text-primary mb-1">Home Affordability Calculator</h2>
+          <p>Calculate the maximum home price you can afford.</p>
+          <form
+            class="form"
+            [formGroup]="homeAffordAbility"
+            (ngSubmit)="calculate()"
+          >
+            <div class="form-group">
+              <label class="text-primary">What is your annual income?</label>
+              <input
+                type="text"
+                class="form-control pl-4"
+                formControlName="annualIncome"
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <span class="slide-value-usd">$</span>
+              <p>
+                This is your income before taxes. Include income from any
+                co-borrowers.
+              </p>
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.annualIncome.touched ||
+                    submitted) &&
+                  homeAffordAbilityControl.annualIncome.errors?.required
+                "
+              >
+                annual Income is required
+              </span>
+            </div>
+
+            <!-- Mortgage Loan Term -->
+            <div class="form-group">
+              <label class="text-primary"
+                >What is your Mortgage Loan Term?</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                formControlName="loanTerm"
+              />
+              <span
+                class="slide-value-percent"
+                style="left: 6px !important; font-size: 15px; top: -32px"
+                >Years</span
+              >
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.loanTerm.touched || submitted) &&
+                  homeAffordAbilityControl.loanTerm.errors?.required
+                "
+              >
+                Mortgage Loan term is required
+              </span>
+            </div>
+            <!-- End of Mortgage Loan Term  -->
+
+            <div class="form-group">
+              <label class="text-primary"
+                >How much monthly debt do you have?</label
+              >
+              <input
+                type="text"
+                class="form-control pl-4"
+                formControlName="monthlyDebt"
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <span class="slide-value-usd">$</span>
+              <p>Include all required minimum monthly debt payments..</p>
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.monthlyDebt.touched || submitted) &&
+                  homeAffordAbilityControl.monthlyDebt.errors?.required
+                "
+              >
+                monthly debit is required
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label class="text-primary"
+                >How much money do you have for your down payment and closing
+                costs?</label
+              >
+
+              <div class="checkbox-inline mr-2">
+                <label class="containercheck"
+                  >Percentage
+                  <input
+                    type="radio"
+                    formControlName="downPaymentType"
+                    (input)="downPaymentTypeChanged($event.target.value)"
+                    value="percentage"
+                    name="downPaymentType"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="checkbox-inline">
+                <label class="containercheck">
+                  USD
+                  <input
+                    type="radio"
+                    formControlName="downPaymentType"
+                    (input)="downPaymentTypeChanged($event.target.value)"
+                    value="usd"
+                    name="downPaymentType"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div *ngIf="downPaymentType == 'usd'">
+                <input
+                  type="text"
+                  class="form-control pl-4"
+                  formControlName="downPayment"
+                  mask="separator.2"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+              </div>
+              <div *ngIf="downPaymentType == 'percentage'">
+                <input
+                  type="text"
+                  class="form-control pl-4"
+                  formControlName="downPayment"
+                />
+                <span class="slide-value-percent">%</span>
+              </div>
+              <p>Include only the amount of cash you're willing to use.</p>
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.downPayment.touched || submitted) &&
+                  homeAffordAbilityControl.downPayment.errors?.required
+                "
+              >
+                down Payment is required
+              </span>
+            </div>
+            <!-- Property Tax will be here  -->
+            <div class="form-group">
+              <label class="text-primary">Propety Tax Per Year</label>
+              <!-- <div class="checkbox-inline mr-2">
+                <label class="containercheck">Percentage
+                  <input type="radio" formControlName="propertyTaxType"
+                    (input)="propertyTaxTypeChanged($event.target.value)" value="percentage" name="propertyTax" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="checkbox-inline">
+                <label class="containercheck"> USD
+                  <input type="radio" formControlName="propertyTaxType"
+                    (input)="propertyTaxTypeChanged($event.target.value)" value="usd" name="propertyTax" />
+                  <span class="checkmark"></span>
+                </label>
+              </div> -->
+              <div *ngIf="propertyTaxType == 'usd'">
+                <input
+                  type="text"
+                  class="form-control pl-4"
+                  formControlName="propertyTax"
+                  mask="separator.2"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+              </div>
+              <div *ngIf="propertyTaxType == 'percentage'">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="propertyTax"
+                />
+                <span class="slide-value-percent">%</span>
+              </div>
+            </div>
+            <!-- End of Property Tax Field  -->
+
+            <!-- HOA or co-op fee Field  -->
+            <div class="form-group">
+              <label class="text-primary">HOA or co-op fee Per Year</label>
+              <!-- <div class="checkbox-inline mr-2">
+                <label class="containercheck">Percentage
+                  <input type="radio" formControlName="HOAType" (input)="HOATypeChanged($event.target.value)"
+                    value="percentage" name="HOAType" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="checkbox-inline">
+                <label class="containercheck"> USD
+                  <input type="radio" formControlName="HOAType" (input)="HOATypeChanged($event.target.value)"
+                    value="usd" name="HOAType" />
+                  <span class="checkmark"></span>
+                </label>
+              </div> -->
+              <div *ngIf="HOAType == 'usd'">
+                <input
+                  type="text"
+                  class="form-control pl-4"
+                  formControlName="HOAFee"
+                  mask="separator.2"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+              </div>
+              <div *ngIf="HOAType == 'percentage'">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="HOAFee"
+                />
+                <span class="slide-value-percent">%</span>
+              </div>
+            </div>
+            <!-- End of HOA or co-op fee  -->
+
+            <!-- Insurance Field  -->
+            <div class="form-group">
+              <label class="text-primary">Insurance Per Year</label>
+              <!-- <div class="checkbox-inline mr-2">
+                <label class="containercheck">Percentage
+                  <input type="radio" formControlName="InsuranceType" (input)="InsuranceTypeChanged($event.target.value)"
+                    value="percentage" name="InsuranceType" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="checkbox-inline">
+                <label class="containercheck"> USD
+                  <input type="radio" formControlName="InsuranceType" (input)="InsuranceTypeChanged($event.target.value)"
+                    value="usd" name="InsuranceType" />
+                  <span class="checkmark"></span>
+                </label>
+              </div> -->
+              <div *ngIf="InsuranceType == 'usd'">
+                <input
+                  type="text"
+                  class="form-control pl-4"
+                  formControlName="insurance"
+                  mask="separator.2"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+              </div>
+              <div *ngIf="InsuranceType == 'percentage'">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="insurance"
+                />
+                <span class="slide-value-percent">%</span>
+              </div>
+            </div>
+            <!-- End of Insurance Field  -->
+
+            <!-- Debt-to-income (DTI) ratio Field  -->
+            <div class="form-group">
+              <label class="text-primary">Debt-to-income (DTI) ratio?</label>
+              <select formControlName="DTI" class="form-control">
+                <option
+                  *ngFor="let option of DTIOptions; let i = index"
+                  [attr.data-index]="i"
+                  [value]="option.key"
+                >
+                  {{ option.value }}
+                </option>
+              </select>
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.DTI.touched || submitted) &&
+                  homeAffordAbilityControl.DTI.errors?.required
+                "
+              >
+                Debt-to-income (DTI) ratio is required
+              </span>
+            </div>
+
+            <!-- End of Debt-to-income (DTI) ratio  -->
+
+            <div class="form-group">
+              <label class="text-primary" for="zipCode"
+                >What is the ZIP code of the home you want to buy?</label
+              >
+              <input
+                type="text"
+                id="zipCode"
+                class="form-control"
+                formControlName="zipCode"
+                pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+              />
+              <p>
+                If you don't have a home picked out yet, your best guess is
+                fine.
+              </p>
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.zipCode.touched || submitted) &&
+                  homeAffordAbilityControl.zipCode.errors?.required
+                "
+              >
+                zip Code is required
+              </span>
+              <span
+                class="text-danger"
+                *ngIf="homeAffordAbilityControl.zipCode.errors?.pattern"
+              >
+                Invalid zip code format.
+              </span>
+            </div>
+            <div class="form-group">
+              <label class="text-primary"
+                >How would you rate your credit?</label
+              >
+              <select
+                formControlName="creditScore"
+                (change)="changeCreditScore($event)"
+                class="form-control"
+              >
+                <option
+                  *ngFor="let option of RateYourCreditOptions; let i = index"
+                  [attr.data-index]="i"
+                  [value]="option.key"
+                >
+                  {{ option.value }}
+                </option>
+              </select>
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.creditScore.touched || submitted) &&
+                  homeAffordAbilityControl.creditScore.errors?.required
+                "
+              >
+                credit Score is required
+              </span>
+            </div>
+            <!-- Interest Rate Calculator  -->
+            <div class="form-group">
+              <label class="text-primary">Interest Rate?</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="interestRate"
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <span class="slide-value-percent">%</span>
+              <span
+                class="text-danger"
+                *ngIf="
+                  (homeAffordAbilityControl.interestRate.touched ||
+                    submitted) &&
+                  homeAffordAbilityControl.interestRate.errors?.required
+                "
+              >
+                Interest Rate is required
+              </span>
+            </div>
+
+            <!-- End of Interest Rate Calculator  -->
+            <div class="form-group mb-5">
+              <button
+                type="submit"
+                class="btn btn-secondary text-uppercase w-100 text-white px-5"
+              >
+                CALCULATE
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          class="col-sm-4"
+          style="text-align: center; margin-top: 100px"
+          *ngIf="submitted"
+        >
+          <h2 class="text-left">Results</h2>
+          <p class="text-left">
+            You can afford a house up to <b>${{ results.totalPrice }}</b> within
+            which ${{ results.borrowAmount }} is the loan and ${{
+              results.totalPrice - results.borrowAmount
+            }}
+            is the down payment.
+          </p>
+          <table class="results-table">
+            <tbody>
+              <tr>
+                <td class="text-left"><b>You can borrow</b></td>
+                <td align="right">
+                  <b>${{ results.borrowAmount }}</b>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">Total price of the house</td>
+                <td align="right">${{ results.totalPrice }}</td>
+              </tr>
+              <tr>
+                <td class="text-left">Down payment</td>
+                <td align="right">
+                  ${{ results.totalPrice - results.borrowAmount }}
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  Estimated closing cost (one time, assume 3%)
+                </td>
+                <td align="right">${{ results.estimateClosingCost }}</td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <b>Total one-time payment at closing</b>
+                </td>
+                <td align="right">
+                  <b
+                    >${{
+                      results.totalPrice -
+                        results.borrowAmount +
+                        results.estimateClosingCost
+                    }}</b
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text-left">Monthly mortgage payment</td>
+                <td align="right">${{ results.monthlyMortgage }}</td>
+              </tr>
+              <tr>
+                <td class="text-left">Annual property tax</td>
+                <td align="right">${{ results.propertyTax }}</td>
+              </tr>
+              <tr>
+                <td class="text-left">Annual HOA or co-op fee</td>
+                <td align="right">${{ results.HOAFee }}</td>
+              </tr>
+              <tr>
+                <td class="text-left">Annual insurance cost</td>
+                <td align="right">${{ results.insurance }}</td>
+              </tr>
+              <tr>
+                <td td class="text-left">
+                  Estimated annual maintenance cost<br />(repair, utility etc.,
+                  assume 1.5%)
+                </td>
+                <td align="right">
+                  ${{ results.estimatedAnnualMainenanceCost }}
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <b>Total monthly cost on the house</b>
+                </td>
+                <td align="right">
+                  <b>${{ results.totalMonthlyCost }}</b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <h5 class="text-secondary">Know About</h5>
+      <h2 class="text-primary">FAQ’s</h2>
+
+      <div
+        class="panel-group faq-panel"
+        id="accordion"
+        role="tablist"
+        aria-multiselectable="true"
+      >
+        <div class="panel panel-default">
+          <div class="panel-heading border-0" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a
+                class="collasped text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                Does Pre-approval mean I am guaranteed to get a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseOne"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingOne"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Not necessarily. Pre-approval is a thorough investigation of
+                your application for a mortgage loan. The result (if successful)
+                will be a letter that indicates you are qualified for a mortgage
+                at the amount you have requested. That doesn't always mean you
+                will get final approval for the mortgage. Lots of other factors
+                impact the mortgage approval process—the value of the home is
+                key, as well as potential changes to your credit or employment
+                status between pre-approval and final determination.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                How can I improve my chances of getting approved?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseTwo"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingTwo"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Great question. One smart move is to check your credit reports
+                before you start the application. If there is any incorrect
+                information, you can begin the process of getting it resolved.
+                Also, don’t open or close any credit accounts if you can avoid
+                it—those actions can cause a temporary decrease in your score.
+                The other thing that helps is to give us as much information as
+                possible—fill out everything completely.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                What are points on a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseThree"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingThree"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A point on a loan is a price the borrower pays to lower the
+                interest rate. A lender may offer a loan with a specific
+                interest rate and a one-point fee. The "point" equals one
+                percent of the loan total, paid in advance. It might make sense
+                to pay the point to bring down the interest rate, especially if
+                you plan to remain in the home over a long period.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                Are interest rates and points the only things to consider when
+                choosing a lender?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFour"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFour"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                No. There are numerous factors to evaluate when choosing your
+                lender. Reputation is essential, and the costs of applying and
+                completing the mortgage process. Also, look out for questionable
+                practices like pre-payment penalties, which means the lender
+                will charge you a fee if you pay the loan off early or
+                refinance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                How do I get a rate lock?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFive"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFive"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A rate lock promises that the lender can complete the processing
+                of your loan with the interest rate and points available on a
+                particular day. The "lock" is valid for a period of time—usually
+                30 or 60 days. Sometimes you can lock in the rate just by asking
+                while you navigate through the approval process. Depending on
+                the loan program, you might have to pay a fee to guarantee the
+                rate. It's at the footer of the word doc, I sent you called EZ
+                Pre Approval doc Rev
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- panel-group -->
+    </div>
+  </section>
+
+  <section class="refinance-bottom-sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto cursor-pointer">
+            <img src="assets/images/monitor.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Apply Now</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto cursor-pointer">
+            <img src="assets/images/smartphone-call.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Start Online</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto cursor-pointer">
+            <img src="assets/images/messaging.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Chat Now</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

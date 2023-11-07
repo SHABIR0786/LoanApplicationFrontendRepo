@@ -1,0 +1,137 @@
+.MORTGAGE {
+  font-family: "Avenir";
+  font-size: 40px;
+}
+.Homebuying {
+  font-family: "Avenir";
+  font-size: 20px;
+  padding: 0px 30px;
+}
+.purchasing {
+  font-family: "Avenir";
+  font-size: 26px;
+}
+
+.btn {
+  margin-bottom: 20px;
+}
+.fa {
+  margin-right: 10px;
+}
+#Family {
+  background-color: #f47741;
+}
+#num {
+  color: #0cc4d4 !important;
+}
+#Email {
+  color: #0cc4d4 !important;
+}
+/* button.btn:hover {
+  background-color: #f47741;
+} */
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black {
+  background-color: white !important;
+  color: black;
+}
+.Content-Step-Body .btn-outline-blue {
+  border-color: #091a52;
+  color: #091a52;
+}
+.Content-Step-Body .btn-outline-blue:hover {
+  color: white;
+  background-color: #091a52;
+}
+.Content-Step-Body .form-control {
+  background-color: #091a52 !important;
+}
+.selected {
+  background-color: #091a52 !important;
+  color: white !important;
+}
+.Content-Step-Body .btn-outline-orange {
+  border-color: #f47741;
+  color: #f47741;
+}
+.Content-Step-Body .btn-outline-orange:hover {
+  color: white;
+}
+
+.btn {
+  width: 100%;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .MORTGAGE {
+    font-size: 40px;
+  }
+  .Homebuying {
+    font-size: 20px;
+    padding: 0px 30px;
+  }
+  .purchasing {
+    font-size: 26px;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .MORTGAGE {
+    font-size: 66px;
+  }
+  .Homebuying {
+    font-size: 16px;
+    padding: 0px 30px;
+  }
+  .purchasing {
+    font-size: 30px;
+  }
+  .btn {
+    width: 55%;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .MORTGAGE {
+    font-size: 90px;
+  }
+  .Homebuying {
+    font-size: 20px;
+    padding: 0px 0px;
+  }
+  .purchasing {
+    font-size: 38px;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .MORTGAGE {
+    font-size: 90px;
+  }
+  .Homebuying {
+    font-size: 20px;
+    padding: 0px 0px;
+  }
+  .purchasing {
+    font-size: 38px;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  padding: 0px !important;
+}

@@ -1,0 +1,42 @@
+.top_heading {
+  font-size: 22px;
+  color: #f47741;
+  font-weight: 500;
+}
+thead {
+  border: 1px solid #f3f2f2;
+  box-shadow: 0px 100px 80px rgb(0 0 0 / 3%),
+    0px 64.8148px 46.8519px rgb(0 0 0 / 2%),
+    0px 38.5185px 25.4815px rgb(0 0 0 / 2%), 0px 20px 13px rgb(0 0 0 / 2%),
+    0px 8.14815px 6.51852px rgb(0 0 0 / 1%),
+    0px 1.85185px 3.14815px rgb(0 0 0 / 1%);
+  border-radius: 5px;
+  color: #0d2576;
+  font-size: 14px;
+  font-weight: 500;
+}
+tbody td {
+  font-size: 14px;
+  font-weight: 500;
+}
+.chek_btn {
+  background-color: #0d2576;
+  font-size: 13px;
+  font-weight: 400;
+}
+.content {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.table_heading {
+  font-size: 20px;
+  font-weight: 500;
+}
+.copy_right {
+  color: #0d2576;
+  font-size: 12px;
+  font-weight: 500;
+}
+thead {
+  background: #caf0f8;
+}

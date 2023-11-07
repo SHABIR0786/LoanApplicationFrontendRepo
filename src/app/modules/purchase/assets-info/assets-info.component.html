@@ -1,0 +1,239 @@
+<div class="main-content" *ngIf="number == 1">
+  <h2>Now tell us about your assets.</h2>
+  <h6>if you’re not exactly sure, your best guess is fine.</h6>
+  <div
+    class="button-list margin-top"
+  >
+    <form action="" id="assets" #f="ngForm">
+      <div class="form-group">
+        <select
+          class="form-select form-style mb-0"
+          [(ngModel)]="model.AssetTypeId"
+          name="accountType"
+          required
+          #accountTypeRef="ngModel"
+          style="width: 100%"
+        >
+          <option value="undefined" selected disabled>- Asset type-</option>
+          <option [ngValue]="assetType.id" *ngFor="let assetType of assetTypes">{{assetType.assetsType}}</option>
+        </select>
+        <div
+          *ngIf="submitted && !accountTypeRef.valid"
+          class="text-danger d-flex"
+        >
+          Account type is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Financial institution"
+          [(ngModel)]="model.FinancialInstitution"
+          name="FinancialInstitution"
+          required
+          #finInstituteRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !finInstituteRef.valid"
+          class="text-danger d-flex"
+        >
+          Financial institution is required
+        </div>
+      </div>
+      <div class="form-group input-box">
+        <input
+          type="number"
+          class="form-control form-style mb-0"
+          placeholder="Balance"
+          [(ngModel)]="model.Balance"
+          name="Balance"
+          required
+          #finBalanceRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !finBalanceRef.valid"
+          class="text-danger d-flex"
+        >
+          Balance is required
+        </div>
+      </div>
+    </form>
+    <div class="row margin-top">
+      <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-4 col-xs-4">
+        <a routerLink="/app/purchase/income-info/5" class="btn" id="btn-back"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-4 col-xs-4">
+        <a class="btn" id="btn-next" (click)="stepNextClick(f, 2)">Add</a>
+      </div>
+      <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-4 col-xs-4">
+        <a routerLink="/app/purchase/gov/1" class="btn" id="btn-back"
+          >Skip</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+
+<!--  Click back button move to page 27 purchase-income-source27 component -->
+<!-- click next or skip go to the 28A section below -->
+<!-- Section 28A starts -->
+
+<div class="main-content" *ngIf="number == 2">
+  <h2>Thanks! Do you have any other assets you’d like to share?</h2>
+  <div class="button-list margin-top">
+    <a
+    routerLink="/app/purchase/assets-info/1"
+      (click)="haveOtherSourceOfIncome(true)"
+      [class.orange-active]="model.haveOtherSourceOfIncome == true"
+      class="btn btn-primary btn-style btn-orange">Yes</a>
+    <a
+      routerLink="/app/purchase/assets-info/3"
+      class="btn btn-primary btn-style btn-orange"
+      [class.orange-active]="model.haveOtherSourceOfIncome == false"
+      (click)="haveOtherSourceOfIncome(false)">No</a>
+
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <button
+          type="button"
+          class="btn"
+          id="btn-back"
+          routerLink="/app/purchase/assets-info/1"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- Section 28A Ends -->
+<!-- Click No button on 28A and it will go to page 29 -->
+
+<!-- click Yes button it will move you to the section 28B-->
+<!-- section 28B starts -->
+<div class="main-content" *ngIf="number == 3">
+  <h2>Let’s review and confirm your assets.</h2>
+  <div class="content-area" *ngFor="let asset of assets">
+    <div class="row">
+      <div class="col-md-8">
+        <h6>Asset</h6>
+      </div>
+      <div class="col-md-4 right-align">
+        <a  (click)="editAsset(asset)" class="btn" id="btn-edit">Edit</a>
+        <a  (click)="delete(asset.id)" class="btn btn-danger ml-2">Delete</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="profile-details">
+          <p>Asset Type: {{ getAssetTypeName(asset.assetTypeId) }}</p>
+          <p>Financial Institution: {{ asset.financialInstitution }}</p>
+          <p>Balance: ${{ asset.balance }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-list margin-top col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12"
+  >
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/purchase/assets-info/2" class="btn" id="btn-back"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2">
+        <a routerLink="/app/purchase/gov/1" class="btn" id="btn-next"
+          >Next</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- section 28B ends -->
+
+<!-- Click edit button it will open section 28C -->
+<!-- section 28C starts -->
+<div class="main-content" *ngIf="number == 4">
+  <h2>Let’s review and confirm your assets.</h2>
+  <div class="content-area">
+    <div class="row">
+      <div class="col-md-8">
+        <h6>Asset</h6>
+      </div>
+      <div class="col-md-4 right-align">
+        <a routerLink="/app/purchase/assets-info/3" class="btn" id="btn-edit"
+          >Done</a
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <form action="" id="employer-details"  #f20="ngForm">
+          <div class="form-group">
+            <select
+              class="form-select form-style mb-0"
+              [(ngModel)]="assetDetail.assetTypeId"
+              name="AssetTypeId"
+              required
+              #accountTypeRef="ngModel"
+              style="width: 100%"
+            >
+              <option value="undefined" selected disabled>
+                -Account type-
+              </option>
+              <option [ngValue]="assetType.id" *ngFor="let assetType of assetTypes">{{assetType.assetsType}}</option>
+            </select>
+            <div *ngIf="!accountTypeRef.valid" class="text-danger d-flex">
+              Account type is required
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-style mb-0"
+              placeholder="Finantional institution"
+              [(ngModel)]="assetDetail.financialInstitution"
+              name="finInstitute"
+              required
+              #finInstituteRef="ngModel"
+            />
+            <div *ngIf="!finInstituteRef.valid" class="text-danger d-flex">
+              Financial institution is required
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-style mb-0"
+              placeholder="Balance"
+              [(ngModel)]="assetDetail.balance"
+              name="finBalance"
+              required
+              #finBalanceRef="ngModel"
+            />
+            <div *ngIf="!finBalanceRef.valid" class="text-danger d-flex">
+              Balance is required
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="button-list margin-top col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/purchase/assets-info/3" class="btn" id="btn-back">Back</a>
+      </div>
+      <div class="col-md-2">
+        <a (click)="update(f20)" class="btn" id="btn-next">Update</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>

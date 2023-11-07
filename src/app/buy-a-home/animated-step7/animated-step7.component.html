@@ -1,0 +1,69 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2 class="">How much is your down payment?</h2>
+    <p>
+      just an estimate is fine.You can update the amount later in the process.
+    </p>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0 pt-0">
+        <div class="px-0">
+          <form class="form" [formGroup]="form">
+            <input
+              type="text"
+              class="form-control input-special mb-3"
+              formControlName="downPayment"
+              [(ngModel)]="formData.downPayment"
+              [ngClass]="{
+                'is-invalid': submitted && StepSevenControl.downPayment.errors
+              }"
+              placeholder="Down Payment"
+              prefix="$"
+              (input)="downPaymentChange($event)"
+              mask="separator.2"
+              thousandSeparator=","
+              maxlength="18"
+            />
+            <div class="slide-value-percent">
+              <input
+                [(ngModel)]="Percentage"
+                formControlName="downPaymentPercent"
+                (input)="percentageChange($event)"
+              />
+              <span>%</span>
+            </div>
+            <span
+              class="text-danger"
+              *ngIf="
+                (StepSevenControl.downPayment.touched || submitted) &&
+                StepSevenControl.downPayment.errors?.required
+              "
+            >
+              DownPayment is required
+            </span>
+          </form>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p37 d-lg-flex d-none">
+      <span>37%</span>
+    </div>
+  </div>
+</div>

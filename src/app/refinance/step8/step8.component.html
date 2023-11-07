@@ -1,0 +1,51 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="font-weight-bold">Do you currently have an FHA loan?</h1>
+    <div class="row justify-content-center" style="margin-top: -80px">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <div class="btn">
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh-block mt-8"
+            (click)="proceedToNext('Yes')"
+            [class.selected]="formData.FHALoan == 'Yes'"
+          >
+            Yes
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh-block mb-3 mt-3"
+            (click)="proceedToNext('No')"
+            [class.selected]="formData.FHALoan == 'No'"
+          >
+            No
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh-block mb-3"
+            (click)="proceedToNext('I Dont Know')"
+            [class.selected]="formData.FHALoan == 'I Dont Know'"
+          >
+            I Don't Know
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p42 mt-5 d-lg-flex d-none">
+      <span>42%</span>
+    </div>
+  </div>
+</div>

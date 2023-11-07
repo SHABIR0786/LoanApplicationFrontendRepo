@@ -1,0 +1,1087 @@
+<main>
+  <section class="home-guides-sec py-5 text-center">
+    <div class="container">
+      <h3 class="font-weight-bold text-white">Home Buyer’s Guide</h3>
+    </div>
+  </section>
+  <!-- <div class="count">1</div> -->
+  <h1 class="font-weight-bold text-primary text-center py-4 border-bottom">
+    Buying a Home
+  </h1>
+  <div class="container">
+    <section class="page-order-sec py-2">
+      <p class="m-0 text-muted">
+        <a
+          [routerLink]="['/app/home']"
+          class="text-decoration-none text-primary"
+          >Home </a
+        ><i class="fa fa-angle-right"></i>
+        <a
+          [routerLink]="['/app/buying-home-guide']"
+          class="text-decoration-none text-muted"
+        >
+          Buying a Home
+        </a>
+        <i class="fa fa-angle-right"></i>
+        <a
+          [routerLink]="['/app/buying-home-guide']"
+          class="text-decoration-none text-muted"
+        >
+          Buying a home Guide
+        </a>
+      </p>
+    </section>
+
+    <section class="py-2">
+      <div class="d-flex justify-content-between">
+        <h5 class="font-weight-bold text-primary py-4">
+          Step-by-Step Buyer’s Guide
+        </h5>
+        <div class="text-center">
+          <img height="40" src="assets/images/guides.svg" />
+          <p class="small">View All Guides</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 mb-3 mb-lg-0">
+          <div
+            class="nav flex-column nav-pills border nav-guides rounded"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="['/app/preparing-for-morgage']"
+              role="tab"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+              >1. Preparing for Mortgage
+              <span class="ml-3 d-block">Pre-Approal</span></a
+            >
+            <a
+              class="nav-link"
+              [routerLink]="['/app/finalizing-mortgage-pre-approval']"
+              >2. Finalizing Mortgage
+              <span class="ml-3 d-block">Pre-Approal</span>
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/deciding-mortgage']"
+              role="tab"
+              aria-controls="v-pills-messages"
+              aria-selected="false"
+              >3. Deciding on the Right
+              <span class="ml-3 d-block">Mortgage for you</span></a
+            >
+            <a
+              class="nav-link"
+              [routerLink]="['/app/selection-real-estate-agent']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >4. Selection a Real Estate
+              <span class="ml-3 d-block">Agent</span>
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/house-hunting']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >5. House Hunting
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/making-a-competitive-offer']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >6. Making a Competitive
+              <span class="ml-3 d-block">Offer</span>
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/underwriting-process']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >7. The Underwriting Process
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/preparing-to-close']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >8. Preparing to Close
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/walk-through-and-closing-day']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >9. Walk-Through and Closing
+              <span class="ml-3 d-block">Day</span>
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/making-your-first-mortgage-payment']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >10. Making Your First
+              <span class="ml-4 d-block"> Mortgage Payment</span>
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/managing-your-mortgage']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >11. Managing Your Mortgage
+            </a>
+          </div>
+
+          <div
+            class="border border-primary px-3 py-4 rounded mt-4 d-none d-lg-block"
+          >
+            <h6 class="font-weight-bold text-primary py-2">
+              Find answers quickly online
+            </h6>
+            <a
+              href=""
+              class="text-uppercase text-secondary d-block featanimbtn pt-2"
+              >GET STARTED <i class="fas fa-long-arrow-alt-right ml-2"></i
+            ></a>
+          </div>
+          <div class="bg-gray px-3 py-4 rounded mt-4 d-none d-lg-block">
+            <h3 class="text-primary pb-2">Talk to a Home Loan Expert</h3>
+            <button
+              type="submit"
+              class="btn btn-secondary text-uppercase text-white px-5"
+            >
+              Talk Now
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="v-pills-home"
+              role="tabpanel"
+              aria-labelledby="v-pills-home-tab"
+            >
+              <h3 class="font-weight-bold text-primary pb-4">
+                Am I Ready to Buy a Home?
+              </h3>
+              <p class="text-muted">
+                Determining whether you are ready to purchase your first home is
+                an important undertaking, and there are several factors to
+                consider when deciding if you’re ready:
+              </p>
+
+              <ul class="list-unstyled">
+                <li>
+                  • Are you going to be in the house for at least five years?
+                  <span class="text-muted">
+                    Make sure your job and family life are in a settled state.
+                    If you move prior to year five of occupancy, it may not be
+                    the best financial decision considering Realtor commissions,
+                    attorney’s fees, and taxes you would be responsible for
+                    paying.
+                  </span>
+                </li>
+                <li>
+                  • Are you ready to tackle day-to-day home maintenance
+                  responsibilities?
+                  <span class="text-muted">
+                    Unlike renting, when you own your own home, you are
+                    responsible for handling all repairs and maintenance. Make
+                    sure there is extra room in your budget and savings for
+                    unexpected expenses like a new HVAC, new appliances, and
+                    roof repairs.
+                  </span>
+                </li>
+                <li>
+                  • Have you saved enough money for a down payment?
+                  <span class="text-muted">
+                    The down payment is usually what stands between future
+                    homeowners and their dream of homeownership. Banks and
+                    lending institutions are looking for you to have some skin
+                    in the game before they loan you a large sum of money. At
+                    least 3% down is generally required to be approved for a
+                    mortgage and more than that is ideal. Depending on your
+                    vocation, income, and where you live, grants may also be an
+                    option to subsidize or completely cover this expense. Gifts
+                    from family members are also a common source of a down
+                    payment—just make sure to talk to your mortgage consultant
+                    about any gifts you may be receiving.
+                  </span>
+                </li>
+                <li>
+                  • Do you have money set aside separate of the down payment
+                  funds for closing costs and financial emergencies?
+                  <span class="text-muted">
+                    Once the down payment and closing costs are accounted for,
+                    it is also imperative that you have separate emergency
+                    fund—we usually recommend between three months and six
+                    months of living expenses. If you are short on closing
+                    costs, ask your real estate agent about negotiating for the
+                    seller to pay them.
+                  </span>
+                </li>
+              </ul>
+              <h6 class="font-weight-bold text-primary pb-2">
+                Should I Buy or Keep Renting?
+              </h6>
+              <p class="text-muted">
+                Deciding when it’s the right time to buy a home is one of the
+                most important decisions you’ll ever make. There are so many
+                factors to consider including timing and the state of your
+                finances. Carefully consider the factors below before deciding
+                to stop renting and leaping into homeownership:
+              </p>
+              <ul class="list-unstyled">
+                <li>
+                  • Are you planning on staying in the same location for at
+                  least the next five years?
+                  <span class="text-muted">
+                    There are expenses involved in selling a home (taxes,
+                    realtor fees, closing costs, etc.). You could potentially
+                    lose money if you move too soon. Make sure you are happy and
+                    settled in your job and will not be relocating anytime soon.
+                    Also, if you have school-aged children or children who will
+                    become school-age within five years, make sure you like the
+                    schools where you plan on buying.
+                  </span>
+                </li>
+                <li>
+                  • Do you have room in your budget to cover extra expenses
+                  associated with homeownership?
+                  <span class="text-muted">
+                    When you buy a house, you will be responsible for home
+                    maintenance, repairs, and updates. So, you need to make sure
+                    extra expenses fit into your budget.
+                  </span>
+                </li>
+                <li>
+                  • Have you put aside money for a down payment and closing
+                  costs?
+                  <span class="text-muted">
+                    The down payment is the main barrier between most people and
+                    their dream of owning a home. In general, you need to have
+                    at least 3 to 3.5 percent of the total home purchase price
+                    for a home loan approval. However, 5 to 10 percent is ideal.
+                    Twenty percent down is required to avoid mortgage premium
+                    insurance. Keep in mind, many first-time homebuyers utilize
+                    a gift from a family member to help with the down payment.
+                    Talk with your mortgage consultant if you anticipate a gift
+                    from a family member. Also, ask your loan officer if there
+                    are any grant programs in your area to help cover your down
+                    payment. Closing costs generally range from 3-5% of the
+                    house’s purchase price. The seller often will pay for
+                    closing costs, but that’s not always the case. So, talk to
+                    your realtor if you need additional help with closing funds.
+                  </span>
+                </li>
+              </ul>
+
+              <!-- <a class="text-decoration text-primary text-underline" href="#">Find Out How Buying a Home Works</a> -->
+              <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                Buying vs. Renting
+              </h6>
+              <p class="text-muted">
+                There are benefits to buying a house and renting from a
+                landlord. It’s up to you which makes the most sense for your
+                situation.
+              </p>
+              <div class="row two-boxes">
+                <div class="col-sm-6">
+                  <h5>Pros of Buying</h5>
+                  <ul>
+                    <li>
+                      Personalize the home with your own color palette,
+                      landscape design, and style upgrades.
+                    </li>
+                    <li>
+                      No pet restrictions (unless you are also governed by a
+                      condo board).
+                    </li>
+                    <li>Earn equity if your home appreciates in value.</li>
+                    <li>
+                      Write-off the interest part of your home loan on your
+                      taxes.
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-6">
+                  <h5>Pros of Renting</h5>
+                  <ul>
+                    <li>Freedom to relocate to a new city.</li>
+                    <li>
+                      Landlord is responsible for home repairs, maintenance, and
+                      sometimes yardwork.
+                    </li>
+                    <li>
+                      Doesn’t require saving a large sum for a down payment.
+                    </li>
+                    <li>Refundable deposit when you move out.</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    You’ll get an approval letter that shows real estate agents
+                    and sellers you’re able to afford a house.
+                  </li>
+                  <li class="text-muted">
+                    You’ll find out how much house you can afford.
+                  </li>
+                  <li class="text-muted">
+                    It makes the rest of the mortgage process smoother and easier.
+                  </li>
+                </ul>
+                <a class="text-primary text-underline d-block" href="#">Apply now with Rocket Mortgage.</a>
+                <a class="text-primary text-underline" href="#">Learn what happens when you apply.</a>
+                <p class="text-muted mt-3">
+                  <strong> Next, find a real estate agent.</strong> After you
+                  apply and get approved, choose a real estate agent. They’re
+                  another great source of experience and knowledge when it comes
+                  to how to buy a home. You can expect your agent to do these
+                  things:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3 mb-0">
+                  <li class="text-muted">
+                    Help you find the right house in the right place at the right
+                    price.
+                  </li>
+                  <li class="text-muted">Manage paperwork.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                </ul>
+                <p class="text-muted">
+                  With an approval letter and listings from your agent, you’ll be
+                  ready to start hitting those open houses.
+                </p>
+                <div class="border-bottom py-4"></div>
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  Popular Loans Options for First-Time Home Buyers
+                </h6>
+                <p class="text-muted">
+                  Here are some common situations that often apply to people
+                  getting their first home loan, and possible options. You may
+                  qualify for more than one; we’ll help you find what’s best for
+                  you.
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    Want payment and interest rate stability? With a 30-Year
+                    Fixed, your interest rate and monthly payments (before taxes
+                    and insurance) won’t change, and you can buy a home with as
+                    little as 3% down.
+                  </li>
+                  <li class="text-muted">
+                    Don’t have a lot of credit history, or worried it’s not good
+                    enough? FHA loans have more lenient credit and income
+                    requirements, and your down payment can be as low as 3.5%.
+                  </li>
+                  <li class="text-muted">
+                    Think you’ll only be in a starter home for a few years? An
+                    adjustable rate mortgage gives you a low fixed interest rate –
+                    which means lower monthly payments – for the first few years
+                    of your mortgage.
+                  </li>
+                  <li class="text-muted">
+                    Are you a veteran or currently serving? You may qualify for a
+                    VA Loan and be able to buy a home with zero down.
+                  </li>
+                </ul> -->
+            </div>
+
+            <!-- <div
+                class="tab-pane fade"
+                id="v-pills-profile"
+                role="tabpanel"
+                aria-labelledby="v-pills-profile-tab"
+              >
+                <h3 class="font-weight-bold text-primary pb-4">
+                  I’m Wondering How It 
+                </h3>
+                <p class="text-muted">
+                  Whether a new home is a few years off or you’re shopping now, we
+                  can help you understand your options and get the right mortgage
+                  for your situation.
+                </p>
+                <h6 class="font-weight-bold text-primary pb-2">
+                  I’m Wondering How It Works
+                </h6>
+                <p class="text-muted">
+                  Our Home Buyer’s Guide takes the mystery out of getting your
+                  first home loan. We break down the process so it’s less
+                  overwhelming and easier to understand.
+                </p>
+                <a class="text-decoration text-primary text-underline" href="#"
+                  >Find Out How Buying a Home Works</a
+                >
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  I’m Putting Together a Budget
+                </h6>
+                <p class="text-muted">
+                  Our calculators help you estimate what you can afford, how much
+                  of a down payment you’ll need, what your monthly payment could
+                  be, and how much interest you’ll pay over the life of a loan.
+                </p>
+  
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate How Much I Can Afford</a
+                    >
+                  </li>
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate My Mortgage Payments</a
+                    >
+                  </li>
+                </ul>
+                <h6 class="font-weight-bold text-primary py-4">
+                  I’m Actively Shopping for a New Home
+                </h6>
+                <p class="text-muted">
+                  If a move is in your near future, these are the two most
+                  important things you should do first. They’ll put you in the
+                  hands of experts who help people like you become a homeowner for
+                  the first time every day.
+                </p>
+                <p class="text-muted">
+                  First, get approved for a loan. Doing this before looking at
+                  houses helps you a lot. Here are some of the benefits:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    You’ll get an approval letter that shows real estate agents
+                    and sellers you’re able to afford a house.
+                  </li>
+                  <li class="text-muted">
+                    You’ll find out how much house you can afford.
+                  </li>
+                  <li class="text-muted">
+                    It makes the rest of the mortgage process smoother and easier.
+                  </li>
+                </ul>
+                <a class="text-primary text-underline d-block" href="#"
+                  >Apply now with Rocket Mortgage.</a
+                >
+                <a class="text-primary text-underline" href="#"
+                  >Learn what happens when you apply.</a
+                >
+                <p class="text-muted mt-3">
+                  <strong> Next, find a real estate agent.</strong> After you
+                  apply and get approved, choose a real estate agent. They’re
+                  another great source of experience and knowledge when it comes
+                  to how to buy a home. You can expect your agent to do these
+                  things:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3 mb-0">
+                  <li class="text-muted">
+                    Help you find the right house in the right place at the right
+                    price.
+                  </li>
+                  <li class="text-muted">Manage paperwork.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                </ul>
+                <p class="text-muted">
+                  With an approval letter and listings from your agent, you’ll be
+                  ready to start hitting those open houses.
+                </p>
+                <div class="border-bottom py-4"></div>
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  Popular Loans Options for First-Time Home Buyers
+                </h6>
+                <p class="text-muted">
+                  Here are some common situations that often apply to people
+                  getting their first home loan, and possible options. You may
+                  qualify for more than one; we’ll help you find what’s best for
+                  you.
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    Want payment and interest rate stability? With a 30-Year
+                    Fixed, your interest rate and monthly payments (before taxes
+                    and insurance) won’t change, and you can buy a home with as
+                    little as 3% down.
+                  </li>
+                  <li class="text-muted">
+                    Don’t have a lot of credit history, or worried it’s not good
+                    enough? FHA loans have more lenient credit and income
+                    requirements, and your down payment can be as low as 3.5%.
+                  </li>
+                  <li class="text-muted">
+                    Think you’ll only be in a starter home for a few years? An
+                    adjustable rate mortgage gives you a low fixed interest rate –
+                    which means lower monthly payments – for the first few years
+                    of your mortgage.
+                  </li>
+                  <li class="text-muted">
+                    Are you a veteran or currently serving? You may qualify for a
+                    VA Loan and be able to buy a home with zero down.
+                  </li>
+                </ul>
+              </div> -->
+            <!-- <div
+                class="tab-pane fade"
+                id="v-pills-messages"
+                role="tabpanel"
+                aria-labelledby="v-pills-messages-tab"
+              >
+                <h3 class="font-weight-bold text-primary pb-4">
+                  I’m Wondering How It
+                </h3>
+                <p class="text-muted">
+                  Whether a new home is a few years off or you’re shopping now, we
+                  can help you understand your options and get the right mortgage
+                  for your situation.
+                </p>
+                <h6 class="font-weight-bold text-primary pb-2">
+                  I’m Wondering How It Works
+                </h6>
+                <p class="text-muted">
+                  Our Home Buyer’s Guide takes the mystery out of getting your
+                  first home loan. We break down the process so it’s less
+                  overwhelming and easier to understand.
+                </p>
+                <a class="text-decoration text-primary text-underline" href="#"
+                  >Find Out How Buying a Home Works</a
+                >
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  I’m Putting Together a Budget
+                </h6>
+                <p class="text-muted">
+                  Our calculators help you estimate what you can afford, how much
+                  of a down payment you’ll need, what your monthly payment could
+                  be, and how much interest you’ll pay over the life of a loan.
+                </p>
+  
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate How Much I Can Afford</a
+                    >
+                  </li>
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate My Mortgage Payments</a
+                    >
+                  </li>
+                </ul>
+                <h6 class="font-weight-bold text-primary py-4">
+                  I’m Actively Shopping for a New Home
+                </h6>
+                <p class="text-muted">
+                  If a move is in your near future, these are the two most
+                  important things you should do first. They’ll put you in the
+                  hands of experts who help people like you become a homeowner for
+                  the first time every day.
+                </p>
+                <p class="text-muted">
+                  First, get approved for a loan. Doing this before looking at
+                  houses helps you a lot. Here are some of the benefits:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    You’ll get an approval letter that shows real estate agents
+                    and sellers you’re able to afford a house.
+                  </li>
+                  <li class="text-muted">
+                    You’ll find out how much house you can afford.
+                  </li>
+                  <li class="text-muted">
+                    It makes the rest of the mortgage process smoother and easier.
+                  </li>
+                </ul>
+                <a class="text-primary text-underline d-block" href="#"
+                  >Apply now with Rocket Mortgage.</a
+                >
+                <a class="text-primary text-underline" href="#"
+                  >Learn what happens when you apply.</a
+                >
+                <p class="text-muted mt-3">
+                  <strong> Next, find a real estate agent.</strong> After you
+                  apply and get approved, choose a real estate agent. They’re
+                  another great source of experience and knowledge when it comes
+                  to how to buy a home. You can expect your agent to do these
+                  things:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3 mb-0">
+                  <li class="text-muted">
+                    Help you find the right house in the right place at the right
+                    price.
+                  </li>
+                  <li class="text-muted">Manage paperwork.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                </ul>
+                <p class="text-muted">
+                  With an approval letter and listings from your agent, you’ll be
+                  ready to start hitting those open houses.
+                </p>
+                <div class="border-bottom py-4"></div>
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  Popular Loans Options for First-Time Home Buyers
+                </h6>
+                <p class="text-muted">
+                  Here are some common situations that often apply to people
+                  getting their first home loan, and possible options. You may
+                  qualify for more than one; we’ll help you find what’s best for
+                  you.
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    Want payment and interest rate stability? With a 30-Year
+                    Fixed, your interest rate and monthly payments (before taxes
+                    and insurance) won’t change, and you can buy a home with as
+                    little as 3% down.
+                  </li>
+                  <li class="text-muted">
+                    Don’t have a lot of credit history, or worried it’s not good
+                    enough? FHA loans have more lenient credit and income
+                    requirements, and your down payment can be as low as 3.5%.
+                  </li>
+                  <li class="text-muted">
+                    Think you’ll only be in a starter home for a few years? An
+                    adjustable rate mortgage gives you a low fixed interest rate –
+                    which means lower monthly payments – for the first few years
+                    of your mortgage.
+                  </li>
+                  <li class="text-muted">
+                    Are you a veteran or currently serving? You may qualify for a
+                    VA Loan and be able to buy a home with zero down.
+                  </li>
+                </ul>
+              </div> -->
+            <!-- <div
+                class="tab-pane fade"
+                id="v-pills-settings"
+                role="tabpanel"
+                aria-labelledby="v-pills-settings-tab"
+              >
+                <h3 class="font-weight-bold text-primary pb-4">
+                  I’m Wondering How It
+                </h3>
+                <p class="text-muted">
+                  Whether a new home is a few years off or you’re shopping now, we
+                  can help you understand your options and get the right mortgage
+                  for your situation.
+                </p>
+                <h6 class="font-weight-bold text-primary pb-2">
+                  I’m Wondering How It Works
+                </h6>
+                <p class="text-muted">
+                  Our Home Buyer’s Guide takes the mystery out of getting your
+                  first home loan. We break down the process so it’s less
+                  overwhelming and easier to understand.
+                </p>
+                <a class="text-decoration text-primary text-underline" href="#"
+                  >Find Out How Buying a Home Works</a
+                >
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  I’m Putting Together a Budget
+                </h6>
+                <p class="text-muted">
+                  Our calculators help you estimate what you can afford, how much
+                  of a down payment you’ll need, what your monthly payment could
+                  be, and how much interest you’ll pay over the life of a loan.
+                </p>
+  
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate How Much I Can Afford</a
+                    >
+                  </li>
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate My Mortgage Payments</a
+                    >
+                  </li>
+                </ul>
+                <h6 class="font-weight-bold text-primary py-4">
+                  I’m Actively Shopping for a New Home
+                </h6>
+                <p class="text-muted">
+                  If a move is in your near future, these are the two most
+                  important things you should do first. They’ll put you in the
+                  hands of experts who help people like you become a homeowner for
+                  the first time every day.
+                </p>
+                <p class="text-muted">
+                  First, get approved for a loan. Doing this before looking at
+                  houses helps you a lot. Here are some of the benefits:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    You’ll get an approval letter that shows real estate agents
+                    and sellers you’re able to afford a house.
+                  </li>
+                  <li class="text-muted">
+                    You’ll find out how much house you can afford.
+                  </li>
+                  <li class="text-muted">
+                    It makes the rest of the mortgage process smoother and easier.
+                  </li>
+                </ul>
+                <a class="text-primary text-underline d-block" href="#"
+                  >Apply now with Rocket Mortgage.</a
+                >
+                <a class="text-primary text-underline" href="#"
+                  >Learn what happens when you apply.</a
+                >
+                <p class="text-muted mt-3">
+                  <strong> Next, find a real estate agent.</strong> After you
+                  apply and get approved, choose a real estate agent. They’re
+                  another great source of experience and knowledge when it comes
+                  to how to buy a home. You can expect your agent to do these
+                  things:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3 mb-0">
+                  <li class="text-muted">
+                    Help you find the right house in the right place at the right
+                    price.
+                  </li>
+                  <li class="text-muted">Manage paperwork.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                </ul>
+                <p class="text-muted">
+                  With an approval letter and listings from your agent, you’ll be
+                  ready to start hitting those open houses.
+                </p>
+                <div class="border-bottom py-4"></div>
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  Popular Loans Options for First-Time Home Buyers
+                </h6>
+                <p class="text-muted">
+                  Here are some common situations that often apply to people
+                  getting their first home loan, and possible options. You may
+                  qualify for more than one; we’ll help you find what’s best for
+                  you.
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    Want payment and interest rate stability? With a 30-Year
+                    Fixed, your interest rate and monthly payments (before taxes
+                    and insurance) won’t change, and you can buy a home with as
+                    little as 3% down.
+                  </li>
+                  <li class="text-muted">
+                    Don’t have a lot of credit history, or worried it’s not good
+                    enough? FHA loans have more lenient credit and income
+                    requirements, and your down payment can be as low as 3.5%.
+                  </li>
+                  <li class="text-muted">
+                    Think you’ll only be in a starter home for a few years? An
+                    adjustable rate mortgage gives you a low fixed interest rate –
+                    which means lower monthly payments – for the first few years
+                    of your mortgage.
+                  </li>
+                  <li class="text-muted">
+                    Are you a veteran or currently serving? You may qualify for a
+                    VA Loan and be able to buy a home with zero down.
+                  </li>
+                </ul>
+              </div> -->
+            <!-- <div
+                class="tab-pane fade"
+                id="v-pills-5"
+                role="tabpanel"
+                aria-labelledby="v-pills-5-tab"
+              >
+                <h3 class="font-weight-bold text-primary pb-4">
+                  I’m Wondering How It
+                </h3>
+                <p class="text-muted">
+                  Whether a new home is a few years off or you’re shopping now, we
+                  can help you understand your options and get the right mortgage
+                  for your situation.
+                </p>
+                <h6 class="font-weight-bold text-primary pb-2">
+                  I’m Wondering How It Works
+                </h6>
+                <p class="text-muted">
+                  Our Home Buyer’s Guide takes the mystery out of getting your
+                  first home loan. We break down the process so it’s less
+                  overwhelming and easier to understand.
+                </p>
+                <a class="text-decoration text-primary text-underline" href="#"
+                  >Find Out How Buying a Home Works</a
+                >
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  I’m Putting Together a Budget
+                </h6>
+                <p class="text-muted">
+                  Our calculators help you estimate what you can afford, how much
+                  of a down payment you’ll need, what your monthly payment could
+                  be, and how much interest you’ll pay over the life of a loan.
+                </p>
+  
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate How Much I Can Afford</a
+                    >
+                  </li>
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate My Mortgage Payments</a
+                    >
+                  </li>
+                </ul>
+                <h6 class="font-weight-bold text-primary py-4">
+                  I’m Actively Shopping for a New Home
+                </h6>
+                <p class="text-muted">
+                  If a move is in your near future, these are the two most
+                  important things you should do first. They’ll put you in the
+                  hands of experts who help people like you become a homeowner for
+                  the first time every day.
+                </p>
+                <p class="text-muted">
+                  First, get approved for a loan. Doing this before looking at
+                  houses helps you a lot. Here are some of the benefits:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    You’ll get an approval letter that shows real estate agents
+                    and sellers you’re able to afford a house.
+                  </li>
+                  <li class="text-muted">
+                    You’ll find out how much house you can afford.
+                  </li>
+                  <li class="text-muted">
+                    It makes the rest of the mortgage process smoother and easier.
+                  </li>
+                </ul>
+                <a class="text-primary text-underline d-block" href="#"
+                  >Apply now with Rocket Mortgage.</a
+                >
+                <a class="text-primary text-underline" href="#"
+                  >Learn what happens when you apply.</a
+                >
+                <p class="text-muted mt-3">
+                  <strong> Next, find a real estate agent.</strong> After you
+                  apply and get approved, choose a real estate agent. They’re
+                  another great source of experience and knowledge when it comes
+                  to how to buy a home. You can expect your agent to do these
+                  things:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3 mb-0">
+                  <li class="text-muted">
+                    Help you find the right house in the right place at the right
+                    price.
+                  </li>
+                  <li class="text-muted">Manage paperwork.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                </ul>
+                <p class="text-muted">
+                  With an approval letter and listings from your agent, you’ll be
+                  ready to start hitting those open houses.
+                </p>
+                <div class="border-bottom py-4"></div>
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  Popular Loans Options for First-Time Home Buyers
+                </h6>
+                <p class="text-muted">
+                  Here are some common situations that often apply to people
+                  getting their first home loan, and possible options. You may
+                  qualify for more than one; we’ll help you find what’s best for
+                  you.
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    Want payment and interest rate stability? With a 30-Year
+                    Fixed, your interest rate and monthly payments (before taxes
+                    and insurance) won’t change, and you can buy a home with as
+                    little as 3% down.
+                  </li>
+                  <li class="text-muted">
+                    Don’t have a lot of credit history, or worried it’s not good
+                    enough? FHA loans have more lenient credit and income
+                    requirements, and your down payment can be as low as 3.5%.
+                  </li>
+                  <li class="text-muted">
+                    Think you’ll only be in a starter home for a few years? An
+                    adjustable rate mortgage gives you a low fixed interest rate –
+                    which means lower monthly payments – for the first few years
+                    of your mortgage.
+                  </li>
+                  <li class="text-muted">
+                    Are you a veteran or currently serving? You may qualify for a
+                    VA Loan and be able to buy a home with zero down.
+                  </li>
+                </ul>
+              </div> -->
+            <!-- <div
+                class="tab-pane fade"
+                id="v-pills-6"
+                role="tabpanel"
+                aria-labelledby="v-pills-6-tab"
+              >
+                <h3 class="font-weight-bold text-primary pb-4">
+                  I’m Wondering How It
+                </h3>
+                <p class="text-muted">
+                  Whether a new home is a few years off or you’re shopping now, we
+                  can help you understand your options and get the right mortgage
+                  for your situation.
+                </p>
+                <h6 class="font-weight-bold text-primary pb-2">
+                  I’m Wondering How It Works
+                </h6>
+                <p class="text-muted">
+                  Our Home Buyer’s Guide takes the mystery out of getting your
+                  first home loan. We break down the process so it’s less
+                  overwhelming and easier to understand.
+                </p>
+                <a class="text-decoration text-primary text-underline" href="#"
+                  >Find Out How Buying a Home Works</a
+                >
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  I’m Putting Together a Budget
+                </h6>
+                <p class="text-muted">
+                  Our calculators help you estimate what you can afford, how much
+                  of a down payment you’ll need, what your monthly payment could
+                  be, and how much interest you’ll pay over the life of a loan.
+                </p>
+  
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate How Much I Can Afford</a
+                    >
+                  </li>
+                  <li>
+                    <a class="text-primary text-underline" href="#"
+                      >Calculate My Mortgage Payments</a
+                    >
+                  </li>
+                </ul>
+                <h6 class="font-weight-bold text-primary py-4">
+                  I’m Actively Shopping for a New Home
+                </h6>
+                <p class="text-muted">
+                  If a move is in your near future, these are the two most
+                  important things you should do first. They’ll put you in the
+                  hands of experts who help people like you become a homeowner for
+                  the first time every day.
+                </p>
+                <p class="text-muted">
+                  First, get approved for a loan. Doing this before looking at
+                  houses helps you a lot. Here are some of the benefits:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    You’ll get an approval letter that shows real estate agents
+                    and sellers you’re able to afford a house.
+                  </li>
+                  <li class="text-muted">
+                    You’ll find out how much house you can afford.
+                  </li>
+                  <li class="text-muted">
+                    It makes the rest of the mortgage process smoother and easier.
+                  </li>
+                </ul>
+                <a class="text-primary text-underline d-block" href="#"
+                  >Apply now with Rocket Mortgage.</a
+                >
+                <a class="text-primary text-underline" href="#"
+                  >Learn what happens when you apply.</a
+                >
+                <p class="text-muted mt-3">
+                  <strong> Next, find a real estate agent.</strong> After you
+                  apply and get approved, choose a real estate agent. They’re
+                  another great source of experience and knowledge when it comes
+                  to how to buy a home. You can expect your agent to do these
+                  things:
+                </p>
+                <ul class="list-unstyled arrow-list pl-3 mb-0">
+                  <li class="text-muted">
+                    Help you find the right house in the right place at the right
+                    price.
+                  </li>
+                  <li class="text-muted">Manage paperwork.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                  <li class="text-muted">Negotiate with sellers.</li>
+                </ul>
+                <p class="text-muted">
+                  With an approval letter and listings from your agent, you’ll be
+                  ready to start hitting those open houses.
+                </p>
+                <div class="border-bottom py-4"></div>
+                <h6 class="font-weight-bold text-primary pt-4 pb-2">
+                  Popular Loans Options for First-Time Home Buyers
+                </h6>
+                <p class="text-muted">
+                  Here are some common situations that often apply to people
+                  getting their first home loan, and possible options. You may
+                  qualify for more than one; we’ll help you find what’s best for
+                  you.
+                </p>
+                <ul class="list-unstyled arrow-list pl-3">
+                  <li class="text-muted">
+                    Want payment and interest rate stability? With a 30-Year
+                    Fixed, your interest rate and monthly payments (before taxes
+                    and insurance) won’t change, and you can buy a home with as
+                    little as 3% down.
+                  </li>
+                  <li class="text-muted">
+                    Don’t have a lot of credit history, or worried it’s not good
+                    enough? FHA loans have more lenient credit and income
+                    requirements, and your down payment can be as low as 3.5%.
+                  </li>
+                  <li class="text-muted">
+                    Think you’ll only be in a starter home for a few years? An
+                    adjustable rate mortgage gives you a low fixed interest rate –
+                    which means lower monthly payments – for the first few years
+                    of your mortgage.
+                  </li>
+                  <li class="text-muted">
+                    Are you a veteran or currently serving? You may qualify for a
+                    VA Loan and be able to buy a home with zero down.
+                  </li>
+                </ul>
+              </div> -->
+          </div>
+
+          <div class="border-bottom py-4 mb-4"></div>
+          <div class="flex-lg-row Mortgage-talk rounded flex-column">
+            <div class="mr-4">
+              <div class="small-box mb-3">
+                <img src="assets/images/support.png" />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-primary font-weight-normal mb-3">
+                Mortgage Rate Updates & Featured<br />
+                Mortgage Or
+                <span class="text-secondary">Request A Call Back Today</span>
+              </h3>
+              <button
+                type="submit"
+                class="btn btn-secondary text-uppercase text-white px-5 nav-link"
+              >
+                Talk Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

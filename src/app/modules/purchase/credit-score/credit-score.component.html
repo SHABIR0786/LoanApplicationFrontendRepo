@@ -1,0 +1,190 @@
+<!-- click next button in above section it will move to the section 29B -->
+<!-- section 29B starts -->
+<div class="main-content" *ngIf="number == 1">
+  <h2>You’re close! In order to proceed please agree to the following.</h2>
+  <div class="content-area">
+    <div class="row">
+      <div class="col-md-10">
+        <!-- <form action="" id="gov-details"> -->
+        <div class="radio-input-gov">
+          <div class="row">
+            <div class="col-md-12">
+              <input
+                type="checkbox"
+                class="form-style mb-0"
+                placeholder=""
+                [(ngModel)]="model.govAgree1"
+              />
+              <p>I certify the following</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input
+                type="checkbox"
+                class="form-style mb-0"
+                placeholder=""
+                [(ngModel)]="model.govAgree2"
+              />
+              <p>
+                I have read the eConsent disclosure &amp; understand that
+                communications will be provided electronically.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input
+                type="checkbox"
+                class="form-style mb-0"
+                placeholder=""
+                [(ngModel)]="model.govAgree3"
+              />
+              <p>
+                I have read the Third Party Consent Disclosure &amp; authorize
+                EZ Online Mortgage, to obtain from third parties any and all
+                verification information and documentation that they may
+                request.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- </form> -->
+      </div>
+    </div>
+  </div>
+  <div *ngIf="submitted" class="text-danger d-flex justify-content-center">
+    Please check all the options
+  </div>
+  <div
+    class="button-list margin-top"
+  >
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/purchase/gov/2" class="btn" id="btn-back">Back</a>
+      </div>
+      <div class="col-md-2">
+        <a class="btn" id="btn-next" (click)="onAgreeClick()">Next</a>
+        <!-- routerLink="/app/purchase/gov/4" -->
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- section 29B ends -->
+<!-- click next button and move to 29C section -->
+<!-- section 29C starts -->
+<div class="main-content" *ngIf="number == 2">
+  <h2>
+    Last Step! Credit confirmation! We’ll provide your credit scores along with
+    accurate rates and a pre-approval!
+  </h2>
+  <div class="button-list col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <!-- <select class="form-select form-style" [(ngModel)]="model.ssn">
+        <option>Social Security Number</option>
+      </select> -->
+    <form action="" id="ssn-details" #f4="ngForm">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Social Security Number"
+          [(ngModel)]="model.ssn"
+          name="ssn"
+          required
+          #ssnRef="ngModel"
+          (input)="inputSSN($event)"
+          id="ssn"
+          minlength="9"
+        />
+        <!-- <div *ngIf="submitted && !ssnRef.valid" class="text-danger d-flex">
+            Social Security Number is required
+        </div> -->
+
+        <div
+          *ngIf="submitted && !ssnRef.valid && ssnRef.errors?.minlength"
+          class="text-danger d-flex"
+        >
+          Please enter a valid 9 digit SSN.
+        </div>
+        <!-- </div> -->
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Confirm SSN"
+          [(ngModel)]="model.ssnConfirm"
+          name="ssnConfirm"
+          required
+          #ssnConfirmRef="ngModel"
+          (input)="inputSSN($event)"
+          id="ssn"
+          minlength="9"
+        />
+        <div
+          *ngIf="
+            submitted && !ssnConfirmRef.valid && ssnConfirmRef.errors?.minlength
+          "
+          class="text-danger d-flex"
+        >
+          Confirm SSN is required
+        </div>
+      </div>
+      <div class="form-group date-field">
+        <label>Birthdate</label>
+        <input
+          type="date"
+          class="form-control form-style mb-0"
+          placeholder="Birthdate"
+          [(ngModel)]="model.ssnBirthDay"
+          name="ssnBirthDay"
+          required
+          #ssnBirthDayRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !ssnBirthDayRef.valid"
+          class="text-danger d-flex"
+        >
+          Birthdate is required
+        </div>
+      </div>
+      <p class="credit-confirmation-text">
+        By Clicking “ Next” I authorize and consent to EZ Online Mortgage,
+        making inquiries into my credit as described under the Federal Fair
+        Credit Reporting Act(15 U.S.C., 1681 (a), et seq.). Please click here
+        for our full terms and conditions.
+      </p>
+
+      <div class="row">
+        <div class="col-md-3 offset-md-3">
+          <a routerLink="/app/purchase/credit-score/1" class="btn" id="btn-back"
+            >Back</a
+          >
+        </div>
+        <div class="col-md-2">
+          <a class="btn" id="btn-next" (click)="onFinalNext(f4, 3)">Next</a>
+          <!-- routerLink="/app/purchase/gov/5" -->
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- section 29C ends -->
+
+<!-- click next button on section 29C it will move to the final purchase page 30 purchase-credit-score30 -->
+<div class="main-content" *ngIf="number == 3">
+  <h2>Thanks for applying!</h2>
+  <div class="content-area">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="thanks">
+          We weren't able to find your credit history, but rest assured we have
+          received your application and are processing your <br />
+          information. Your loan officer will be reaching out to you soon!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

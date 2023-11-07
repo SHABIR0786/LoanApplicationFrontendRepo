@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="side-bar col-sm-2">
+    <app-admin-side-menu></app-admin-side-menu>
+  </div>
+  <div class="content col-sm-10">
+    <nav>
+      <div class="row p-0 m-0 show_nav_buttons">
+        <div class="col-6 float-left p-0 m-0">
+          <span
+            class="text_primary float-left border-primary rounded p-2 btn border-0 sidebar_show_btn sidebar_show_btn_active"
+            title="Show Sidebar"
+            [class.d_none_imp]="toggleSidebar == true"
+            id="showsidebar"
+            (click)="toggleSidebarFunc()"
+            ><i aria-hidden="true" class="fa fa-bars"></i
+          ></span>
+        </div>
+        <div class="col-6 float-right p-0 m-0">
+          <span
+            class="text_primary float-right border-primary rounded p-2 nav_bars_show nav_bars_show_active"
+            ><i aria-hidden="true" class="fa fa-angle-down"></i
+          ></span>
+        </div>
+      </div>
+      <div class="row" style="padding-top: 18px">
+        <div class="col-md-6 col-sm-12">
+          <div class="float-left">
+            <h4 class="welcome_text">
+              Welcome, <span class="UserName">{{ userName }}</span
+              ><span> !</span>
+            </h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="float-right buttons_nav">
+            <a href="javascript:void(0)" class="p-1 px-3 h5 nav_icon"
+              ><img src="../../../assets/img/admin_info.svg" alt=""
+            /></a>
+            <app-notification-dialog></app-notification-dialog>
+            <button
+              class="btn text-white nav_t_btn"
+              (click)="navigateToloanApplicationsList()"
+            >
+              Portfolio
+            </button>
+            <button
+              class="btn text-white nav_t_btn ml-3"
+              (click)="navigateToProfile()"
+            >
+              My Profile
+            </button>
+            <a
+              href="javascript:void(0)"
+              (click)="logOut()"
+              class="p-1 pl-3 h5 nav_icon"
+              ><img src="../../../assets/img/logout.svg"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <div class="divider my-2"></div>
+    </nav>
+    <div class="dashboard-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

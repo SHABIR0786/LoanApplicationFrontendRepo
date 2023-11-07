@@ -1,0 +1,49 @@
+#next {
+  width: 184px;
+  font-size: 20px;
+}
+
+#step {
+  width: 361px;
+  height: 56px;
+  font-size: 27px;
+  background-color: #e5e5e5 !important;
+  border: 0px !important;
+}
+
+#Back {
+  position: relative;
+  top: 182px;
+  right: 158px;
+  cursor: pointer;
+}
+#icon {
+  font-size: 26px;
+  position: relative;
+  top: 209px;
+  right: 189px;
+}
+
+#paragraph {
+  margin-top: 26px;
+  margin-left: -233px;
+  width: 212%;
+  font-size: 12px;
+}
+
+input {
+  width: 361px;
+  height: 56px;
+  font-size: 27px;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+#icon {
+  color: #f47741;
+}

@@ -1,0 +1,12 @@
+.est-date {
+  position: relative;
+}
+.est-date label {
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 6px;
+}
+.est-date input {
+  height: 55px;
+  padding-top: 20px;
+}

@@ -1,0 +1,52 @@
+<div class="main-content">
+  <h2>Are you already working with someone from EZ Online Mortgage?</h2>
+  <div class="button-list col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': isAlreadyWorking }"
+      (click)="alreadyworking(true)"
+    >
+      Yes
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': !isAlreadyWorking }"
+      (click)="alreadyworking(false)"
+    >
+      No
+    </button>
+    <form [formGroup]="form">
+      <div *ngIf="isAlreadyWorking">
+        <p>Who are you working with?</p>
+        <div>
+          <input
+            type="text"
+            class="form-control form-style"
+            name="loanOfficerId"
+            id="loanOfficerId"
+            formControlName="loanOfficerId"
+            required
+            [(ngModel)]="data.loanOfficerId"
+            placeholder="Select your Loan Officer"
+          />
+        </div>
+        <validation-summary
+          [control]="form.controls.loanOfficerId"
+        ></validation-summary>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary btn-next"
+        (click)="proceedToNext()"
+      >
+        Next
+      </button>
+    </form>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

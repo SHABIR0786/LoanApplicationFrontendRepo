@@ -1,0 +1,153 @@
+<div class="main-content">
+  <h2 class="little-space">Ok! We’s like to get to know you.</h2>
+  <h6>Please provide you full legal name.</h6>
+  <div
+    class="button-list margin-top col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12"
+  >
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control form-style"
+            name="firstName"
+            id="firstName"
+            formControlName="firstName"
+            required
+            [(ngModel)]="data.firstName"
+            placeholder="Legal First Name"
+          />
+          <validation-summary
+            [control]="form.controls.firstName"
+          ></validation-summary>
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control form-style"
+            name="middleName"
+            id="middleName"
+            formControlName="middleName"
+            required
+            [(ngModel)]="data.middleName"
+            placeholder="Middle Initial"
+          />
+          <validation-summary
+            [control]="form.controls.middleName"
+          ></validation-summary>
+        </div>
+      </div>
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="lastName"
+          id="lastName"
+          formControlName="lastName"
+          required
+          [(ngModel)]="data.lastName"
+          placeholder="Legal Last Name"
+        />
+        <validation-summary
+          [control]="form.controls.lastName"
+        ></validation-summary>
+      </div>
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="phoneNumber"
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          required
+          [(ngModel)]="data.phoneNumber"
+          placeholder="Phone Number"
+        />
+        <validation-summary
+          [control]="form.controls.phoneNumber"
+        ></validation-summary>
+      </div>
+      <div>
+        <input
+          type="email"
+          class="form-control form-style"
+          name="emailAddress"
+          id="emailAddress"
+          formControlName="emailAddress"
+          required
+          [(ngModel)]="data.emailAddress"
+          placeholder="Email Address"
+        />
+        <validation-summary
+          [control]="form.controls.emailAddress"
+        ></validation-summary>
+      </div>
+      <p>Have an account?</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="terms">
+            <p>
+              By entering phone number and clicking the "Next" button, you are
+              providing express written consent for EZ Online Mortgage. and its
+              affiliates, agents, and service providers to contact you at that
+              number regarding products or services, including via auto-dialed
+              and/or prerecorded or artificial voice calls and text messages
+              (SMS and MMS), or email even if your telephone number is a
+              cellular number or on a corporate, state, or the National Do Not
+              Call Registry <span class="orange-text">(DNC)</span> or other do
+              not contact list.
+            </p>
+
+            <p>
+              You may also reach us at
+              <span class="orange-text">(800) 930-8195</span> or by utilizing
+              our services at <span class="orange-text">Loan Options</span>. You
+              may opt-out at any time by emailing us a Do Not Call Request at
+              <span class="orange-text"
+                ><a href="">dnc@ezonlinemortgage.com</a></span
+              >
+              and providing your phone number. Your consent is not required or a
+              condition of any purchase. Message and data rates may apply.
+            </p>
+
+            <p>
+              You also consent to our
+              <span class="orange-text"
+                >SMS terms, Privacy Policy, Terms of Use,</span
+              >
+              and <span class="orange-text">CA Terms</span> of Use. By
+              communicating with us by phone you consent to calls being recorded
+              and monitored.
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <button
+          type="button"
+          class="btn"
+          id="btn-back"
+          (click)="proceedtoPrevious()"
+        >
+          Back
+        </button>
+      </div>
+      <div class="col-md-2">
+        <button
+          type="button"
+          class="btn"
+          id="btn-next"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

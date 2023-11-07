@@ -1,0 +1,24 @@
+@import url("../style.css");
+.slidecontainer {
+  font-size: 20px;
+  width: 50%;
+  justify-content: center;
+  margin-left: 25%;
+}
+.form-control {
+  height: 65px;
+  margin-top: 50px;
+  padding-left: 25px;
+}
+#myRange {
+  border: solid 1px #f47741;
+  border-radius: 8px;
+  height: 10px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+.estimate {
+  font-size: 25px;
+}

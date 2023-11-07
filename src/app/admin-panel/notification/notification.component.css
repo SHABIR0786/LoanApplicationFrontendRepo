@@ -1,0 +1,80 @@
+.contentt {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.top_heading {
+  color: #f47741;
+  font-size: 22px;
+  font-weight: 500;
+}
+.bold_text {
+  font-size: 14px;
+  font-weight: 500;
+}
+.contentt .new_text {
+  padding: 4px 8px;
+  background-color: #00cd6b;
+  font-size: 13px;
+  border-radius: 3px;
+}
+.main_heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+.orange_text {
+  color: #f47741;
+  font-size: 14px;
+  font-weight: 500;
+}
+.blue_text {
+  color: #0d2576;
+  font-size: 14px;
+  font-weight: 500;
+}
+.pink_text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fc346a;
+  margin-top: -22px;
+}
+
+.apply_btn {
+  background-color: #0d2576;
+  font-size: 12px;
+  font-weight: 500;
+}
+.hover_text p:hover {
+  background: #ffffff;
+  border: 1px solid #f3f2f2;
+  box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.03),
+    0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0227778),
+    0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0182222),
+    0px 20px 13px rgba(0, 0, 0, 0.015),
+    0px 8.14815px 6.51852px rgba(0, 0, 0, 0.0117778),
+    0px 1.85185px 3.14815px rgba(0, 0, 0, 0.00722222);
+  border-radius: 5px;
+  padding: 5px 9px;
+}
+
+.modal-header h1 {
+  font-size: 22px;
+  font-weight: 500;
+}
+.modal-header {
+  background-color: #0d2576;
+}
+.modal-header p {
+  font-size: 14px;
+}
+.modal-body h2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+.modal-body p {
+  font-size: 14px;
+  font-size: 500;
+}
+.orange_text {
+  color: #f47741;
+}

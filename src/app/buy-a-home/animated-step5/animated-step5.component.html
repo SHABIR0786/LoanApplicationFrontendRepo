@@ -1,0 +1,37 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="">Where is the property located?</h1>
+    <p>We'll get local information for you.</p>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0 pt-0">
+        <div class="px-0">
+          <select class="form-control input-special mb-3 w-100">
+            <option value="california">California</option>
+          </select>
+
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('California')"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p26 d-lg-flex d-none">
+      <span>26%</span>
+    </div>
+  </div>
+</div>

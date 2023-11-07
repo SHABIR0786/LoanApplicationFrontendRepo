@@ -1,0 +1,38 @@
+.carousel-slider-img {
+  position: relative;
+  background-size: 100% !important;
+  height: 500px !important ;
+}
+
+.carousel-slider-img::before {
+  background-color: #091a52;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.carousel.slide:focus {
+  outline: 0 !important;
+}
+
+.i-circle {
+  border-radius: 50%;
+  border: 1px solid grey;
+  padding: 9px;
+  width: 34px;
+  height: 34px;
+}
+@media screen and (min-width: 992px) {
+  .banner-jumbotron {
+    height: 615px !important;
+  }
+}
+#textDetail {
+  margin-top: -24px;
+}
+.jumb-button {
+  margin-top: -20px;
+}

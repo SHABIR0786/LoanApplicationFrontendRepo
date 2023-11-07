@@ -1,0 +1,88 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2 class="pb-5 font-weight-bold" style="font-size: 40px">
+      To the best of your knowledge, what’s most important to you?
+    </h2>
+    <!-- <p>TELL US WHAT YOU WANT TO DO</p> -->
+
+    <div class="row justify-content-center">
+      <div class="col-md-2 col-sm-0">
+        <div class="pt-5">
+          <span class="pt-3 cursor_pointer">
+            <i class="fa fa-angle-left" id="icon"></i>
+            <span id="Back" (click)="proceedToPrevious()" class="pl-1">
+              Back</span
+            >
+          </span>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="form-group mt-5">
+              <div
+                class="card cursor_pointer bg_transparent"
+                [class.selected]="
+                  formData.important_to_you == 'Lowest Interest Rate'
+                "
+                (click)="proceedToNext('Lowest Interest Rate')"
+              >
+                <div class="card-body">
+                  <!-- <i class="fa fa-home fa-5x"></i> -->
+                  <div class="lowest-interest-img"></div>
+
+                  <h5 class="mt-3">Lowest Interest Rate</h5>
+                  <!-- <p>BUY A HOME</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="form-group mt-5">
+              <div
+                class="card cursor_pointer bg_transparent"
+                [class.selected]="
+                  formData.important_to_you == 'Lowest Monthly Payment'
+                "
+                (click)="proceedToNext('Lowest Monthly Payment')"
+              >
+                <div class="card-body">
+                  <div class="dollar-bg-img"></div>
+
+                  <h5 class="mt-3" style="font-size: 16px; padding-top: 5px">
+                    Lowest Monthly Payment
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group mt-5">
+              <div
+                class="card cursor_pointer bg_transparent"
+                [class.selected]="
+                  formData.important_to_you == 'Shortest Loan Term'
+                "
+                (click)="proceedToNext('Shortest Loan Term')"
+              >
+                <div class="card-body">
+                  <div class="shortest-loan-img"></div>
+                  <h5 class="mt-3">Shortest Loan Term</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-0"></div>
+    </div>
+    <div class="pt-3 d-flex justify-content-center">
+      <div class="w-40">
+        <button id="button" class="box-fill" (click)="proceedToNext('Skipped')">
+          SKIP THIS STEP NEXT
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1>What type of property are you purchasing?</h1>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0">
+        <div class="px-0">
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Single Family Home')"
+            [class.selected]="formData.propertyType == 'Single Family Home'"
+          >
+            Single Family Home
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Multi-Family Home')"
+            [class.selected]="formData.propertyType == 'REFINANCE'"
+          >
+            REFINANCE
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Townhouse / Condo')"
+            [class.selected]="formData.propertyType == 'Townhouse / Condo'"
+          >
+            Townhouse / Condo
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block"
+            (click)="proceedToNext('Other')"
+            [class.selected]="formData.propertyType == 'Other'"
+          >
+            Other
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange d-lg-flex d-none">
+      <span>5%</span>
+    </div>
+  </div>
+</div>

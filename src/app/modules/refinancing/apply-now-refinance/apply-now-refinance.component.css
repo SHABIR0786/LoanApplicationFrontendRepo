@@ -1,0 +1,19 @@
+.contact-mortgage p {
+    color: #091A52;
+    text-align: center;
+    font-family: Avenir;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.contact-mortgage {
+    float: right;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    margin-bottom: 27px;
+}
+.contact-mortgage img {
+    margin-left: 120px;
+}

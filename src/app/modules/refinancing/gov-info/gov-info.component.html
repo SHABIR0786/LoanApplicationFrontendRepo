@@ -1,0 +1,593 @@
+<div class="main-content" *ngIf="number == 1">
+  <h2 class="little-space">
+    The U.S Government requires us to ask these questions.
+  </h2>
+  <div class="content-area">
+    <div class="row">
+      <div class="col-md-10">
+        <!-- <form action="" id="gov-details"> -->
+        <h6>What is your sex?</h6>
+        <div class="radio-input-gov">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="male"
+                name="sex"
+                class="form-style"
+                placeholder=""
+                [(ngModel)]="model.sex"
+                id="male"
+              />
+              <label for="male" class="radio-label">Male</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="female"
+                name="sex"
+                class="form-style"
+                placeholder=""
+                id="female2"
+              />
+              <label for="female2" class="radio-label">Female</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="other"
+                name="sex"
+                class="form-style"
+                placeholder=""
+                id="other3"
+              />
+              <label for="other3" class="radio-label"
+                >I do not wish to provide this information</label
+              >
+            </div>
+          </div>
+        </div>
+        <h6>What is your ethnicity? (Check one or more)</h6>
+        <div class="radio-input-gov">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="No Hispanic or Latino"
+                [(ngModel)]="model.ethnicity"
+                name="ethnicity"
+                class="form-style"
+                placeholder=""
+                id="ethnicity4"
+              />
+              <label for="ethnicity4" class="radio-label"
+                >No Hispanic or Latino</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="Hispanic or Latino"
+                [(ngModel)]="model.ethnicity"
+                name="ethnicity"
+                class="form-style"
+                placeholder=""
+                id="ethnicity5"
+              />
+              <label for="ethnicity5" class="radio-label"
+                >Hispanic or Latino</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="radio-input-gov-right">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="Maxican"
+                [(ngModel)]="model.ethnicity"
+                name="ethnicity"
+                class="form-style"
+                placeholder=""
+                id="Maxican"
+              />
+              <label for="Maxican" class="radio-label">Maxican</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="Puerto Rican"
+                [(ngModel)]="model.ethnicity"
+                name="ethnicity"
+                class="form-style"
+                placeholder=""
+                id="ethnicity8"
+              />
+              <label for="ethnicity8" class="radio-label">Puerto Rican</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="Cuban"
+                [(ngModel)]="model.ethnicity"
+                name="ethnicity"
+                class="form-style"
+                placeholder=""
+                id="Cuban"
+              />
+              <label for="Cuban" class="radio-label">Cuban</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                value="Other Hispanic or Latino"
+                [(ngModel)]="model.ethnicity"
+                name="ethnicity"
+                class="form-style"
+                placeholder=""
+                id="10ethnicity"
+              />
+              <label for="10ethnicity" class="radio-label"
+                >Other Hispanic or Latino</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-11">
+              <input
+                type="text"
+                class="form-style form-control"
+                placeholder="Enter Other Hispanic or Latino (Optional)"
+                value=""
+                name="ethnicity"
+                [(ngModel)]="model.ethnicity"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                [(ngModel)]="model.ethnicity"
+                placeholder=""
+                value="I do not wish to provide this information"
+                name="ethnicity"
+                id="11ethnicity"
+              />
+              <label for="11ethnicity" class="radio-label"
+                >I do not wish to provide this information</label
+              >
+            </div>
+          </div>
+        </div>
+        <h6>What is your race? (Check one or more)</h6>
+        <div class="radio-input-gov">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                [(ngModel)]="model.race"
+                value="American Indian or Alaska Native"
+                name="race"
+                id="12race"
+              />
+              <label for="12race" class="radio-label"
+                >American Indian or Alaska Native</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10">
+              <input
+                type="text"
+                class="form-style form-control"
+                placeholder="Enter Other Hispanic or Latino (Optional)"
+                [(ngModel)]="model.race"
+                value=""
+                name="race"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Asian"
+                name="race"
+                [(ngModel)]="model.race"
+                id="Asian1"
+              />
+              <label for="Asian1" class="radio-label">Asian</label>
+            </div>
+          </div>
+        </div>
+        <div class="radio-input-gov-right">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Asian Indian"
+                name="race"
+                [(ngModel)]="model.race"
+                id="18race"
+              />
+              <label for="18race" class="radio-label">Asian Indian</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Chinese"
+                name="race"
+                [(ngModel)]="model.race"
+                id="Chinese"
+              />
+              <label for="Chinese" class="radio-label">Chinese</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Filipino"
+                name="ethnicity"
+                [(ngModel)]="model.race"
+                id="Filipino"
+              />
+              <label for="Filipino" class="radio-label">Filipino</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Japanese"
+                name="race"
+                [(ngModel)]="model.race"
+                id="Japanese"
+              />
+              <label for="Japanese" class="radio-label">Japanese</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Korean"
+                name="race"
+                [(ngModel)]="model.race"
+                id="Korean"
+              />
+              <label for="Korean" class="radio-label">Korean</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Vietnamese"
+                name="race"
+                [(ngModel)]="model.race"
+                id="Vietnamese"
+              />
+              <label for="Vietnamese" class="radio-label">Vietnamese</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Other Asian"
+                name="race"
+                id="19race"
+                [(ngModel)]="model.race"
+              />
+              <label for="19race" class="radio-label">Other Asian</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-11">
+              <input
+                type="text"
+                class="form-style form-control"
+                placeholder="Enter Other Hispanic or Latino (Optional)"
+                value=""
+                name="race"
+                [(ngModel)]="model.race"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="radio-input-gov">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Native Hawalian or Other Pacific Islander"
+                name="race"
+                [(ngModel)]="model.race"
+                id="22race"
+              />
+              <label for="22race" class="radio-label"
+                >Native Hawaiian or Other Pacific Islander</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="radio-input-gov-right">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Native Hawalian"
+                name="race"
+                [(ngModel)]="model.race"
+                id="24race"
+              />
+              <label for="24race" class="radio-label">Native Hawaiian</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Guamanian or Chamorro"
+                name="race"
+                [(ngModel)]="model.race"
+                id="25race"
+              />
+              <label for="25race" class="radio-label"
+                >Guamanian or Chamorro</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Samoan"
+                name="race"
+                id="26race"
+                [(ngModel)]="model.race"
+              />
+              <label for="26race" class="radio-label">Samoan</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Other Pacific Islander"
+                name="race"
+                [(ngModel)]="model.race"
+                id="27race"
+              />
+              <label for="27race" class="radio-label"
+                >Other Pacific Islander</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-11">
+              <input
+                type="text"
+                class="form-style form-control"
+                placeholder="Enter Other Hispanic or Latino (Optional)"
+                value=""
+                name="race"
+                [(ngModel)]="model.race"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="radio-input-gov">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="Native Hawalian or Other Pacific Islander"
+                name="race"
+                id="28race"
+                [(ngModel)]="model.race"
+              />
+              <label for="28race" class="radio-label"
+                >Native Hawalian or Other Pacific Islander</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="White"
+                id="White"
+                name="race"
+                [(ngModel)]="model.race"
+              />
+              <label for="White" class="radio-label">White</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style"
+                placeholder=""
+                value="I do not wish to Provide this Information"
+                name="race"
+                id="29race"
+                [(ngModel)]="model.race"
+              />
+              <label for="29race" class="radio-label"
+                >I do not wish to Provide this Information</label
+              >
+            </div>
+          </div>
+        </div>
+        <p class="terms">
+          <span>The purpose of collecting this information</span> is to help
+          ensure that all applicants are treated fairly and that the housing
+          needs of communities and neighborhoods are being fulfilled. For
+          residential mortgage lending, Federal law requires that we ask
+          applicants for their demographic information (ethnicity, sex, and
+          race) in order to monitor our compliance with equal credit
+          opportunity, fair housing, and home mortgage disclosure laws. You are
+          not required to provide this information, but are encouraged to do so.
+          You may select one or more designations for <br />
+          "Ethnicity" and one or more designations for "Race."
+          <span>The law provides that we may not discriminate</span> on the
+          basis of this information, or on whether you choose to provide it.
+          However, if you choose not to provide the information and you have
+          made this application in person, Federal regulations require us to
+          note your ethnicity, sex, and race on the basis of visual observation
+          or surname. The law also provides that we may not discriminate on the
+          basis of age or marital status information you provide in this
+          application. If you do not wish to provide some or all of this
+          information, please check below.
+        </p>
+        <!-- </form> -->
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-list margin-top"
+  >
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a
+          routerLink="/app/refinance/assets-info/3"
+          class="btn"
+          id="btn-back-blue"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2">
+        <a class="btn" id="btn-next-blue" (click)="onGovClick()">Next</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<div class="main-content" *ngIf="number == 2">
+  <h2>Almost done! Just a few yes or no questions</h2>
+  <div class="yes-no-area" *ngFor="let x of questions">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="questions">
+          <p>{{ x.question }}?</p>
+        </div>
+      </div>
+      <div class="col-md-3 right-align">
+        <div class="answers">
+          <button
+            type="button"
+            class="btn"
+            id="btn-yes-no"
+            (click)="x.isYes = true; onQAns(x.id, true)"
+            [ngClass]="{ 'yes-no-active': x.isYes == true }"
+          >
+            Yes
+          </button>
+          <button
+            type="button"
+            class="btn"
+            id="btn-yes-no"
+            (click)="x.isYes = false; onQAns(x.id, false)"
+            [ngClass]="{ 'yes-no-active': x.isYes == false }"
+          >
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <select
+        style="width: 100%"
+        class="form-select form-style"
+        [(ngModel)]="model.citizenshipId"
+        style="width: 100%"
+      >
+        <option value="0" selected>-What is your citizenship status?-</option>
+        <option [value]="c.id" *ngFor="let c of cs">
+          {{ c?.citizenshipType1 }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    class="button-list margin-top"
+  >
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/refinance/gov/1" class="btn" id="btn-back-blue"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2">
+        <a
+          class="btn"
+          id="btn-next-blue"
+          (click)="abc('/app/refinance/credit-score/1'); saveStep()"
+          >Next</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

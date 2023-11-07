@@ -1,0 +1,407 @@
+<main>
+  <div class="container">
+    <section class="page-order-sec py-3 border-bottom-0">
+      <p class="border-bottom m-0 pb-3 text-primary">
+        Home<span class="text-muted ml-3 d-inline-block">
+          <i class="fa fa-angle-right"></i> Mortgage Calculator</span
+        >
+      </p>
+    </section>
+  </div>
+  <div class="container">
+    <section class="pb-2">
+      <h5 class="text-secondary">Know About</h5>
+      <h2 class="text-primary mb-2">Mortgage Calculator</h2>
+      <p>Calculate your monthly payment and review your loan options.</p>
+    </section>
+    <section class="pt-0">
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="mb-0 text-muted mt-5">Estimated Monthly Payment</p>
+          <h3 class="mb-4">${{ EstimatedMonthlyPayment | number }}</h3>
+          <figure class="highcharts-figure">
+            <div id="container"></div>
+          </figure>
+          <div class="d-flex justify-content-end pt-2 pb-5">
+            <a href="#" class="text-muted"
+              >Legal disclaimer
+              <img height="20" src="assets/images/info-2.png" class="ml-2"
+            /></a>
+          </div>
+          <div class="secondary-box text-center p-3">
+            <p>
+              Answer a few more questions and we'll customize your solution to
+              get you a more accurate estimate.
+            </p>
+            <button class="btn btn-secondary text-white text-uppercase">
+              APPLY FOR MORTGAGE
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-5 offset-sm-1">
+          <div class="form-group">
+            <label>Home price</label>
+            <input
+              type="text"
+              [(ngModel)]="form.principal"
+              (change)="HomePriceChanged()"
+              class="form-control homeprice-input pl-4"
+              mask="separator.2"
+              thousandSeparator=","
+            />
+            <span class="slide-value-usd">$</span>
+          </div>
+
+          <div class="form-group">
+            <label>Down payment mode</label>
+            <div class="checkbox-inline mr-2">
+              <label class="containercheck"
+                >Percentage
+                <input
+                  type="radio"
+                  [(ngModel)]="DownPaymentType"
+                  (input)="downPaymentTypeChanged($event.target.value)"
+                  value="percentage"
+                  name="downpayment"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="checkbox-inline">
+              <label class="containercheck"
+                >USD
+                <input
+                  type="radio"
+                  [(ngModel)]="DownPaymentType"
+                  (input)="downPaymentTypeChanged($event.target.value)"
+                  value="usd"
+                  name="downpayment"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <span
+                (click)="editDownPayment = !editDownPayment"
+                class="float-right text-muted cursor-pointer"
+                ><i class="fa fa-edit"></i> Edit</span
+              >
+            </div>
+            <div class="slidecontainer">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                (input)="downPaymentChanged($event.target.value)"
+                [value]="DownPaymentPercent"
+                value="50"
+                class="slider"
+                id="myRange"
+              />
+              <span class="text-secondary"
+                >{{ DownPaymentPercent }}% (${{ DownPaymentUSD }})</span
+              >
+            </div>
+            <div
+              class="form-group slider-value-form-group"
+              *ngIf="editDownPayment"
+            >
+              <input
+                type="text"
+                class="form-control pl-4"
+                (change)="downPaymentInputChanged($event.target.value)"
+                [(ngModel)]="DownPaymentInput"
+                id="slidervalue"
+                mask="separator.2"
+                thousandSeparator=","
+                name=""
+              />
+              <span
+                *ngIf="DownPaymentType == 'percentage'"
+                class="slide-value-percent"
+                >%</span
+              >
+              <span *ngIf="DownPaymentType == 'usd'" class="slide-value-usd"
+                >$</span
+              >
+            </div>
+            <div class="form-group mt-4">
+              <label>Loan term</label>
+              <button
+                type="button"
+                (click)="ChangeLoanTerm(5)"
+                class="btn btn-value"
+                [ngClass]="{ 'btn-value-filled': form.LoanTerm == 5 }"
+              >
+                5 yrs
+              </button>
+              <button
+                type="button"
+                (click)="ChangeLoanTerm(10)"
+                class="btn btn-value"
+                [ngClass]="{ 'btn-value-filled': form.LoanTerm == 10 }"
+              >
+                10 yrs
+              </button>
+              <button
+                type="button"
+                (click)="ChangeLoanTerm(15)"
+                class="btn btn-value"
+                [ngClass]="{ 'btn-value-filled': form.LoanTerm == 15 }"
+              >
+                15 yrs
+              </button>
+              <button
+                type="button"
+                (click)="ChangeLoanTerm(20)"
+                class="btn btn-value"
+                [ngClass]="{ 'btn-value-filled': form.LoanTerm == 20 }"
+              >
+                20 yrs
+              </button>
+              <button
+                type="button"
+                (click)="ChangeLoanTerm(25)"
+                class="btn btn-value"
+                [ngClass]="{ 'btn-value-filled': form.LoanTerm == 25 }"
+              >
+                25 yrs
+              </button>
+              <button
+                type="button"
+                (click)="ChangeLoanTerm(30)"
+                class="btn btn-value"
+                [ngClass]="{ 'btn-value-filled': form.LoanTerm == 30 }"
+              >
+                30 yrs
+              </button>
+            </div>
+            <div class="form-group">
+              <div class="d-flex justify-content-between">
+                <label>Interest rate</label>
+                <span
+                  class="float-right text-muted cursor-pointer"
+                  (click)="editInterestRate = !editInterestRate"
+                  ><i class="fa fa-edit"></i> Edit</span
+                >
+              </div>
+              <div class="slidecontainer">
+                <input
+                  type="range"
+                  min="1"
+                  (input)="valueChanged($event.target.value)"
+                  max="10"
+                  [value]="form.InterestRate"
+                  class="slider"
+                  id="myRange"
+                />
+                <span class="text-secondary"
+                  >{{ form.InterestRate }}% (${{ InterestRateUSD }})</span
+                >
+              </div>
+            </div>
+            <div
+              class="form-group slider-value-form-group mb-2"
+              *ngIf="editInterestRate"
+            >
+              <input
+                type="number"
+                class="form-control"
+                min="0"
+                max="10"
+                (change)="InterestRateChanged($event.target.value)"
+                [value]="form.InterestRate"
+                name=""
+              />
+              <span class="slide-value-percent">%</span>
+            </div>
+            <div class="form-group">
+              <label>Yearly property taxes</label>
+              <input
+                type="text"
+                [(ngModel)]="YearlyPropertyTaxes"
+                (change)="YearlyPropertyTaxesChanged()"
+                class="form-control homeprice-input"
+                name=""
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <span class="slide-value-usd">$</span>
+            </div>
+            <div class="form-group">
+              <label>Yearly homeowners insurance</label>
+              <input
+                type="text"
+                [(ngModel)]="YearlyHomeInsurance"
+                (change)="YearlyHomeOwnerInsuranceChanged()"
+                class="form-control homeprice-input"
+                name=""
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <span class="slide-value-usd">$</span>
+            </div>
+            <div class="form-group">
+              <label>Monthly homeowners association (HOA) fee?</label>
+              <input
+                type="text"
+                [(ngModel)]="MonthlyHOAFee"
+                (change)="MonthlyHomeOwnerAssociationHOAFeeChanged()"
+                class="form-control homeprice-input"
+                name=""
+                mask="separator.2"
+                thousandSeparator=","
+              />
+              <span class="slide-value-usd">$</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <img src="assets/images/coin-pic.png" class="img-fluid" />
+          </div>
+          <div class="col-sm-6 form-group">
+            <h3 class="text-primary font-weight-normal">
+              How much do I need to put down?
+            </h3>
+            <p class="text-muted">
+              A down payment of 20% or more helps you get a lower interest rate
+              and avoid paying private mortgage insurance. But you may not need
+              that much.
+            </p>
+            <ul class="arrow-list pl-20">
+              <li>
+                <a href="#">Fixed-rate conventional loans usually</a> require a
+                down payment of at least 3%
+              </li>
+              <li>
+                <a href="#">FHA loans</a> have a minimum down payment of 3.5%
+                whether you're getting a fixed or adjustable rate
+              </li>
+              <li>
+                <a href="#">VA loans</a> are available with no down payment for
+                veterans, ctive-duty military personnel and their families Keep
+                in mind that your minimum down payment may be higher if you're
+                buying a second home or an investment property.
+                <a href="#">Ask a Home Loan Expert about your options.</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="long-term text-center">
+    <span
+      class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block position-absolute"
+    >
+      <a href="#section-submit">
+        <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+      >
+    </span>
+
+    <div class="container mx-auto px-2 px-md-4">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3 text-center px-4">
+          <h3 class="text-white font-weight-normal pb-4">
+            Should I choose a long term or<br />
+            short term?
+          </h3>
+          <p class="text-white pb-4">
+            Your loan term represents the number of years over which you pay
+            back your loan. A shorter-term loan will generally have a lower
+            interest rate than a <br />
+            longer-term loan, meaning you'll pay less in interest over the life
+            of your loan. On the other hand, longer-term loans offer lower
+            monthly payments.
+          </p>
+          <button class="btn btn-secondary text-white text-uppercase">
+            APPLY FOR MORTGAGE
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="text-primary font-weight-normal">
+            What's included in my monthly<br />
+            payment?
+          </h3>
+          <p class="text-muted f14">
+            Your monthly mortgage payment is made up of principal and interest,
+            and that's what our calculator shows. The principal portion goes
+            toward paying off the total amount you've borrowed. The interest is
+            a percentage of the amount borrowed that you pay to your lender.
+          </p>
+          <a href="" class="text-uppercase text-secondary featanimbtn"
+            >Read more <i class="fas fa-long-arrow-alt-right ml-2"></i
+          ></a>
+        </div>
+        <div class="col-md-6">
+          <div class="loan-right">
+            <h3 class="text-primary font-weight-normal">
+              What factors determine my<br />
+              interest rate?
+            </h3>
+            <p class="text-muted f14">
+              Did you know that many factors affect your mortgage rate? Here are
+              just a few examples:
+            </p>
+            <ul class="text-muted arrow-list">
+              <li>Type of loan</li>
+              <li>Credit history</li>
+              <li>Loan amount</li>
+              <li>Down payment amount</li>
+            </ul>
+            <p class="text-muted f14">
+              In general, your interest rate is based on the level of risk that
+              lenders predict for your loan - that's why so many factors
+              contribute to your individual rate. On top of that,
+              <a href=""> mortgage rates</a> change daily based on market
+              trends.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rate-updates">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+          <div class="flex-lg-row Mortgage-talk rounded flex-column">
+            <div class="mr-4">
+              <div class="small-box mb-3">
+                <img src="assets/images/support.png" />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-primary font-weight-normal mb-3">
+                Mortgage Rate Updates & Featured<br />
+                Mortgage Or
+                <span class="text-secondary">Request A Call Back Today</span>
+              </h3>
+              <button
+                type="submit"
+                class="btn btn-secondary text-uppercase text-white px-5"
+              >
+                Talk Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

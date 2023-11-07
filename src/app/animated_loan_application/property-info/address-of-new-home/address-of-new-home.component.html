@@ -1,0 +1,91 @@
+<div class="main-content">
+  <h2>Congragulations! What’s the address of your new home?</h2>
+  <div class="button-list col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <form [formGroup]="form">
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="address"
+          id="address"
+          formControlName="address"
+          required
+          [(ngModel)]="data.address"
+          placeholder="Address"
+        />
+        <validation-summary
+          [control]="form.controls.address"
+        ></validation-summary>
+      </div>
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="unit"
+          id="unit"
+          formControlName="unit"
+          required
+          [(ngModel)]="data.unit"
+          placeholder="Apt / Unit"
+        />
+        <validation-summary [control]="form.controls.unit"></validation-summary>
+      </div>
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="city"
+          id="city"
+          formControlName="city"
+          required
+          [(ngModel)]="data.city"
+          placeholder="City or Town"
+        />
+        <validation-summary [control]="form.controls.city"></validation-summary>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <select
+            class="form-select form-style"
+            name="stateId"
+            id="stateId"
+            formControlName="stateId"
+            [(ngModel)]="data.stateId"
+          >
+            <option [ngValue]="state.id" *ngFor="let state of states">
+              {{ state.name }}
+            </option>
+          </select>
+          <validation-summary
+            [control]="form.controls.stateId"
+          ></validation-summary>
+        </div>
+        <div class="col-md-7">
+          <input
+            type="text"
+            class="form-control form-style"
+            name="zipCode"
+            id="zipCode"
+            formControlName="zipCode"
+            [(ngModel)]="data.zipCode"
+            placeholder="Zip Code"
+          />
+          <validation-summary
+            [control]="form.controls.zipCode"
+          ></validation-summary>
+        </div>
+      </div>
+    </form>
+    <button
+      type="button"
+      class="btn btn-primary btn-next"
+      (click)="proceedToNext()"
+    >
+      Next
+    </button>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.box-fill,
+.box-outline {
+  cursor: pointer;
+}
+.recommendedoption-title {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+.option-details {
+  margin: 10px 0px 10px 0px;
+}
+.option-details p {
+  padding: 0px;
+  margin: 0px;
+}
+.slide-value-usd {
+  margin-top: -33px;
+  float: left;
+  margin-left: 12px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

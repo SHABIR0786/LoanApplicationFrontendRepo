@@ -1,0 +1,85 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2>OK, now we’ll need an estimated purchase and down payment.</h2>
+    <div class="col-lg-4 pl-4">
+      <span class="pt-3 cursor_pointer">
+        <i class="fa fa-angle-left" id="icon"></i>
+        <span id="Back" (click)="proceedToPrevious()" class="pl-1"> Back</span>
+      </span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <form class="form" [formGroup]="form">
+          <div class="form-group mt-5">
+            <label
+              class="text-uppercase text-left text-orange"
+              style="padding-left: 20px; padding-bottom: 7px"
+              >Property Value</label
+            >
+            <input
+              class="form-control form-control-lg-next text-primary bg-white"
+              id="Property"
+              formControlName="estimatePrice"
+              placeholder="Estimate Price"
+              prefix="$"
+              [(ngModel)]="formData.estimatePrice"
+              (keyup)="percentChange()"
+              mask="separator.2"
+              thousandSeparator=","
+              maxlength="18"
+            />
+            <div
+              *ngIf="submitted && f.estimatePrice.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.estimatePrice.errors.required">
+                Enter Valid Amout.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mt-5 my-0">
+            <label
+              class="text-uppercase text-left text-orange"
+              style="padding-left: 20px; padding-bottom: 7px"
+              >Down Payment</label
+            >
+            <input
+              class="form-control form-control-lg-next text-primary bg-white"
+              id="Property1"
+              type="text"
+              formControlName="downPayment"
+              placeholder="Down Payment"
+              prefix="$"
+              [(ngModel)]="formData.downPayment"
+              (keyup)="percentChange()"
+              mask="separator.2"
+              thousandSeparator=","
+              maxlength="18"
+            />
+            <input
+              type="text"
+              class="slide-value-percent"
+              formControlName="downPaymentPercent"
+              (keyup)="downpaymentchange()"
+              [(ngModel)]="formData.downPaymentPercent"
+            />
+            <span class="percentsign">%</span>
+          </div>
+          <div
+            *ngIf="submitted && f.downPayment.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.downPayment.errors.required">Enter Valid Amout.</div>
+          </div>
+        </form>
+        <button
+          id="next"
+          class="btn btn-secondary text-uppercase mt-3 text-white btn-next rounded-2"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

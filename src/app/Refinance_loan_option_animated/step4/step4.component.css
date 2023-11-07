@@ -1,0 +1,138 @@
+#zip {
+  width: 315px;
+  height: 70px;
+  font-size: 32px;
+  font-weight: 300 !important;
+  background-color: #e5e5e5;
+}
+
+#next {
+  width: 170px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+h2 {
+  font-size: 40px;
+}
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.btn-blue {
+  background-color: #091a52;
+}
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 39%;
+  top: 150px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 39%;
+    top: 150px;
+  }
+  #zip {
+    width: 315px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 300 !important;
+    background-color: #e5e5e5;
+  }
+
+  #next {
+    width: 170px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 150px;
+  }
+  #zip {
+    width: 315px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 300 !important;
+    background-color: #e5e5e5;
+  }
+
+  #next {
+    width: 170px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+  #zip {
+    width: 365px;
+    height: 78px;
+    font-size: 42px;
+    font-weight: 300 !important;
+    background-color: #e5e5e5;
+  }
+
+  #next {
+    width: 200px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+  #zip {
+    width: 365px;
+    height: 78px;
+    font-size: 42px;
+    font-weight: 300 !important;
+    background-color: #e5e5e5;
+  }
+
+  #next {
+    width: 200px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+}

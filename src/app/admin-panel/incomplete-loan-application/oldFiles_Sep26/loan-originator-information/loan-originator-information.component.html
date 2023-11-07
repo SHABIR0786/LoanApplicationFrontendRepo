@@ -1,0 +1,352 @@
+<style>
+  :host/deep/.ui-inputtext {
+    margin: 0;
+    outline: medium none;
+    padding: 0.25em;
+    font-weight: normal;
+    border-bottom: 1px solid #000 !important;
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    width: 100% !important;
+  }
+  :host/deep/ input {
+    background-color: #e7e7e7 !important;
+    border-bottom: 1px solid #000 !important;
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+  }
+</style>
+<div>
+  <form
+    #loanOriginatorForm="ngForm"
+    (ngSubmit)="loanOriginatorForm.valid && create()"
+    class="w-full"
+  >
+    <h4 class="section-title">Loan Originator Information</h4>
+    <div class="info-block">
+      <p>To be completed by your <b>Loan Originator.</b></p>
+    </div>
+    <div class="form-block">
+      <div class="row gx-3 gy-2 mb-3 align-items-center">
+        <div class="col-12">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Loan Originator Organization Name</label
+          >
+          <div
+            class="input-group"
+            [ngClass]="{
+              error: loanOriginatorForm.submitted && organizationName.errors
+            }"
+            [ngClass]="{
+              error: organizationName.touched && organizationName.errors
+            }"
+          >
+            <div class="input-group-text">
+              Loan Originator Organization Name
+            </div>
+            <input
+              maxlength="50"
+              type="text"
+              class="form-control"
+              id="organizationName"
+              name="organizationName"
+              #organizationName="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.organizationName"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row gx-3 gy-2 mb-3 align-items-center">
+        <div class="col-12">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Address</label
+          >
+          <div
+            class="input-group"
+            [ngClass]="{
+              error: loanOriginatorForm.submitted && address.errors
+            }"
+            [ngClass]="{ error: address.touched && address.errors }"
+          >
+            <div class="input-group-text">Address</div>
+            <input
+              maxlength="50"
+              type="text"
+              class="form-control"
+              id="address"
+              name="address"
+              #address="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.address"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row gx-3 gy-2 mb-3 align-items-center">
+        <div class="col">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Loan Originator Organization NMLSR ID#</label
+          >
+          <div
+            class="input-group"
+            [ngClass]="{
+              error: loanOriginatorForm.submitted && organizationNmlsrId.errors
+            }"
+            [ngClass]="{
+              error: organizationNmlsrId.touched && organizationNmlsrId.errors
+            }"
+          >
+            <div class="input-group-text">
+              Loan Originator Organization NMLSR ID#
+            </div>
+            <p-inputMask
+              class="custom"
+              id="organizationNmlsrId"
+              name="organizationNmlsrId"
+              #organizationNmlsrId="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.organizationNmlsrId"
+              mask="9999 9999 9999 9999"
+              [required]="true"
+            ></p-inputMask>
+            <!-- <input
+              type="text"
+              class="form-control"
+              id="organizationNmlsrId" name="organizationNmlsrId"
+              #organizationNmlsrId="ngModel" [(ngModel)]="loanOriginatorInfoModels.organizationNmlsrId"
+            /> -->
+          </div>
+        </div>
+        <div class="col">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >State License ID#
+          </label>
+          <div
+            class="input-group"
+            [ngClass]="{
+              error:
+                loanOriginatorForm.submitted &&
+                organizationStateLicenceId.errors
+            }"
+            [ngClass]="{
+              error:
+                organizationStateLicenceId.touched &&
+                organizationStateLicenceId.errors
+            }"
+          >
+            <div class="input-group-text">State License ID#</div>
+            <p-inputMask
+              id="organizationStateLicenceId"
+              name="organizationStateLicenceId"
+              #organizationStateLicenceId="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.organizationStateLicenceId"
+              mask="9999 9999 9999 9999"
+              [required]="true"
+            ></p-inputMask>
+            <!-- <input
+              type="text"
+              class="form-control"
+              id="organizationStateLicenceId" name="organizationStateLicenceId"
+              #organizationStateLicenceId="ngModel" [(ngModel)]="loanOriginatorInfoModels.organizationStateLicenceId"
+            /> -->
+          </div>
+        </div>
+      </div>
+      <div class="row gx-3 gy-2 mb-3 align-items-center">
+        <div class="col-12">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Loan Originator Name
+          </label>
+          <div
+            class="input-group"
+            [ngClass]="{
+              error: loanOriginatorForm.submitted && originatorName.errors
+            }"
+            [ngClass]="{
+              error: originatorName.touched && originatorName.errors
+            }"
+          >
+            <div class="input-group-text">Loan Originator Name</div>
+            <input
+              maxlength="30"
+              type="text"
+              class="form-control"
+              id="originatorName"
+              name="originatorName"
+              #originatorName="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.originatorName"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row gx-3 gy-2 mb-3 align-items-center">
+        <div class="col">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Loan Originator NMLSR ID#</label
+          >
+          <div
+            class="input-group"
+            [ngClass]="{
+              error: loanOriginatorForm.submitted && originatorNmlsrId.errors
+            }"
+            [ngClass]="{
+              error: originatorNmlsrId.touched && originatorNmlsrId.errors
+            }"
+          >
+            <div class="input-group-text">Loan Originator NMLSR ID#</div>
+            <p-inputMask
+              id="originatorNmlsrId"
+              name="originatorNmlsrId"
+              #originatorNmlsrId="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.originatorNmlsrId"
+              mask="9999 9999 9999 9999"
+              [required]="true"
+            ></p-inputMask>
+            <!-- <input
+              type="text"
+              class="form-control"
+              id="originatorNmlsrId" name="originatorNmlsrId"
+              #originatorNmlsrId="ngModel" [(ngModel)]="loanOriginatorInfoModels.originatorNmlsrId"
+            /> -->
+          </div>
+        </div>
+        <div class="col">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >State License ID#
+          </label>
+          <div
+            class="input-group"
+            [ngClass]="{
+              error:
+                loanOriginatorForm.submitted && originatorStateLicenseId.errors
+            }"
+            [ngClass]="{
+              error:
+                originatorStateLicenseId.touched &&
+                originatorStateLicenseId.errors
+            }"
+          >
+            <div class="input-group-text">State License ID#</div>
+            <p-inputMask
+              id="originatorStateLicenseId"
+              name="originatorStateLicenseId"
+              #originatorStateLicenseId="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.originatorStateLicenseId"
+              mask="9999 9999 9999 9999"
+              [required]="true"
+            ></p-inputMask>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              id="originatorStateLicenseId" name="originatorStateLicenseId"
+              #originatorStateLicenseId="ngModel" [(ngModel)]="loanOriginatorInfoModels.originatorStateLicenseId"
+            /> -->
+          </div>
+        </div>
+      </div>
+      <div class="row gx-3 gy-2 mb-3 align-items-center">
+        <div class="col-sm-9">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Email
+          </label>
+          <div
+            class="input-group"
+            [ngClass]="{ error: loanOriginatorForm.submitted && email.errors }"
+            [ngClass]="{ error: email.touched && email.errors }"
+          >
+            <div class="input-group-text">Email</div>
+            <input
+              maxlength="50"
+              type="text"
+              class="form-control"
+              id="email"
+              name="email"
+              #email="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.email"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Phone</label
+          >
+          <div
+            class="input-group"
+            [ngClass]="{ error: loanOriginatorForm.submitted && phone.errors }"
+            [ngClass]="{ error: phone.touched && phone.errors }"
+          >
+            <div class="input-group-text">Phone</div>
+
+            <p-inputMask
+              id="phone"
+              name="phone"
+              #phone="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.phone"
+              mask="(999) 999-9999"
+              [required]="true"
+            ></p-inputMask>
+
+            <!-- <input  type="text"  class="form-control"  id="phone" name="phone"  #phone="ngModel" [(ngModel)]="loanOriginatorInfoModels.phone"/> -->
+          </div>
+        </div>
+      </div>
+      <div class="row gx-3 gy-2 align-items-center">
+        <div class="col-sm-8">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Signature
+          </label>
+          <div class="input-group">
+            <div class="input-group-text">Signature</div>
+            <input maxlength="50" type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <label class="visually-hidden" for="specificSizeInputGroupUsername"
+            >Date</label
+          >
+          <div
+            class="input-group"
+            [ngClass]="{ error: loanOriginatorForm.submitted && date.errors }"
+            [ngClass]="{ error: date.touched && date.errors }"
+          >
+            <div class="input-group-text">Date</div>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              name="date"
+              #date="ngModel"
+              [(ngModel)]="loanOriginatorInfoModels.date"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="row borrower-block">
+      <div class="col-sm-8">
+        <div class="input-group">
+          <div class="input-group-text">Borrower Name:</div>
+          <input
+            type="text"
+            maxlength="30"
+            style="background-color: white !important"
+            class="form-control"
+            id="specificSizeInputGroupUsername"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row text-right mt-5">
+      <div class="col-sm-12">
+        <button class="btn btn-fill" type="submit">Finish</button>
+      </div>
+    </div>
+  </form>
+</div>

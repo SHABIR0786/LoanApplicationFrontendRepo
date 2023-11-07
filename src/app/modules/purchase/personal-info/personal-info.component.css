@@ -1,0 +1,32 @@
+@import url("../../../../assets/new/css/main.css");
+.active {
+  background: #f47741 !important;
+  color: white !important;
+  border-color: orange !important;
+}
+.button-list p.edit-info {
+  font-size: 16px;
+  text-align: center;
+  color: #000;
+  padding: 20px 0px;
+}
+.password-details p,
+.terms p {
+  text-align: justify;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: normal;
+}
+.start-living-date {
+  position: relative;
+}
+.start-living-date label {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 9px;
+}
+.start-living-date input {
+  height: 50px;
+  padding-top: 22px !important;
+}

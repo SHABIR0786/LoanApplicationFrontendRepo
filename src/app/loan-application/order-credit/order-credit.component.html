@@ -1,0 +1,48 @@
+<section class="content px-2">
+  <div>
+    <div class="card my-5">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <h4>Credit Authorization Agreement</h4>
+            <p>You can agree, disagree or skip the eConsent agreement below.</p>
+            <div class="econsent-wrapper">
+              <p>
+                During your mortgage loan application process, this institution
+                performs a Credit Check that requires us to obtain and confirm
+                information regarding your personal and financial background.
+                This Credit Check includes, but is not limited to, your marital
+                status, number of dependents, current and past employers,
+                current deposit accounts, current and past consumer credit
+                accounts, and your mortgage and/or rental history.
+              </p>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="agreeCreditAuthAgreement"
+                [(ngModel)]="data.agreeCreditAuthAgreement"
+              />
+              <label class="form-check-label" for="agreeCreditAuthAgreement">
+                I accept the Credit Authorization Agreement.
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-secondary" (click)="proceedToPrevious()">
+              Back
+            </button>
+            <button
+              class="btn btn-secondary float-right"
+              (click)="proceedToNext()"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

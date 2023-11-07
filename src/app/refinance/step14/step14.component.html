@@ -1,0 +1,70 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="pb-5 font-weight-bold">
+      What is your gross annual household income?
+    </h1>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <div class="BTN">
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mt-4"
+            (click)="proceedToNext('Less than $20,000')"
+            [class.selected]="formData.houseHoldIncome == 'Less than $20,000'"
+          >
+            Less than $20,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('$20,000 - $50,000')"
+            [class.selected]="formData.houseHoldIncome == '$20,000 - $50,000'"
+          >
+            $20,000 - $50,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('$50,000 - $100,000')"
+            [class.selected]="formData.houseHoldIncome == '$50,000 - $100,000'"
+          >
+            $50,000 - $100,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('$100,000 - $200,000')"
+            [class.selected]="formData.houseHoldIncome == '$100,000 - $200,000'"
+          >
+            $100,000 - $200,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('$200,000+')"
+            [class.selected]="formData.houseHoldIncome == '$200,000+'"
+          >
+            $200,000+
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p68 mt-5 d-lg-flex d-none">
+      <span>74%</span>
+    </div>
+  </div>
+</div>

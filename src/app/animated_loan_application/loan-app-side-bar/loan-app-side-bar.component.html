@@ -1,0 +1,54 @@
+<section id="main-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="sidebar">
+          <h3 class="title">My Loan Application</h3>
+          <nav class="navbar navbar-expand-lg form-stat">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <ul>
+                  <li
+                    class="nav-item"
+                    [class.active]="item.isActive"
+                    *ngFor="let item of menuItems; let i = index"
+                  >
+                    <a
+                      class="nav-link text-nowrap"
+                      *ngIf="item.route && item.route.indexOf('http') != 0"
+                      (click)="NextRoute(item)"
+                      [class.bgcolor]="item.isBackgroundcolor"
+                      [class.active]="item.isActive"
+                    >
+                      <div class="circle">
+                        <span *ngIf="item.isBackgroundcolor && !item.isActive"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                      </div>
+                      <span class="label">{{ item.label }}</span>
+                      <div class="line" *ngIf="menuItems.length != i + 1"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

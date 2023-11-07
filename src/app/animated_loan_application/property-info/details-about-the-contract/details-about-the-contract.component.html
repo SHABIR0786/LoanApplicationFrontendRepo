@@ -1,0 +1,75 @@
+<div class="main-content">
+  <h2 class="little-space">Please give us a few details about your contract</h2>
+  <h6>
+    if you don’t know all the details, that’s okay. We can add those later.
+    <i class="fa-solid fa-circle-info"></i>
+  </h6>
+
+  <div class="button-list col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <form [formGroup]="form">
+      <input
+        type="date"
+        class="form-control form-style form-margin-top"
+        name="contractDate"
+        id="contractDate"
+        formControlName="contractDate"
+        required
+        [(ngModel)]="data.contractDate"
+        (change)="onChange($event)"
+      />
+      <p class="text-center">Do either of these apply to the property?</p>
+      <div class="radio-input">
+        <div class="row">
+          <div class="col-md-12">
+            <input
+              type="checkbox"
+              class="form-style"
+              id="newConstruction"
+              name="new-construction"
+              [(ngModel)]="data.newConstruction"
+              [ngModelOptions]="{ standalone: true }"
+              (change)="updatePropertyInformation('newConstruction')"
+              placeholder=""
+            />
+            <p>New construction</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <input
+              type="checkbox"
+              class="form-style"
+              id="bankOwned"
+              name="bankOwned"
+              [(ngModel)]="data.bankOwned"
+              [ngModelOptions]="{ standalone: true }"
+              (change)="updatePropertyInformation('bankOwned')"
+              placeholder=""
+            />
+            <p>Foreclosure / Bank Owned</p>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-lg-3 offset-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <button type="button" class="btn" id="btn-back">Back</button>
+      </div>
+      <div class="col-lg-2">
+        <button
+          type="button"
+          class="btn"
+          id="btn-next"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

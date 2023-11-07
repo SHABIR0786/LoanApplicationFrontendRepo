@@ -1,0 +1,97 @@
+<section class="pt-3">
+  <div class="container-fluid p-0">
+    <div class="all_content">
+      <h1 class="top_heading">My Loan Application # 1831091881</h1>
+      <div class="contentt p-4">
+        <h3 class="bold_text text-dark">
+          You have {{ notificationCount }}
+          <span class="new_text text-white">new</span> notifications for your
+          loan application.
+        </h3>
+        <h2 class="main_heading text-dark mb-3">Notification Inbox</h2>
+        <div class="row">
+          <div class="col-6">
+            <div class="hover_text">
+              <h3 class="bold_text text-dark mb-3">Notification Subject</h3>
+              <p
+                class="orange_text mb-2"
+                data-toggle="modal"
+                data-target="#exampleModal"
+                (click)="SelectedNotification(item)"
+                *ngFor="let item of notifications"
+              >
+                {{ item.Message }}
+              </p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="">
+              <h3 class="bold_text text-dark mb-3">Date Generated</h3>
+              <p class="simple_text" *ngFor="let item of notifications">
+                <!-- {{ item.date | date }} -->
+              </p>
+              <!-- <p class="simple_text">9/23/2021</p> -->
+            </div>
+          </div>
+        </div>
+
+        <p class="pink_text">
+          *Please click on the notification subject to view
+        </p>
+        <p class="simple_text">
+          <i class="fas fa-file-pdf"></i> if you need PDF viewer to download it.
+        </p>
+
+        <button
+          _ngcontent-nvv-c304=""
+          class="btn apply_btn text-white py-2 px-3 mt-3"
+        >
+          CLICK HERE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------------------MODAL----------------------------------- -->
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header px-4">
+          <div class="d-flex flex-column">
+            <h1 class="modal-title text-white mb-4" id="exampleModalLabel">
+              Request ID: {{ selectedNotification?.id }}
+            </h1>
+            <p class="text-white m-0">Property</p>
+          </div>
+          <!-- <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+        </div>
+        <div class="modal-body p-4">
+          <h2 class="mb-2 text-dark">{{ selectedNotification?.subject }}</h2>
+          <p class="text-dark">{{ selectedNotification?.content }}</p>
+          <p class="text-dark">
+            While you are working on your application, take time to understand
+            our <span class="orange_text">loan process</span> and get your
+            questions answered with our <span class="orange_text">FAQs.</span>
+          </p>
+          <p class="text-dark m-0">Sincerely,</p>
+          <p class="text-dark">EZ Online Mortgage</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ----------------------MODAL END-------------------------- -->
+</section>

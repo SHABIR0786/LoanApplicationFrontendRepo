@@ -1,0 +1,449 @@
+<main>
+  <section class="bg-section-light py-4 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1
+            class="display-3 heading-border font-weight-bold text-primary mb-2 mt-2"
+          >
+            Buying a Vacation
+            <br class="d-none d-sm-block" />
+            Home
+          </h1>
+          <h4 class="text-muted font-weight-normal pb-4">
+            Get away from the every-day routine with your perfect vacation
+            property. Find out how easy it can be to buy your beach or mountain
+            utopia. Don’t let these great rates on vacation home loans slip
+            away!
+          </h4>
+          <a
+            class="btn btn-secondary btn-lg ref-btn animbtn btn-animate"
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            role="button"
+            >pre - qualify now <i class="fas fa-long-arrow-alt-right"></i
+          ></a>
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+    </div>
+    <img
+      style="width: 40%"
+      class="special-img d-lg-block d-none"
+      src="assets/images/loan-img-4.png"
+      alt=""
+    />
+  </section>
+
+  <div class="container">
+    <section class="page-order-sec py-3 mb-5">
+      <a [routerLink]="['/app/home']" class="text-decoration-none">Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a [routerLink]="['/app/buying-home-guide']" class="text-decoration-none">
+        Buying a Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a
+        [routerLink]="['/app/buying-vacation-home']"
+        class="text-decoration-none"
+      >
+        Buying a Vacation Home
+      </a>
+    </section>
+  </div>
+
+  <div class="container text-justify mb-4">
+    <h5 class="text-secondary">Know About</h5>
+    <h2 class="font-weight-bold text-primary">Buying a Vacation Home</h2>
+    <p>
+      Reaching the point in your life when you can finally buy the vacation home
+      of your dreams can be an amazing accomplishment. At EZ Online Mortgage, we
+      can help you make this momentous experience as simple and straightforward
+      as possible! We specialize in helping hard-working people get the
+      California vacation homes they’ve always dreamed of owning, and we’d love
+      to do the same for you! Our experts have access to the lowest vacation
+      home mortgage rates and the most attractive terms available. <br />
+      When it comes to buying a vacation home and getting the right mortgage,
+      California residents can count on EZ Online Mortgage to handle it all!
+    </p>
+    <h2 class="font-weight-bold text-primary">
+      Second Home or Rental – We Make Vacation Home Loans Happen
+    </h2>
+    <p>
+      Whatever your reason for buying a vacation home, California is a great
+      place to do so! Whether you’re planning on using the property as a family
+      getaway or renting it out for additional income, our vacation home loans
+      are the ideal solution. <br />
+      All you need to do is contact us at EZ Online Mortgage and we’ll do the
+      rest!
+    </p>
+
+    <ng-container *ngIf="visible">
+      <div>
+        <p>
+          While you focus on checking out all the amazing vacation homes
+          California has to offer, our experts will be hard at work locating and
+          matching you with a mortgage for a vacation home that suits your needs
+          perfectly.
+        </p>
+
+        <p>
+          We’ll even act as your trusted liaison, handling all the details from
+          working with the realtor to setting up appraisals, to communicating
+          with potential lenders and whatever else it takes to get you into the
+          vacation home of your dreams! It’s that easy! Get a free rate quote
+          today to learn more.
+        </p>
+        <h2 class="font-weight-bold text-primary">
+          The Time to Act on Vacation Home Loans is Now
+        </h2>
+        <p>
+          At EZ Online Mortgage, we’re experts at understanding the housing
+          market. We know how to get you the best available vacation home
+          mortgage rates and negotiate loan terms that you can feel confident
+          about. If you’ve been thinking about buying a vacation home in
+          California, the time to do so is now.
+        </p>
+        <p>
+          Give us a call today and let us make owning your own vacation home a
+          reality for you!
+        </p>
+        <p>
+          Apply today or contact EZ Online Mortgage for a free, expert
+          consultation.
+        </p>
+        <p></p>
+      </div>
+    </ng-container>
+    <a
+      (click)="readmore()"
+      class="text-uppercase text-secondary featanimbtn"
+      role="button"
+    >
+      {{ ReadMore ? "Read
+        More" : "Read
+        Less" }}
+      <i class="fas fa-long-arrow-alt-right"></i>
+    </a>
+  </div>
+
+  <div class="container bg-section-light mb-4">
+    <h5 class="text-secondary text-center pt-5">Know About</h5>
+    <h3 class="font-weight-bold text-primary text-center">
+      Want To Explore Your Options?
+    </h3>
+    <div class="row px-5 py-5">
+      <div class="col-sm-6 mb-3">
+        <div class="pre-box">
+          <p class="text-white">
+            At EZ Online, you can apply for a mortgage right from your laptop.
+            Our simple online application lets you start and finish the process
+            at your convenience, whenever you are ready.You don't have to talk
+            to a loan officer--you can get our preliminary assessment of your
+            eligibility right away using our high-speed technology.
+          </p>
+          <a
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            style="text-decoration: none"
+          >
+            <button class="btn btn-primary text-white text-uppercase">
+              Apply Now
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="pre-box">
+          <p class="text-white">
+            If you would rather talk to a human than a computer,we
+            understand.While we use the fatest and most up-to-date technology
+            available,we also appreciate that a personal touch can sometime make
+            a difference. You can talk to our friendly loan officers to ask
+            about loan products and qualifications and ask all the question you
+            want.
+          </p>
+          <a
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            style="text-decoration: none"
+          >
+            <button class="btn btn-primary text-white text-uppercase">
+              Request a call <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="long-term text-center">
+    <span
+      class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block position-absolute"
+    >
+      <a href="#section-submit">
+        <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+      >
+    </span>
+
+    <div class="container mx-auto px-2 px-md-4">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="col-lg-8">
+          <video
+            id="my_video_1"
+            class="yimVideo video-js vjs-default-skin"
+            style="width: 100%; height: 368px"
+            height="368px"
+            controls
+            preload="none"
+            data-setup='{ "aspectRatio":"630:360", "playbackRates": [1, 1.5, 2] }'
+          >
+            <source
+              src="https://vjs.zencdn.net/v/oceans.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://vjs.zencdn.net/v/oceans.webm"
+              type="video/webm"
+            />
+          </video>
+        </div>
+        <img
+          class="img-fluid img-poster"
+          (click)="playVideo()"
+          style="
+            position: absolute;
+            width: 794px;
+            height: 368px;
+            cursor: pointer;
+          "
+          src="assets/images/videoThumbnail.png"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h5 class="text-secondary">Know About</h5>
+      <h2 class="text-primary">FAQ’s</h2>
+      <div
+        class="panel-group faq-panel"
+        id="accordion"
+        role="tablist"
+        aria-multiselectable="true"
+      >
+        <div class="panel panel-default">
+          <div class="panel-heading border-0" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a
+                class="text-primary collapsed"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                Does Pre-approval mean I am guaranteed to get a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseOne"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingOne"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Not necessarily. Pre-approval is a thorough investigation of
+                your application for a mortgage loan. The result (if successful)
+                will be a letter that indicates you are qualified for a mortgage
+                at the amount you have requested. That doesn't always mean you
+                will get final approval for the mortgage. Lots of other factors
+                impact the mortgage approval process—the value of the home is
+                key, as well as potential changes to your credit or employment
+                status between pre-approval and final determination.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                How can I improve my chances of getting approved?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseTwo"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingTwo"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Great question. One smart move is to check your credit reports
+                before you start the application. If there is any incorrect
+                information, you can begin the process of getting it resolved.
+                Also, don’t open or close any credit accounts if you can avoid
+                it—those actions can cause a temporary decrease in your score.
+                The other thing that helps is to give us as much information as
+                possible—fill out everything completely.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                What are points on a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseThree"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingThree"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A point on a loan is a price the borrower pays to lower the
+                interest rate. A lender may offer a loan with a specific
+                interest rate and a one-point fee. The "point" equals one
+                percent of the loan total, paid in advance. It might make sense
+                to pay the point to bring down the interest rate, especially if
+                you plan to remain in the home over a long period.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                Are interest rates and points the only things to consider when
+                choosing a lender?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFour"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFour"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                No. There are numerous factors to evaluate when choosing your
+                lender. Reputation is essential, and the costs of applying and
+                completing the mortgage process. Also, look out for questionable
+                practices like pre-payment penalties, which means the lender
+                will charge you a fee if you pay the loan off early or
+                refinance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                How do I get a rate lock?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFive"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFive"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A rate lock promises that the lender can complete the processing
+                of your loan with the interest rate and points available on a
+                particular day. The "lock" is valid for a period of time—usually
+                30 or 60 days. Sometimes you can lock in the rate just by asking
+                while you navigate through the approval process. Depending on
+                the loan program, you might have to pay a fee to guarantee the
+                rate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- panel-group -->
+    </div>
+  </section>
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/monitor.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Apply Now</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/smartphone-call.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Start Online</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/messaging.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Chat Now</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

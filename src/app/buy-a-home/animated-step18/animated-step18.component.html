@@ -1,0 +1,55 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="pb-5">What is your phone number?</h1>
+    <p class="co-borrower">
+      You adhere to a strict privacy policy and will never sell your
+      information.
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p (click)="proceedToPrevious()" class="fa fa-angle-left">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0">
+        <div class="BTN px-0">
+          <form [formGroup]="form">
+            <div id="first_name">
+              <h3 style="width: 212px; font-size: 20px">Your Mobile Number*</h3>
+              <input
+                type="text"
+                id="Fn"
+                #phone
+                placeholder="Enter Your Mobile  Number "
+                [(ngModel)]="formData.phoneNumber"
+                appPhoneMask
+                formControlName="phone"
+                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+              />
+              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">
+                  Enter Valid PhoneNumber.
+                </div>
+              </div>
+            </div>
+          </form>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3 mt-3"
+            (click)="proceedToNext()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p89 mt-5 d-lg-flex d-none">
+      <span>95%</span>
+    </div>
+  </div>
+</div>

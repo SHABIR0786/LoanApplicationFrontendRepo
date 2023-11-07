@@ -1,0 +1,1267 @@
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+  font-family: "Avenir";
+  color: #091a52;
+}
+.wrapper {
+  padding-top: 0px;
+  margin: 0 auto;
+}
+.right-content {
+  text-align: left;
+  padding-top: 30px;
+  font-family: "Avenir";
+  font-size: 20px;
+  font-weight: 600;
+}
+.tel-contact {
+  display: inline-block;
+  width: 194px;
+  padding: 0px 10px;
+}
+.email-contact {
+  display: inline-block;
+  width: 140px;
+  padding: 0px 0px 0px 20px;
+}
+.right-content img {
+  float: left;
+}
+.right-content a {
+  text-decoration: none;
+  color: #091a52;
+}
+.right-content a:hover {
+  color: #091a52;
+}
+.title {
+  color: #091a52;
+  font-size: 24px;
+  font-family: "Avenir";
+  font-weight: 600;
+  position: absolute;
+  margin-left: 70px;
+  margin-top: 13px;
+}
+.sidebar {
+  padding: 20px 10px;
+  font-size: 20px;
+  font-family: "Avenir";
+  color: #091a52;
+}
+.form-stat {
+  padding-top: 20px;
+}
+.form-stat ul {
+  list-style: none;
+  padding: 0%;
+}
+.form-stat ul li {
+  text-transform: none;
+  padding: 0px 0px;
+}
+.form-stat ul li img {
+  margin: 5px 0px 10px 18px;
+}
+
+.form-stat ul li i {
+  color: #e4e4e4;
+  font-size: 40px;
+}
+.form-stat ul li:first-child i {
+  color: #f47741;
+  font-size: 40px;
+}
+.form-stat ul li:first-child i.fa-circle-check {
+  color: #52c41a;
+  font-size: 40px;
+}
+.form-stat ul li .active {
+  color: #52c41a;
+  font-size: 40px;
+  font-weight: 600;
+}
+.form-stat ul li:first-child span {
+  font-weight: 600;
+}
+.form-stat ul li .yes {
+  color: #f47741;
+  font-size: 40px;
+}
+.form-stat ul li span {
+  vertical-align: super;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 0px 0px 0px 20px;
+}
+.main-content {
+  text-align: center;
+  padding: 30px 15px;
+  color: #091a52;
+}
+.main-content h2 {
+  font-size: 28px;
+  font-family: "Avenir";
+  font-weight: 500;
+  padding-bottom: 40px;
+}
+.main-content h4 {
+  font-size: 20px;
+  color: #091a52;
+  padding-bottom: 50px;
+}
+.main-content .form-style {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #e7e7e7;
+  color: #a5a5a5;
+  font-size: 16px;
+  font-family: "Avenir";
+}
+.main-content .margin-top {
+  margin-top: 45px;
+}
+.button-list .terms p {
+  font-size: 16px;
+  padding: 5px 0px;
+  color: #000;
+  text-align: justify;
+}
+.orange-text {
+  color: #f47741;
+  text-decoration: underline;
+}
+.orange-text a {
+  color: #f47741;
+}
+.main-content .padding-left {
+  padding-left: 10px;
+}
+.main-content .padding-right {
+  padding-right: 10px;
+}
+.main-content .form-half-right {
+  padding: 10px;
+  border-radius: 0px 8px 8px 0px;
+  margin-bottom: 20px;
+  background-color: #e7e7e7;
+  color: #a5a5a5;
+  font-size: 16px;
+  font-family: "Avenir";
+}
+.main-content .form-half-left {
+  padding: 10px;
+  border-radius: 8px 0px 0px 8px;
+  margin-bottom: 20px;
+  background-color: #e7e7e7;
+  color: #a5a5a5;
+  font-size: 16px;
+  font-family: "Avenir";
+}
+
+.form-margin-top {
+  margin: 50px 0px;
+}
+.text-center {
+  text-align: center;
+  margin-top: 30px;
+}
+.main-content .little-space {
+  padding: 0px 0px;
+  padding-bottom: 50px;
+}
+.main-content .tiny-space {
+  padding: 0px 0px;
+  padding-bottom: 50px;
+}
+.main-content .narrow-space {
+  padding: 0px 15px;
+  padding-bottom: 20px;
+}
+.main-content .narrow-padding {
+  padding: 0px 25px;
+  padding-bottom: 20px;
+}
+.button-list {
+  margin: 0 auto;
+}
+.button-list p {
+  font-size: 22px;
+  text-align: left;
+  font-weight: 600;
+}
+.button-list > .btn-style {
+  width: 300px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #091a52;
+  border: #091a52 1px solid;
+}
+.button-list > .btn-next {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 5px 35px;
+  border-radius: 10px;
+  background-color: #f47741;
+  border: 0px;
+}
+.button-list > .btn-next:hover {
+  background-color: #f47741;
+  color: #fff;
+}
+#btn-back {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 5px 35px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #091a52;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+#btn-back:hover {
+  background-color: #f47741;
+  color: #fff;
+  border: 1px solid #f47741;
+}
+#btn-next {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 5px 35px;
+  border-radius: 10px;
+  background-color: #f47741;
+  border: 1px solid #f47741;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+#btn-next:hover {
+  background-color: #f47741;
+  color: #fff;
+}
+#btn-edit {
+  font-size: 16px;
+  padding: 4px 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #091a52;
+  color: #091a52;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+  opacity: 50%;
+}
+.profile-details {
+  margin-top: 20px;
+}
+.profile-details p {
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+  line-height: 27px;
+  color: #000;
+}
+.button-list > .btn-active {
+  background-color: #f47741;
+  color: #fff;
+  border-color: #f47741;
+}
+.button-list > .btn-style:hover {
+  background-color: #f47741;
+  color: #fff;
+  border-color: #f47741;
+}
+.button-list > .btn-style:focus {
+  background-color: #091a52;
+}
+.radio-input {
+  text-align: left;
+  margin: 25px;
+  padding: 0px 50px;
+}
+.radio-input .form-style {
+  float: left;
+  margin-top: 7px;
+  padding: 10px;
+}
+.radio-input p {
+  font-size: 20px;
+  font-weight: 100;
+  margin-left: 16px;
+  padding-left: 10px;
+  font-family: "Avenir";
+}
+.radio-input input {
+  font-size: 25px;
+}
+.radio-input-gov {
+  text-align: left;
+  margin-top: 15px;
+}
+.radio-input-gov .form-style {
+  float: left;
+  margin-top: 9px;
+  padding: 10px;
+}
+.radio-input-gov p {
+  font-size: 20px;
+  font-weight: 100;
+  margin-left: 16px;
+  padding-left: 10px;
+  font-family: "Avenir";
+}
+.radio-input-gov input {
+  font-size: 25px;
+}
+.radio-input-gov-right {
+  text-align: left;
+  margin-left: 25px;
+}
+.radio-input-gov-right .form-style {
+  float: left;
+  margin-top: 7px;
+  padding: 10px;
+}
+.radio-input-gov-right p {
+  font-size: 20px;
+  font-weight: 100;
+  margin-left: 16px;
+  padding-left: 10px;
+  font-family: "Avenir";
+}
+.radio-input-gov-right input {
+  font-size: 25px;
+}
+.content-footer {
+  margin-top: 10px;
+}
+.content-footer h5 {
+  font-size: 18px;
+}
+.content-footer p {
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+.content-footer p a {
+  color: #f47741;
+  font-weight: 600;
+}
+.content-footer span {
+  color: #f47741;
+}
+.support-area {
+  text-align: right;
+  font-size: 16px;
+  color: #091a52;
+  font-family: "Avenir";
+}
+.content-area {
+  text-align: center;
+  padding: 0px 0px;
+}
+.right-align {
+  text-align: center;
+}
+.content-area h6 {
+  font-size: 22px;
+  font-family: "Avenir";
+}
+
+#padding-zero {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.password-details p {
+  font-size: 16px;
+  color: #000;
+  margin-top: -15px;
+}
+.button-list p a {
+  text-decoration: underline;
+  color: #f47741;
+  font-size: 18px;
+}
+#main-body .main-content .margin-top {
+  margin-top: 25px;
+}
+#main-body .main-content .extra-margin {
+  margin-top: 50px;
+}
+.padding-fifteen {
+  padding: 0px 15px;
+}
+#padding-up {
+  padding: 12px 0px;
+}
+#main-body .main-content .margin-left {
+  margin-left: 0px;
+}
+#btn-minus,
+#btn-plus {
+  border: 1px solid #091a52;
+  border-radius: 8px;
+  font-size: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: 7px;
+}
+#btn-rent {
+  border: 1px solid #091a52;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-top: 7px;
+  color: #000;
+  font-family: "Avenir";
+  padding: 10px 13px;
+}
+#main-body .main-content .margin-right-btn {
+  margin-right: -12px;
+}
+.seperator-line {
+  width: 100%;
+  height: 1px;
+  background-color: #c4c4c4;
+  opacity: 50%;
+  margin: 35px 0px;
+}
+.yes-no-area {
+  text-align: justify;
+  vertical-align: middle;
+  list-style: none;
+}
+.yes-no-area p {
+  font-size: 18px;
+  font-family: "Avenir";
+}
+#btn-yes-no {
+  font-size: 16px;
+  padding: 6px 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #091a52;
+  color: #091a52;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+  margin-right: 5px;
+}
+#btn-yes-no:hover {
+  background-color: #f47741;
+  color: #fff;
+  border: 1px solid #f47741;
+}
+.questions {
+  margin: 10px 0px;
+}
+.answers {
+  margin: 10px 0px;
+}
+.thanks {
+  font-size: 22px;
+}
+#gov-details {
+  margin-left: 15px;
+}
+#gov-details h6 {
+  margin-top: 10px;
+  font-weight: 600;
+}
+.terms {
+  color: #000;
+}
+.terms span {
+  font-weight: 600;
+}
+
+/*
+ * Hafiz's CSS start
+ */
+
+h2.pb-5.font-weight-bold {
+  font-size: 50px;
+  padding-bottom: 10px !important;
+}
+
+.form-group.mt-5 {
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+}
+.form-group.mt-5 .card {
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.row.justify-content-center.pt-5.mt-5 {
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
+
+/*
+ * Hafiz's CSS End
+ */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   Media Queries for Responsive Design.
+   These Rules override the primary ('mobile first') styles.
+   ========================================================================== */
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .profile-details p {
+    line-height: 30px;
+  }
+  .main-content .little-space {
+    padding: 0px 50px;
+    padding-bottom: 50px;
+  }
+  .main-content .padding-left {
+    padding-left: 0px;
+  }
+  .main-content .padding-right {
+    padding-right: 0px;
+  }
+  .button-list > .btn-style {
+    width: 361px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #091a52;
+    border: #091a52 1px solid;
+  }
+  .profile-details p {
+    font-size: 16px;
+    font-family: "Avenir";
+    font-weight: 100;
+    line-height: 7px;
+    color: #000;
+  }
+  .button-list > .btn-active {
+    background-color: #f47741;
+    color: #fff;
+    border-color: #f47741;
+  }
+  .main-content .tiny-space {
+    padding: 0px 125px;
+    padding-bottom: 50px;
+  }
+  #main-body .main-content .margin-left {
+    margin-left: 25px;
+  }
+  .main-content .narrow-space {
+    padding: 0px 60px;
+    padding-bottom: 20px;
+  }
+  #main-body .main-content .margin-right-btn {
+    margin-right: 8px;
+  }
+  .content-area {
+    text-align: left;
+    padding: 0px 0px;
+  }
+  .right-align {
+    text-align: right;
+  }
+  .main-content .narrow-padding {
+    padding: 0px 76px;
+    padding-bottom: 20px;
+  }
+  .main-content {
+    text-align: center;
+    padding: 30px 0px;
+    color: #091a52;
+  }
+  .yes-no-area p {
+    font-size: 18px;
+    font-family: "Avenir";
+  }
+  .content-footer h5 {
+    font-size: 20px;
+  }
+  .main-content h2 {
+    font-size: 28px;
+    font-family: "Avenir";
+    font-weight: 500;
+    padding-bottom: 40px;
+  }
+  .title {
+    color: #091a52;
+    font-size: 24px;
+    font-family: "Avenir";
+    font-weight: 600;
+    position: inherit;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  .right-content {
+    text-align: right;
+    padding-top: 30px;
+    font-family: "Avenir";
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .sidebar {
+    padding: 30px 0px;
+    font-size: 20px;
+    font-family: "Avenir";
+    color: #091a52;
+  }
+  /*
+ * Hafiz's CSS start
+ */
+
+  h2.pb-5.font-weight-bold {
+    font-size: 50px;
+    padding-bottom: 10px !important;
+  }
+  .wrapper {
+    padding-top: 0px;
+    margin: 0 auto;
+  }
+  .form-group.mt-5 {
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  .form-group.mt-5 .card {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+
+  .row.justify-content-center.pt-5.mt-5 {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  /*
+ * Hafiz's CSS End
+ */
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .profile-details p {
+    line-height: 30px;
+  }
+  .main-content .little-space {
+    padding: 0px 5px;
+    padding-bottom: 50px;
+  }
+  .main-content .padding-left {
+    padding-left: 0px;
+  }
+  .main-content .padding-right {
+    padding-right: 0px;
+  }
+  .button-list > .btn-style {
+    width: 361px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #091a52;
+    border: #091a52 1px solid;
+  }
+  .profile-details p {
+    font-size: 16px;
+    font-family: "Avenir";
+    font-weight: 100;
+    line-height: 24px;
+    color: #000;
+  }
+  .button-list > .btn-active {
+    background-color: #f47741;
+    color: #fff;
+    border-color: #f47741;
+  }
+  .main-content .tiny-space {
+    padding: 0px 0px;
+    padding-bottom: 50px;
+  }
+  #main-body .main-content .margin-left {
+    margin-left: 25px;
+  }
+  .main-content .narrow-space {
+    padding: 0px 5px;
+    padding-bottom: 20px;
+  }
+  #main-body .main-content .margin-right-btn {
+    margin-right: 8px;
+  }
+  .content-area {
+    text-align: left;
+    padding: 0px 0px;
+  }
+  .right-align {
+    text-align: right;
+  }
+  .main-content .narrow-padding {
+    padding: 0px 35px;
+    padding-bottom: 20px;
+  }
+  .main-content {
+    text-align: center;
+    padding: 30px 0px;
+    color: #091a52;
+  }
+  .yes-no-area p {
+    font-size: 22px;
+    font-family: "Avenir";
+  }
+  .content-footer h5 {
+    font-size: 20px;
+  }
+  .main-content h2 {
+    font-size: 28px;
+    font-family: "Avenir";
+    font-weight: 500;
+    padding-bottom: 40px;
+  }
+  .title {
+    color: #091a52;
+    font-size: 24px;
+    font-family: "Avenir";
+    font-weight: 600;
+    position: inherit;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  .right-content {
+    text-align: right;
+    padding-top: 30px;
+    font-family: "Avenir";
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .sidebar {
+    padding: 30px 0px;
+    font-size: 20px;
+    font-family: "Avenir";
+    color: #091a52;
+  }
+  /*
+ * Hafiz's CSS start
+ */
+
+  h2.pb-5.font-weight-bold {
+    font-size: 50px;
+    padding-bottom: 10px !important;
+  }
+  .wrapper {
+    padding-top: 0px;
+    margin: 0 auto;
+  }
+  .form-group.mt-5 {
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  .form-group.mt-5 .card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .row.justify-content-center.pt-5.mt-5 {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  /*
+ * Hafiz's CSS End
+ */
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .profile-details p {
+    line-height: 7px;
+  }
+  .main-content .little-space {
+    padding: 0px 50px;
+    padding-bottom: 50px;
+  }
+  .main-content .padding-left {
+    padding-left: 0px;
+  }
+  .main-content .padding-right {
+    padding-right: 0px;
+  }
+  .button-list > .btn-style {
+    width: 361px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #091a52;
+    border: #091a52 1px solid;
+  }
+  .profile-details p {
+    font-size: 16px;
+    font-family: "Avenir";
+    font-weight: 100;
+    line-height: 7px;
+    color: #000;
+  }
+  .button-list > .btn-active {
+    background-color: #f47741;
+    color: #fff;
+    border-color: #f47741;
+  }
+  .main-content .tiny-space {
+    padding: 0px 125px;
+    padding-bottom: 50px;
+  }
+  #main-body .main-content .margin-left {
+    margin-left: 25px;
+  }
+  .main-content .narrow-space {
+    padding: 0px 60px;
+    padding-bottom: 20px;
+  }
+  #main-body .main-content .margin-right-btn {
+    margin-right: 8px;
+  }
+  .content-area {
+    text-align: left;
+    padding: 0px 40px;
+  }
+  .right-align {
+    text-align: right;
+  }
+  .main-content .narrow-padding {
+    padding: 0px 76px;
+    padding-bottom: 20px;
+  }
+  .main-content {
+    text-align: center;
+    padding: 30px 0px;
+    color: #091a52;
+  }
+  .yes-no-area p {
+    font-size: 22px;
+    font-family: "Avenir";
+  }
+  .content-footer h5 {
+    font-size: 20px;
+  }
+  .main-content h2 {
+    font-size: 36px;
+    font-family: "Avenir";
+    font-weight: 500;
+    padding-bottom: 50px;
+  }
+  .title {
+    color: #091a52;
+    font-size: 24px;
+    font-family: "Avenir";
+    font-weight: 600;
+    position: inherit;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  .right-content {
+    text-align: right;
+    padding-top: 30px;
+    font-family: "Avenir";
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .sidebar {
+    padding: 30px 0px;
+    font-size: 20px;
+    font-family: "Avenir";
+    color: #091a52;
+  }
+  /*
+ * Hafiz's CSS start
+ */
+
+  h2.pb-5.font-weight-bold {
+    font-size: 100px;
+    padding-bottom: 1em !important;
+  }
+  .wrapper {
+    padding-top: 35px;
+    margin: 0 auto;
+  }
+  .form-group.mt-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .form-group.mt-5 .card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .row.justify-content-center.pt-5.mt-5 {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  /*
+ * Hafiz's CSS End
+ */
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .profile-details p {
+    line-height: 7px;
+  }
+  .main-content .little-space {
+    padding: 0px 50px;
+    padding-bottom: 50px;
+  }
+  .main-content .padding-left {
+    padding-left: 0px;
+  }
+  .main-content .padding-right {
+    padding-right: 0px;
+  }
+  .button-list > .btn-style {
+    width: 361px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #091a52;
+    border: #091a52 1px solid;
+  }
+  .profile-details p {
+    font-size: 16px;
+    font-family: "Avenir";
+    font-weight: 100;
+    line-height: 7px;
+    color: #000;
+  }
+  .button-list > .btn-active {
+    background-color: #f47741;
+    color: #fff;
+    border-color: #f47741;
+  }
+  .main-content .tiny-space {
+    padding: 0px 125px;
+    padding-bottom: 50px;
+  }
+  #main-body .main-content .margin-left {
+    margin-left: 25px;
+  }
+  .main-content .narrow-space {
+    padding: 0px 60px;
+    padding-bottom: 20px;
+  }
+  #main-body .main-content .margin-right-btn {
+    margin-right: 8px;
+  }
+  .content-area {
+    text-align: left;
+    padding: 0px 40px;
+  }
+  .right-align {
+    text-align: right;
+  }
+  .main-content .narrow-padding {
+    padding: 0px 76px;
+    padding-bottom: 20px;
+  }
+  .main-content {
+    text-align: center;
+    padding: 30px 0px;
+    color: #091a52;
+  }
+  .yes-no-area p {
+    font-size: 22px;
+    font-family: "Avenir";
+  }
+  .content-footer h5 {
+    font-size: 20px;
+  }
+  .main-content h2 {
+    font-size: 36px;
+    font-family: "Avenir";
+    font-weight: 500;
+    padding-bottom: 50px;
+  }
+  .title {
+    color: #091a52;
+    font-size: 24px;
+    font-family: "Avenir";
+    font-weight: 600;
+    position: inherit;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  .right-content {
+    text-align: right;
+    padding-top: 30px;
+    font-family: "Avenir";
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .sidebar {
+    padding: 30px 0px;
+    font-size: 20px;
+    font-family: "Avenir";
+    color: #091a52;
+  }
+  /*
+ * Hafiz's CSS start
+ */
+
+  h2.pb-5.font-weight-bold {
+    font-size: 100px;
+    padding-bottom: 1em !important;
+  }
+  .wrapper {
+    padding-top: 35px;
+    margin: 0 auto;
+  }
+  .form-group.mt-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .form-group.mt-5 .card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .row.justify-content-center.pt-5.mt-5 {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+  /*
+ * Hafiz's CSS End
+ */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

@@ -1,0 +1,31 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2>What do you want to do next?</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 pt-5">
+        <div class="form-group mt-4 pl-5">
+          <div
+            class="box-fill cursor_pointer"
+            (click)="proceedToNext('APPLY FOR THIS LOAN')"
+          >
+            <p>APPLY FOR THIS LOAN</p>
+          </div>
+
+          <div>
+            <div id="hr-one"></div>
+            <div id="or" class="pl-5">or</div>
+            <div id="hr-two"></div>
+          </div>
+        </div>
+        <p
+          id="Save-and cursor_pointer"
+          style="width: 84%; font-size: 21px"
+          class="pl-5 text-underline pt-3"
+          (click)="proceedToNext('Save and return later')"
+        >
+          Save and return later
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+@import url("../style.css");
+.form-control {
+  height: 65px;
+  margin-top: 50px;
+  padding-left: 25px;
+}
+
+.mb-4 {
+  font-size: 50px;
+}
+.estimate {
+  font-size: 25px;
+}
+
+.dollar_sign {
+  position: absolute;
+  margin-top: 58px;
+  margin-left: -157px;
+  color: white;
+  font-size: 20px;
+}
+.invalid-feedback {
+  padding: 5px;
+}
+
+.arrows {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 152px;
+}

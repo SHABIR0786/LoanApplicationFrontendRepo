@@ -1,0 +1,164 @@
+<div class="main-content" *ngIf="number == 1">
+  <h2>You’re close! In order to proceed please agree to the following.</h2>
+  <div class="content-area">
+    <div class="row">
+      <div class="col-md-10">
+        <!-- <form action="" id="gov-details"> -->
+        <div class="radio-input-gov">
+          <div class="row">
+            <div class="col-md-12">
+              <input
+                type="checkbox"
+                class="form-style mb-0"
+                placeholder=""
+                [(ngModel)]="model.isCertify"
+              />
+              <p>I certify the following</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input
+                type="checkbox"
+                class="form-style mb-0"
+                placeholder=""
+                [(ngModel)]="model.isReadEconsent"
+              />
+              <p>
+                I have read the eConsent disclosure &amp; understand that
+                communications will be provided electronically.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input
+                type="checkbox"
+                class="form-style mb-0"
+                placeholder=""
+                [(ngModel)]="model.isReadThirdPartyConsent"
+              />
+              <p>
+                I have read the Third Party Consent Disclosure &amp; authorize
+                EZ Online Mortgage, to obtain from third parties any and all
+                verification information and documentation that they may
+                request.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- </form> -->
+      </div>
+    </div>
+  </div>
+  <div *ngIf="submitted" class="text-danger d-flex justify-content-center">
+    Please check all the options
+  </div>
+  <div
+    class="button-list margin-top"
+  >
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/refinance/gov/2" class="btn" id="btn-back-blue"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2">
+        <a class="btn" id="btn-next-blue" (click)="onNextClick()">Next</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<div class="main-content" *ngIf="number == 2">
+  <h2>
+    Last Step! Credit confirmation! We’ll provide your credit scores along with
+    accurate rates and a pre-approval!
+  </h2>
+  <div class="button-list">
+    <form action="" id="ssn-details" #f2="ngForm">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Social Security Number"
+          [(ngModel)]="model.socialSecurityNumber"
+          name="socialSecurityNumber"
+          required
+          #socialSecurityNumberRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !socialSecurityNumberRef.valid"
+          class="text-danger d-flex"
+        >
+          Social Security Number is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Confirm SSN"
+          [(ngModel)]="model.conformSsn"
+          name="conformSsn"
+          required
+          #conformSsnRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !conformSsnRef.valid"
+          class="text-danger d-flex"
+        >
+          Confirm SSN is required
+        </div>
+      </div>
+      <div class="form-group date-field">
+        <label>Birthdate</label>
+        <input
+          type="date"
+          class="form-control form-style mb-0"
+          placeholder="Birthdate"
+          [(ngModel)]="model.birthDate"
+          name="birthDate"
+          required
+          #birthDateRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !birthDateRef.valid"
+          class="text-danger d-flex"
+        >
+          Birthdate is required
+        </div>
+      </div>
+      <p>
+        By Clicking “ Next” I authorize and consent to EZ Online Mortgage,
+        making inquiries into my credit as described under the Federal Fair
+        Credit Reporting Act(15 U.S.C., 1681 (a), et seq.). Please click here
+        for our full terms and conditions.
+      </p>
+
+      <div class="row">
+        <div class="col-md-3 offset-md-3">
+          <a
+            routerLink="/app/refinance/credit-score/1"
+            class="btn"
+            id="btn-back-blue"
+            >Back</a
+          >
+        </div>
+        <div class="col-md-2">
+          <a class="btn" id="btn-next-blue" (click)="onFinalCLick(f2)">Next</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

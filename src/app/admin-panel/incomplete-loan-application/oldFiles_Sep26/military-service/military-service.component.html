@@ -1,0 +1,219 @@
+<div>
+  <h4 class="section-title">Military Service of Borrower</h4>
+  <div class="info-block">
+    <p>
+      This section asks questions about your (or your deceased spouse's)
+      military service.
+    </p>
+  </div>
+  <form
+    #militaryForm="ngForm"
+    (ngSubmit)="militaryForm.valid && createMilitaryService()"
+    class="w-full"
+  >
+    <div class="form-block">
+      <div class="row">
+        <div class="col-10">
+          <p style="color: black">
+            <b>Military Service</b> – Did you (or your deceased spouse) ever
+            serve, or are you currently serving, in the United States Armed
+            Forces?
+          </p>
+        </div>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              [value]="true"
+              [(ngModel)]="militaryServiceModel.isServeUSForces"
+              id="isServeUSForces"
+              name="isServeUSForces"
+              #isServeUSForces="ngModel"
+              required
+              [ngClass]="{
+                'error-checkbox':
+                  militaryForm.submitted && isServeUSForces.errors
+              }"
+              [ngClass]="{
+                'error-checkbox':
+                  isServeUSForces.touched && isServeUSForces.errors
+              }"
+            />
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              [value]="false"
+              [(ngModel)]="militaryServiceModel.isServeUSForces"
+              id="isServeUSForces"
+              name="isServeUSForces"
+              #isServeUSForces="ngModel"
+              required
+              [ngClass]="{
+                'error-checkbox':
+                  militaryForm.submitted && isServeUSForces.errors
+              }"
+              [ngClass]="{
+                'error-checkbox':
+                  isServeUSForces.touched && isServeUSForces.errors
+              }"
+            />
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10">
+          <div class="d-flex">
+            <div>
+              <p style="margin-right: 10px">If YES, check all that apply:</p>
+            </div>
+            <div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isCurrentlyServing"
+                  name="isCurrentlyServing"
+                  [(ngModel)]="militaryServiceModel.isCurrentlyServing"
+                  #isCurrentlyServing="ngModel"
+                  [disabled]="militaryServiceModel.isServeUSForces == false"
+                  [required]="militaryServiceModel.isServeUSForces == true"
+                  [ngClass]="{
+                    'error-checkbox':
+                      militaryForm.submitted && isCurrentlyServing.errors
+                  }"
+                  [ngClass]="{
+                    'error-checkbox':
+                      isCurrentlyServing.touched && isCurrentlyServing.errors
+                  }"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Currently serving on active duty with projected expiration
+                  date of service/tour
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [disabled]="militaryServiceModel.isServeUSForces == false"
+                  id="isCurrentlyRetired"
+                  name="isCurrentlyRetired"
+                  [(ngModel)]="militaryServiceModel.isCurrentlyRetired"
+                  [required]="militaryServiceModel.isServeUSForces == true"
+                  #isCurrentlyRetired="ngModel"
+                  [ngClass]="{
+                    'error-checkbox':
+                      militaryForm.submitted && isCurrentlyRetired.errors
+                  }"
+                  [ngClass]="{
+                    'error-checkbox':
+                      isCurrentlyRetired.touched && isCurrentlyRetired.errors
+                  }"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Currently retired, discharged, or separated from service
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isNonActivatedMember"
+                  name="isNonActivatedMember"
+                  [(ngModel)]="militaryServiceModel.isNonActivatedMember"
+                  #isNonActivatedMember="ngModel"
+                  [disabled]="militaryServiceModel.isServeUSForces == false"
+                  [required]="militaryServiceModel.isServeUSForces == true"
+                  [ngClass]="{
+                    'error-checkbox':
+                      militaryForm.submitted && isNonActivatedMember.errors
+                  }"
+                  [ngClass]="{
+                    'error-checkbox':
+                      isNonActivatedMember.touched &&
+                      isNonActivatedMember.errors
+                  }"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Only period of service was as a non-activated member of the
+                  Reserve or National Guard
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="isSurvivingSpouse"
+                  name="isSurvivingSpouse"
+                  [(ngModel)]="militaryServiceModel.isSurvivingSpouse"
+                  #isSurvivingSpouse="ngModel"
+                  [disabled]="militaryServiceModel.isServeUSForces == false"
+                  [required]="militaryServiceModel.isServeUSForces == true"
+                  [ngClass]="{
+                    'error-checkbox':
+                      militaryForm.submitted && isSurvivingSpouse.errors
+                  }"
+                  [ngClass]="{
+                    'error-checkbox':
+                      isSurvivingSpouse.touched && isSurvivingSpouse.errors
+                  }"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Surviving spouse
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-2 input-border-bottom"
+          [ngClass]="{
+            error:
+              militaryForm.submitted && projectedExpirationServiceDate.errors
+          }"
+          [ngClass]="{
+            error:
+              projectedExpirationServiceDate.touched &&
+              projectedExpirationServiceDate.errors
+          }"
+        >
+          <input
+            type="date"
+            (blur)="onBlurDt($event)"
+            id="specificSizeInputGroupUsername1"
+            max="{{ currentDate | date: 'yyyy-MM-dd' }}"
+            style="
+              border-bottom: 1px solid #9d9d9d;
+              border-left: 0px;
+              border-right: 0px;
+              border-top: 0px;
+            "
+            id="projectedExpirationServiceDate"
+            name="projectedExpirationServiceDate"
+            [(ngModel)]="militaryServiceModel.projectedExpirationServiceDate"
+            #projectedExpirationServiceDate="ngModel"
+            [disabled]="militaryServiceModel.isServeUSForces == false"
+            [required]="militaryServiceModel.isServeUSForces == true"
+          />
+
+          <!--         
+        <input onfocus="this.showPicker()" onkeydown="return false" max="{{currentDate | date:'yyyy-MM-dd'}}" type="date" id="projectedExpirationServiceDate" name="projectedExpirationServiceDate"
+            [(ngModel)]="militaryServiceModel.projectedExpirationServiceDate" #projectedExpirationServiceDate="ngModel"
+            [disabled]="militaryServiceModel.isServeUSForces == false" 
+            [required]="militaryServiceModel.isServeUSForces == true" 
+       /> -->
+        </div>
+      </div>
+    </div>
+    <div class="row text-right mt-5">
+      <div class="col-sm-12">
+        <button class="btn btn-fill" type="submit">NEXT</button>
+      </div>
+    </div>
+  </form>
+</div>

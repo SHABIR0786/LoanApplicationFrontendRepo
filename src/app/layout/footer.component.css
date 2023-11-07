@@ -1,0 +1,25 @@
+.icon {
+  opacity: 0.3;
+}
+
+.i-circle {
+  background: #091a52 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  border: 1px solid grey;
+  padding: 10px;
+  width: 35px;
+  height: 40px;
+}
+
+.img {
+  width: 96px;
+  height: 34px;
+}
+
+.phCall i {
+  margin-right: 20px;
+  height: 38px;
+  width: 38px;
+  transform: rotate(88deg);
+  text-align: center;
+}

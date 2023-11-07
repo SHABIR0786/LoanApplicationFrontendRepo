@@ -1,0 +1,51 @@
+.box-fill {
+  padding-top: 15px;
+  height: 56px;
+  width: 319px;
+  border-radius: 10px;
+}
+
+#hr-one {
+  border-bottom: 1px solid #f47741;
+  width: 128px;
+  position: relative;
+  top: 41px;
+  left: 3px;
+}
+
+#or {
+  position: relative;
+  top: 25px;
+  right: 37px;
+  color: #f47741;
+  font-size: 18px;
+}
+
+#hr-two {
+  border-bottom: 1px solid #f47741;
+  width: 130px;
+  position: relative;
+  left: 185px;
+  top: 12px;
+}
+
+#Save-and {
+  text-decoration: underline;
+  position: relative;
+  top: 22px;
+  right: 40px;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.Content-Step-Body.text-black .pl-5.text-underline.pt-3 {
+  color: #f47741 !important;
+}
+#icon {
+  color: #f47741;
+}

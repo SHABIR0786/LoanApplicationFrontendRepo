@@ -1,0 +1,55 @@
+.Content-Step-Body .card {
+  color: #f47741;
+  background-color: #ffffff;
+  border: 1px solid #f47741;
+  border-radius: 8px;
+}
+.font-weight-bold {
+  font-size: 100px;
+}
+.Content-Step-Body .refinance-card {
+  color: #091a52;
+  border: 1px solid #091a52;
+  border-radius: 8px;
+}
+.Content-Step-Body .selected {
+  background-color: #f47741 !important;
+  color: #ffffff !important;
+}
+.home-bg-img {
+  width: 121px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/home.png");
+}
+
+.dollar-bg-img {
+  width: 108px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/dollar-arrow-blue.png");
+}
+.Content-Step-Body.text-black {
+  background-color: white !important;
+  color: black;
+}
+.Content-Step-Body .card:hover .home-bg-img {
+  background-image: url("../../../assets/images/home-white.png");
+}
+.Content-Step-Body .card:hover {
+  background-color: #f47741;
+  color: white;
+}
+.Content-Step-Body .refinance-card:hover {
+  background-color: #091a52;
+  color: white;
+}
+.Content-Step-Body .refinance-card:hover .dollar-bg-img {
+  background-image: url("../../../assets/images/dollar-arrow1.png");
+}

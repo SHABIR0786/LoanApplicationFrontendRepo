@@ -1,0 +1,54 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="pb-5">What is your email address?</h1>
+    <p class="co-borrower">
+      You adhere to a strict privacy policy and will never sell your
+      information.
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p (click)="proceedToPrevious()" class="fa fa-angle-left">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0">
+        <div class="BTN px-0">
+          <form [formGroup]="form">
+            <div id="first_name">
+              <h3 style="width: 187px; font-size: 20px">Your email address*</h3>
+              <input
+                type="email"
+                id="Fn"
+                required
+                #email
+                placeholder="Enter Your Email Address "
+                formControlName="email"
+                [(ngModel)]="formData.emailAddress"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Enter Valid Email.</div>
+                <div *ngIf="f.email.errors.email">Enter Valid Email.</div>
+              </div>
+            </div>
+          </form>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3 mt-3"
+            (click)="proceedToNext()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p89 mt-5 d-lg-flex d-none">
+      <span>89%</span>
+    </div>
+  </div>
+</div>

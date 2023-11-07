@@ -1,0 +1,57 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="font-weight-bold">How much cash do you want to borrow?</h1>
+    <h4 class="estimate">
+      Just an estimate is fine. You can update the amount later in the process.
+    </h4>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0">
+        <form [formGroup]="form">
+          <input
+            #input
+            type="text"
+            required
+            class="form-control input-special mb-3 btn_mwh"
+            formControlName="amount"
+            [ngClass]="{ 'is-invalid': submitted && f.amount.errors }"
+            placeholder="How much cash do you want to borrow?"
+            prefix="$ "
+            mask="separator.2"
+            thousandSeparator=","
+            maxlength="18"
+            [(ngModel)]="formData.CashBorrow"
+            (change)="changeamount()"
+          />
+
+          <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+            <div *ngIf="f.amount.errors.required">Enter Valid Amount</div>
+          </div>
+        </form>
+        <button
+          type="button"
+          class="btn btn-outline-blue btn-lg btn-block mb-3 btn_mwh"
+          style="margin-top: 20px"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p36 mt-5 d-lg-flex d-none">
+      <span>36%</span>
+    </div>
+  </div>
+</div>

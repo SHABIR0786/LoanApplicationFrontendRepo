@@ -1,0 +1,50 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2 class="pb-5">OK, so what’s the estimated property value?</h2>
+    <div class="col-lg-4">
+      <span class="pt-3 cursor_pointer">
+        <i class="fa fa-angle-left" id="icon"></i>
+        <span id="Back" (click)="proceedToPrevious()" class="pl-1"> Back</span>
+      </span>
+    </div>
+    <div class="row justify-content-center mt-n5">
+      <div class="col-lg-4">
+        <div class="form-group mt-5">
+          <form [formGroup]="form">
+            <label class="text-uppercase text-white float-left pl-4"
+              >Property Value</label
+            >
+            <input
+              class="form-control form-control-lg-next text-primary bg-white pl-4"
+              id="Property"
+              type="text"
+              formControlName="estimatePrice"
+              placeholder="Estimate Price"
+              prefix="$"
+              [(ngModel)]="formData.estimatePrice"
+              mask="separator.2"
+              thousandSeparator=","
+              maxlength="18"
+              [ngClass]="{ 'is-invalid': submitted && f.estimatePrice.errors }"
+            />
+            <div
+              *ngIf="submitted && f.estimatePrice.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.estimatePrice.errors.required">
+                Enter Valid Amout.
+              </div>
+            </div>
+          </form>
+        </div>
+        <button
+          id="next"
+          class="btn btn-blue text-uppercase mt-3 text-white btn-next rounded-2"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

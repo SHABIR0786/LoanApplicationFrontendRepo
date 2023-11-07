@@ -1,0 +1,165 @@
+@import url("../../../../assets/new/css/main.css");
+
+input {
+  height: 46px !important;
+}
+#btn-back {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 5px 35px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #091a52;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+#btn-back:hover {
+  background-color: #f47741;
+  color: #fff;
+  border: 1px solid #f47741;
+}
+#btn-next {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 5px 35px;
+  border-radius: 10px;
+  background-color: #f47741;
+  border: 1px solid #f47741;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+#btn-next:hover {
+  background-color: #f47741;
+  color: #fff;
+}
+#btn-back-blue {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 5px 35px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #091a52;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+#btn-back-blue:hover {
+  background-color: #091a52;
+  color: #fff;
+  border: 1px solid #091a52;
+}
+#btn-next-blue {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  padding: 5px 35px;
+  border-radius: 10px;
+  background-color: #091a52;
+  border: 1px solid #091a52;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Avenir";
+  font-weight: 100;
+}
+#btn-next-blue:hover {
+  background-color: #091a52;
+  color: #fff;
+}
+.active {
+  background: #f47741 !important;
+  color: white !important;
+  border-color: orange !important;
+}
+#percent-sign {
+  top: 8px;
+  right: 50px;
+  color: #0004;
+  position: absolute;
+  z-index: 1;
+}
+.closing-date {
+  position: relative;
+}
+
+.closing-date label {
+  position: absolute;
+  margin-top: 4px;
+  margin-left: 9px;
+}
+.closing-date input {
+  height: 46px !important;
+  padding-top: 24px !important;
+}
+.terms p {
+  color: #000;
+  text-align: justify;
+  font-family: "Avenir-Medium";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: normal;
+}
+.radio-input.contract .form-style {
+  float: left;
+  margin-top: -9px !important;
+  padding: 10px;
+}
+
+
+
+/* Hide the default radio button */
+input[type="radio"] {
+  display: none;
+}
+
+/* Style the custom radio button */
+.radio-label {
+  position: relative !important;
+  padding-left: 25px !important; /* To create space for the custom symbol */
+  cursor: pointer !important;
+  color: #091a52 !important;
+  font-family: Avenir-Medium !important;
+  font-size: 20px !important;
+  margin-bottom: 15px;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+}
+
+/* Create the custom symbol using ::before pseudo-element */
+.radio-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #e4e4e4;
+  left: 0;
+  width: 22px; /* Adjust the size of the radio button */
+  height: 22px; /* Adjust the size of the radio button */
+  /* border: 2px solid #E4E4E4;  */
+  border-radius: 50%; /* To create a circle */
+  margin-left: -4px;
+  margin-top: 3px;
+}
+
+/* Style the custom symbol when the radio button is checked */
+input[type="radio"]:checked + .radio-label::before {
+  background-color: #52c41a; /* Fill color for the radio button when checked */
+}
+
+/* Optional: Add a tick/checkmark inside the radio button */
+input[type="radio"]:checked + .radio-label::before {
+  content: url("../../../../assets/img/checkmark.svg") "\0020\0020\0020"; /* Unicode for checkmark symbol */
+  color: #fff; /* Checkmark color */
+  text-align: center;
+  line-height: 21px; /* To center the checkmark vertically */
+}
+
+input[type="date" i]::-webkit-calendar-picker-indicator {
+display: none;
+}

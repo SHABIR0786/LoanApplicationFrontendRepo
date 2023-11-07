@@ -1,0 +1,83 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2 class="pb-5 font-weight-bold" style="font-size: 40px">
+      Great! Tell us how you’re using this property.
+    </h2>
+    <div class="row justify-content-center pt-5 mt-5">
+      <div class="col-lg-2 col-sm-0 back-btn">
+        <div>
+          <span class="pt-3 cursor_pointer">
+            <i class="fa fa-angle-left" id="icon"></i>
+            <span id="Back" (click)="proceedToPrevious()" class="pl-1"
+              >Back</span
+            >
+          </span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-8 col-sm-12">
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <div class="form-group mt-5">
+              <div
+                class="card bg_transparent"
+                [class.selected]="formData.PropertyUse == 'Home to live in'"
+              >
+                <div
+                  class="card-body card_pad cursor_pointer"
+                  (click)="proceedToNext('Home to live in')"
+                >
+                  <!-- <i class="fa fa-home fa-5x"></i> -->
+                  <div class="home-bg-img"></div>
+
+                  <h5 class="mt-3">Home to live in</h5>
+                  <!-- <p>BUY A HOME</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <div class="form-group mt-5">
+              <div
+                class="card bg_transparent"
+                [class.selected]="formData.PropertyUse == 'Investment Property'"
+              >
+                <div
+                  class="card-body card_pad cursor_pointer"
+                  style="padding: 0.9rem"
+                  (click)="proceedToNext('Investment Property')"
+                >
+                  <div class="dollar-bg-img"></div>
+                  <h5 class="mt-3">Investment Property</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <div class="form-group mt-5">
+              <div
+                class="card bg_transparent"
+                [class.selected]="formData.PropertyUse == 'Second home'"
+              >
+                <div
+                  class="card-body card_pad cursor_pointer"
+                  (click)="proceedToNext('Second home')"
+                >
+                  <div class="second-home-img"></div>
+                  <h5 class="mt-3">Second home</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-2 col-sm-12 back-btn-mb">
+        <div class="mt-3">
+          <span>
+            <i class="fa fa-angle-left" id="icon"></i>
+            <span (click)="proceedToPrevious()" class="pl-1">Back</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

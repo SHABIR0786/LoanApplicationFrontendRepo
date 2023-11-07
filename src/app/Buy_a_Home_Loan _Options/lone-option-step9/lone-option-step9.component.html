@@ -1,0 +1,67 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1>OK great. Now what’s your credit score? An estimate is fine.</h1>
+    <div class="col-lg-4">
+      <span class="pt-3 cursor_pointer">
+        <i class="fa fa-angle-left" id="icon"></i>
+        <span id="Back" (click)="proceedToPrevious()" class="pl-1"> Back</span>
+      </span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6" style="margin-top: -40px">
+        <div class="form-group mt-5">
+          <div
+            class="box-fill bg-white cursor_pointer px-3"
+            (click)="proceedToNext('Excellent (740+)')"
+            [class.selected]="formData.rateCredit == 'Excellent (740+)'"
+            [class.text-white]="formData.rateCredit == 'Excellent (740+)'"
+          >
+            <span class="float-left">Excellent</span>
+            <span class="number">(740+)</span>
+          </div>
+          <div
+            class="box-fill bg-white mt-4 cursor_pointer px-3"
+            (click)="proceedToNext('Good (700-739)')"
+            [class.selected]="formData.rateCredit == 'Good (700-739)'"
+            [class.text-white]="formData.rateCredit == 'Good (700-739)'"
+          >
+            <span class="float-left">Good</span>
+            <span class="number">(700-739)</span>
+          </div>
+          <div
+            class="box-fill bg-white mt-4 cursor_pointer px-3"
+            (click)="proceedToNext('Average (640-699)')"
+            [class.selected]="formData.rateCredit == 'Average (640-699)'"
+            [class.text-white]="formData.rateCredit == 'Average (640-699)'"
+          >
+            <span class="float-left">Average</span>
+            <span class="number">(640-699)</span>
+          </div>
+          <div
+            class="box-fill bg-white mt-4 cursor_pointer px-3"
+            (click)="proceedToNext('Fair (580-639)')"
+            [class.selected]="formData.rateCredit == 'Fair (580-639)'"
+            [class.text-white]="formData.rateCredit == 'Fair (580-639)'"
+          >
+            <span class="float-left">Fair</span>
+            <span class="number">(580-639)</span>
+          </div>
+          <div
+            class="box-fill bg-white mt-4 cursor_pointer px-3 text-white"
+            (click)="proceedToNext('Needs Improvemnt (579 & below)')"
+            [class.selected]="
+              formData.rateCredit == 'Needs Improvemnt (579 & below)'
+            "
+            [class.text-white]="
+              formData.rateCredit == 'Needs Improvemnt (579 & below)'
+            "
+          >
+            <span class="float-left">Needs Improvemnt</span>
+            <span class="number" style="display: inherit">(579 & below)</span>
+          </div>
+        </div>
+        <!-- <a href="" class="btn btn-secondary text-uppercase mt-4 text-white btn-next" id="next">Needs Improvemnt</a> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div>
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>{{ "Uniform Residential Loan Application" | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <ng-wizard [config]="config">
+            <ng-wizard-step
+              title="Step 1"
+              description="Loan Details"
+              [state]=""
+            >
+              <app-loan-details></app-loan-details>
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 2" description="Personal Information">
+              <app-personal-information></app-personal-information>
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 3" description="Expenses">
+              <app-expenses></app-expenses>
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 4" description="Assets">
+              <app-assets></app-assets>
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 5" description="Employment and Income">
+              <app-employment-income></app-employment-income>
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 6" description="Order Credit">
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 7" description="Additional Details">
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 8" description="eConsent">
+              <app-econsent></app-econsent>
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 9" description="Declaration">
+              <app-declaration></app-declaration>
+            </ng-wizard-step>
+            <ng-wizard-step title="Step 10" description="Summary">
+              <app-summary (proceedToStep)="goToStep($event)"></app-summary>
+            </ng-wizard-step>
+          </ng-wizard>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

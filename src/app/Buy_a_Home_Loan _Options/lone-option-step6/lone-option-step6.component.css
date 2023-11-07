@@ -1,0 +1,77 @@
+.card.bg_transparent:hover {
+  background-color: #f47741 !important;
+  color: white !important;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.card.orange-card {
+  color: #f47741;
+  border: 1px solid #f47741;
+  box-shadow: 0px;
+}
+.orange-card.selected {
+  color: white !important;
+}
+#icon {
+  color: #f47741;
+}
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 39%;
+  top: 405px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 39%;
+    top: 405px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 44%;
+    top: 205px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}

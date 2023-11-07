@@ -1,0 +1,633 @@
+<main>
+  <div class="container">
+    <section class="page-order-sec py-3 border-bottom-0">
+      <p class="m-0 text-primary">
+        Home<span class="text-muted ml-3 d-inline-block">
+          <i class="fa fa-angle-right"></i> Refinance Calculator</span
+        >
+      </p>
+    </section>
+  </div>
+  <section>
+    <div class="container">
+      <h5 class="text-secondary">Know About</h5>
+      <h2 class="text-primary mb-1">Refinance Calculator</h2>
+      <p class="text-muted">
+        Calculate your monthly payment and review your loan options.
+      </p>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-10">
+          <form action="" id="refinance-calculator" #f6="ngForm">
+            <label class="mb-3 text-primary">I want to</label>
+            <div class="row">
+              <div
+                (click)="changeSelectedOption('lower')"
+                class="col-sm-4 form-group"
+              >
+                <div
+                  [ngClass]="
+                    SelectedOption == 'lower' ? 'box-fill' : 'box-outline'
+                  "
+                >
+                  <p class="m-0">Lower my monthly payment</p>
+                </div>
+              </div>
+              <div
+                (click)="changeSelectedOption('faster')"
+                class="col-sm-4 form-group"
+              >
+                <div
+                  [ngClass]="
+                    SelectedOption == 'faster' ? 'box-fill' : 'box-outline'
+                  "
+                >
+                  <p class="m-0">Pay of my mortgage faster</p>
+                </div>
+              </div>
+              <div
+                (click)="changeSelectedOption('cashout')"
+                class="col-sm-4 form-group"
+              >
+                <div
+                  [ngClass]="
+                    SelectedOption == 'cashout' ? 'box-fill' : 'box-outline'
+                  "
+                >
+                  <p class="m-0">Take cash out of my home</p>
+                </div>
+              </div>
+              <div class="col-sm-12 form-group">
+                <label class="text-primary"
+                  >What is your mortgage balance?</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="MortgageBalance"
+                  class="form-control pl-4"
+                  name="MortgageBalance"
+                  mask="separator.2"
+                  thousandSeparator=","
+                  #mortgageBalanceRef="ngModel"
+                  required
+                />
+                <span class="slide-value-usd">$</span>
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="mortgageBalanceRef.errors?.required">
+                    Mortgage Balance is required
+                  </div>
+                </div>
+              </div>
+              <div
+                *ngIf="SelectedOption == 'lower'"
+                class="col-sm-12 form-group"
+              >
+                <label class="text-primary"
+                  >What is your current monthly payment?</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="CurrentMonthlyPayment"
+                  class="form-control pl-4"
+                  name="CurrentMonthlyPayment"
+                  required
+                  mask="separator.2"
+                  thousandSeparator=","
+                  #currentMonthlyPaymentRef="ngModel"
+                />
+                <span class="slide-value-usd">$</span>
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="mortgageBalanceRef.errors?.required">
+                    Current Monthly Payment is required
+                  </div>
+                </div>
+              </div>
+              <div
+                *ngIf="SelectedOption == 'lower'"
+                class="col-sm-12 form-group"
+              >
+                <label
+                  >Does your monthly payment include taxes and insurance?</label
+                >
+                <div class="d-flex">
+                  <div
+                    (click)="MonthlyPaymentTaxandInschanged(true)"
+                    [ngClass]="
+                      MonthlyPaymentIncludeTaxesandInsurance == true
+                        ? 'box-fill'
+                        : 'box-outline'
+                    "
+                    class="flex-grow-1"
+                  >
+                    Yes
+                  </div>
+                  <div
+                    (click)="MonthlyPaymentTaxandInschanged(false)"
+                    [ngClass]="
+                      MonthlyPaymentIncludeTaxesandInsurance == false
+                        ? 'box-fill'
+                        : 'box-outline'
+                    "
+                    class="ml-2 flex-grow-1"
+                  >
+                    No
+                  </div>
+                </div>
+              </div>
+              <div
+                *ngIf="
+                  MonthlyPaymentIncludeTaxesandInsurance == true &&
+                  SelectedOption == 'lower'
+                "
+                class="col-sm-12 form-group"
+              >
+                <label>Yearly property taxes</label>
+                <input
+                  type="text"
+                  [(ngModel)]="YearlyPropertyTaxes"
+                  (change)="YearlyPropertyTaxesChanged()"
+                  class="form-control pl-4"
+                  name="YearlyPropertyTaxes"
+                  required
+                  mask="separator.2"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="mortgageBalanceRef.errors?.required">
+                    Currently Monthly Payment is required
+                  </div>
+                </div>
+              </div>
+              <div
+                *ngIf="
+                  MonthlyPaymentIncludeTaxesandInsurance == true &&
+                  SelectedOption == 'lower'
+                "
+                class="col-sm-12 form-group"
+              >
+                <label>Yearly homeowners insurance</label>
+                <input
+                  type="text"
+                  [(ngModel)]="YearlyHomeInsurance"
+                  (change)="YearlyHomeOwnerInsuranceChanged()"
+                  class="form-control pl-4"
+                  required
+                  mask="separator.2"
+                  name="YearlyHomeInsurance"
+                  #yearlyHomeInsuranceRef="ngModel"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="yearlyHomeInsuranceRef.errors?.required">
+                    Yearly homeowners insurance is required
+                  </div>
+                </div>
+              </div>
+
+              <!-- This section is for faster  -->
+              <div
+                *ngIf="SelectedOption == 'faster'"
+                class="col-sm-12 form-group"
+              >
+                <label class="text-primary"
+                  >What's the remaining term on your loan in years?</label
+                >
+                <input
+                  type="number"
+                  required
+                  [(ngModel)]="RemainingLoanTermsInYears"
+                  class="form-control"
+                  name="RemainingLoanTermsInYears"
+                  #remainingLoanTermsInYearsRef="ngModel"
+                />
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="remainingLoanTermsInYearsRef.errors?.required">
+                    Remaining Term on Your Loan in Years is required
+                  </div>
+                </div>
+              </div>
+              <!-- End of faster section  -->
+
+              <!-- This sectioni s for cashout  -->
+              <div
+                *ngIf="SelectedOption == 'cashout'"
+                class="col-sm-12 form-group"
+              >
+                <label class="text-primary"
+                  >How much cash do you want to take out?</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="TakeCashOut"
+                  class="form-control pl-4"
+                  name="TakeCashOut"
+                  #takeCashOutRef="ngModel"
+                  required
+                  mask="separator.2"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="takeCashOutRef.errors?.required">
+                    Cash Out Field is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 form-group">
+                <label class="text-primary"
+                  >Approximately what is your home worth today?</label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="HomeWorthToday"
+                  class="form-control pl-4"
+                  name="HomeWorthToday"
+                  required
+                  #homeWorthTodayRef="ngModel"
+                  mask="separator.2"
+                  thousandSeparator=","
+                />
+                <span class="slide-value-usd">$</span>
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="homeWorthTodayRef.errors?.required">
+                    Home Worth Field is required
+                  </div>
+                </div>
+              </div>
+              <!-- End of cashout section  -->
+              <div class="col-sm-6 form-group">
+                <label class="text-primary"
+                  >What is your home's ZIP code?</label
+                >
+                <input
+                  type="number"
+                  [(ngModel)]="ZipCode"
+                  class="form-control"
+                  name="zipCode"
+                  pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+                  required
+                  #zipCodeRef="ngModel"
+                />
+                <div *ngIf="submitted" class="text-danger d-flex">
+                  <div *ngIf="zipCodeRef.errors?.pattern">
+                    This is not a valid zip code
+                  </div>
+                  <div *ngIf="zipCodeRef.errors?.required">
+                    Zip Code is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 form-group">
+                <label
+                  >Are you a veteran or currently serving in the
+                  military?</label
+                >
+                <div class="d-flex">
+                  <div
+                    (click)="changeveteran(true)"
+                    [ngClass]="
+                      VenetryorCurrentlyServing == true
+                        ? 'box-fill'
+                        : 'box-outline'
+                    "
+                    class="flex-grow-1"
+                  >
+                    Yes
+                  </div>
+                  <div
+                    (click)="changeveteran(false)"
+                    [ngClass]="
+                      VenetryorCurrentlyServing == false
+                        ? 'box-fill'
+                        : 'box-outline'
+                    "
+                    class="ml-2 flex-grow-1"
+                  >
+                    No
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 form-group">
+                <label class="text-primary"
+                  >How would you rate your credit?</label
+                >
+                <select class="form-control">
+                  <option
+                    *ngFor="let option of RateYourCreditOptions; let i = index"
+                    [attr.data-index]="i"
+                  >
+                    {{ option.value }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-sm-12 form-group">
+                <button
+                  type="submit"
+                  (click)="caculatormortgage(f6)"
+                  class="btn btn-secondary text-white text-uppercase w-100"
+                >
+                  CALCULATE
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- Recommended Options Section  -->
+          <!-- If selected option is lower -->
+          <div class="row" *ngIf="SelectedOption == 'lower'">
+            <div
+              class="col-sm-4"
+              *ngFor="let option of RecommendedOptions; let i = index"
+              [attr.data-index]="i"
+            >
+              <div class="card">
+                <div class="card-body">
+                  <div class="recommendedoption-title">
+                    <h4>You will save</h4>
+                    <h3>${{ option.Save | number }}</h3>
+                    <p>per month</p>
+                  </div>
+                  <div class="option-details">
+                    <p>Monthly Payment</p>
+                    <h6>${{ option.MonthlyPayment | number }}</h6>
+                  </div>
+                  <div class="option-details">
+                    <p>Term</p>
+                    <h6>{{ option.Term }}</h6>
+                  </div>
+                  <div class="option-details">
+                    <p>Rate</p>
+                    <h6>{{ option.Rate }}%</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of selection option for lower  -->
+
+          <!-- If selected option is faster -->
+          <div class="row" *ngIf="SelectedOption == 'faster'">
+            <div
+              class="col-sm-4"
+              *ngFor="let option of RecommendedOptions; let i = index"
+              [attr.data-index]="i"
+            >
+              <div class="card">
+                <div class="card-body">
+                  <div class="recommendedoption-title">
+                    <h4>You'll shorten your term by</h4>
+                    <h3>{{ option.Save | number }} Years</h3>
+                  </div>
+                  <div class="option-details">
+                    <p>Monthly Payment</p>
+                    <h6>{{ option.MonthlyPayment | number }}</h6>
+                  </div>
+                  <div class="option-details">
+                    <p>Term</p>
+                    <h6>{{ option.Term }}</h6>
+                  </div>
+                  <div class="option-details">
+                    <p>Rate</p>
+                    <h6>{{ option.Rate }}%</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of selection option for faster  -->
+
+          <!-- If selected option is faster -->
+          <div class="row" *ngIf="SelectedOption == 'cashout'">
+            <div
+              class="col-sm-4"
+              *ngFor="let option of RecommendedOptions; let i = index"
+              [attr.data-index]="i"
+            >
+              <div class="card">
+                <div class="card-body">
+                  <div class="recommendedoption-title">
+                    <h4>You'll get</h4>
+                    <h3>${{ option.Save | number }}</h3>
+                  </div>
+                  <div class="option-details">
+                    <p>Monthly Payment</p>
+                    <h6>{{ option.MonthlyPayment | number }}</h6>
+                  </div>
+                  <div class="option-details">
+                    <p>Term</p>
+                    <h6>{{ option.Term }}</h6>
+                  </div>
+                  <div class="option-details">
+                    <p>Rate</p>
+                    <h6>{{ option.Rate }}%</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of selection option for faster  -->
+          <!-- End of Recommended Options section  -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-section-light">
+    <div class="container">
+      <div class="row py-3">
+        <div class="col-md-6">
+          <h4 class="text-primary font-weight-normal">
+            Does it make sense to refinance?
+          </h4>
+          <p class="text-muted f14">
+            Deciding if it makes sense to refinance starts with this question:
+            What are your financial goals? Whether you want to lower your
+            monthly payment, get a lower interest rate, shorten your term or do
+            a cash-out refinance, our refinance calculator can help you
+            determine if refinancing can help you meet your goals.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="loan-right">
+            <h3 class="text-primary font-weight-normal">
+              How can I get an estimate of<br />
+              my rate?
+            </h3>
+            <p class="text-muted f14">
+              Our refinance calculator uses today’s current rates. Once you
+              enter your numbers and pressing “Calculate,” you’ll see a list of
+              recommended loans, terms and rates. If you like what you see, you
+              can get started by
+              <a href="#">
+                contacting a Home Loan Expert or applying online with Rocket
+                Mortgage®.</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="long-term">
+    <span
+      class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block position-absolute"
+    >
+      <a href="#section-submit">
+        <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+      >
+    </span>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3 text-center">
+          <h3 class="text-white font-weight-normal mb-4">
+            What are the advantages of refinancing to a shorter loan term?
+          </h3>
+          <p class="text-white mb-4">
+            You'll be able to own your house sooner than you would with your
+            current mortgage, which may put you in a better financial situation
+            down the road. In the meantime, you'll likely save quite a bit on
+            interest, since loans with shorter repayment periods generally have
+            lower interest rates.
+          </p>
+          <button class="btn btn-secondary text-white text-uppercase">
+            APPLY FOR MORTGAGE
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <h3 class="text-primary font-weight-normal">
+            How can refinancing lower my monthly mortgage payment?
+          </h3>
+          <p class="text-muted">
+            To lower your monthly payment, look for a refinance option that
+            helps you do one or more of the following:
+          </p>
+          <ul class="list-refinace pl-20">
+            <li>
+              Lock in a lower interest rate - The higher your interest rate, the
+              more you pay for your mortgage, both now and in the future.
+              Refinancing to a loan with a lower rate means you could get a
+              lower payment as long as you
+            </li>
+            <li>
+              Stop paying for private mortgage insurance (PMI) - If you put less
+              than 20% down on your original home loan, chances are you're
+              paying for PMI. If your home has increased in value and/or you
+              have enough equity, you
+            </li>
+
+            <li>
+              Get a longer loan term - When you refinance to a longer-term loan,
+              you're stretching the amount you owe over a longer period of time.
+              While you might pay more in interest overall, your monthly payment
+              will decrease.
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-6 form-group">
+          <img src="assets/images/coin-pic.png" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="estimate-card bg-primary">
+            <h4 class="text-white font-weight-normal mb-4">
+              How can I get an estimate of<br />
+              my rate?
+            </h4>
+            <p class="text-light py-3">
+              If you have enough equity in your home, you may be able to
+              refinance to take cash out. Taking cash out means refinancing your
+              home with a larger loan amount. Your new loan pays off your
+              existing loan, and you get to pocket the difference.
+            </p>
+            <p class="text-light">
+              Many homeowners take cash out to pay off high-interest debt or
+              fund home improvements. The cash you get from a cash-out refinance
+              is tax free and yours to spend however you choose.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="pt-sm-5 px-sm-5">
+            <h4 class="font-weight-normal pt-4">
+              What are the advantages of<br />
+              refinancing to a shorter loan term?
+            </h4>
+            <p class="py-4">
+              You'll be able to own your house sooner than you would with your
+              current mortgage, which may put you in a better financial
+              situation down the road. In the meantime, you'll likely save quite
+              a bit on interest, since loans with shorter repayment periods
+              generally have lower interest rates.
+            </p>
+            <button class="btn btn-secondary text-white text-uppercase">
+              APPLY FOR MORTGAGE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="text-primary font-weight-normal mb-4">
+            Learn More About Refinancing<br />
+            Your Home
+          </h4>
+          <ul class="arrow-list pl-3">
+            <li><a href="#">Can You Refinance, and Does It Make Sense?</a></li>
+            <li><a href="#">The Basics of Refinancing Your Home</a></li>
+            <li><a href="#">Exploring Your Refinance Options</a></li>
+            <li><a href="#">Read Top Articles About Refinancing</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <div
+            style="display: flex; flex-direction: column"
+            class="flex-lg-row bg-section-light p-4"
+          >
+            <div class="mr-4">
+              <div class="small-box mb-3">
+                <img src="assets/images/support.png" />
+              </div>
+            </div>
+            <div>
+              <h4 class="text-primary font-weight-normal">
+                Mortgage Rate Updates &amp; Featured<br />
+                Mortgage Or
+                <span class="text-secondary"
+                  >Request A Call Back <br />
+                  Today</span
+                >
+              </h4>
+              <button
+                type="submit"
+                class="btn btn-secondary text-uppercase text-white px-5"
+              >
+                Talk Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

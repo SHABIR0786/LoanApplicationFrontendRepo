@@ -1,0 +1,43 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="font-weight-bold">Active or previous U.S. military service?</h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <div class="btn">
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mt-5"
+            (click)="proceedToNext(true)"
+            [class.selected]="formData.militarySevice == true"
+          >
+            Yes
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext(false)"
+            [class.selected]="formData.militarySevice == false"
+          >
+            No
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p47 mt-5 d-lg-flex d-none">
+      <span>47%</span>
+    </div>
+  </div>
+</div>

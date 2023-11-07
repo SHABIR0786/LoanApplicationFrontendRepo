@@ -1,0 +1,56 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="font-weight-bold">What's your home's value?</h1>
+    <h4 class="estimate">
+      Just an estimate is fine. You can update the amount later in the process.
+    </h4>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0">
+        <form [formGroup]="form">
+          <input
+            #input
+            type="text"
+            required
+            class="form-control input-special mb-3 btn_mwh"
+            [(ngModel)]="formData.HomePrice"
+            formControlName="amount"
+            [ngClass]="{ 'is-invalid': submitted && f.amount.errors }"
+            placeholder="Home price?"
+            prefix="$ "
+            mask="separator.2"
+            thousandSeparator=","
+            (change)="changeamount()"
+            maxlength="18"
+          />
+          <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+            <div *ngIf="f.amount.errors.required">Enter Valid Amount</div>
+          </div>
+        </form>
+        <button
+          type="button"
+          class="btn btn-outline-blue btn-lg btn-block mb-3 btn_mwh"
+          style="margin-top: 20px"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p26 mt-5 d-lg-flex d-none">
+      <span>26%</span>
+    </div>
+  </div>
+</div>

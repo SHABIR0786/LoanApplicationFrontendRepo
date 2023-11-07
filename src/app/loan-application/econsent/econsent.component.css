@@ -1,0 +1,11 @@
+.econsent-wrapper {
+  border-radius: 3px;
+  border: 1px solid #dfe1e4;
+  padding: 11px 17px;
+  margin: 10px 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+  max-height: 400px;
+  overflow-y: auto;
+}

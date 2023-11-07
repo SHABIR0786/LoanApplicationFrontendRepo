@@ -1,0 +1,10 @@
+.Content-Step-Footer p {
+  font-size: 13px;
+}
+
+/* Hafiz's CSS  Start*/
+
+.Content-Step-Body.text-white {
+  background-color: white !important;
+  color: black !important;
+}

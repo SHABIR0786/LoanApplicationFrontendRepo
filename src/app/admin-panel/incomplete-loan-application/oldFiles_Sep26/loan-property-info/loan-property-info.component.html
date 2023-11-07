@@ -1,0 +1,2051 @@
+<style>
+  :host/deep/ .disabled .input-border-bottom {
+    pointer-events: none;
+    background-color: #e7e7e7 !important;
+  }
+
+  :host/deep/.ui-inputtext {
+    border: 0px !important;
+    font-size: 16px;
+    margin-bottom: 0px;
+    padding-left: 0px !important;
+    width: 100%;
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    color: #a5a5a5;
+    font-weight: 500;
+    line-height: 1.2575;
+    border-bottom: 0px solid #a5a5a5 !important;
+    background-color: #ffffff;
+    font-family: "Mulish", sans-serif;
+    white-space: nowrap;
+    box-shadow: inset 0 0 0 #ffffff !important;
+    outline: medium none;
+  }
+
+  :host/deep/ .disabled input {
+    pointer-events: none;
+    background-color: #e7e7e7 !important;
+  }
+
+  :host/deep/ .disabled .input-border-bottom {
+    pointer-events: none;
+    background-color: #e7e7e7 !important;
+  }
+
+  :host/deep/ .disabled .input-border-bottom .frm-group {
+    pointer-events: none;
+    background-color: #e7e7e7 !important;
+  }
+
+  :host/deep/ .frm-group .disabled {
+    pointer-events: none;
+    background-color: #e7e7e7 !important;
+  }
+
+  :host/deep/ .frm-group .disabled .frm-fld-input {
+    pointer-events: none;
+    background-color: #e7e7e7 !important;
+  }
+  ::ng-deep .fifty .ui-inputtext {
+    width: 50% !important;
+    /* border: none !important; */
+  }
+  ::ng-deep .sixty .ui-inputtext {
+    width: 60% !important;
+    /* border: none !important; */
+  }
+  ::ng-deep .seventy .ui-inputtext {
+    width: 70% !important;
+    /* border: none !important; */
+  }
+  ::ng-deep .eighty .ui-inputtext {
+    width: 80% !important;
+    /* border: none !important; */
+  }
+  ::ng-deep .noBorder .ui-inputtext {
+    border: none !important;
+  }
+
+  ::ng-deep .showBorder .ui-inputtext {
+    border-bottom: 1px solid #a5a5a5 !important;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+</style>
+<div>
+  <h4 class="section-title">Loan and Property Information</h4>
+  <div class="info-block">
+    <p>
+      This section asks about the loan’s purpose and the property you want to
+      purchase or refinance.
+    </p>
+  </div>
+  <form
+    #loanPropertyInfoForm="ngForm"
+    (ngSubmit)="loanPropertyInfoForm.valid && create()"
+    class="w-full"
+  >
+    <div
+      class="div-main-grp"
+      style="
+        width: 100%;
+        margin-bottom: 10px !important;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      "
+    >
+      <div class="row div-sub-grp">
+        <div class="col-12">
+          <div class="frm-group">
+            <div class="row">
+              <div class="col-2">
+                <label class="frm-label">
+                  <span>Loan Amount</span>
+                </label>
+              </div>
+
+              <div class="col-10">
+                <label class="frm-label">
+                  <span>Loan Purpose</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 mt-2">
+                <div
+                  class="frm-group"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && loanAmount.errors
+                  }"
+                  [ngClass]="{ error: loanAmount.touched && loanAmount.errors }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [(ngModel)]="
+                          loanPropertyInfoModel.loanPropertyInfo.loanAmount
+                        "
+                        name="loanAmount"
+                        id="loanAmount"
+                        #loanAmount="ngModel"
+                        [required]="true"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+
+                      <!-- <p-inputNumber class="showBorder" maxlength="9" 
+                  [(ngModel)]="loanPropertyInfoModel.loanPropertyInfo.loanAmount" name="loanAmount"
+                      id="loanAmount" #loanAmount="ngModel" [required]="true"
+                          [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10 mt-2">
+                <div class="frm-group">
+                  <div class="frm-fld-input">
+                    <div class="row mt-2">
+                      <div class="col-2">
+                        <div style="display: flex; justify-content: center">
+                          <input
+                            type="radio"
+                            value="Purchase"
+                            [(ngModel)]="
+                              loanPropertyInfoModel.loanPropertyInfo.loanPurpose
+                            "
+                            name="loanPurpose"
+                            id="loanPurpose"
+                            #loanPurpose="ngModel"
+                            style="width: 40px"
+                            required
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPropertyInfoForm.submitted &&
+                                loanPurpose.errors
+                            }"
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPurpose.touched && loanPurpose.errors
+                            }"
+                          />
+                          <label
+                            class="text-gray"
+                            style="
+                              padding-top: 5px;
+                              font-size: 11px !important;
+                              color: #000 !important;
+                              font-weight: 600;
+                            "
+                            >Purchase</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-2">
+                        <div style="display: flex; justify-content: center">
+                          <input
+                            type="radio"
+                            [(ngModel)]="
+                              loanPropertyInfoModel.loanPropertyInfo.loanPurpose
+                            "
+                            name="loanPurpose"
+                            id="loanPurpose"
+                            #loanPurpose="ngModel"
+                            value="Refinance "
+                            style="width: 40px"
+                            required
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPropertyInfoForm.submitted &&
+                                loanPurpose.errors
+                            }"
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPurpose.touched && loanPurpose.errors
+                            }"
+                          />
+                          <label
+                            class="text-gray"
+                            style="
+                              padding-top: 5px;
+                              font-size: 11px !important;
+                              color: #000 !important;
+                              font-weight: 600;
+                            "
+                            >Refinance</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-3">
+                        <div style="display: flex; justify-content: center">
+                          <input
+                            type="radio"
+                            [(ngModel)]="
+                              loanPropertyInfoModel.loanPropertyInfo.loanPurpose
+                            "
+                            name="loanPurpose"
+                            id="loanPurpose"
+                            #loanPurpose="ngModel"
+                            value="Other "
+                            name="loanPurpose"
+                            style="width: 40px"
+                            required
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPropertyInfoForm.submitted &&
+                                loanPurpose.errors
+                            }"
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPurpose.touched && loanPurpose.errors
+                            }"
+                          />
+                          <label
+                            class="text-gray"
+                            style="
+                              padding-top: 5px;
+                              font-size: 11px !important;
+                              color: #000 !important;
+                              font-weight: 600;
+                            "
+                            >Other (specify)</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-3">
+                        <div class="col-2 input-border-bottom">
+                          <input type="text" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row div-sub-grp">
+        <div class="col-12">
+          <div class="frm-group">
+            <label class="frm-label">Property Address</label>
+            <div class="row mt-2 ml-2">
+              <div class="col-1 p-0">
+                <label class="gray-text">Street</label>
+              </div>
+              <div
+                class="col-7 p-0 input-border-bottom"
+                [ngClass]="{
+                  error: loanPropertyInfoForm.submitted && street.errors
+                }"
+                [ngClass]="{ error: street.touched && street.errors }"
+              >
+                <input
+                  type="text"
+                  ngx-google-places-autocomplete
+                  maxlength="50"
+                  [options]="options"
+                  (onAddressChange)="handleAddressChange($event, 0)"
+                  [(ngModel)]="
+                    loanPropertyInfoModel.loanPropertyInfo.propertyAddress
+                      .street
+                  "
+                  name="street"
+                  id="street"
+                  #street="ngModel"
+                  required
+                />
+              </div>
+
+              <div class="col-1 p-0">
+                <label class="gray-text" style="text-align: center"
+                  >Unit#</label
+                >
+              </div>
+              <div class="col-2 p-0 input-border-bottom">
+                <input type="text" class="showBorder" maxlength="5" [min]="0" />
+                <!-- <p-inputNumber class="showBorder" maxlength="5"  [min]="0"></p-inputNumber> -->
+              </div>
+            </div>
+
+            <div class="row mt-2 ml-2">
+              <div class="col-1 p-0 mt-2">
+                <label class="gray-text">City</label>
+              </div>
+              <div class="col-3 p-0 input-border-bottom">
+                <div
+                  class="frm-group"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && cityId.errors
+                  }"
+                  [ngClass]="{ error: cityId.touched && cityId.errors }"
+                  style="
+                    border: 0px solid !important;
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
+                  "
+                >
+                  <div
+                    class="frm-fld-input_sml"
+                    style="
+                      border-bottom: 1px solid #696969 !important ;
+                      margin: 0px;
+                    "
+                  >
+                    <select
+                      [(ngModel)]="
+                        loanPropertyInfoModel.loanPropertyInfo.propertyAddress
+                          .cityId
+                      "
+                      name="cityId"
+                      id="cityId"
+                      #cityId="ngModel"
+                      required
+                    >
+                      <option disabled>Select City</option>
+                      <option
+                        *ngFor="let obj of cityListAddress0"
+                        [ngValue]="obj.id"
+                      >
+                        {{ obj.cityName }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-1 p-0 mt-2">
+                <label class="gray-text" style="text-align: center"
+                  >State</label
+                >
+              </div>
+              <div class="col-1 p-0 input-border-bottom">
+                <div
+                  class="frm-group"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && stateId.errors
+                  }"
+                  [ngClass]="{ error: stateId.touched && stateId.errors }"
+                  style="
+                    border: 0px solid !important;
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
+                  "
+                >
+                  <div
+                    class="frm-fld-input_sml"
+                    style="
+                      border-bottom: 1px solid #696969 !important ;
+                      margin: 0px;
+                    "
+                  >
+                    <select
+                      [(ngModel)]="
+                        loanPropertyInfoModel.loanPropertyInfo.propertyAddress
+                          .stateId
+                      "
+                      name="stateId"
+                      id="stateId"
+                      #stateId="ngModel"
+                      required
+                      (change)="getCityByStateId(stateId.value)"
+                    >
+                      <option disabled>Select State</option>
+                      <option
+                        *ngFor="let obj of stateListAddress0"
+                        [ngValue]="obj.id"
+                      >
+                        {{ obj.stateName }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-1 p-0 mt-2">
+                <label class="gray-text" style="text-align: center">ZIP</label>
+              </div>
+              <div
+                class="col-1 p-0 input-border-bottom mt-1"
+                [ngClass]="{
+                  error: loanPropertyInfoForm.submitted && zip.errors
+                }"
+                [ngClass]="{ error: zip.touched && zip.errors }"
+              >
+                <input
+                  type="text"
+                  min="0"
+                  maxlength="10"
+                  [(ngModel)]="
+                    loanPropertyInfoModel.loanPropertyInfo.propertyAddress.zip
+                  "
+                  name="zip"
+                  id="zip"
+                  #zip="ngModel"
+                  required
+                />
+              </div>
+
+              <div class="col-1 p-0 mt-2">
+                <label class="gray-text" style="text-align: center"
+                  >Country</label
+                >
+              </div>
+              <div class="col-2 p-0 input-border-bottom">
+                <div
+                  class="frm-group"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && countryId.errors
+                  }"
+                  [ngClass]="{ error: countryId.touched && countryId.errors }"
+                  style="
+                    border: 0px solid !important;
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
+                  "
+                >
+                  <div
+                    class="frm-fld-input_sml"
+                    style="
+                      border-bottom: 1px solid #696969 !important ;
+                      margin: 0px;
+                    "
+                  >
+                    <select
+                      [(ngModel)]="
+                        loanPropertyInfoModel.loanPropertyInfo.propertyAddress
+                          .countryId
+                      "
+                      name="countryId"
+                      id="countryId"
+                      #countryId="ngModel"
+                      required
+                      (change)="getStateByCountryId(countryId.value)"
+                    >
+                      <option disabled>Select Country</option>
+                      <option
+                        *ngFor="let obj of countryList"
+                        [ngValue]="obj.id"
+                      >
+                        {{ obj.countryName }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-2 ml-2">
+              <div class="col-2 p-0">
+                <label class="gray-text" style="font-size: 14px !important"
+                  >Number of Units</label
+                >
+              </div>
+              <div class="col-2 p-0 input-border-bottom">
+                <input
+                  type="text"
+                  maxlength="5"
+                  class="showBorder"
+                  [min]="0"
+                  [(ngModel)]="
+                    loanPropertyInfoModel.loanPropertyInfo.propertyAddress
+                      .numberOfUnits
+                  "
+                  name="numberOfUnits"
+                  id="numberOfUnits"
+                  #numberOfUnits="ngModel"
+                />
+                <!-- <p-inputNumber maxlength="9"  class="showBorder" [min]="0" [(ngModel)]="loanPropertyInfoModel.loanPropertyInfo.propertyAddress.numberOfUnits" name="numberOfUnits" id="numberOfUnits" #numberOfUnits="ngModel"></p-inputNumber> -->
+              </div>
+
+              <div class="col-2 p-0">
+                <label
+                  class="gray-text"
+                  style="
+                    color: black !important;
+                    font-size: 14px !important;
+                    text-align: center;
+                  "
+                  >PROPERTY VALUE</label
+                >
+              </div>
+              <div class="col-2 p-0 input-border-bottom" style="display: flex">
+                <span class="mr-2" style="color: black">$</span>
+
+                <span
+                  style="
+                    border-bottom: 1px #696969 solid;
+                    margin-bottom: 5px !important;
+                  "
+                >
+                  <input
+                    type="text"
+                    onFocus="this.select();"
+                    (blur)="fixDecimals($event)"
+                    (keypress)="numberOnly(this, $event)"
+                    pattern="^\d+(?:\.\d{1,2})?$"
+                    style="
+                      border: 0px !important;
+                      padding-left: 5px;
+                      border: 0px !important;
+                      font-size: 14px;
+                      margin-bottom: 0px;
+                      padding-left: 5px !important;
+                      padding-right: 5px !important;
+                      width: 100%;
+                      color: #a5a5a5;
+                      font-weight: 500;
+                    "
+                    [min]="0"
+                    maxlength="9"
+                    ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                    step="0.1"
+                    (keydown)="scroll($event)"
+                  />
+                </span>
+
+                <!-- <p-inputNumber maxlength="9" class="showBorder" [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row div-sub-grp">
+        <div class="col-12">
+          <div class="frm-group">
+            <div class="row">
+              <div class="col-2">
+                <label class="frm-label">
+                  <span>Occupancy</span>
+                </label>
+              </div>
+
+              <div class="col-10">
+                <label class="frm-label">
+                  <span></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-12">
+                <div class="frm-group">
+                  <div class="frm-fld-input">
+                    <div class="row mt-2">
+                      <div class="col-2">
+                        <div style="display: flex; justify-content: center">
+                          <input
+                            type="radio"
+                            value="Primary Residence"
+                            [(ngModel)]="
+                              loanPropertyInfoModel.loanPropertyInfo.occupancy
+                            "
+                            name="occupancy"
+                            id="occupancy"
+                            #occupancy="ngModel"
+                            style="width: 40px"
+                            required
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPropertyInfoForm.submitted &&
+                                occupancy.errors
+                            }"
+                            [ngClass]="{
+                              'error-checkbox':
+                                occupancy.touched && occupancy.errors
+                            }"
+                          />
+
+                          <label
+                            class="text-gray"
+                            style="
+                              padding-top: 5px;
+                              font-size: 11px !important;
+                              color: #000 !important;
+                              font-weight: 600;
+                            "
+                            >Primary Residence</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-2">
+                        <div style="display: flex; justify-content: center">
+                          <input
+                            type="radio"
+                            value="Second Home"
+                            [(ngModel)]="
+                              loanPropertyInfoModel.loanPropertyInfo.occupancy
+                            "
+                            name="occupancy"
+                            id="occupancy"
+                            #occupancy="ngModel"
+                            style="width: 40px"
+                            required
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPropertyInfoForm.submitted &&
+                                occupancy.errors
+                            }"
+                            [ngClass]="{
+                              'error-checkbox':
+                                occupancy.touched && occupancy.errors
+                            }"
+                          />
+                          <label
+                            class="text-gray"
+                            style="
+                              padding-top: 5px;
+                              font-size: 11px !important;
+                              color: #000 !important;
+                              font-weight: 600;
+                            "
+                            >Second Home</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-2">
+                        <div style="display: flex; justify-content: center">
+                          <input
+                            type="radio"
+                            value="Investment Property"
+                            [(ngModel)]="
+                              loanPropertyInfoModel.loanPropertyInfo.occupancy
+                            "
+                            name="occupancy"
+                            id="occupancy"
+                            #occupancy="ngModel"
+                            style="width: 40px"
+                            required
+                            [ngClass]="{
+                              'error-checkbox':
+                                loanPropertyInfoForm.submitted &&
+                                occupancy.errors
+                            }"
+                            [ngClass]="{
+                              'error-checkbox':
+                                occupancy.touched && occupancy.errors
+                            }"
+                          />
+                          <label
+                            class="text-gray"
+                            style="
+                              padding-top: 5px;
+                              font-size: 11px !important;
+                              color: #000 !important;
+                              font-weight: 600;
+                            "
+                            >Investment Property</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-4 ml-4">
+                        <div style="display: flex; justify-content: center">
+                          <label
+                            class="text-gray"
+                            style="
+                              padding-top: 5px;
+                              font-size: 11px !important;
+                              color: #000 !important;
+                              font-weight: 600;
+                            "
+                            >FHA SECONDARY RESIDENCE</label
+                          >
+                          <input
+                            type="checkbox"
+                            name="Purchase"
+                            style="width: 40px"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row div-sub-grp">
+        <div class="col-12">
+          <div class="frm-group">
+            <div class="row">
+              <div class="col-6">
+                <label class="frm-label"> 1. Mixed-Use Property. </label>
+                <label
+                  class="text-gray"
+                  style="color: #000 !important; font-size: 10px !important"
+                  >If you will occupy the property, will you set aside space
+                  within the property to operate your own business? <br />(e.g.,
+                  daycare facility, medical office, beauty/barber shop)
+                </label>
+              </div>
+
+              <div class="col-6">
+                <label
+                  class="frm-label"
+                  style="color: #000 !important; font-size: 10px !important"
+                >
+                  2. Manufactured Home.
+                </label>
+                <label
+                  class="text-gray"
+                  style="color: #000 !important; font-size: 10px !important"
+                  >Is the property a manufactured home? <br />(e.g., a factory
+                  built dwelling built on a permanent chassis)</label
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 text-right">
+                <div class="frm-fld-input">
+                  <div class="row mt-2">
+                    <div class="col-2">
+                      <div style="display: flex; justify-content: center">
+                        <input
+                          type="radio"
+                          value="true"
+                          [(ngModel)]="
+                            loanPropertyInfoModel.loanPropertyInfo
+                              .isMixedUseProperty
+                          "
+                          name="isMixedUseProperty"
+                          id="isMixedUseProperty"
+                          #isMixedUseProperty="ngModel"
+                          style="width: 40px"
+                          required
+                          [ngClass]="{
+                            'error-checkbox':
+                              loanPropertyInfoForm.submitted &&
+                              isMixedUseProperty.errors
+                          }"
+                          [ngClass]="{
+                            'error-checkbox':
+                              isMixedUseProperty.touched &&
+                              isMixedUseProperty.errors
+                          }"
+                        />
+                        <label
+                          class="text-gray"
+                          style="
+                            color: #000 !important;
+                            font-size: 12px !important;
+                            font-weight: 500;
+                          "
+                          >Yes</label
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col-2">
+                      <div style="display: flex; justify-content: center">
+                        <input
+                          type="radio"
+                          value="false"
+                          [(ngModel)]="
+                            loanPropertyInfoModel.loanPropertyInfo
+                              .isMixedUseProperty
+                          "
+                          name="isMixedUseProperty"
+                          id="isMixedUseProperty"
+                          #isMixedUseProperty="ngModel"
+                          style="width: 40px"
+                          required
+                          [ngClass]="{
+                            'error-checkbox':
+                              loanPropertyInfoForm.submitted &&
+                              isMixedUseProperty.errors
+                          }"
+                          [ngClass]="{
+                            'error-checkbox':
+                              isMixedUseProperty.touched &&
+                              isMixedUseProperty.errors
+                          }"
+                        />
+                        <label
+                          class="text-gray"
+                          style="
+                            color: #000 !important;
+                            font-size: 12px !important;
+                            font-weight: 500;
+                          "
+                          >No</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 text-right">
+                <div class="frm-fld-input">
+                  <div class="row mt-2">
+                    <div class="col-2">
+                      <div style="display: flex; justify-content: center">
+                        <input
+                          type="radio"
+                          value="true"
+                          [(ngModel)]="
+                            loanPropertyInfoModel.loanPropertyInfo
+                              .isManufacturedHome
+                          "
+                          name="isManufacturedHome"
+                          id="isManufacturedHome"
+                          #isManufacturedHome="ngModel"
+                          style="width: 40px"
+                          required
+                          [ngClass]="{
+                            'error-checkbox':
+                              loanPropertyInfoForm.submitted &&
+                              isManufacturedHome.errors
+                          }"
+                          [ngClass]="{
+                            'error-checkbox':
+                              isManufacturedHome.touched &&
+                              isManufacturedHome.errors
+                          }"
+                        />
+                        <label class="text-gray">Yes</label>
+                      </div>
+                    </div>
+
+                    <div class="col-2">
+                      <div style="display: flex; justify-content: center">
+                        <input
+                          type="radio"
+                          value="false"
+                          [(ngModel)]="
+                            loanPropertyInfoModel.loanPropertyInfo
+                              .isManufacturedHome
+                          "
+                          name="isManufacturedHome"
+                          id="isManufacturedHome"
+                          #isManufacturedHome="ngModel"
+                          style="width: 40px"
+                          required
+                          [ngClass]="{
+                            'error-checkbox':
+                              loanPropertyInfoForm.submitted &&
+                              isManufacturedHome.errors
+                          }"
+                          [ngClass]="{
+                            'error-checkbox':
+                              isManufacturedHome.touched &&
+                              isManufacturedHome.errors
+                          }"
+                        />
+                        <label class="text-gray">No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="section-title-wo-border"
+        style="display: flex; align-items: center; width: 100%"
+      >
+        <span style="font-size: 20px"
+          >Other New Mortgage Loans on the Property You are Buying or
+          Refinancing</span
+        >
+        <label class="container" style="margin-left: 20px; width: 200px"
+          ><span style="font-weight: bold">Does Not Apply</span>
+          <input
+            type="checkbox"
+            [(ngModel)]="flgOtherNewMortgageLoans"
+            id="flgOtherNewMortgageLoans"
+            name="flgOtherNewMortgageLoans"
+            #txtflgOtherNewMortgageLoans="ngModel"
+            (change)="
+              flgOtherNewMortgageLoansF(txtflgOtherNewMortgageLoans.value)
+            "
+          />
+          <span class="checkmark mt-2"></span>
+        </label>
+      </div>
+
+      <div class="row div-sub-grp">
+        <div class="col-12">
+          <div
+            class="frm-group"
+            [ngClass]="{ disabled: flgOtherNewMortgageLoans == true }"
+          >
+            <div class="row">
+              <div class="col-2">
+                <label class="frm-label">
+                  <span>Creditor Name:</span>
+                </label>
+              </div>
+              <div class="col-1 p-0" style="width: 20px !important"></div>
+              <div
+                class="col-3"
+                style="border-left: 1px solid #a5a5a5 !important"
+              >
+                <label class="frm-label">
+                  <span>Lien Type</span>
+                </label>
+              </div>
+
+              <div class="col-2">
+                <label class="frm-label">
+                  <span>Monthly Payment</span>
+                </label>
+              </div>
+
+              <div class="col-2">
+                <label class="frm-label">
+                  <span>Loan Amount/ Amount to be Drawn</span>
+                </label>
+              </div>
+
+              <div class="col-2">
+                <label class="frm-label">
+                  <span>Credit Limit: (if applicable)</span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="row"
+              *ngFor="
+                let item of loanPropertyInfoModel.newMortgageLoans;
+                index as i
+              "
+            >
+              <div
+                class="col-2"
+                style="display: flex; align-items: center !important"
+              >
+                <div
+                  style="
+                    padding-right: 5px !important;
+                    padding-top: 5px !important;
+                  "
+                >
+                  <input
+                    type="checkbox"
+                    (change)="removeOtherNewMortgageLoansF(i, $event)"
+                  />
+                </div>
+
+                <div
+                  class="frm-group mt-2"
+                  [ngClass]="{
+                    error:
+                      loanPropertyInfoForm.submitted && txtcreditorName.errors
+                  }"
+                  [ngClass]="{
+                    error: txtcreditorName.touched && txtcreditorName.errors
+                  }"
+                  [ngClass]="{ disabled: flgOtherNewMortgageLoans == true }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+                      <!-- <input type="text"
+                        [readonly]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.creditorName"
+                        name="{{i}}.creditorName" id="{{i}}.creditorName" #txtcreditorName="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false" /> -->
+
+                      <!-- <p-inputNumber class="showBorder"  maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.creditorName"
+                        name="{{i}}.creditorName" id="{{i}}.creditorName" #txtcreditorName="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true"
+                        [(ngModel)]="item.creditorName"
+                        name="{{ i }}.creditorName"
+                        id="{{ i }}.creditorName"
+                        #txtcreditorName="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-1 p-0" style="width: 20px !important"></div>
+              <div
+                class="col-3 p-0"
+                style="
+                  border-spacing: 10px 0px;
+                  border-left: 1px solid #a5a5a5 !important;
+                "
+              >
+                <div
+                  style="display: flex; justify-content: center"
+                  class="mt-3"
+                >
+                  <div style="display: flex; justify-content: center">
+                    <input
+                      [disabled]="flgOtherNewMortgageLoans == true"
+                      type="radio"
+                      value="First Lien"
+                      [(ngModel)]="item.lienType"
+                      name="{{ i }}.lienType"
+                      id="{{ i }}.lienType"
+                      #lienType="ngModel"
+                      style="width: 23px"
+                      [required]="flgOtherNewMortgageLoans == false"
+                      [ngClass]="{
+                        'error-checkbox':
+                          loanPropertyInfoForm.submitted && lienType.errors
+                      }"
+                      [ngClass]="{
+                        'error-checkbox': lienType.touched && lienType.errors
+                      }"
+                    />
+                    <label class="text-gray pl-2">First Lien</label>
+                  </div>
+
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      margin-left: 40px;
+                    "
+                  >
+                    <input
+                      [disabled]="flgOtherNewMortgageLoans == true"
+                      type="radio"
+                      value="Subordinate Lien"
+                      [(ngModel)]="item.lienType"
+                      name="{{ i }}.lienType"
+                      id="{{ i }}.lienType"
+                      #lienType="ngModel"
+                      style="width: 23px"
+                      [required]="flgOtherNewMortgageLoans == false"
+                      [ngClass]="{
+                        'error-checkbox':
+                          loanPropertyInfoForm.submitted && lienType.errors
+                      }"
+                      [ngClass]="{
+                        'error-checkbox': lienType.touched && lienType.errors
+                      }"
+                    />
+                    <label class="text-gray ml-2">Subordinate Lien</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div
+                  class="frm-group mt-2"
+                  [ngClass]="{
+                    error:
+                      loanPropertyInfoForm.submitted && monthlyPayment.errors
+                  }"
+                  [ngClass]="{
+                    error: monthlyPayment.touched && monthlyPayment.errors
+                  }"
+                  [ngClass]="{ disabled: flgOtherNewMortgageLoans == true }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+                      <!-- <input type="number"
+                        [readonly]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.monthlyPayment"
+                        name="{{i}}.monthlyPayment" id="{{i}}.monthlyPayment" #monthlyPayment="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false" /> -->
+                      <!-- <p-inputNumber class="showBorder"  maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.monthlyPayment"
+                        name="{{i}}.monthlyPayment" id="{{i}}.monthlyPayment" #monthlyPayment="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true"
+                        [(ngModel)]="item.monthlyPayment"
+                        name="{{ i }}.monthlyPayment"
+                        id="{{ i }}.monthlyPayment"
+                        #monthlyPayment="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div
+                  class="frm-group mt-2"
+                  [ngClass]="{
+                    error:
+                      loanPropertyInfoForm.submitted && txtloanAmount.errors
+                  }"
+                  [ngClass]="{
+                    error: txtloanAmount.touched && txtloanAmount.errors
+                  }"
+                  [ngClass]="{ disabled: flgOtherNewMortgageLoans == true }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+                      <!-- <input type="number"
+                        min="0" [readonly]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.loanAmount"
+                        name="{{i}}.loanAmount" id="{{i}}.loanAmount" #txtloanAmount="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false" /> -->
+                      <!-- <p-inputNumber class="showBorder" maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.loanAmount"
+                        name="{{i}}.loanAmount" id="{{i}}.loanAmount" #txtloanAmount="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true"
+                        [(ngModel)]="item.loanAmount"
+                        name="{{ i }}.loanAmount"
+                        id="{{ i }}.loanAmount"
+                        #txtloanAmount="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div
+                  class="frm-group mt-2"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && creditLimit.errors
+                  }"
+                  [ngClass]="{
+                    error: creditLimit.touched && creditLimit.errors
+                  }"
+                  [ngClass]="{ disabled: flgOtherNewMortgageLoans == true }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+                      <!-- <input type="number"
+                        min="0" [readonly]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.creditLimit"
+                        name="{{i}}.creditLimit" id="{{i}}.creditLimit" #creditLimit="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false" /> -->
+
+                      <!-- <p-inputNumber class="showBorder" maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true" [(ngModel)]="item.creditLimit"
+                        name="{{i}}.creditLimit" id="{{i}}.creditLimit" #creditLimit="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [disabled]="flgOtherNewMortgageLoans == true"
+                        [(ngModel)]="item.creditLimit"
+                        name="{{ i }}.creditLimit"
+                        id="{{ i }}.creditLimit"
+                        #creditLimit="ngModel"
+                        [required]="flgOtherNewMortgageLoans == false"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="frm-label">
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <a
+                      style="
+                        cursor: pointer;
+                        color: #696969;
+                        text-decoration: none;
+                        font-size: 12px;
+                      "
+                      (click)="addMortgageLoanList()"
+                      >Add more</a
+                    >
+                    <span *ngIf="flgRemove1 == true"> /</span>
+                    <a
+                      *ngIf="flgRemove1 == true"
+                      style="
+                        cursor: pointer;
+                        color: #696969;
+                        text-decoration: none;
+                        font-size: 12px;
+                      "
+                      (click)="removeMortgageLoanList()"
+                      >Remove</a
+                    >
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="section-title-wo-border"
+        style="display: flex; align-items: center; width: 100%"
+      >
+        <span style="font-size: 20px"
+          >Rental Income on the Property You Want to Purchase (For Purchase Only
+          )</span
+        >
+        <label class="container" style="margin-left: 20px; width: 200px"
+          ><span style="font-weight: bold">Does Not Apply</span>
+          <input
+            type="checkbox"
+            [(ngModel)]="flgRentalIncome"
+            id="flgRentalIncome"
+            name="flgRentalIncome"
+            #txtflgRentalIncome="ngModel"
+            (change)="flgRentalIncomeF(txtflgRentalIncome.value)"
+          />
+          <span class="checkmark mt-2"></span>
+        </label>
+      </div>
+
+      <div class="div-main-grp" style="width: 100%">
+        <div class="div-sub-grp">
+          <div
+            class="frm-group"
+            [ngClass]="{ disabled: flgRentalIncome == true }"
+          >
+            <div class="row">
+              <label class="col-8 frm-label">
+                <span
+                  >Complete if the property is a 2-4 Unit Primary Residence or
+                  an Investment Property
+                </span>
+              </label>
+              <label class="col-4 frm-label">
+                <span>Amount</span>
+              </label>
+            </div>
+
+            <div class="row">
+              <div class="col-8">
+                <div
+                  class="frm-group mt-3"
+                  [ngClass]="{ disabled: flgRentalIncome == true }"
+                >
+                  <div class="frm-fld-input">
+                    <span class="text-gray" style="color: #000 !important"
+                      >Expected Monthly Rental Income</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="frm-group mt-3"
+                  [ngClass]="{ disabled: flgRentalIncome == true }"
+                  [ngClass]="{
+                    error:
+                      loanPropertyInfoForm.submitted &&
+                      txtmonthlyRentalIncome.errors
+                  }"
+                  [ngClass]="{
+                    error:
+                      txtmonthlyRentalIncome.touched &&
+                      txtmonthlyRentalIncome.errors
+                  }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 15px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+                      <!-- <input type="number"
+                        min="0" [readonly]="flgRentalIncome == true"
+                        [(ngModel)]="loanPropertyInfoModel.rentalIncome.monthlyRentalIncome" name="monthlyRentalIncome"
+                        id="monthlyRentalIncome" #txtmonthlyRentalIncome="ngModel"
+                        [required]="flgRentalIncome == false" /> -->
+
+                      <!-- <p-inputNumber class="showBorder" maxlength="9"
+                        [disabled]="flgRentalIncome == true"
+                        [(ngModel)]="loanPropertyInfoModel.rentalIncome.monthlyRentalIncome" name="monthlyRentalIncome"
+                        id="monthlyRentalIncome" #txtmonthlyRentalIncome="ngModel"
+                        [required]="flgRentalIncome == false"
+                        [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [disabled]="flgRentalIncome == true"
+                        [(ngModel)]="
+                          loanPropertyInfoModel.rentalIncome.monthlyRentalIncome
+                        "
+                        name="monthlyRentalIncome"
+                        id="monthlyRentalIncome"
+                        #txtmonthlyRentalIncome="ngModel"
+                        [required]="flgRentalIncome == false"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-8">
+                <div
+                  class="frm-group mt-3"
+                  [ngClass]="{ disabled: flgRentalIncome == true }"
+                >
+                  <div class="frm-fld-input">
+                    <span class="text-gray" style="color: #000 !important"
+                      ><b>For LENDER to calculate:</b> Expected Net Monthly
+                      Rental Income</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="frm-group mt-3"
+                  [ngClass]="{ disabled: flgRentalIncome == true }"
+                  [ngClass]="{
+                    error:
+                      loanPropertyInfoForm.submitted &&
+                      netMonthlyRentalIncome.errors
+                  }"
+                  [ngClass]="{
+                    error:
+                      netMonthlyRentalIncome.touched &&
+                      netMonthlyRentalIncome.errors
+                  }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 15px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+                      <!-- <input type="number"
+                        min="0" [readonly]="flgRentalIncome == true"
+                        [(ngModel)]="loanPropertyInfoModel.rentalIncome.netMonthlyRentalIncome"
+                        name="netMonthlyRentalIncome" id="netMonthlyRentalIncome" #netMonthlyRentalIncome="ngModel"
+                        [required]="flgRentalIncome == false" /> -->
+
+                      <!-- <p-inputNumber class="showBorder" maxlength="9"
+                         [disabled]="flgRentalIncome == true"
+                        [(ngModel)]="loanPropertyInfoModel.rentalIncome.netMonthlyRentalIncome"
+                        name="netMonthlyRentalIncome" id="netMonthlyRentalIncome" #netMonthlyRentalIncome="ngModel"
+                        [required]="flgRentalIncome == false"
+                        [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [disabled]="flgRentalIncome == true"
+                        [(ngModel)]="
+                          loanPropertyInfoModel.rentalIncome
+                            .netMonthlyRentalIncome
+                        "
+                        name="netMonthlyRentalIncome"
+                        id="netMonthlyRentalIncome"
+                        #netMonthlyRentalIncome="ngModel"
+                        [required]="flgRentalIncome == false"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="section-title"
+        style="display: flex; align-items: center; width: 100%"
+      >
+        <span style="font-size: 16px"
+          >Gifts or Grants You Have Been Given or Will Receive for this
+          Loan</span
+        >
+        <label class="container" style="margin-left: 20px; width: 200px"
+          ><span style="font-weight: bold">Does Not Apply</span>
+          <input
+            type="checkbox"
+            [(ngModel)]="flgGiftsorGrants"
+            id="flgGiftsorGrants"
+            name="flgGiftsorGrants"
+            #txtflgGiftsorGrants="ngModel"
+            (change)="flgGiftsorGrantsF(txtflgGiftsorGrants.value)"
+          />
+          <span class="checkmark mt-2"></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="col-3 p-0">
+          <ul>
+            <li>Community Nonprofit</li>
+            <li>Employer</li>
+          </ul>
+        </div>
+        <div class="col-2 p-0">
+          <ul>
+            <li>Federal Agency</li>
+            <li>Local Agency</li>
+          </ul>
+        </div>
+        <div class="col-2 p-0">
+          <ul>
+            <li>Relative</li>
+            <li>Religious Nonprofit</li>
+          </ul>
+        </div>
+        <div class="col-2 p-0">
+          <ul>
+            <li>State Agency</li>
+            <li>Unmarried Partner</li>
+          </ul>
+        </div>
+        <div class="col-2 p-0">
+          <ul>
+            <li>Lender</li>
+            <li>Other</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 style="color: #000 !important; font-size: 13px !important">
+        Include all gifts and grants below. Under Source, choose from the
+        sources listed here:
+      </h4>
+      <div class="row div-sub-grp">
+        <div class="col-12">
+          <div
+            class="frm-group"
+            [ngClass]="{ disabled: flgGiftsorGrants == true }"
+          >
+            <div
+              class="pb-2"
+              style="display: flex; align-items: center !important"
+            >
+              <div style="width: 5% !important"></div>
+              <div
+                style="
+                  width: 20% !important;
+                  padding-left: 0px !important;
+                  border-right: 1px solid #a5a5a5 !important;
+                  padding-right: 10px !important;
+                "
+              >
+                <label class="frm-label">
+                  <span>Asset Type – Cash Gift, Gift of Equity, Grant</span>
+                </label>
+              </div>
+
+              <div style="width: 35% !important">
+                <label class="frm-label pl-2">
+                  <span>Deposited/Not Deposited</span>
+                </label>
+              </div>
+
+              <div
+                style="
+                  width: 20% !important;
+                  border-left: 1px solid #696969;
+                  padding-left: 10px !important;
+                "
+              >
+                <label class="frm-label">
+                  <span>Source – use list above</span>
+                </label>
+              </div>
+
+              <div
+                style="
+                  width: 20% !important;
+                  border-left: 1px solid #696969;
+                  padding-left: 10px !important;
+                "
+              >
+                <label class="frm-label">
+                  <span>Cash or Market Value</span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              style="display: flex; align-items: center !important"
+              *ngFor="
+                let item of loanPropertyInfoModel.giftsOrGrants;
+                index as i
+              "
+            >
+              <div style="width: 5% !important">
+                <input
+                  type="checkbox"
+                  (change)="removeGiftsorGrantsF(i, $event)"
+                />
+              </div>
+              <div
+                style="
+                  width: 20% !important;
+                  padding-left: 0px !important;
+                  border-right: 1px solid #a5a5a5 !important;
+                  padding-right: 10px !important;
+                "
+              >
+                <div
+                  class="frm-group"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && assetTypeId.errors
+                  }"
+                  [ngClass]="{
+                    error: assetTypeId.touched && assetTypeId.errors
+                  }"
+                  [ngClass]="{ disabled: flgGiftsorGrants == true }"
+                >
+                  <p
+                    class="frm-fld-input"
+                    [ngClass]="{ disabled: flgGiftsorGrants == true }"
+                  >
+                    <select
+                      class="form-control shadow-none"
+                      [disabled]="flgGiftsorGrants == true"
+                      [(ngModel)]="item.assetTypeId"
+                      name="{{ i }}.assetTypeId"
+                      id="{{ i }}.assetTypeId"
+                      #assetTypeId="ngModel"
+                      [required]="flgGiftsorGrants == false"
+                    >
+                      <option value="-1" selected disabled>-Select one-</option>
+                      <option
+                        *ngFor="let obj of giftTypeList"
+                        [ngValue]="obj.id"
+                      >
+                        {{ obj.loanPropertyGiftType1 }}
+                      </option>
+                    </select>
+                  </p>
+                </div>
+              </div>
+
+              <div style="width: 35% !important">
+                <div
+                  style="display: flex; justify-content: left"
+                  class="mt-0 ml-3"
+                >
+                  <div style="display: flex; justify-content: center">
+                    <input
+                      type="radio"
+                      value="true"
+                      [disabled]="flgGiftsorGrants == true"
+                      [disabled]="flgGiftsorGrants == true"
+                      [(ngModel)]="item.isDeposited"
+                      name="{{ i }}.isDeposited"
+                      id="{{ i }}.isDeposited"
+                      #isDeposited="ngModel"
+                      style="width: 23px"
+                      [required]="flgGiftsorGrants == false"
+                      [ngClass]="{
+                        'error-checkbox':
+                          loanPropertyInfoForm.submitted && isDeposited.errors
+                      }"
+                      [ngClass]="{
+                        'error-checkbox':
+                          isDeposited.touched && isDeposited.errors
+                      }"
+                    />
+                    <label class="text-gray ml-2">Deposited</label>
+                  </div>
+
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      margin-left: 40px;
+                    "
+                  >
+                    <input
+                      type="radio"
+                      [disabled]="flgGiftsorGrants == true"
+                      [(ngModel)]="item.isDeposited"
+                      value="false"
+                      name="{{ i }}.isDeposited"
+                      id="{{ i }}.isDeposited"
+                      #isDeposited="ngModel"
+                      style="width: 23px"
+                      [required]="flgGiftsorGrants == false"
+                      [ngClass]="{
+                        'error-checkbox':
+                          loanPropertyInfoForm.submitted && isDeposited.errors
+                      }"
+                      [ngClass]="{
+                        'error-checkbox':
+                          isDeposited.touched && isDeposited.errors
+                      }"
+                    />
+                    <label class="text-gray ml-2">Not Deposited</label>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  width: 20% !important;
+                  border-left: 1px solid #696969;
+                  padding-left: 10px !important;
+                "
+              >
+                <div
+                  class="frm-group mt-2"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && source.errors
+                  }"
+                  [ngClass]="{ error: source.touched && source.errors }"
+                  [ngClass]="{ disabled: flgGiftsorGrants == true }"
+                >
+                  <p
+                    class="frm-fld-input"
+                    [ngClass]="{ disabled: flgGiftsorGrants == true }"
+                  >
+                    <select
+                      [disabled]="flgGiftsorGrants == true"
+                      class="form-control shadow-none"
+                      [(ngModel)]="item.source"
+                      name="{{ i }}.source"
+                      id="{{ i }}.source"
+                      #source="ngModel"
+                      [required]="flgGiftsorGrants == false"
+                    >
+                      <option value="-1" selected disabled>-Select One-</option>
+                      <option value="-1">Community Nonprofit</option>
+                      <option value="-1">Employer</option>
+                      <option value="-1">Federal Agency</option>
+                      <option value="-1">Local Agency</option>
+                      <option value="-1">Relative</option>
+                      <option value="-1">Religious Non Profit</option>
+                      <option value="-1">State Agency</option>
+                      <option value="-1">Unmarried Partner</option>
+                      <option value="-1">Lender</option>
+                      <option value="-1">Other</option>
+                    </select>
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style="
+                  width: 20% !important;
+                  border-left: 1px solid #696969;
+                  padding-left: 10px !important;
+                "
+              >
+                <div
+                  class="frm-group mt-2"
+                  [ngClass]="{
+                    error: loanPropertyInfoForm.submitted && marketValue.errors
+                  }"
+                  [ngClass]="{
+                    error: marketValue.touched && marketValue.errors
+                  }"
+                  [ngClass]="{ disabled: flgGiftsorGrants == true }"
+                >
+                  <div class="input-border-bottom">
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                      "
+                    >
+                      <span
+                        style="
+                          width: 20px;
+                          text-align: right;
+                          margin-right: 5px;
+                        "
+                        >$
+                      </span>
+                      <!-- <input type="text"
+                        [readonly]="flgGiftsorGrants == true" [(ngModel)]="item.marketValue" name="{{i}}.marketValue"
+                        id="{{i}}.marketValue" #marketValue="ngModel" [required]="flgGiftsorGrants == false" /> -->
+                      <!-- <p-inputNumber class="showBorder"  maxlength="9"
+                         [disabled]="flgGiftsorGrants == true" [(ngModel)]="item.marketValue" name="{{i}}.marketValue"
+                         id="{{i}}.marketValue" #marketValue="ngModel" [required]="flgGiftsorGrants == false"
+                        [minFractionDigits]="2" [min]="0" [maxFractionDigits]="2"></p-inputNumber> -->
+
+                      <input
+                        type="text"
+                        onFocus="this.select();"
+                        (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)"
+                        pattern="^\d+(?:\.\d{1,2})?$"
+                        style="
+                          border: 0px !important;
+                          padding-left: 5px;
+                          border: 0px !important;
+                          font-size: 14px;
+                          margin-bottom: 0px;
+                          padding-left: 5px !important;
+                          padding-right: 5px !important;
+                          width: 100%;
+                          color: #a5a5a5;
+                          font-weight: 500;
+                        "
+                        [min]="0"
+                        maxlength="9"
+                        [disabled]="flgGiftsorGrants == true"
+                        [(ngModel)]="item.marketValue"
+                        name="{{ i }}.marketValue"
+                        id="{{ i }}.marketValue"
+                        #marketValue="ngModel"
+                        [required]="flgGiftsorGrants == false"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
+                        step="0.1"
+                        (keydown)="scroll($event)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <label class="frm-label">
+              <div class="row mt-3">
+                <div class="col-6">
+                  <a
+                    style="
+                      cursor: pointer;
+                      color: #696969;
+                      text-decoration: none;
+                      font-size: 12px;
+                    "
+                    (click)="addGiftsOrGrants()"
+                    >Add more</a
+                  >
+                  <span *ngIf="flgRemove2 == true"> /</span>
+                  <a
+                    *ngIf="flgRemove2 == true"
+                    style="
+                      cursor: pointer;
+                      color: #696969;
+                      text-decoration: none;
+                      font-size: 12px;
+                    "
+                    (click)="removeGiftsOrGrants()"
+                    >Remove</a
+                  >
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+    <div class="row borrower-block">
+      <div class="col-sm-8">
+        <div class="input-group">
+          <div class="input-group-text">Borrower Name:</div>
+          <input
+            type="text"
+            maxlength="30"
+            class="form-control shadow-none"
+            id="specificSizeInputGroupUsername"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-right mt-5">
+      <div class="col-sm-12">
+        <button class="btn btn-fill" type="submit">NEXT</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+.label {
+  text-align: left !important;
+  font: normal normal medium 13px/18px Avenir !important;
+  letter-spacing: 0px !important;
+  color: #091a52 !important;
+  opacity: 1 !important;
+  font-size: small !important;
+}
+input {
+  border: 1px solid #545454;
+  border-radius: 6px;
+  opacity: 1;
+}
+
+.content {
+  background: #091a52 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #091a5214;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.pic1 {
+  background: transparent url("assets/img/mortgage.svg") 0% 0% no-repeat
+    padding-box;
+  margin: 10px 40px;
+}
+
+option {
+  text-decoration: none;
+  color: #091a52 !important;
+  background-color: #ffffff !important  ;
+}
+
+.image-spacer {
+  background-repeat: no-repeat !important;
+  background-origin: content-box !important;
+  background-size: 100% 48.2% !important;
+}
+
+.image-spacer2 {
+  padding: unset;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+}

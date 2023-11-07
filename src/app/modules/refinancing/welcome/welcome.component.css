@@ -1,0 +1,7 @@
+@import url("./../index.component.css");
+@import url("../../../../assets/new/css/main.css");
+.btn :visited {
+  border: 1px solid #091a52;
+  background-color: #091a52;
+  color: #fff;
+}

@@ -1,0 +1,11 @@
+.section-left p,
+.section-right p {
+  margin: 0px;
+}
+.graph {
+  border: 1px solid red;
+}
+#double-line-chart-container {
+  height: 200px;
+  width: 400px;
+}

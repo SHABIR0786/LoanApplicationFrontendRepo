@@ -1,0 +1,734 @@
+<section class="content">
+  <div class="container">
+    <div class="card my-5">
+      <div class="card-body">
+        <form [formGroup]="form">
+          <ng-wizard [config]="config">
+            <ng-wizard-step title="Loan Details" [state]="">
+              <div class="row" style="margin-top: 2rem">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="referredBy">
+                      {{
+                        "Who Referred You? (Real Estate Agent, Family, Friend, Internet, etc.) Please list by Full Name, if Applicable"
+                          | localize
+                      }}
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="referredBy"
+                      id="referredBy"
+                      formControlName="referredBy"
+                      [(ngModel)]="data.referredBy"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>
+                      Are you currently working with a EZ Online Mortgage loan
+                      officer?
+                      <span class="text-danger">*</span>
+                    </label>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="isWorkingWithOfficer"
+                            id="isWorkingWithOfficerYes"
+                            formControlName="isWorkingWithOfficer"
+                            [value]="true"
+                            [(ngModel)]="data.isWorkingWithOfficer"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="isWorkingWithOfficerYes"
+                            >Yes</label
+                          >
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="isWorkingWithOfficer"
+                            id="isWorkingWithOfficerNo"
+                            formControlName="isWorkingWithOfficer"
+                            [value]="false"
+                            [(ngModel)]="data.isWorkingWithOfficer"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="isWorkingWithOfficerNo"
+                            >No</label
+                          >
+                        </div>
+                      </div>
+                      <validation-summary
+                        class="col-12"
+                        [control]="form.controls.isWorkingWithOfficer"
+                      >
+                      </validation-summary>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12" *ngIf="data.isWorkingWithOfficer">
+                  <div class="form-group">
+                    <label for="loanOfficerId">
+                      {{ "Choose the loan officer below" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <select
+                      class="form-control"
+                      name="loanOfficerId"
+                      id="loanOfficerId"
+                      formControlName="loanOfficerId"
+                      required
+                      [(ngModel)]="data.loanOfficerId"
+                    >
+                      <option
+                        [ngValue]="loanOfficer.id"
+                        *ngFor="let loanOfficer of loanOfficers"
+                      >
+                        {{ loanOfficer.name }}
+                      </option>
+                    </select>
+                    <validation-summary
+                      [control]="form.controls.loanOfficerId"
+                    ></validation-summary>
+                  </div>
+                </div>
+
+                <div class="col-12 mt-3" style="margin-bottom: 2rem">
+                  <h5 class="card-subtitle text-muted">Purpose of your Loan</h5>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="purposeOfLoan">
+                      {{ "Loan Purpose" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <select
+                      class="form-control"
+                      name="purposeOfLoan"
+                      id="purposeOfLoan"
+                      formControlName="purposeOfLoan"
+                      required
+                      [(ngModel)]="data.purposeOfLoan"
+                    >
+                      <option
+                        [ngValue]="loanPurpose.id"
+                        *ngFor="let loanPurpose of loanPurposes"
+                      >
+                        {{ loanPurpose.name }}
+                      </option>
+                    </select>
+                    <validation-summary
+                      [control]="form.controls.purposeOfLoan"
+                    ></validation-summary>
+                  </div>
+                </div>
+
+                <div class="col-6" *ngIf="data.purposeOfLoan === 1">
+                  <div class="form-group">
+                    <label for="estimatedPurchasePrice">
+                      {{ "Estimated Purchase Price" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="estimatedPurchasePrice"
+                      id="estimatedPurchasePrice"
+                      formControlName="estimatedPurchasePrice"
+                      required
+                      [(ngModel)]="data.estimatedPurchasePrice"
+                      placeholder="$"
+                      prefix="$ "
+                      mask="separator.2"
+                      thousandSeparator=","
+                      maxlength="18"
+                    />
+                  </div>
+                  <validation-summary
+                    [control]="form.controls.estimatedPurchasePrice"
+                  ></validation-summary>
+                </div>
+
+                <div class="col-6" *ngIf="data.purposeOfLoan === 1">
+                  <div class="form-group">
+                    <label for="downPaymentAmount">
+                      {{ "Down Payment Amount" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="downPaymentAmount"
+                      id="downPaymentAmount"
+                      formControlName="downPaymentAmount"
+                      required
+                      placeholder="$"
+                      prefix="$ "
+                      mask="separator.2"
+                      thousandSeparator=","
+                    />
+                    <validation-summary
+                      [control]="form.controls.downPaymentAmount"
+                    ></validation-summary>
+                  </div>
+                </div>
+
+                <div class="col-6" *ngIf="data.purposeOfLoan === 1">
+                  <div class="form-group">
+                    <label for="downPaymentPercentage">
+                      {{ "Down Payment Percentage" | localize }}
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="downPaymentPercentage"
+                      id="downPaymentPercentage"
+                      formControlName="downPaymentPercentage"
+                      [(ngModel)]="data.downPaymentPercentage"
+                      [patterns]="0"
+                      placeholder="%"
+                      suffix="% "
+                      mask="0*.00"
+                      maxlength="99"
+                    />
+                    {{ form.controls.downPaymentPercentage.errors?.range }}
+                    <div
+                      *ngIf="form.controls.downPaymentPercentage.errors?.max"
+                    >
+                      <span class="text-danger"
+                        >Value must be less than or equal to 99.99.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6" *ngIf="data.purposeOfLoan === 1">
+                  <div class="form-group">
+                    <label for="sourceOfDownPayment">
+                      {{ "Source of Down Payment" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <select
+                      class="form-control"
+                      name="sourceOfDownPayment"
+                      id="sourceOfDownPayment"
+                      formControlName="sourceOfDownPayment"
+                      required
+                      [(ngModel)]="data.sourceOfDownPayment"
+                    >
+                      <option
+                        [ngValue]="sourceOfDownPayment.id"
+                        *ngFor="let sourceOfDownPayment of sourceOfDownPayments"
+                      >
+                        {{ sourceOfDownPayment.name }}
+                      </option>
+                    </select>
+                    <validation-summary
+                      [control]="form.controls.sourceOfDownPayment"
+                    ></validation-summary>
+                  </div>
+                </div>
+
+                <div class="col-6" *ngIf="data.sourceOfDownPayment === 4">
+                  <div class="form-group">
+                    <label for="giftAmount">
+                      {{ "Gift Amount" | localize }}
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="giftAmount"
+                      id="giftAmount"
+                      formControlName="giftAmount"
+                      [(ngModel)]="data.giftAmount"
+                      placeholder="$"
+                      prefix="$ "
+                      mask="separator.2"
+                      thousandSeparator=","
+                    />
+                  </div>
+                </div>
+
+                <div class="col-6" *ngIf="data.sourceOfDownPayment === 4">
+                  <div class="form-group">
+                    <label for="giftExplanation">
+                      {{ "Gift Explanation" | localize }}
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="giftExplanation"
+                      id="giftExplanation"
+                      formControlName="giftExplanation"
+                      [(ngModel)]="data.giftExplanation"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="col-6"
+                  *ngIf="data.purposeOfLoan === 2 || data.purposeOfLoan === 3"
+                >
+                  <div class="form-group">
+                    <label for="estimatedValue">
+                      {{ "Estimated Value" | localize }}
+                    </label>
+                    <i
+                      class="fa fa-info-circle ml-2"
+                      aria-hidden="true"
+                      tooltip="The estimated value of the subject property. The value can be estimated based on information such as the list price, recent sales of similar properties in the area, or recent property tax assessments."
+                    >
+                    </i>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="estimatedValue"
+                      id="estimatedValue"
+                      formControlName="estimatedValue"
+                      [(ngModel)]="data.estimatedValue"
+                      placeholder="$"
+                      prefix="$ "
+                      mask="separator.2"
+                      thousandSeparator=","
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="col-6"
+                  *ngIf="data.purposeOfLoan === 2 || data.purposeOfLoan === 3"
+                >
+                  <div class="form-group">
+                    <label for="currentLoanAmount">
+                      {{ "Current Loan Amount" | localize }}
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="currentLoanAmount"
+                      id="currentLoanAmount"
+                      formControlName="currentLoanAmount"
+                      [(ngModel)]="data.currentLoanAmount"
+                      placeholder="$"
+                      prefix="$ "
+                      mask="separator.2"
+                      thousandSeparator=","
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="col-6"
+                  *ngIf="data.purposeOfLoan === 2 || data.purposeOfLoan === 3"
+                >
+                  <div class="form-group">
+                    <label for="requestedLoanAmount">
+                      {{ "Requested Loan Amount" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="requestedLoanAmount"
+                      id="requestedLoanAmount"
+                      formControlName="requestedLoanAmount"
+                      required
+                      [(ngModel)]="data.requestedLoanAmount"
+                      placeholder="$"
+                      prefix="$ "
+                      mask="separator.2"
+                      thousandSeparator=","
+                    />
+                    <validation-summary
+                      [control]="form.controls.requestedLoanAmount"
+                    ></validation-summary>
+                  </div>
+                </div>
+
+                <div
+                  class="row"
+                  *ngIf="data.purposeOfLoan && data.purposeOfLoan !== 1"
+                >
+                  <div class="col-12">
+                    <label>Do you have a second mortgage?</label>
+                  </div>
+                  <div class="col-12 mb-2">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="haveSecondMortgage"
+                        id="haveSecondMortgageYes"
+                        formControlName="haveSecondMortgage"
+                        [value]="true"
+                        [(ngModel)]="data.haveSecondMortgage"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="haveSecondMortgageYes"
+                        >Yes</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="haveSecondMortgage"
+                        id="haveSecondMortgageNo"
+                        formControlName="haveSecondMortgage"
+                        [value]="false"
+                        [(ngModel)]="data.haveSecondMortgage"
+                      />
+                      <label class="form-check-label" for="haveSecondMortgageNo"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6" *ngIf="data.haveSecondMortgage">
+                  <div class="form-group">
+                    <label for="secondMortgageAmount">
+                      {{ "Second Mortgage Amount" | localize }}
+                    </label>
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="secondMortgageAmount"
+                        id="secondMortgageAmount"
+                        formControlName="secondMortgageAmount"
+                        [(ngModel)]="data.secondMortgageAmount"
+                        placeholder="$"
+                        prefix="$ "
+                        mask="separator.2"
+                        thousandSeparator=","
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 row" *ngIf="data.haveSecondMortgage">
+                  <div class="col-12">
+                    <label
+                      >Do you want to pay off this loan with the new
+                      loan?</label
+                    >
+                  </div>
+                  <div class="col-12 mb-2">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="payLoanWithNewLoan"
+                        id="payLoanWithNewLoanYes"
+                        formControlName="payLoanWithNewLoan"
+                        [value]="true"
+                        [(ngModel)]="data.payLoanWithNewLoan"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="payLoanWithNewLoanYes"
+                        >Yes</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="payLoanWithNewLoan"
+                        id="payLoanWithNewLoanNo"
+                        formControlName="payLoanWithNewLoan"
+                        [value]="false"
+                        [(ngModel)]="data.payLoanWithNewLoan"
+                      />
+                      <label class="form-check-label" for="payLoanWithNewLoanNo"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button
+                    class="btn btn-secondary float-right"
+                    (click)="proceedToNext('wizardStep', 1)"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+            <ng-wizard-step title="Property Details">
+              <div
+                class="row"
+                style="margin-top: 2rem"
+                *ngIf="data.purposeOfLoan === 1"
+              >
+                <div class="col-12">
+                  <label
+                    >Have you started looking for a home?
+                    <span class="text-danger">*</span>
+                  </label>
+                </div>
+                <div class="col-6 mb-2">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="startedLookingForNewHome"
+                      id="startedLookingForNewHomeYes"
+                      formControlName="startedLookingForNewHome"
+                      [value]="true"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="startedLookingForNewHomeYes"
+                      >Yes</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="startedLookingForNewHome"
+                      id="startedLookingForNewHomeNo"
+                      formControlName="startedLookingForNewHome"
+                      [value]="false"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="startedLookingForNewHomeNo"
+                      >No</label
+                    >
+                  </div>
+                  <validation-summary
+                    [control]="form.controls.startedLookingForNewHome"
+                  ></validation-summary>
+                </div>
+              </div>
+
+              <div
+                class="row"
+                style="margin-top: 2rem"
+                *ngIf="data.purposeOfLoan === 2 || data.purposeOfLoan === 3"
+              >
+                <div class="col-12">
+                  <label>Are you refinancing your current home?</label>
+                </div>
+                <div class="col-12 mb-2">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="refinancingCurrentHome"
+                      id="refinancingCurrentHomeYes"
+                      formControlName="refinancingCurrentHome"
+                      [value]="true"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="refinancingCurrentHomeYes"
+                      >Yes</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="refinancingCurrentHome"
+                      id="refinancingCurrentHomeNo"
+                      formControlName="refinancingCurrentHome"
+                      [value]="false"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="refinancingCurrentHomeNo"
+                      >No</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="row"
+                *ngIf="data.purposeOfLoan === 2 || data.purposeOfLoan === 3"
+              >
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="yearAcquired">
+                      {{ "When did you acquire this property?" | localize }}
+                      <span class="text-danger">*</span>
+                      <span class="float-right">YYYY</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="yearAcquired"
+                      id="yearAcquired"
+                      formControlName="yearAcquired"
+                      [(ngModel)]="data.yearAcquired"
+                    />
+                    <validation-summary
+                      [control]="form.controls.yearAcquired"
+                    ></validation-summary>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="originalPrice">
+                      {{
+                        "What was the original price of the home?" | localize
+                      }}
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="originalPrice"
+                      id="originalPrice"
+                      formControlName="originalPrice"
+                      [(ngModel)]="data.originalPrice"
+                      placeholder="$"
+                      prefix="$ "
+                      mask="separator.2"
+                      thousandSeparator=","
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="city">
+                      {{ "City" | localize }}
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="city"
+                      id="city"
+                      formControlName="city"
+                      [(ngModel)]="data.city"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="stateId" style="display: inline-block">
+                      {{ "State" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <i
+                      style="float: right"
+                      class="fa fa-info-circle ml-2"
+                      aria-hidden="true"
+                      tooltip="Only the states in which we're licensed to do business are listed here."
+                    >
+                    </i>
+                    <select
+                      class="form-control"
+                      name="stateId"
+                      id="stateId"
+                      formControlName="stateId"
+                      [(ngModel)]="data.stateId"
+                      required
+                    >
+                      <option selected disabled>--Select--</option>
+                      <option [ngValue]="state.id" *ngFor="let state of states">
+                        {{ state.name }}
+                      </option>
+                    </select>
+                    <validation-summary
+                      [control]="form.controls.stateId"
+                    ></validation-summary>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="propertyTypeId">
+                      {{ "Property Type" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <select
+                      class="form-control"
+                      name="propertyTypeId"
+                      id="propertyTypeId"
+                      formControlName="propertyTypeId"
+                      [(ngModel)]="data.propertyTypeId"
+                    >
+                      <option
+                        [ngValue]="propertyType.id"
+                        *ngFor="let propertyType of propertyTypes"
+                      >
+                        {{ propertyType.name }}
+                      </option>
+                    </select>
+                    <validation-summary
+                      [control]="form.controls.propertyTypeId"
+                    ></validation-summary>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="propertyUseId">
+                      {{ "Property Use" | localize }}
+                      <span class="text-danger">*</span>
+                    </label>
+                    <select
+                      class="form-control"
+                      name="propertyUseId"
+                      id="propertyUseId"
+                      formControlName="propertyUseId"
+                      [(ngModel)]="data.propertyUseId"
+                    >
+                      <option
+                        [ngValue]="propertyUse.id"
+                        *ngFor="let propertyUse of propertyUses"
+                      >
+                        {{ propertyUse.name }}
+                      </option>
+                    </select>
+                    <validation-summary
+                      [control]="form.controls.propertyUseId"
+                    ></validation-summary>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <button
+                    class="btn btn-secondary"
+                    (click)="proceedToPrevious('wizardStep')"
+                  >
+                    Back
+                  </button>
+                  <button
+                    class="btn btn-secondary float-right"
+                    (click)="proceedToNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+          </ng-wizard>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

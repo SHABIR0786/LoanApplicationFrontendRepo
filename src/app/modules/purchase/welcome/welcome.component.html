@@ -1,0 +1,74 @@
+<ng-container *ngIf="number == 1">
+  <div class="main-content">
+    <h2>Great! We’ll make this smooth and painless. What stage are you in?</h2>
+    <div class="button-list">
+      <a
+        routerLink="/app/purchase/welcome/2"
+        class="btn btn-primary btn-style btn-orange"
+        (click)="setOption(1)"
+        id="1"
+        [class.orange-active]="model.stage == 1"
+        >I’m Still shopping for a new home!</a
+      >
+      <a
+        routerLink="/app/purchase/welcome/2"
+        (click)="setOption(2)"
+        id="2"
+        [class.orange-active]="model.stage == 2"
+        class="btn btn-primary btn-style btn-orange"
+        >I’m ready to make an offer!</a
+      >
+      <a
+        routerLink="/app/purchase/welcome/2"
+        (click)="setOption(3)"
+        id="3"
+        [class.orange-active]="model.stage == 3"
+        class="btn btn-primary btn-style btn-orange"
+        >I have a signed purchase contract!</a
+      >
+    </div>
+    <app-applynow-footer></app-applynow-footer>
+  </div>
+</ng-container>
+<ng-container *ngIf="number == 2">
+  <div class="main-content">
+    <h2>Are you already working with someone from EZ Online Mortgage?</h2>
+    <div class="button-list">
+      <a
+        routerLink="/app/purchase/welcome/2"
+        (click)="yes = true"
+        class="btn btn-primary btn-style btn-orange"
+        (click)="setEzOption(true)"
+        [class.orange-active]="model.workingWdEz == true"
+        >Yes</a
+      >
+      <a
+        routerLink="/app/purchase/property-info/1"
+        (click)="setEzOption(false); yes = false"
+        class="btn btn-primary btn-style btn-orange"
+        [class.orange-active]="model.workingWdEz == false"
+        >No</a
+      >
+      <p *ngIf="yes">Who are you working with?</p>
+
+      <select
+        *ngIf="yes"
+        placeholder="Select your Loan Officer"
+        [(ngModel)]="ezLoadOfficer"
+        class="form-control form-style"
+      >
+        <option value="" selected disabled>Are you working with?</option>
+        <option value="Willam Martin">Willam Martin</option>
+      </select>
+      <a
+        routerLink="/app/purchase/property-info/1"
+        class="btn btn-primary btn-next btn-orange"
+        role="button"
+        *ngIf="yes"
+        (click)="onEZNext()"
+        >Next</a
+      >
+    </div>
+    <app-applynow-footer></app-applynow-footer>
+  </div>
+</ng-container>

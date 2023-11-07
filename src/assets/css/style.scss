@@ -1,0 +1,25 @@
+// @import "../style/scss/functions";
+
+// @import "../css/variables";
+// @import "../style/scss/mixins";
+
+$primary: #091a52;
+$secondary: #f47741;
+$dim-light: #0d2576;
+$info: #0cc4d4;
+
+$theme-colors: (
+  "primary": #091a52,
+  "secondary": #f47741,
+  "info": #0cc4d4,
+);
+
+$font-family-sans-serif: "";
+$font-family-monospace: "";
+$font-family-base: "Avenir", Helvetica, sans-serif;
+
+// @import "https://webfonts.brand.ucsb.edu/webfont.min.css";
+
+// @import "../style/scss/bootstrap.scss";
+
+// @import "../css/custom";

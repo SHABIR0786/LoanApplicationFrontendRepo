@@ -1,0 +1,65 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1>What is your gross annual household income?</h1>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0 pt-0">
+        <div class="px-0">
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Less Then $20,000')"
+            [class.selected]="formData.houseHoldIncome == 'Less Then $20,000'"
+          >
+            Less Then $20,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('$20,000 - $50,000')"
+            [class.selected]="formData.houseHoldIncome == '$20,000 - $50,000'"
+          >
+            $20,000 - $50,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('$50,000 - $100,000')"
+            [class.selected]="formData.houseHoldIncome == '$50,000 - $100,000'"
+          >
+            $50,000 - $100,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('$100,000 - $200,000')"
+            [class.selected]="formData.houseHoldIncome == '$100,000 - $200,000'"
+          >
+            $100,000 - $200,000
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('$200,000+')"
+            [class.selected]="formData.houseHoldIncome == '$200,000+'"
+          >
+            $200,000+
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p47 d-lg-flex d-none">
+      <span>47%</span>
+    </div>
+  </div>
+</div>

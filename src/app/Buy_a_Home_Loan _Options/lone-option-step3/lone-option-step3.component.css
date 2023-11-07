@@ -1,0 +1,84 @@
+#zip {
+  width: 365px;
+  height: 78px;
+  font-size: 42px;
+  font-weight: 300 !important;
+  background-color: #e5e5e5 !important;
+  border: #e5e5e5 !important;
+}
+
+#next {
+  width: 200px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+h2 {
+  font-size: 40px;
+}
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+#icon {
+  color: #f47741;
+}
+
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 40%;
+  top: 205px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 40%;
+    top: 205px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 44%;
+    top: 205px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}

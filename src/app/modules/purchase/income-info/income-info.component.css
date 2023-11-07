@@ -1,0 +1,13 @@
+@import url("../../../../assets/new/css/main.css");
+.est_start_date {
+  position: relative;
+}
+.est_start_date label {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 9px;
+}
+.est_start_date input {
+  height: 55px;
+  padding-top: 21px !important;
+}

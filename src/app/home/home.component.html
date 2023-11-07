@@ -1,0 +1,635 @@
+﻿<script type="text/javascript">
+  /// some script
+
+  // jquery ready start
+  $(document).ready(function () {
+    // jQuery code
+
+    //////////////////////// Prevent closing from click inside dropdown
+    $(document).on("click", ".dropdown-menu", function (e) {
+      e.stopPropagation();
+    });
+  }); // jquery end
+</script>
+<!-- This Div Is For Default Color -->
+<div
+  class="bg-light"
+  style="max-width: 100% !important; overflow-x: hidden !important"
+>
+  <!-- BEST CALIFORNIA HOME LOANS SECTION START -->
+
+  <home-main-carousel [data]="data.MainCarousels"></home-main-carousel>
+
+  <!-- BEST CALIFORNIA HOME LOANS SECTION END -->
+
+  <!-- FOUR CARD SECTION START -->
+
+  <main>
+    <section class="section-slider bg-section-light">
+      <div class="container">
+        <div
+          class="card-deck row flex-nowrap w-100 section-slider-inner mx-0"
+          style="margin-top: -230px"
+        >
+          <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card-body">
+              <img src="assets/images/topicon1.svg" alt="" />
+              <div class="jumbotron-card-desciption">
+                <h5>Buying A Home Guide</h5>
+                <p>Observe our step by step guide to study how to buy a home</p>
+                <a [routerLink]="['/app/buying-home-guide']"
+                  ><span>Review The Home Guide</span
+                  ><i class="fas fa-long-arrow-alt-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card-body">
+              <img src="assets/images/topicon2.svg" alt="" />
+              <div class="jumbotron-card-desciption">
+                <h5>Refinance Guide</h5>
+                <p>Save money and equity by by learning about refinancing</p>
+                <a [routerLink]="['app/refinance-guide']"
+                  ><span>Review The Refinance Guide</span
+                  ><i class="fas fa-long-arrow-alt-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card-body">
+              <img src="assets/images/topicon3.svg" alt="" />
+              <div class="jumbotron-card-desciption">
+                <h5>Current Mortgage Rates</h5>
+                <p>Review current mortgage rates for a option of home loans</p>
+                <a [routerLink]="['/app/current-home-loan-rates']"
+                  ><span>View Current Mortgage Rates</span
+                  ><i class="fas fa-long-arrow-alt-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card-body">
+              <img src="assets/images/topicon4.svg" alt="" />
+              <div class="jumbotron-card-desciption">
+                <h5>Mortgage Calculators</h5>
+                <p>
+                  Calculate your monthly mortgage payment using current mortgage
+                  rates
+                </p>
+                <a [routerLink]="['/app/mortgage-calculator']"
+                  ><span>Calculate Your Payment</span
+                  ><i class="fas fa-long-arrow-alt-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-mortgage section-featured">
+      <div class="container">
+        <div class="row section-tips-inner">
+          <div
+            class="col-xl-7 col-lg-7 col-md-12 mb-3 mb-lg-0 mx-lg-0 order-1 order-lg-0 mt-4 mt-lg-3"
+          >
+            <div class="mortgage-img" style="z-index: 1">
+              <img
+                src="assets/images/videoThumbnail.png"
+                (click)="playVideo()"
+                style="
+                  height: 420px;
+                  position: absolute;
+                  margin-top: -6px;
+                  cursor: pointer;
+                "
+                class="img-fluid img1 img-poster"
+                alt=""
+              />
+              <video
+                id="my_video_1"
+                class="yimVideo video-js vjs-default-skin"
+                style="width: 100%; height: 368px"
+                height="368px"
+                controls
+                preload="none"
+                data-setup='{ "aspectRatio":"630:360", "playbackRates": [1, 1.5, 2] }'
+              >
+                <source
+                  src="https://vjs.zencdn.net/v/oceans.mp4"
+                  type="video/mp4"
+                />
+                <source
+                  src="https://vjs.zencdn.net/v/oceans.webm"
+                  type="video/webm"
+                />
+              </video>
+
+              <span
+                class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block"
+              >
+                <a href="#section-tips">
+                  <i class="fas fa-long-arrow-alt-left mr-4"></i>Get to Know
+                  Us</a
+                >
+              </span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-9 d-flex flex-end offset-lg-3">
+            <div class="card bg-primary w-100">
+              <div class="card-body offset-lg-5">
+                <h6 class="text-uppercase text-secondary headprimary">
+                  know about
+                </h6>
+                <h2 class="text-white mb-1 headsecondary">
+                  <span>Your Independent</span> Mortgage
+                  <span> Broker In California </span>
+                </h2>
+                <p class="text-white">
+                  To make sure all borrowers get the best mortgage rate and loan
+                  program with excellent customer service and satisfaction.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-tips text-center" id="section-tips">
+      <h6 class="text-uppercase text-secondary headprimary">know about</h6>
+      <h2 class="text-primary headsecondary text-capitalize">
+        Tips For Getting A Home <br class="d-none d-sm-block" />
+        Mortgage In California
+      </h2>
+      <div class="container">
+        <div class="row section-tips-inner">
+          <div class="col-lg-6">
+            <ul class="mortgage-list">
+              <li id="link1">
+                <img
+                  src="assets/images/c1bg.jpg"
+                  class="linkimg d-none"
+                  alt=""
+                />
+
+                <a href="javascript:void(0);">
+                  <div class="img70">
+                    <img src="assets/images/mortgage1.svg" alt="" />
+                  </div>
+
+                  <h4>How to Apply For Your Loan</h4>
+                </a>
+              </li>
+              <li id="link2">
+                <img
+                  src="assets/images/c2bg.jpg"
+                  class="linkimg d-none"
+                  alt=""
+                />
+                <a href="javascript:void(0);">
+                  <div class="img70">
+                    <img src="assets/images/mortgage2.svg" alt="" />
+                  </div>
+                  <h4>Calculate Loan Rate</h4>
+                </a>
+              </li>
+              <li id="link3">
+                <img
+                  src="assets/images/c3bg.jpg"
+                  class="linkimg d-none"
+                  alt=""
+                />
+                <a href="javascript:void(0);">
+                  <div class="img70">
+                    <img src="assets/images/mortgage3.svg" alt="" />
+                  </div>
+
+                  <h4>Speak With An Expert</h4>
+                </a>
+              </li>
+              <li id="link4">
+                <img
+                  src="assets/images/c4bg.jpg"
+                  class="linkimg d-none"
+                  alt=""
+                />
+                <a href="javascript:void(0);">
+                  <div class="img70">
+                    <img src="assets/images/mortgage4.svg" alt="" />
+                  </div>
+                  <h4>Benefit Of Preapproval</h4>
+                </a>
+              </li>
+              <li id="link5">
+                <img
+                  src="assets/images/c5bg.jpg"
+                  class="linkimg d-none"
+                  alt=""
+                />
+                <a href="javascript:void(0);">
+                  <div class="img70">
+                    <img src="assets/images/mortgage5.svg" alt="" />
+                  </div>
+                  <h4>Get A free Quote</h4>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="d-flex flex-column mortgage-right">
+              <div class="d-flex flex-start">
+                <img src="assets/images/c1bg.jpg" id="image" alt="" />
+              </div>
+              <div class="card d-flex flex-end">
+                <div class="card-body text-left mortgage-content">
+                  <div class="contentarea" id="#content1">
+                    <h6 class="mortgage-img-head">
+                      C1: How to Apply for Your Loan
+                    </h6>
+                    <ul class="mortgage-img-list list-unstyled">
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Apply online for a home loan with our fast, easy, and
+                          streamlined application process.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          See how much you qualify for and shop for your dream
+                          home within your budget.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Complete your to-do list and verify all necessary
+                          information to close on your mortgage loan fast.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Receive updates about your online home loan
+                          application and helpful mortgage news
+                        </p>
+                      </li>
+                    </ul>
+                    <a
+                      href=""
+                      class="btn btn-secondary text-uppercase mt-1 text-white applnow"
+                      [routerLink]="['/app/buy-a-home-loan-options-animated']"
+                      >Apply Now</a
+                    >
+                  </div>
+
+                  <div class="contentarea d-none" id="#content2">
+                    <h6 class="mortgage-img-head">
+                      C2: Calculate Your Loan Rate
+                    </h6>
+                    <ul class="mortgage-img-list list-unstyled">
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>See the impact your home loan down payment makes.</p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Compare loan terms for a clearer picture of your
+                          mortgage payment details.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Crunch real numbers in real time for a clearer picture
+                          of the current mortgage rates in California you can
+                          expect.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Estimate your home affordability, mortgage payment,
+                          amortization and more
+                        </p>
+                      </li>
+                    </ul>
+                    <a
+                      href=""
+                      class="btn btn-secondary text-uppercase mt-1 text-white applnow"
+                      >View Rates</a
+                    >
+                  </div>
+                  <div class="contentarea d-none" id="#content3">
+                    <h6 class="mortgage-img-head">C3: Speak with an Expert</h6>
+                    <ul class="mortgage-img-list list-unstyled">
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>Get help managing your home loan and fees.</p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Get connected with reputable lenders and realtors.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Your needs and best interests are always front and
+                          center.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Receive the best current mortgage rates in California
+                          and the terms for your unique financial situation.
+                        </p>
+                      </li>
+                    </ul>
+                    <a
+                      href=""
+                      class="btn btn-secondary text-uppercase mt-1 text-white applnow"
+                      >Call Now</a
+                    >
+                  </div>
+                  <div class="contentarea d-none" id="#content4">
+                    <h6 class="mortgage-img-head">
+                      C4: Benefits of Preapproval
+                    </h6>
+                    <ul class="mortgage-img-list list-unstyled">
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Gain more bargaining power with a preapproval letter
+                          to standout against the competition.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>Shorten the time it takes to close on your home.</p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Lock in your mortgage interest rate before it rises.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Reduce surprises by knowing how much you qualify for
+                          in advance.
+                        </p>
+                      </li>
+                    </ul>
+                    <a
+                      href=""
+                      class="btn btn-secondary text-uppercase mt-1 text-white applnow"
+                      >Get Preapproved</a
+                    >
+                  </div>
+                  <div class="contentarea d-none" id="#content5">
+                    <h6 class="mortgage-img-head">C5: Get a Free Quote</h6>
+                    <ul class="mortgage-img-list list-unstyled">
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Provide your basic personal and financial information.
+                        </p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>Learn the size of a mortgage you qualify for.</p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>Get lower rates and save more money today.</p>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-check-circle"></i></span>
+                        <p>
+                          Get a rate lock period while you decide if the
+                          mortgage is right for you.
+                        </p>
+                      </li>
+                    </ul>
+                    <a
+                      href=""
+                      class="btn btn-secondary text-uppercase mt-1 text-white applnow"
+                      >Get Quote</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-testimonial text-center">
+      <span
+        class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block position-absolute"
+      >
+        <a href="#section-submit">
+          <i class="fas fa-long-arrow-alt-left mr-4"></i>Get to Know Us</a
+        >
+      </span>
+      <h6 class="text-uppercase text-secondary headprimary">Testimonials</h6>
+      <h2 class="text-white headsecondary">Our Customer Says</h2>
+
+      <div class="container mx-auto px-2 px-md-4">
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 col-lg-7">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide d-flex"
+              data-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                  class="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item">
+                  <div class="quotes">
+                    <p class="card-text bold text-center px-md-3 intro">
+                      Thank you all for your help in making the mortgage process
+                      go smoothly! my husband and I couldn’t have done it
+                      without you.
+                    </p>
+                    <h5 class="font-weight-bold mt-4">
+                      Anne Davidson (San Francisco, CA)
+                    </h5>
+                  </div>
+                </div>
+                <div class="carousel-item active">
+                  <div class="quotes">
+                    <p class="card-text bold text-center px-md-3 intro">
+                      Thank you all for your help in making the mortgage process
+                      go smoothly! my husband and I couldn’t have done it
+                      without you.
+                    </p>
+                    <h5 class="font-weight-bold mt-4">
+                      Anne Davidson (San Francisco, CA)
+                    </h5>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="quotes">
+                    <p class="card-text bold text-center px-md-3 intro">
+                      Thank you all for your help in making the mortgage process
+                      go smoothly! my husband and I couldn’t have done it
+                      without you.
+                    </p>
+                    <h5 class="font-weight-bold mt-4">
+                      Anne Davidson (San Francisco, CA)
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-submit text-center" id="section-submit">
+      <h6 class="text-uppercase text-secondary headprimary">KNow about</h6>
+      <h2 class="text-capitalize text-primary headsecondary">
+        Mortgage Rate Updates, Featured <br class="d-none d-sm-block" />
+        Mortgage Options Or Request A Call Back
+      </h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 mx-auto">
+            <form [formGroup]="form">
+              <div class="form-submit text-left mb-4">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="fstName">First Name:</label>
+                      <input
+                        type="text"
+                        formControlName="firstName"
+                        [(ngModel)]="contactForm.firstName"
+                        class="form-control"
+                        id="fstName"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="lstName">Last Name:</label>
+                      <input
+                        type="text"
+                        formControlName="lastName"
+                        [(ngModel)]="contactForm.lastName"
+                        class="form-control"
+                        id="lstName"
+                        name="lstName"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email">Email:</label>
+                      <input
+                        type="email"
+                        formControlName="email"
+                        [(ngModel)]="contactForm.email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="phNo">Phone Number:</label>
+                      <input
+                        class="form-control"
+                        formControlName="phoneNumber"
+                        [(ngModel)]="contactForm.phoneNumber"
+                        type="text"
+                        appPhoneMask
+                        id="phone-number"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="MorgagePurpose">Morgage Purposes</label>
+                      <select class="form-control" id="MorgagePurpose">
+                        <option>Found a home/ Made an offer</option>
+                        <option>Still looking for a home</option>
+                        <option>Refinance</option>
+                        <option>Refinance with cashout</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="borrow">How do you want to borrow</label>
+                      <select class="form-control" id="borrow">
+                        <option>Found a home/ Made an offer</option>
+                        <option>Still looking for a home</option>
+                        <option>Refinance</option>
+                        <option>Refinance with cashout</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <p class="text-muted text-center form-text">
+                      By completing this form, I agree that EZ Online Mortgage
+                      may contact me at the phone number provided via telephone,
+                      maybe prerecoreded message, artifical voice, and/or text
+                      message. I understand that I do not Have to consent to
+                      receive such calls or text messages in order to purchase
+                      goods or services from EZ Online mortgage.
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <button
+                      type="submit"
+                      class="btn btn-secondary text-uppercase text-white px-5"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- KNOW ABOUT MORTGAGE RATA SECTION END -->
+</div>

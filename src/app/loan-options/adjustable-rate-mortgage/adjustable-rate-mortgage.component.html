@@ -1,0 +1,358 @@
+<main>
+  <div class="inner-heading-sec position-relative">
+    <div class="container">
+      <div class="row pt-5">
+        <div class="col-lg-8" style="z-index: 10">
+          <h1
+            class="border-left-2px text-primary font-weight-bold display-3 mb-4"
+          >
+            Adjustable Rate<br class="d-none d-sm-block" />
+            Mortgage
+          </h1>
+          <h4
+            class="text-muted font-weight-normal pb-4"
+            style="margin-left: 20px"
+          >
+            ARMs allow you to get more for your money, taking advantage of low
+            rates now. This might be the right loan for you if your income is on
+            the rise, or if you plan to move or refinance in a few years.
+          </h4>
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+    </div>
+    <img
+      class="special-img d-lg-block d-none"
+      src="assets/images/Adjustable-rate-img.png"
+      alt=""
+    />
+  </div>
+
+  <div class="container">
+    <section class="page-order-sec py-3">
+      <a href="#" class="text-decoration-none text-dark">Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a routerLink="/app/loan-options" class="text-decoration-none text-dark">
+        Loan Options
+      </a>
+      <span class="text-muted mr-3 d-inline-block text-dark">
+        <i class="fa fa-angle-right"></i>
+        <a href="#" class="text-decoration-none text-dark"
+          >Adjustable Rate Mortgage
+        </a>
+      </span>
+    </section>
+  </div>
+
+  <section class="martgage-second-sec">
+    <div class="p-r">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="box-30">
+              <div class="small-box mb-3">
+                <img src="assets/images/cash-payment.png" />
+              </div>
+              <h5 class="text-primary mb-3 font-weight-bold">
+                Is an adjustable rate<br />
+                mortgage loan right for me
+              </h5>
+              <p class="text-muted mb-3">
+                Adjustable rate mortgages offer advantages for some borrowers,
+                but they have higher risks than fixed rate mortgages. ARMs, as
+                they are commonly referred to, have a low interest rate for a
+                set period, and then the rate can rise or fall with market
+                rates.
+              </p>
+              <ng-container *ngIf="visible">
+                <div>
+                  <p class="text-muted">
+                    The period depends on the terms of your loan, with common
+                    introductory rates locked in for anywhere from three to ten
+                    years. Some ARMs have limits on how much the rate can rise
+                    per year, but others do not. An ARM might make sense for you
+                    if you are planning to move in a few years. Keep in mind
+                    that if you owe more than the house is worth (referred to as
+                    being underwater) you may not be able to do so.
+                  </p>
+                </div>
+              </ng-container>
+              <a
+                (click)="onclick()"
+                class="text-uppercase text-secondary featanimbtn"
+                role="button"
+              >
+                {{ ReadMore ? "More" : "Less" }}
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="box-30">
+              <div class="small-box mb-3">
+                <img src="assets/images/loan.png" />
+              </div>
+              <h5 class="text-primary mb-3 font-weight-bold">
+                What are the advantages of <br />an adjustable rate loan
+              </h5>
+              <p class="text-muted mb-3">
+                An Adjustable Rate Mortgage will allow you to obtain a mortgage
+                with a lower rate than what is typically available with a 15 or
+                30 year fixed rate loan, in exchange for accepting the risk of
+                increases at a later date.
+              </p>
+              <ng-container *ngIf="visibleOne">
+                <div>
+                  <p class="text-muted">
+                    This makes sense for the lender because they aren’t locked
+                    into a mortgage rate for 15 or 30 years, and it makes sense
+                    for the borrower because you can take advantage of a low
+                    starter rate. It’s important to be aware that the rate can
+                    rise after the initial period, and your payment may increase
+                    substantially.
+                  </p>
+                </div>
+              </ng-container>
+              <a
+                (click)="onclickOne()"
+                class="text-uppercase text-secondary featanimbtn"
+                role="button"
+              >
+                {{ ReadMoreOne ? "More" : "Less" }}
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="box-30">
+              <div class="small-box mb-3">
+                <img src="assets/images/mortgage4.png" />
+              </div>
+              <h5 class="text-primary mb-3 font-weight-bold">
+                How do I qualify for <br />an adjustable rate loan
+              </h5>
+              <p class="text-muted mb-3">
+                The qualifying process is the same, whether the loan has a fixed
+                rate of interest or an adjustable rate. In fact, some borrowers
+                may find it easier to qualify for an ARM, since the initial
+                payment is lower.
+              </p>
+              <ng-container *ngIf="visibletwo">
+                <div>
+                  <p class="text-muted">
+                    A lower payment reduces the expense ratio, and this can
+                    expand the loan amount for which you may qualify.
+                  </p>
+                </div>
+              </ng-container>
+              <a
+                (click)="onclicktwo()"
+                class="text-uppercase text-secondary featanimbtn"
+                role="button"
+              >
+                {{ ReadMoretwo ? "More" : "Less" }}
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block"
+      >
+        <a href="#approved-section">
+          <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+        >
+      </span>
+    </div>
+  </section>
+
+  <section class="approved-sec" id="approved-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-6 mb-4 mb-md-0">
+          <div class="approved-box">
+            <h3 class="text-primary font-weight-bold mb-4">
+              Take The First Steps Toward <br />
+              The Right Quicken<br />
+              Mortgage®.
+            </h3>
+            <p class="text-muted">
+              Apply online with Rocket Mortgage® by Quicken Loans® or enter some
+              info to get a call from a Home Loan Expert. You’ll get a
+              personalized recommendation on which loan option is <br />
+              best for you.
+            </p>
+            <button
+              type="submit"
+              class="btn btn-secondary text-uppercase text-white px-5 mt-4"
+              [routerLink]="['/app/buy-a-home-loan-options-animated-step1']"
+            >
+              get approved to buy a home
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="approved-box px-0">
+            <h3 class="text-primary font-weight-bold mb-4">
+              30-Year Fixed <br />
+              Mortgage Rates
+            </h3>
+            <div class="table-responsive">
+              <table
+                class="table"
+                style="border-bottom: 1px solid #dee2e6; text-align: left"
+              >
+                <tr>
+                  <th>Product</th>
+                  <th>Rate</th>
+                  <th>APR</th>
+                </tr>
+                <tr>
+                  <td>Confirming 30 year fixed</td>
+                  <td>3.125%</td>
+                  <td>3.373%</td>
+                </tr>
+              </table>
+            </div>
+            <p class="text-muted px-5">
+              30-year Fixed-Rate Loan: <br />
+              The payment on a $200,000 30-year Fixed-Rate Loan at 3.125%
+              (3.373% APR) is $856.76 for the cost of 2.00 point(s) due at
+              closing
+            </p>
+            <a
+              href=""
+              class="text-uppercase text-secondary featanimbtn d-block py-3"
+              >more <i class="fas fa-long-arrow-alt-right ml-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="loan-benefits">
+    <div class="p-r">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="loan-left">
+              <h3 class="text-primary font-weight-bold mb-4">
+                Why choose an Adjustable Rate Mortgage (ARM) loan?
+              </h3>
+              <ul class="text-muted arrow-list">
+                <li>
+                  Choose an ARM if you need a lower interest rate to start.
+                </li>
+                <li>
+                  Choose an ARM if you don’t plan to remain in the home for a
+                  long period.
+                </li>
+                <li>
+                  Choose an ARM if you can absorb an increase in the payment if
+                  necessary.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="loan-right">
+              <h3 class="text-primary font-weight-bold mb-4">
+                How Does Mortgage Insurance Work
+              </h3>
+              <p class="text-muted">
+                You’ll have to pay primary mortgage insurance (PMI) if your down
+                payment is less than 20%.
+              </p>
+              <ul class="text-muted arrow-list">
+                <li>
+                  Mortgage insurance is required on almost every new loan with a
+                  down payment of less than twenty percent.
+                </li>
+                <li>
+                  Mortgage insurance protects the lender from losses, and this
+                  allows them to offer loans they might not otherwise.
+                </li>
+                <li>
+                  Most conventional loans qualify for private mortgage
+                  insurance, paid monthly along with the principal and interest.
+                </li>
+                <li>
+                  In some cases with a conventional loan, you can request to
+                  have the mortgage insurance dropped when your equity in the
+                  loan reaches twenty percent, but in other cases you may need
+                  to refinance the loan.
+                </li>
+                <li>
+                  FHA loans have mortgage insurance that you pay to the Federal
+                  Housing Administration. For these loans there is a fee at the
+                  loan closing plus a monthly charge.
+                </li>
+                <li>
+                  FHA loans must maintain the mortgage insurance, so to stop
+                  paying the MI, you need to refinance into a conventional loan
+                  type.
+                </li>
+                <li>
+                  VA (Veteran’s Administration) loans don’t need mortgage
+                  insurance, because the VA guarantees the loan for you. But
+                  there is an upfront funding fee that varies depending on
+                  several factors, including:
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 float-right">
+        <div class="ml-5">
+          <ul class="text-muted font-weight-bold">
+            <li>Your service type</li>
+            <li>Your down payment</li>
+            <li>Whether you are buying or refinancing</li>
+            <li>Whether you are disabled</li>
+            <li>If this is your first VA loan</li>
+          </ul>
+        </div>
+      </div>
+      <span
+        class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block"
+        style="left: 2%"
+      >
+        <a href="#rate-updates">
+          <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+        >
+      </span>
+    </div>
+  </section>
+
+  <section id="rate-updates">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="flex-lg-row Mortgage-talk rounded flex-column">
+            <div class="mr-4">
+              <div class="small-box mb-3">
+                <img src="assets/images/support.png" />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-primary font-weight-normal mb-3">
+                Mortgage Rate Updates & Featured<br />
+                Mortgage Or
+                <span class="text-secondary">Request A Call Back Today</span>
+              </h3>
+              <button
+                type="submit"
+                class="btn btn-secondary text-uppercase text-white px-5"
+              >
+                Talk Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,7 @@
+.heading-border::before {
+  content: " ";
+  border-left: solid 2px #f47741;
+  position: absolute;
+  left: 0;
+  height: 94px;
+}

@@ -1,0 +1,155 @@
+#button {
+  border: 1px solid #f47741 !important;
+  text-align: center;
+  color: #f47741;
+  background-color: white;
+  cursor: pointer;
+  width: 100%;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 500;
+}
+#button:hover {
+  color: white;
+  background-color: #f47741;
+}
+.card.bg_transparent:hover {
+  background-color: #f47741 !important;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.card.bg_transparent {
+  background-color: white !important;
+  color: #f47741;
+  border: 1px solid #f47741 !important;
+}
+.card.bg_transparent:hover {
+  background-color: #f47741 !important;
+  color: white;
+  border: 1px solid #f47741 !important;
+}
+.interest-img {
+  /* width: 67px;
+  height: 66px; */
+  width: 105px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/intrest.png");
+}
+
+.dollar-bg-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 108px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/dollar-sign.png");
+}
+.loan-chart-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 130px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/loan-chart.png");
+}
+.Content-Step-Body .card:hover .interest-img {
+  background-image: url("../../../assets/images/intrest-white.png");
+}
+.Content-Step-Body .card:hover .dollar-bg-img {
+  background-image: url("../../../assets/images/dollar-sign-1.png");
+}
+.Content-Step-Body .card:hover .loan-chart-img {
+  background-image: url("../../../assets/images/loan-white.png");
+}
+#icon {
+  color: #f47741;
+}
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 39%;
+  top: 865px;
+}
+h5.mt-3 {
+  font-size: 16px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 39%;
+    top: 865px;
+  }
+  h5.mt-3 {
+    font-size: 16px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 44%;
+    top: 355px;
+  }
+  h5.mt-3 {
+    font-size: 13px !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+  h5.mt-3 {
+    font-size: 20px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+  h5.mt-3 {
+    font-size: 20px;
+  }
+  .nxt_btn {
+    flex: 0 0 34%;
+    max-width: 34%;
+  }
+}

@@ -1,0 +1,59 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1>What is the estimated purchase price?</h1>
+    <p>
+      just an estimate is fine.You can update the amount later in the process.
+    </p>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0 pt-0">
+        <div class="px-0">
+          <form [formGroup]="form">
+            <!-- <span class="dollar_sign">$</span> -->
+            <!-- <select class="form-control input-special mb-3" name="" id="">
+              <option>$300,000</option>
+            </select> -->
+            <input
+              #input
+              type="text"
+              required
+              class="form-control input-special mb-3 w-100"
+              [(ngModel)]="formData.purchasePrice"
+              formControlName="amount"
+              [ngClass]="{ 'is-invalid': submitted && f.amount.errors }"
+              placeholder="Purchase price?"
+              prefix="$ "
+              mask="separator.2"
+              thousandSeparator=","
+              maxlength="18"
+            />
+            <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+              <div *ngIf="f.amount.errors.required">Enter Valid Amount</div>
+            </div>
+          </form>
+
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p37 d-lg-flex d-none">
+      <span>32%</span>
+    </div>
+  </div>
+</div>

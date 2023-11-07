@@ -1,0 +1,112 @@
+<div class="main-content">
+  <h2 class="little-space">Congratulations! What’s the purchase price?</h2>
+
+  <div class="button-list col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <form [formGroup]="form">
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="estimatedPurchasePrice"
+          id="estimatedPurchasePrice"
+          formControlName="estimatedPurchasePrice"
+          required
+          [(ngModel)]="data.estimatedPurchasePrice"
+          placeholder="Estimated Home Price"
+          prefix="$ "
+          mask="separator.2"
+          thousandSeparator=","
+          maxlength="18"
+        />
+        <validation-summary
+          [control]="form.controls.estimatedPurchasePrice"
+        ></validation-summary>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-lg-8 col-sm-4 col-xs-4 padding-right">
+          <input
+            type="text"
+            class="form-control form-half-left"
+            name="downPaymentAmount"
+            id="downPaymentAmount"
+            formControlName="downPaymentAmount"
+            required
+            [(ngModel)]="data.downPaymentAmount"
+            placeholder="Down Payment Amount"
+            prefix="$ "
+            mask="separator.2"
+            thousandSeparator=","
+          />
+          <validation-summary
+            [control]="form.controls.downPaymentAmount"
+          ></validation-summary>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 padding-left">
+          <input
+            type="text"
+            class="form-control form-half-right"
+            name="downPaymentPercentage"
+            id="downPaymentPercentage"
+            formControlName="downPaymentPercentage"
+            required
+            [(ngModel)]="data.downPaymentPercentage"
+            placeholder="Percent"
+          />
+          <validation-summary
+            [control]="form.controls.downPaymentPercentage"
+          ></validation-summary>
+        </div>
+      </div>
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="estimatedAnnualTaxes"
+          id="estimatedAnnualTaxes"
+          formControlName="estimatedAnnualTaxes"
+          required
+          [(ngModel)]="data.estimatedAnnualTaxes"
+          placeholder="Estimated annual taxes"
+        />
+        <validation-summary
+          [control]="form.controls.estimatedAnnualTaxes"
+        ></validation-summary>
+      </div>
+      <div>
+        <input
+          type="text"
+          class="form-control form-style"
+          name="estimatedAnnualHomeInsurance"
+          id="estimatedAnnualHomeInsurance"
+          formControlName="estimatedAnnualHomeInsurance"
+          required
+          [(ngModel)]="data.estimatedAnnualHomeInsurance"
+          placeholder="Estimated annual home insurance"
+        />
+        <validation-summary
+          [control]="form.controls.estimatedAnnualHomeInsurance"
+        ></validation-summary>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <button type="button" class="btn" id="btn-back">Back</button>
+      </div>
+      <div class="col-md-2">
+        <button
+          type="button"
+          class="btn"
+          id="btn-next"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

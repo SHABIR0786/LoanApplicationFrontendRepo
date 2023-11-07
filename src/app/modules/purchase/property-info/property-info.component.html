@@ -1,0 +1,1459 @@
+<!--No# 4 Purchasing  Start -->
+<div class="main-content" *ngIf="number == 1">
+  <h2>Congratulations! What’s the address of your new home?</h2>
+  <div class="button-list">
+    <form action="" id="address" #f="ngForm">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Address"
+          name="newHomeAddress"
+          #newHomeAddressRef="ngModel"
+          [(ngModel)]="model.newHomeAddress"
+          required
+        />
+        <div
+          *ngIf="submitted && !newHomeAddressRef.valid"
+          class="text-danger d-flex"
+        >
+          Address is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Apt / Unit"
+          name="newHomeUnit"
+          [(ngModel)]="model.newHomeUnit"
+          required
+          #newHomeUnitRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !newHomeUnitRef.valid"
+          class="text-danger d-flex"
+        >
+          Unit is required
+        </div>
+      </div>
+      <!-- <select class="form-select form-style form-control" [(ngModel)]="model.newHomeState">
+      <option [value]="s.id" *ngFor="let s of cities">{{s.cityName}}</option>
+    </select> -->
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="City or Town"
+          name="newHomeCityTown"
+          [(ngModel)]="model.newHomeCityTown"
+          required
+          #newHomeCityTownRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !newHomeCityTownRef.valid"
+          class="text-danger d-flex"
+        >
+          City is required
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <select
+              class="form-select form-style form-control mb-0"
+              [(ngModel)]="model.newHomeState"
+              name="newHomeState"
+              required
+              placeholder="State"
+              #newHomeStateRef="ngModel"
+              (change)="onStateChange($event)"
+            >
+              <option value="undefined" selected disabled>State</option>
+              <option [value]="s.id" *ngFor="let s of states">
+                {{ s.stateName }}
+              </option>
+              <!-- <option value="state">State</option> -->
+            </select>
+            <div
+              *ngIf="submitted && !newHomeStateRef.valid"
+              class="text-danger d-flex"
+            >
+              State is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-style mb-0"
+              placeholder="Zip Code"
+              [(ngModel)]="model.newHomeZip"
+              name="newHomeZip"
+              #newHomeZipRef="ngModel"
+              required
+              pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+            />
+            <div *ngIf="submitted" class="text-danger d-flex">
+              <div *ngIf="newHomeZipRef.errors?.pattern">
+                This is not a valid zip code
+              </div>
+              <div *ngIf="newHomeZipRef.errors?.required">Zip is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 offset-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <a
+            [routerLink]="['/app/purchase/welcome', 2]"
+            class="btn"
+            id="btn-back"
+            role="button"
+            >Back</a
+          >
+        </div>
+        <div class="col-lg-2">
+          <a class="btn" id="btn-next" (click)="onPehlaForm(f, 2)">Next</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- No# 4 Purchasing End -->
+
+<!-- No# 5 Purchasing Start -->
+<div class="main-content" *ngIf="number == 2">
+  <h2 class="little-space">Please give us a few details about your contract</h2>
+  <h6>
+    if you don’t know all the details, that’s okay. We can add those letter.
+    <i class="fa-solid fa-circle-info"></i>
+  </h6>
+  <div class="button-list">
+    <form action="" id="address" #f="ngForm">
+      <div class="form-group closing-date">
+        <label>Closing Date</label>
+        <input
+          type="date"
+          label="Closing Date"
+          [(ngModel)]="model.contractDate"
+          class="form-control form-style form-margin-top mb-0"
+          placeholder="Contract date"
+          name="contractDate"
+          #contractDateRef="ngModel"
+          required
+        />
+        <div
+          *ngIf="submitted && !contractDateRef.valid"
+          class="text-danger d-flex"
+        >
+          Closing Date is required
+        </div>
+      </div>
+      <p class="text-center">Do either of these apply to the property?</p>
+      <div class="radio-input contract">
+        <div class="row">
+          <div class="col-md-12" class="radio-wrapper">
+            <input
+              type="radio"
+              class="form-style mb-0"
+              placeholder=""
+              value="new"
+              name="propertyOption"
+              [(ngModel)]="model.propertyOption1"
+              #propertyOption="ngModel"
+              id="propertyOption3"
+            />
+            <label for="propertyOption3" class="radio-label"
+              >New construction</label
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" class="radio-wrapper">
+            <input
+              type="radio"
+              class="form-style"
+              placeholder=""
+              value="Foreclosure"
+              name="propertyOption"
+              [(ngModel)]="model.propertyOption1"
+              #propertyOption="ngModel"
+              id="propertyOption4"
+            />
+            <label for="propertyOption4" class="radio-label"
+              >Foreclosure / Bank Owned</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 offset-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <a
+            [routerLink]="['/app/purchase/property-info', 1]"
+            class="btn"
+            id="btn-back"
+            role="button"
+            >Back</a
+          >
+        </div>
+        <div class="col-lg-2">
+          <a class="btn" id="btn-next" (click)="onPehlaForm(f, 3)">Next</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- No# 5 Purchasing End -->
+
+<!-- No# 6 Purchasing Start -->
+<div class="main-content" *ngIf="number == 3">
+  <h2 class="little-space">Congratulations! What’s the purchase price?</h2>
+
+  <div class="button-list">
+    <form action="" id="purchase-price" #f3="ngForm">
+      <div class="form-group">
+        <input
+          matInput
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Estimated Home Price"
+          [(ngModel)]="model.estimatedPrice"
+          name="estimatedPrice"
+          #estimatedPriceRef="ngModel"
+          required
+          (ngModelChange)="calculatePercent()"
+          prefix="$"
+          mask="separator.2"
+          thousandSeparator=","
+          maxlength="18"
+        />
+        <div
+          *ngIf="submitted && !estimatedPriceRef.valid"
+          class="text-danger d-flex"
+        >
+          Estimated home price is required
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-lg-8 col-sm-4 col-xs-4 padding-right">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-half-left mb-0"
+              placeholder="Down Payment Amount"
+              [(ngModel)]="model.downPaymentAmount"
+              name="downPaymentAmount"
+              #downPaymentAmountRef="ngModel"
+              required
+              (ngModelChange)="calculatePercent()"
+              prefix="$"
+              mask="separator.2"
+              thousandSeparator=","
+              maxlength="18"
+            />
+            <div
+              *ngIf="submitted && !downPaymentAmountRef.valid"
+              class="text-danger d-flex"
+            >
+              Down payment amount is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 padding-left">
+          <div class="form-group">
+            <span id="percent-sign">%</span>
+            <input
+              type="text"
+              class="form-control form-half-right mb-0"
+              placeholder="Percent"
+              [(ngModel)]="model.downPaymentPercent"
+              name="downPaymentPercent"
+              #downPaymentPercentRef="ngModel"
+              required
+              (ngModelChange)="calculateAmount()"
+            />
+            <div
+              *ngIf="submitted && !downPaymentPercentRef.valid"
+              class="text-danger d-flex"
+            >
+              Down payment percent is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="number"
+          class="form-control form-style mb-0"
+          placeholder="Estimated annual taxes"
+          [(ngModel)]="model.estAnnualTaxes"
+          name="estAnnualTaxes"
+          #estAnnualTaxesRef="ngModel"
+          required
+        />
+        <div
+          *ngIf="submitted && !estAnnualTaxesRef.valid"
+          class="text-danger d-flex"
+        >
+          Estimated annual tax is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="number"
+          class="form-control form-style mb-0"
+          placeholder="Estimated annual home insurance"
+          [(ngModel)]="model.estAnnualHomeIns"
+          name="estAnnualHomeIns"
+          #estAnnualHomeInsRef="ngModel"
+          required
+        />
+        <div
+          *ngIf="submitted && !estAnnualHomeInsRef.valid"
+          class="text-danger d-flex"
+        >
+          Estimated annual home insurance is required
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-3 offset-md-3">
+            <a
+              [routerLink]="['/app/purchase/property-info', 2]"
+              class="btn"
+              id="btn-back"
+              >Back</a
+            >
+          </div>
+          <div class="col-md-2">
+            <a
+              type="submit"
+              class="btn btn-primary btn-next btn-orange"
+              id="btn-next"
+              role="button"
+              (click)="onPehlaForm(f3, 4)"
+              >Next</a
+            >
+            <!-- <a
+          type="submit"
+          [routerLink]="['/app/purchase/property-info', 4]"
+          class="btn"
+          id="btn-next"
+          (click)="onNextThreeClick(f3)"
+          >Next</a
+        > -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- No# 6 Purchasing End -->
+
+<!-- No# 7 Purchasing Start -->
+<div class="main-content" *ngIf="number == 4">
+  <h2 class="little-space">Do you know your credit score?</h2>
+  <h6 class="pb-5">
+    We Use this into to match you with the perfect load options.
+  </h6>
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/purchase/property-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onCreditClick('excellent')"
+      [class.orange-active]="model.creditScore == 'excellent'"
+      >Excellent (740+)</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/property-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onCreditClick('good')"
+      [class.orange-active]="model.creditScore == 'good'"
+      >Good(700 - 739)</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/property-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onCreditClick('average')"
+      [class.orange-active]="model.creditScore == 'average'"
+      >Average (640 - 699)</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/property-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onCreditClick('fair')"
+      [class.orange-active]="model.creditScore == 'fair'"
+      >Fair (580 - 639)</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/property-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onCreditClick('needimprovement')"
+      [class.orange-active]="model.creditScore == 'needimprovement'"
+      >Needs Improvement (less then 580)</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/property-info', 3]"
+          class="btn"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- No# 7 Purchasing End -->
+
+<!-- No# 8 Purchasing Start -->
+<div class="main-content" *ngIf="number == 5">
+  <h2 class="little-space">Ok! We’s like to get to know you.</h2>
+  <h6 style="margin-bottom: 50px !important; font-size: 16px">
+    Please provide you full legal name.
+  </h6>
+  <div class="button-list">
+    <form action="" id="personal" #f5="ngForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-style mb-0"
+              placeholder="Legal First Name"
+              [(ngModel)]="model.firstName"
+              name="firstName"
+              required
+              #firstNameRef="ngModel"
+            />
+            <div
+              *ngIf="submitted && !firstNameRef.valid"
+              class="text-danger d-flex"
+            >
+              First Name is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-style mb-0"
+              placeholder="Middle Initial"
+              [(ngModel)]="model.middleName"
+              name="middleName"
+              #middleNameRef="ngModel"
+            />
+            <!-- <div
+              *ngIf="submitted && !firstNameRef.valid"
+              class="text-danger d-flex"
+            >
+              Middle Name is required
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Legal Last Name"
+          [(ngModel)]="model.lastName"
+          name="lastName"
+          required
+          #lastNameRef="ngModel"
+        />
+        <div *ngIf="submitted && !lastNameRef.valid" class="text-danger d-flex">
+          Last Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Phone Number"
+          [(ngModel)]="model.phone"
+          appPhoneMask
+          name="phone"
+          required
+          #phoneRef="ngModel"
+          minlength="11"
+        />
+        <div *ngIf="submitted" class="text-danger d-flex">
+          <div *ngIf="phoneRef.errors?.minlength">
+            This is not a valid phone number
+          </div>
+          <div *ngIf="phoneRef.errors?.required">Phone is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control form-style mb-0"
+          placeholder="Email Address"
+          [(ngModel)]="model.email"
+          name="email"
+          required
+          #emailRef="ngModel"
+          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        />
+        <div *ngIf="submitted" class="text-danger d-flex">
+          <div *ngIf="emailRef.errors?.pattern">
+            This is not a valid email address
+          </div>
+          <div *ngIf="emailRef.errors?.required">Email is required</div>
+        </div>
+      </div>
+      <p>Have an account?</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="terms">
+            <p>
+              By entering phone number and clicking the "Next" button, you are
+              providing express written consent for EZ Online Mortgage. and its
+              affiliates, agents, and service providers to contact you at that
+              number regarding products or services, including via auto-dialed
+              and/or prerecorded or artificial voice calls and text messages
+              (SMS and MMS), or email even if your telephone number is a
+              cellular number or on a corporate, state, or the National Do Not
+              Call Registry
+              <span style="cursor: pointer" class="orange-text">(DNC)</span> or
+              other do not contact list.
+            </p>
+
+            <p>
+              You may also reach us at
+              <a href="tel:(800) 930-8195" class="orange-text"
+                >(800) 930-8195</a
+              >
+              or by utilizing our services at
+              <span class="orange-text">Loan Options</span>. You may opt-out at
+              any time by emailing us a Do Not Call Request at
+              <span class="orange-text"
+                ><a href="mailto:dnc@ezonlinemortgage.com"
+                  >dnc@ezonlinemortgage.com</a
+                ></span
+              >
+              and providing your phone number. Your consent is not required or a
+              condition of any purchase. Message and data rates may apply.
+            </p>
+
+            <p>
+              You also consent to our
+              <span class="orange-text"
+                >SMS terms, Privacy Policy, Terms of Use,</span
+              >
+              and <span class="orange-text">CA Terms</span> of Use. By
+              communicating with us by phone you consent to calls being recorded
+              and monitored.
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a
+          [routerLink]="['/app/purchase/property-info', 4]"
+          class="btn btn-orange"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2">
+        <a class="btn btn-orange" id="btn-next" (click)="onPehlaForm(f5, 6)"
+          >Next</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- No# 8 Purchasing End -->
+
+<!-- No# 9 Purchasing Start -->
+<div class="main-content" *ngIf="number == 6">
+  <h2 class="little-space">
+    What type of home is it?
+    <img src="../../../../assets/img/info.svg" alt="" />
+  </h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/purchase/property-info', 7]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomeTypeClick('singleFamily')"
+      [class.orange-active]="model.homeType == 'singleFamily'"
+      >Single Family</a
+    >
+    <a
+      [routerLink]="['/app/purchase/property-info', 7]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomeTypeClick('condo')"
+      [class.orange-active]="model.homeType == 'condo'"
+      >Condo</a
+    >
+    <a
+      [routerLink]="['/app/purchase/property-info', 7]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomeTypeClick('coop')"
+      [class.orange-active]="model.homeType == 'coop'"
+      >Co-op</a
+    >
+    <a
+      [routerLink]="['/app/purchase/property-info', 7]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomeTypeClick('townhome')"
+      [class.orange-active]="model.homeType == 'townhome'"
+      >Townhome</a
+    >
+    <a
+      [routerLink]="['/app/purchase/property-info', 7]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomeTypeClick('multifamily')"
+      [class.orange-active]="model.homeType == 'multifamily'"
+      >Multi-Family</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/property-info', 5]"
+          class="btn btn-orange"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- No# 9 Purchasing End -->
+
+<!-- No# 10 Purchasing Start -->
+<div class="main-content" *ngIf="number == 7">
+  <h2>
+    For the properties you’ve been looking at, are there typically HOA fees?
+    <img src="../../../../assets/img/info.svg" alt="" />
+  </h2>
+  <h6 style="margin-bottom: 50px">if so, what is the approximate amount?</h6>
+  <div class="button-list">
+    <form action="" id="personal" #f7="ngForm">
+      <input
+        type="number"
+        class="form-control form-style mb-0"
+        placeholder="Monthly HOA dues"
+        [(ngModel)]="model.monthlyhoadues"
+        name="monthlyhoadues"
+        required
+        #monthlyhoaduesRef="ngModel"
+      />
+      <div
+        *ngIf="submitted && !monthlyhoaduesRef.valid"
+        class="text-danger d-flex"
+      >
+        Monthly HOA dues is required
+      </div>
+    </form>
+
+    <div class="row margin-top">
+      <div class="col-md-2 offset-md-1">
+        <a
+          [routerLink]="['/app/purchase/property-info', 6]"
+          class="btn btn-orange"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2 offset-md-1">
+        <a class="btn btn-orange" id="btn-next" (click)="onPehlaForm(f7, 8)"
+          >Next</a
+        >
+      </div>
+      <div class="col-md-2 offset-md-1">
+        <a class="btn btn-orange" id="btn-back" (click)="skip(8)">Skip</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- No# 10 Purchasing End -->
+
+<!-- No# 11 Purchasing Start -->
+<div class="main-content" *ngIf="number == 8">
+  <h2 class="little-space">
+    OK great! And how do you plan on using your new home?
+  </h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app//purchase/property-info', 9]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomePlanClick('primaryresidence')"
+      [class.orange-active]="model.homePlan == 'primaryresidence'"
+      >Primary Residence</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/property-info', 9]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomePlanClick('condo')"
+      [class.orange-active]="model.homePlan == 'condo'"
+      >Condo</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/property-info', 9]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onHomePlanClick('coop')"
+      [class.orange-active]="model.homePlan == 'coop'"
+      >Co-op</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/property-info', 7]"
+          class="btn"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<!-- No# 11 Purchasing End -->
+<div class="main-content" *ngIf="number == 9">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <div class="modal-body text-left">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <header>VA Loan Requirements</header>
+          <h3>For U.S. Veterans and Military Service Members</h3>
+          <ul>
+            <li>
+              You may be eligible for a VA Home Loan if you meet one or more of
+              the following conditions:
+            </li>
+            <li>
+              You have served 90 consecutive days of active service during
+              wartime
+            </li>
+            <li>You have served 181 days of active service during peacetime</li>
+            <li>
+              You have more than 6 years of service in the National Guard or
+              Reserves
+            </li>
+            <li>
+              You are the spouse of a service member who has died in the line of
+              duty or as a result of a service-related disability
+            </li>
+            <li>
+              This includes Army, Navy, Air Force, Marines, or Coast Guard
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <h2>Are you a current or former member of the US Military?</h2>
+  <h6>
+    Active U.S. Military and veterans may be eligible for VA loan options!
+    <img
+      src="../../../../assets/img/info.svg"
+      type="button"
+      data-toggle="modal"
+      data-target="#exampleModal"
+      alt=""
+    />
+  </h6>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/purchase/property-info', 10]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilitaryClick(true)"
+      [class.orange-active]="model.isMillitary"
+      >Yes</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/property-info', 10]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilitaryClick(false)"
+      [class.orange-active]="!model.isMillitary"
+      >No</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <button type="button" class="btn" id="btn-back">Back</button> -->
+        <a
+          [routerLink]="['/app/purchase/property-info', 8]"
+          class="btn"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<ng-container *ngIf="number == 10">
+  <div class="main-content" *ngIf="isEdit != true">
+    <h2>Let's take a few seconds to review and confirm your info so far.</h2>
+    <div class="content-area">
+      <div class="row">
+        <div class="col-md-8">
+          <h6>Property Info</h6>
+        </div>
+        <div class="col-md-4 right-align">
+          <a class="btn" id="btn-edit" (click)="editClicked()">Edit</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="profile-details">
+            <p>Address: {{ model.newHomeAddress }}</p>
+            <p>City or Town: {{ model.newHomeCityTown }}</p>
+            <p>State: {{ model.newHomeStateName }}</p>
+            <p>Zip Code: {{ model.newHomeZip }}</p>
+            <!-- <p>County: {{ model.newHomeState }}</p> -->
+            <p>Closing Date: {{ model.contractDate }}</p>
+            <p>Estimated Home Price: ${{ model.estimatedPrice }}</p>
+            <p>Down Payment Amount: ${{ model.downPaymentAmount }}</p>
+            <p>Down Payment Percent: {{ model.downPaymentPercent }}%</p>
+            <p>Estimated annual taxes: ${{ model.estAnnualTaxes }}</p>
+            <p>
+              Estimated annual home insurance: ${{ model.estAnnualHomeIns }}
+            </p>
+            <p>Self-selected Credit Score: {{ model.creditScore }}</p>
+            <p>Legal First Name: {{ model.firstName }}</p>
+            <p>Legal Last Name: {{ model.lastName }}</p>
+            <p>Phone Number: {{ model.phone }}</p>
+            <p>Email Address: {{ model.email }}</p>
+            <p>Type of Home: {{ model.homeType }}</p>
+            <p>Monthly HOA dues: ${{ model.monthlyhoadues }}</p>
+            <p>Property Usage: {{ model.homePlan }}</p>
+            <p>
+              Are you a current or former member of the US Military?:
+              {{ model.isMillitary == true ? "Yes" : "No" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-list">
+      <div class="row">
+        <div class="col-md-3 offset-md-3">
+          <a
+            [routerLink]="['/app/purchase/property-info', 9]"
+            class="btn"
+            id="btn-back"
+            >Back</a
+          >
+        </div>
+        <div class="col-md-2">
+          <a
+            [routerLink]="
+              model.isMillitary == true
+                ? ['/app/purchase/military-info', 1]
+                : ['/app/purchase/personal-info', 1]
+            "
+            class="btn"
+            id="btn-next"
+            >Next</a
+          >
+        </div>
+      </div>
+    </div>
+    <app-applynow-footer></app-applynow-footer>
+  </div>
+
+  <!-- Click Edit Button will show the below content of 17A page -->
+
+  <div class="main-content" [class.hidden]="!isEdit">
+    <h2>Let's take a few seconds to review and confirm your info so far.</h2>
+    <form action="" id="personal-edit" #f_edit="ngForm">
+      <div class="content-area">
+        <div class="row padding-fifteen mb-4">
+          <div class="col-md-8">
+            <h6>Personal Info</h6>
+          </div>
+          <div class="col-md-4 right-align">
+            <a (click)="doneClicked(f_edit)" class="btn" id="btn-edit">Done</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-list">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="Address"
+            [(ngModel)]="model.newHomeAddress"
+            name="newHomeAddress"
+            #newHomeAddressRef="ngModel"
+            required
+          />
+          <div *ngIf="!newHomeAddressRef.valid" class="text-danger d-flex">
+            Address is required
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="Apt / Unit"
+            [(ngModel)]="model.newHomeUnit"
+            name="newHomeUnit"
+            #newHomeUnitRef="ngModel"
+            required
+          />
+          <div *ngIf="!newHomeUnitRef.valid" class="text-danger d-flex">
+            Unit is required
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="City or Town"
+            [(ngModel)]="model.newHomeCityTown"
+            name="newHomeCityTown"
+            #newHomeCityTownRef="ngModel"
+            required
+          />
+          <div *ngIf="!newHomeCityTownRef.valid" class="text-danger d-flex">
+            City is required
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-style mb-0"
+                placeholder="Zip Code"
+                [(ngModel)]="model.newHomeZip"
+                name="newHomeZip"
+                #newHomeZipRef="ngModel"
+                required
+                pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+              />
+              <div class="text-danger d-flex">
+                <div *ngIf="newHomeZipRef.errors?.pattern">
+                  This is not a valid zip code
+                </div>
+                <div *ngIf="newHomeZipRef.errors?.required">
+                  Zip is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <select
+                class="form-select form-style mb-0"
+                [(ngModel)]="model.newHomeState"
+                style="width: 100%"
+                placeholder="State Name"
+                name="newHomeState"
+                #newHomeStateRef="ngModel"
+                required
+                (change)="onStateChange($event)"
+              >
+                <option value="undefined" selected disabled>State</option>
+                <option [value]="s.id" *ngFor="let s of states">
+                  {{ s.stateName }}
+                </option>
+              </select>
+              <div *ngIf="!newHomeStateRef.valid" class="text-danger d-flex">
+                State is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="date"
+            style="height: 50px"
+            [(ngModel)]="model.contractDate"
+            class="form-control form-style mb-0"
+            name="contractDate"
+            #contractDateRef="ngModel"
+            required
+          />
+          <div *ngIf="!contractDateRef.valid" class="text-danger d-flex">
+            Contract Date is required
+          </div>
+        </div>
+        <!-- </form> -->
+        <p class="text-center">Do either of these apply to the property?</p>
+        <div class="radio-input contract">
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style mb-0"
+                placeholder=""
+                value="new"
+                [(ngModel)]="model.propertyOption1"
+                name="propertyOption_10"
+                #propertyOption_10="ngModel"
+                id="propertyOption1"
+              />
+              <label for="propertyOption1" class="radio-label"
+                >New construction</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" class="radio-wrapper">
+              <input
+                type="radio"
+                class="form-style mb-0"
+                name="propertyOption_10"
+                value="Foreclosure"
+                placeholder=""
+                [(ngModel)]="model.propertyOption1"
+                #propertyOption_10="ngModel"
+                id="propertyOption2"
+              />
+              <label for="propertyOption2" class="radio-label"
+                >Foreclosure / Bank Owned</label
+              >
+            </div>
+          </div>
+        </div>
+        <!-- <form action="" id="purchase-price"> -->
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="Estimated Home Price"
+            [(ngModel)]="model.estimatedPrice"
+            name="estimatedPrice"
+            required
+            #estimatedPriceRef="ngModel"
+            (ngModelChange)="calculatePercent()"
+          />
+          <div *ngIf="!estimatedPriceRef.valid" class="text-danger d-flex">
+            Estimated Home Price is required
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 padding-right">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-half-left mb-0"
+                [(ngModel)]="model.downPaymentAmount"
+                placeholder="Down Payment Amount"
+                name="downPaymentAmount"
+                required
+                #downPaymentAmountRef="ngModel"
+                (ngModelChange)="calculatePercent()"
+              />
+              <div
+                *ngIf="!downPaymentAmountRef.valid"
+                class="text-danger d-flex"
+              >
+                Down Payment Amount is required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 padding-left">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-half-right mb-0"
+                placeholder="Percent"
+                [(ngModel)]="model.downPaymentPercent"
+                name="downPaymentPercent"
+                required
+                #downPaymentPercentRef="ngModel"
+                (ngModelChange)="calculateAmount()"
+              />
+              <div
+                *ngIf="!downPaymentPercentRef.valid"
+                class="text-danger d-flex"
+              >
+                Percent is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="Estimated annual taxes"
+            [(ngModel)]="model.estAnnualTaxes"
+            required
+            name="estAnnualTaxes"
+            #estAnnualTaxesRef="ngModel"
+          />
+          <div *ngIf="!estAnnualTaxesRef.valid" class="text-danger d-flex">
+            Estimated annual taxes is required
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="Estimated annual home insurance"
+            [(ngModel)]="model.estAnnualHomeIns"
+            required
+            name="estAnnualHomeIns"
+            #estAnnualHomeInsRef="ngModel"
+          />
+          <div *ngIf="!estAnnualHomeInsRef.valid" class="text-danger d-flex">
+            Estimated annual home insurance is required
+          </div>
+        </div>
+        <!-- </form> -->
+
+        <h6 id="padding-up">Self selected Credit Score</h6>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="excellent"
+          (click)="onCreditClick('excellent')"
+          [class.orange-active]="model.creditScore == 'excellent'"
+          [class.active]="model.creditScore == 'excellent'"
+        >
+          Excellent (740+)
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="good"
+          (click)="onCreditClick('good')"
+          [class.orange-active]="model.creditScore == 'good'"
+          [class.active]="model.creditScore == 'good'"
+        >
+          Good(700 - 739)
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="average"
+          (click)="onCreditClick('average')"
+          [class.orange-active]="model.creditScore == 'average'"
+          [class.active]="model.creditScore == 'average'"
+        >
+          Average (640 - 699)
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="fair"
+          (click)="onCreditClick('fair')"
+          [class.orange-active]="model.creditScore == 'fair'"
+          [class.active]="model.creditScore == 'fair'"
+        >
+          Fair (580 - 639)
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="needimprovement"
+          (click)="onCreditClick('needimprovement')"
+          [class.orange-active]="model.creditScore == 'needimprovement'"
+          [class.active]="model.creditScore == 'needimprovement'"
+        >
+          Needs Improvement (less then 580)
+        </button>
+
+        <!-- <form action="" id="address"> -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-style mb-0"
+                placeholder="Legal First Name"
+                [(ngModel)]="model.firstName"
+                name="firstName"
+                required
+                #firstNameRef="ngModel"
+              />
+              <div
+                *ngIf="submitted && !firstNameRef.valid"
+                class="text-danger d-flex"
+              >
+                First Name is required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-style mb-0"
+                name="middleName"
+                placeholder="Middle Initial"
+                [(ngModel)]="model.middleName"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="Legal Last Name"
+            name="lastName"
+            [(ngModel)]="model.lastName"
+            required
+            #lastNameRef="ngModel"
+          />
+          <div *ngIf="!lastNameRef.valid" class="text-danger d-flex">
+            Legal Last Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-style mb-0"
+            placeholder="Phone Number"
+            name="phone"
+            [(ngModel)]="model.phone"
+            required
+            #phoneRef="ngModel"
+            appPhoneMask
+            minlength="11"
+          />
+          <div class="text-danger d-flex">
+            <div *ngIf="phoneRef.errors?.minlength">
+              This is not a valid phone number
+            </div>
+            <div *ngIf="phoneRef.errors?.required">Phone is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control form-style mb-0"
+            placeholder="Email Address"
+            name="email"
+            [(ngModel)]="model.email"
+            required
+            #emailRef="ngModel"
+            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+          />
+          <div *ngIf="emailRef.errors?.pattern" class="text-danger d-flex">
+            This is not a valid email address
+          </div>
+          <div *ngIf="emailRef.errors?.required" class="text-danger d-flex">
+            Email is required
+          </div>
+        </div>
+        <!-- </form> -->
+        <h6 id="padding-up">Type of home</h6>
+
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="singleFamily"
+          (click)="onHomeTypeClick('singleFamily')"
+          [class.orange-active]="model.homeType == 'singleFamily'"
+          [class.active]="model.homeType == 'singleFamily'"
+        >
+          Single Family
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="condo"
+          (click)="onHomeTypeClick('condo')"
+          [class.orange-active]="model.homeType == 'condo'"
+          [class.active]="model.homeType == 'condo'"
+        >
+          Condo
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="coop"
+          (click)="onHomeTypeClick('coop')"
+          [class.orange-active]="model.homeType == 'coop'"
+          [class.active]="model.homeType == 'coop'"
+        >
+          Co-op
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="townhome"
+          (click)="onHomeTypeClick('townhome')"
+          [class.orange-active]="model.homeType == 'townhome'"
+          [class.active]="model.homeType == 'townhome'"
+        >
+          Townhome
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="multifamily"
+          (click)="onHomeTypeClick('multifamily')"
+          [class.orange-active]="model.homeType == 'multifamily'"
+          [class.active]="model.homeType == 'multifamily'"
+        >
+          Multi-Family
+        </button>
+
+        <!-- <form action=""> -->
+        <input
+          type="text"
+          class="form-control form-style mb-0"
+          placeholder="Monthly HOA dues"
+          [(ngModel)]="model.monthlyhoadues"
+          name="monthlyhoadues"
+          required
+          #monthlyhoaduesRef="ngModel"
+        />
+        <div
+          *ngIf="submitted && !monthlyhoaduesRef.valid"
+          class="text-danger d-flex"
+        >
+          Monthly HOA dues is required
+        </div>
+        <!-- </form> -->
+
+        <h6 id="padding-up">Property Usage</h6>
+
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="property-primaryresidence"
+          (click)="onHomePlanClick('primaryresidence')"
+          [class.orange-active]="model.homePlan == 'primaryresidence'"
+          [class.active]="model.homePlan == 'primaryresidence'"
+        >
+          Primary Residence
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="property-condo"
+          (click)="onHomePlanClick('condo')"
+          [class.orange-active]="model.homePlan == 'condo'"
+          [class.active]="model.homePlan == 'condo'"
+        >
+          Condo
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="property-coop"
+          (click)="onHomePlanClick('coop')"
+          [class.orange-active]="model.homePlan == 'coop'"
+          [class.active]="model.homePlan == 'coop'"
+        >
+          Co-op
+        </button>
+
+        <h6 id="padding-up">
+          Are you a current or former member of the US Military?
+        </h6>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="militery-yes"
+          (click)="onMilitaryClick(true)"
+          [class.orange-active]="model.isMillitary == true"
+          [class.active]="model.isMillitary == true"
+        >
+          Yes
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-style btn-orange"
+          id="militery-no"
+          (click)="onMilitaryClick(false)"
+          [class.orange-active]="model.isMillitary == false"
+          [class.active]="model.isMillitary == false"
+        >
+          No
+        </button>
+
+        <div class="row">
+          <div class="col-md-12">
+            <a
+              (click)="onEditNextClick()"
+              class="btn btn-gray mb-4"
+              style="width: 100%; background: #80808033"
+              >Done</a
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 offset-md-3">
+            <a
+              [routerLink]="['/app/purchase/property-info', 10]"
+              (click)="isEdit = false"
+              class="btn btn-orange"
+              id="btn-back"
+              >Back</a
+            >
+          </div>
+          <div class="col-md-2">
+            <a (click)="onEditNextClick()" class="btn btn-orange" id="btn-next"
+              >Next</a
+            >
+          </div>
+        </div>
+      </div>
+      <app-applynow-footer></app-applynow-footer>
+    </form>
+  </div>
+</ng-container>

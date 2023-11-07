@@ -1,0 +1,15 @@
+/* .contany{
+    font-size: 16px;
+    line-height: 16px;
+    height: 8px;
+    overflow: hidden;
+}
+  
+  .show {
+    overflow: visible;
+    height: auto;
+} */
+
+.pre-box {
+  height: auto;
+}

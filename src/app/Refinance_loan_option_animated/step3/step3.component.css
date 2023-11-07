@@ -1,0 +1,126 @@
+#but {
+  border: 1px solid orange;
+  width: 260px;
+  height: 43px;
+  text-align: center;
+}
+
+#but:hover {
+  border: 1px solid blue;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 39%;
+  top: 775px;
+}
+.card.bg_transparent {
+  background-color: white !important;
+  color: #091a52;
+  border: 1px solid #091a52 !important;
+}
+.card.bg_transparent:hover {
+  background-color: #091a52 !important;
+  color: white;
+  border: 1px solid #091a52 !important;
+}
+.home-img {
+  /* width: 67px;
+  height: 66px; */
+  width: 121px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/home-blue.png");
+}
+
+.condo-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 63px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/condo-blue.png");
+}
+.multi-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 114px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/multi-blue.png");
+}
+.Content-Step-Body .card:hover .home-img {
+  background-image: url("../../../assets/images/home-white.png");
+}
+.Content-Step-Body .card:hover .condo-img {
+  background-image: url("../../../assets/images/condo-white.png");
+}
+.Content-Step-Body .card:hover .multi-img {
+  background-image: url("../../../assets/images/multi-white.png");
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 39%;
+    top: 775px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 385px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}

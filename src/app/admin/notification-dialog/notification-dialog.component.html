@@ -1,0 +1,74 @@
+<!-- <p class="d-inline" autoClose="false" insideClick="true" dropdown>
+    <a href="javascript:void(0)" dropdownToggle class="p-1 px-3 h5 nav_icon position-relative">
+        <i class="fa fa-bell">
+            <div
+                class="notiftion_numbr rounded-circle text-white d-flex align-items-center justify-content-center position-absolute">
+                1
+            </div>
+        </i>
+    </a>
+</p>
+
+<div *dropdownMenu class="noftification-drop dropdown-menu p-0 drop-down-responsive dropdown-menu-right border-0 " >
+    <div *ngFor="let item of notification">
+        <div class="d-flex justify-content-between">
+            <h1 class="mr-5">Notifications</h1>
+            <h1 class="ml-5">{{ item.date | date: "short" }}</h1>
+        </div>
+        <p class="heading mb-2">
+            <span class="new_text text-white px-2 py-1">new</span> Loan
+            {{ item.id }} - {{ item.subject }}
+        </p>
+        <p class="fade_text mb-2">Loan {{ item.id }} - {{ item.subject }}</p>
+        
+        <div class="d-flex justify-content-end">
+            <button class="btn text-end noti_btn text-white">
+                View All Notiifications
+            </button>
+        </div>
+    </div>
+</div> -->
+
+<div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="false">
+  <a
+    href="javascript:void(0)"
+    dropdownToggle
+    class="p-1 px-3 h5 nav_icon position-relative"
+    aria-controls="dropdown-basic"
+  >
+    <img src="../../../assets/img/admin-bell.svg" />
+      <div class="notiftion_numbr rounded-circle text-white d-flex align-items-center justify-content-center position-absolute">
+        {{ notificationCount }}
+      </div>
+
+  </a>
+
+  <ul
+    id="dropdown-basic"
+    *dropdownMenu
+    class="dropdown-menu bell_list"
+    role="menu"
+    aria-labelledby="button-basic"
+  >
+    <div class="noftification_drop p-2">
+      <div>
+        <div class="d-flex justify-content-between align-items-center">
+          <h1 class="noti_main_heaing">Notifications</h1>
+          <h1 class="ml-5 dte_text">7 Pm</h1>
+        </div>
+        <div *ngFor="let item of notification">
+          <p class="heading mb-2">
+            <span class="new_text text-white px-2 py-1">new</span> Loan
+            {{ item }}
+          </p>
+          <p *ngIf="item.isSeen == 1" class="fade_text mb-2"></p>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn text-end noti_btn text-white">
+            View All Notiifications
+          </button>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>

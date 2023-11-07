@@ -1,0 +1,76 @@
+$theme-colors: (
+  "dark-blue": #091a52,
+  "dark-blue-2": #0d2576,
+  "dark-blue-3": #141e42,
+  "light-blue": #0cc4d4,
+  "light-purple": #7d86a4,
+  "orange": #f47741,
+  "grey": #828282,
+  "grey-2": #707070,
+  "grey-3": #545454,
+  "light-grey": #f8fafd,
+  "dark-grey": #00000029,
+  "dark-grey-2": #091a521a,
+  "dark-grey-3": #091a5214,
+  "dark-grey-4": #091a5229,
+  "light": #f8fafd,
+  "skin": #f4774129
+);
+
+$spacer: 1rem !default;
+$spacers: () !default;
+
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer * 0.25,
+    ),
+    2: (
+      $spacer * 0.5,
+    ),
+    3: $spacer,
+    4: (
+      $spacer * 1.5,
+    ),
+    5: (
+      $spacer * 3,
+    ),
+    6: (
+      $spacer * 5,
+    ),
+  ),
+  $spacers
+);
+
+@font-face {
+  font-family: "Avenir-Black";
+  src: local("Avenir-Black"),
+    url("/assets/fonts/Avenir-Font/fonts/Avenir-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"),
+    url("/assets/fonts/Avenir-Font/fonts/fa-solid-900-Avenir.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Avenir-Medium";
+  src: local("Avenir-Medium"),
+    url("/assets/fonts/Avenir-Font/fonts/Avenir Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Avenir-Heavy";
+  src: local("Avenir-Heavy"),
+    url("/assets/fonts/Avenir-Font/fonts/AEH.ttf") format("truetype");
+}
+$font-family-base: "Avenir-Medium", sans-serif;
+
+app-header {
+  height: 10.4px;
+}
+
+.custom-container {
+  margin-left: 7.2rem;
+  margin-right: 7.2rem;
+}

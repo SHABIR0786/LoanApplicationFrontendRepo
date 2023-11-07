@@ -1,0 +1,250 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <h1>OK here are your personalized GRaffordability results!</h1>
+        <p style="font-size: 23px">
+          Get an official Loan Estimate before choosing a loan. Your actual
+          rate, payment and costs could be higher.
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-center pt-4">
+      <div class="col-md-4 col-lg-3">
+        <div class="card bg-white">
+          <div class="card-body">
+            <h1 class="card-title text-primary">30</h1>
+            <p class="card-subtitle">FHA FIXED</p>
+            <p id="subtitle">Years</p>
+            <div class="subtitle-two">Consistent payments over 30 years</div>
+            <div class="subtitle-three">with mortgage insurance.</div>
+            <p class="card-text" id="text-one">
+              ${{ MortgageResults[0].MonthlyPayment }}
+            </p>
+            <p class="card-text" id="text-two">per month</p>
+            <div class="line">
+              <hr />
+            </div>
+            <div>
+              <img src="assets/images/ok.png" alt="" id="img-one" />
+              <p class="float-left">Principal & Interest</p>
+              <span id="doller-one">${{ MortgageResults[0].TotalTax }}</span>
+              <img src="assets/images/ok.png" alt="" id="img-two" />
+              <P class="float-left">Est. Taxes & Insurance</P
+              ><span id="doller-two">$555</span>
+              <img src="assets/images/ok.png" alt="" id="img-three" />
+              <P class="float-left">Mortgage Insurance</P
+              ><span id="doller-three">$157</span>
+            </div>
+            <div class="line-one">
+              <hr />
+            </div>
+            <div>
+              <p id="rate1">Rate</p>
+              <span id="apr">APR</span>
+              <p id="rate-num">2.500%</p>
+              <span id="apr-num">3.569%</span>
+            </div>
+            <div class="line-three">
+              <hr />
+            </div>
+            <div>
+              <p class="float-left" id="fee">Fees or (Credits)</p>
+              <span id="d-one">($100)</span>
+            </div>
+            <div class="line-four">
+              <hr />
+            </div>
+            <p class="float-left" id="lender">Lender Costs</p>
+            <span id="d-two">($1290)</span>
+          </div>
+          <div
+            class="box-fill cursor_pointer"
+            (click)="proceedToNext('$1,684 per month')"
+            [class.selected]="formData.plan_page11 == '$1,684 per month'"
+          >
+            <p class="pt-1">I LIKE THIS LOAN</p>
+          </div>
+        </div>
+      </div>
+      <!-- //second-col -->
+
+      <div class="col-md-4 col-lg-3">
+        <div class="card bg-white">
+          <div class="card-body">
+            <h1 class="card-title text-primary">30</h1>
+            <p class="card-subtitle">VA FIXED</p>
+            <p id="subtitle">Years</p>
+            <div class="subtitle-two">
+              Loans for U.S. veterans that offer
+              <!-- <p>with mortgage insurance.</p> -->
+            </div>
+            <div class="subtitle-three">100% financing and consistent</div>
+            <div class="subtitle-four">monthly payments over 30 years.</div>
+            <p class="card-text" id="text-one" style="color: skyblue">$1,493</p>
+            <p class="card-text" id="text-two">per month</p>
+            <div class="line">
+              <hr />
+            </div>
+            <div>
+              <img src="assets/images/ok.png" alt="" id="img-one" />
+              <p class="float-left">Principal & Interest</p>
+              <span id="doller-one"
+                >${{ MortgageResults[1].MonthlyPayment }}</span
+              >
+              <img src="assets/images/ok.png" alt="" id="img-two" />
+              <P class="float-left">Est. Taxes & Insurance</P
+              ><span id="doller-two">${{ MortgageResults[1].TotalTax }}</span>
+              <!-- <img src="assets/images/ok.png" alt="" id="img-three">
+               <P class="float-left">Mortgage Insurance</P><span id="doller-three">$157</span> -->
+            </div>
+            <div class="line-one">
+              <hr />
+            </div>
+            <div>
+              <p id="rate">Rate</p>
+              <span id="apr">APR</span>
+              <p id="rate-num" style="color: skyblue">2.375%</p>
+              <span id="apr-num" style="color: skyblue">2.636%</span>
+            </div>
+            <div class="line-three">
+              <hr />
+            </div>
+            <div>
+              <p class="float-left" id="fee">Fees or (Credits)</p>
+              <span id="d-one">($100)</span>
+            </div>
+            <div class="line-four">
+              <hr />
+            </div>
+            <p class="float-left" id="lender">Lender Costs</p>
+            <span id="d-two">($1290)</span>
+          </div>
+          <div
+            class="box-fill mt-4 cursor_pointer"
+            (click)="proceedToNext('$1,684 per month')"
+            [class.selected]="formData.plan_page11 == '$1,684 per month'"
+          >
+            <p class="pt-1">I LIKE THIS LOAN</p>
+          </div>
+        </div>
+        <!-- three col -->
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="card orange-form">
+          <div class="card-body">
+            <p id="Loan-Details">Loan Details</p>
+            <img src="assets/images/Group 441.png" alt="" id="imges" />
+            <div class="form-group">
+              <label>Purchase Price</label>
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                prefix="$"
+                style="width: 100%"
+                [(ngModel)]="formData.estimatePrice"
+                mask="separator.2"
+                thousandSeparator=","
+                maxlength="18"
+              />
+            </div>
+            <div class="form-group">
+              <label>Down Payment</label>
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                prefix="$"
+                style="display: inline-block; width: 65%"
+                [(ngModel)]="formData.downPayment"
+                (keyup)="percentChange()"
+                mask="separator.2"
+                thousandSeparator=","
+                maxlength="18"
+              />
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                style="display: inline-block; width: 30%; margin-left: 5%"
+                [(ngModel)]="formData.downPaymentPercent"
+                mask="separator.2"
+                thousandSeparator=","
+                (keyup)="downpaymentchange()"
+                maxlength="18"
+              />
+              <span class="percent-sign">%</span>
+            </div>
+            <div class="form-group">
+              <label>Zip Code</label>
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                style="width: 100%"
+                [(ngModel)]="formData.zipCode"
+              />
+            </div>
+            <div class="form-group">
+              <label>Property use</label>
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                style="width: 100%; font-size: 14px"
+                [(ngModel)]="formData.PropertyUse"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <label>Most important to you</label>
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                style="width: 100%; font-size: 14px"
+                [(ngModel)]="formData.important_to_you"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <label>Credit score</label>
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                style="width: 100%"
+                [(ngModel)]="formData.rateCredit"
+                mask="separator.2"
+                thousandSeparator=","
+                maxlength="18"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <label>Years you’ll own the property</label>
+              <input
+                class="form-control form-control-lg-next text-primary bg-white"
+                style="width: 100%"
+                [(ngModel)]="formData.howLongPlan"
+                mask="separator.2"
+                thousandSeparator=","
+                maxlength="18"
+                disabled
+              />
+            </div>
+            <div>
+              <div
+                id="update"
+                class="box-fill"
+                style="
+                  width: 150px;
+                  height: 43px;
+                  margin: 0 auto;
+                  cursor: pointer;
+                "
+                (click)="update()"
+              >
+                <p>UPDATE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p
+      id="button"
+      class="box-fill cursor_pointer mt-3"
+      (click)="proceedToNext('Nothing')"
+    >
+      SEE ALL OPTIONS
+    </p>
+  </div>
+</div>

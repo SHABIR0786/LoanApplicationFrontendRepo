@@ -1,0 +1,492 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card my-5">
+        <div class="card-header">Site configuration</div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Path</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let page of pages">
+                <td>{{ page.pageName }}</td>
+                <td>{{ page.pageIdentifier }}</td>
+                <td>
+                  <button
+                    (click)="lgModal.show(); setPageId(page.id)"
+                    class="btn btn-orange text-white btn"
+                  >
+                    EDIT
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  bsModal
+  #lgModal="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-sizes-name1"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">
+          {{ currentPage ? pages[currentPage - 1].pageName : "" }}
+        </h4>
+        <button
+          type="button"
+          class="close pull-right"
+          (click)="lgModal.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form
+          *ngIf="currentPage === 1"
+          [formGroup]="HomePageForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="card">
+            <div class="card-header">
+              Main Carousels
+              <button
+                type="button"
+                (click)="addMainCarousel()"
+                [disabled]="HomePage.MainCarousels.length === 4"
+                class="btn btn-orange float-right mr-2 text-white"
+              >
+                Add
+              </button>
+            </div>
+            <div class="card-body">
+              <ng-container formArrayName="MainCarousels">
+                <div
+                  class="form-row w-100 mt-3"
+                  *ngFor="
+                    let mainCarousel of MainCarousels.controls;
+                    let i = index
+                  "
+                >
+                  <ng-container [formGroupName]="i">
+                    <div class="form-group col-6">
+                      <label for="File-{{ i }}">Sliders</label>
+                      <input
+                        type="file"
+                        id="File-{{ i }}"
+                        name="File-{{ i }}"
+                        class="form-control"
+                        formControlName="File"
+                        (change)="showPreview($event, 'MainCarousels', i)"
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <img
+                        [src]="HomePage.MainCarousels[i].FilePath"
+                        class="img-fluid"
+                        (change)="showPreview($event, 'MainCarousels', i)"
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="Header-{{ i }}">Header</label>
+                      <input
+                        type="text"
+                        id="Header-{{ i }}"
+                        name="Header-{{ i }}"
+                        class="form-control"
+                        formControlName="Header"
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="SubHeader-{{ i }}">Sub Header</label>
+                      <input
+                        type="text"
+                        id="SubHeader-{{ i }}"
+                        name="SubHeader"
+                        class="form-control"
+                        formControlName="SubHeader"
+                      />
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">First Blog</div>
+            <div class="card-body">
+              <div class="form-row w-100" formGroupName="FirstBlog">
+                <div class="form-group col-6">
+                  <label for="image">Image</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    formControlName="File"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <img
+                    [src]="HomePage.FirstBlog.FilePath"
+                    class="img-fluid"
+                    (change)="showPreview($event, 'FirstBlog')"
+                  />
+                </div>
+
+                <div class="form-group col-6">
+                  <label for="top-Caption">Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Header"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Sub Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="SubHeader"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Description</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Description"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Second Blog</div>
+            <div class="card-body">
+              <div class="form-row w-100" formGroupName="SecondBlog">
+                <div class="form-group col-6">
+                  <label>Image</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    formControlName="File"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <img
+                    [src]="HomePage.SecondBlog.FilePath"
+                    class="img-fluid"
+                    (change)="showPreview($event, 'SecondBlog')"
+                  />
+                </div>
+
+                <div class="form-group col-6">
+                  <label>Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Header"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Sub Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="SubHeader"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Description</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Description"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Third Blog</div>
+            <div class="card-body">
+              <div class="form-row w-100" formGroupName="ThirdBlog">
+                <div class="form-group col-6">
+                  <label>Image</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    formControlName="File"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <img
+                    [src]="HomePage.ThirdBlog.FilePath"
+                    class="img-fluid"
+                    (change)="showPreview($event, 'ThirdBlog')"
+                  />
+                </div>
+
+                <div class="form-group col-6">
+                  <label>Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Header"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Description</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Description"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Forth Blog</div>
+            <div class="card-body">
+              <div class="form-row w-100" formGroupName="ForthBlog">
+                <div class="form-group col-6">
+                  <label>Image</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    formControlName="File"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <img
+                    [src]="HomePage.ForthBlog.FilePath"
+                    class="img-fluid"
+                    (change)="showPreview($event, 'ForthBlog')"
+                  />
+                </div>
+
+                <div class="form-group col-6">
+                  <label>Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Header"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Description</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Description"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Video Section</div>
+            <div class="card-body">
+              <div class="form-row w-100" formGroupName="VideoSection">
+                <div class="form-group col-6">
+                  <label>Video</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    formControlName="File"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <video controls class="w-100 h-100">
+                    <source [src]="HomePage.VideoSection.FilePath" />
+                  </video>
+                </div>
+
+                <div class="form-group col-6">
+                  <label>Sub Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="SubHeader"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Header"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Description</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Description"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Tips Section</div>
+            <div class="card-body">
+              <div class="form-row w-100">
+                <div class="form-group col-6">
+                  <label>Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="KnowAboutHeader"
+                  />
+                </div>
+
+                <div class="form-group col-6">
+                  <label>Main Header</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="ChecklistMainHeader"
+                  />
+                </div>
+
+                <ng-container formGroupName="Checklist">
+                  <div class="form-group col-6">
+                    <label>Checklist 1</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Checklist1"
+                    />
+                  </div>
+                  <div class="form-group col-6">
+                    <label>Checklist 2</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Checklist2"
+                    />
+                  </div>
+                  <div class="form-group col-6">
+                    <label>Checklist 3</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Checklist3"
+                    />
+                  </div>
+                  <div class="form-group col-6">
+                    <label>Checklist 4</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Checklist4"
+                    />
+                  </div>
+                </ng-container>
+
+                <div class="form-group col-6">
+                  <label>Slogan</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Slogan"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label>Slogan Image</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="SloganImage"
+                  />
+                </div>
+                <div class="form-group col-8">
+                  <label>Slogan Checklist</label>
+                  <textarea
+                    class="form-control"
+                    formControlName="SloganChecklist"
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              Testimonials
+              <button
+                type="button"
+                (click)="addTestimonial()"
+                [disabled]="Testimonials.controls.length === 4"
+                class="btn btn-orange float-right mr-2 text-white"
+              >
+                Add
+              </button>
+            </div>
+            <div class="card-body">
+              <ng-container formArrayName="Testimonials">
+                <div
+                  class="form-row w-100"
+                  *ngFor="
+                    let testimonial of Testimonials.controls;
+                    let i = index
+                  "
+                >
+                  <ng-container [formGroupName]="i">
+                    <div class="form-group col-6">
+                      <label for="Comment-{{ i }}">Comments</label>
+                      <input
+                        type="text"
+                        id="Comment-{{ i }}"
+                        name="Comment"
+                        class="form-control"
+                        formControlName="Comment"
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="Author-{{ i }}">Author</label>
+                      <input
+                        type="text"
+                        id="Author-{{ i }}"
+                        name="Author"
+                        class="form-control"
+                        formControlName="Author"
+                      />
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <button
+                type="button"
+                class="btn btn-orange float-right mr-2 text-white"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

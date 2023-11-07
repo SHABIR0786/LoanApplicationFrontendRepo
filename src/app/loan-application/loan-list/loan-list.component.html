@@ -1,0 +1,60 @@
+<section class="content px-2">
+  <div>
+    <div class="card my-5">
+      <div class="card-body table-responsive">
+        <table class="table table-bordered table-sm text-center">
+          <thead>
+            <tr>
+              <th>Borrower</th>
+              <th>File Name</th>
+              <th>Loan Status</th>
+              <th>Status Date</th>
+              <th>Est.Close</th>
+              <th>Rate Lock Exp.</th>
+              <th>Processor</th>
+              <th>Originator</th>
+              <th>Contact</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let table of data">
+              <td>{{ table.borrower }}</td>
+              <td>{{ table.fileName }}</td>
+              <td>{{ table.loanStatus }}</td>
+              <td>{{ table.statusDate }}</td>
+              <td>{{ table.estClose }}</td>
+              <td>{{ table.rateLoc }}</td>
+              <td>{{ table.processor }}</td>
+              <td>{{ table.originator }}</td>
+              <td>{{ table.contact }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-orange text-white"
+                  (click)="handleEdit(table.id)"
+                >
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-orange text-white ml-3"
+                  (click)="ExportPdf(table.id)"
+                >
+                  Export
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-orange text-white ml-3"
+                  (click)="handleEdit(table.id)"
+                >
+                  <b>E-Sign</b>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1625 @@
+<section class="content px-2">
+  <div>
+    <div class="card my-5">
+      <div class="card-body">
+        <div [formGroup]="form">
+          <ng-wizard [config]="config">
+            <ng-wizard-step title="Borrower Declarations" [state]="">
+              <div class="row">
+                <div class="col-12 row" formGroupName="borrowerDeclaration">
+                  <h4 class="col-12 mb-1">Borrower Declarations</h4>
+                  <table class="table table-borderless col-12 ml-1 mr-1">
+                    <tr>
+                      <td>
+                        a. Are there any outstanding judgments against you?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOutstandingJudgmentsAgainstYou"
+                                  id="borrower-isOutstandingJudgmentsAgainstYouYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isOutstandingJudgmentsAgainstYouYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOutstandingJudgmentsAgainstYou"
+                                  id="borrower-isOutstandingJudgmentsAgainstYouNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isOutstandingJudgmentsAgainstYouNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        b. Have you been declared bankrupt within the past 7
+                        years?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isDeclaredBankrupt"
+                                  id="borrower-isDeclaredBankruptYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isDeclaredBankruptYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isDeclaredBankrupt"
+                                  id="borrower-isDeclaredBankruptNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isDeclaredBankruptNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        c. Have you had property foreclosed upon or given title
+                        or deed in lieu thereof in the last 7 years?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPropertyForeClosedUponOrGivenTitle"
+                                  id="borrower-isPropertyForeClosedUponOrGivenTitleYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPropertyForeClosedUponOrGivenTitleYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPropertyForeClosedUponOrGivenTitle"
+                                  id="borrower-isPropertyForeClosedUponOrGivenTitleNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPropertyForeClosedUponOrGivenTitleNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>d. Are you a party to a lawsuit?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPartyToLawsuit"
+                                  id="borrower-isPartyToLawsuitYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPartyToLawsuitYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPartyToLawsuit"
+                                  id="borrower-isPartyToLawsuitNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPartyToLawsuitNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        e. Have you directly or indirectly been obligated on any
+                        loan which resulted in foreclosure, transfer of title in
+                        lieu of foreclosure, or judgment?
+                        <i
+                          class="fa fa-info-circle ml-2"
+                          aria-hidden="true"
+                          tooltipPlacement="right"
+                          tooltip="This would include such loans as home mortgage loans, SBA loans, home improvement loans, educational loans, manufactured (mobile) home loans, any mortgage, financial obligation, bond, or loan guarantee. If 'Yes,' provide details, including date, name, and address of Lender, FHA or VA case number, if any, and reasons for the action."
+                        >
+                        </i>
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedOnAnyLoanWhichResultedForeclosure"
+                                  id="borrower-isObligatedOnAnyLoanWhichResultedForeclosureYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isObligatedOnAnyLoanWhichResultedForeclosureYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedOnAnyLoanWhichResultedForeclosure"
+                                  id="borrower-isObligatedOnAnyLoanWhichResultedForeclosureNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isObligatedOnAnyLoanWhichResultedForeclosureNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- sixth -->
+                    <tr>
+                      <!-- f -->
+                      <td>
+                        f. Are you presently delinquent or in default on any
+                        Federal debt or any other loan, mortgage, financial
+                        obligation, bond, or loan guarantee?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPresentlyDelinquent"
+                                  id="borrower-isPresentlyDelinquentYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPresentlyDelinquentYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPresentlyDelinquent"
+                                  id="borrower-isPresentlyDelinquentNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPresentlyDelinquentNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- g -->
+                    <tr>
+                      <td>
+                        g. Are you obligated to pay alimony, child support, or
+                        separate maintenance?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedToPayAlimonyChildSupport"
+                                  id="borrower-isObligatedToPayAlimonyChildSupportYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isObligatedToPayAlimonyChildSupportYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedToPayAlimonyChildSupport"
+                                  id="borrower-isObligatedToPayAlimonyChildSupportNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isObligatedToPayAlimonyChildSupportNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- h -->
+                    <tr>
+                      <td>h. Is any part of the down payment borrowed?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isAnyPartOfTheDownPayment"
+                                  id="borrower-isAnyPartOfTheDownPaymentYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isAnyPartOfTheDownPaymentYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isAnyPartOfTheDownPayment"
+                                  id="borrower-isAnyPartOfTheDownPaymentNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isAnyPartOfTheDownPaymentNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- i -->
+                    <tr>
+                      <td>i. Are you a co-maker or endorser on a note?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isCoMakerOrEndorser"
+                                  id="borrower-isCoMakerOrEndorserYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isCoMakerOrEndorserYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isCoMakerOrEndorser"
+                                  id="borrower-isCoMakerOrEndorserNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isCoMakerOrEndorserNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- j -->
+                    <tr>
+                      <td>j. Are you a U.S. citizen?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isUSCitizen"
+                                  id="borrower-isUSCitizenYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isUSCitizenYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isUSCitizen"
+                                  id="borrower-isUSCitizenNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isUSCitizenNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- k -->
+                    <tr>
+                      <td>k. Are you a permanent resident alien?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPermanentResidentSlien"
+                                  id="borrower-isPermanentResidentSlienYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPermanentResidentSlienYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPermanentResidentSlien"
+                                  id="borrower-isPermanentResidentSlienNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isPermanentResidentSlienNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        l. Do you intend to occupy the property as your primary
+                        residence?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isIntendToOccupyThePropertyAsYourPrimary"
+                                  id="borrower-isIntendToOccupyThePropertyAsYourPrimaryYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isIntendToOccupyThePropertyAsYourPrimaryYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isIntendToOccupyThePropertyAsYourPrimary"
+                                  id="borrower-isIntendToOccupyThePropertyAsYourPrimaryNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isIntendToOccupyThePropertyAsYourPrimaryNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- m -->
+                    <tr>
+                      <td>
+                        m. Have you had an ownership interest in a property in
+                        the last three years?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOwnershipInterestInPropertyInTheLastThreeYears"
+                                  id="borrower-isOwnershipInterestInPropertyInTheLastThreeYearsYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isOwnershipInterestInPropertyInTheLastThreeYearsYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOwnershipInterestInPropertyInTheLastThreeYears"
+                                  id="borrower-isOwnershipInterestInPropertyInTheLastThreeYearsNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="borrower-isOwnershipInterestInPropertyInTheLastThreeYearsNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                        <div class="form-group mt-3">
+                          <label for="borrower-declarationsSection">
+                            For the Declarations section, you are required to
+                            explain any "Yes" answers to questions a through i.
+                          </label>
+                          <div class="input-group">
+                            <textarea
+                              rows="2"
+                              class="form-control"
+                              id="borrower-declarationsSection"
+                              formControlName="declarationsSection"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div
+                  class="col-12 row"
+                  formGroupName="coBorrowerDeclaration"
+                  *ngIf="isApplyingWithCoBorrower"
+                >
+                  <h4 class="col-12 mb-1">Co-Borrower Declarations</h4>
+                  <table class="table table-borderless col-12 ml-1 mr-1">
+                    <tr>
+                      <td>
+                        a. Are there any outstanding judgments against you?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOutstandingJudgmentsAgainstYou"
+                                  id="coBorrower-isOutstandingJudgmentsAgainstYouYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isOutstandingJudgmentsAgainstYouYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOutstandingJudgmentsAgainstYou"
+                                  id="coBorrower-isOutstandingJudgmentsAgainstYouNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isOutstandingJudgmentsAgainstYouNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        b. Have you been declared bankrupt within the past 7
+                        years?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isDeclaredBankrupt"
+                                  id="coBorrower-isDeclaredBankruptYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isDeclaredBankruptYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isDeclaredBankrupt"
+                                  id="coBorrower-isDeclaredBankruptNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isDeclaredBankruptNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        c. Have you had property foreclosed upon or given title
+                        or deed in lieu thereof in the last 7 years?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPropertyForeClosedUponOrGivenTitle"
+                                  id="coBorrower-isPropertyForeClosedUponOrGivenTitleYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPropertyForeClosedUponOrGivenTitleYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPropertyForeClosedUponOrGivenTitle"
+                                  id="coBorrower-isPropertyForeClosedUponOrGivenTitleNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPropertyForeClosedUponOrGivenTitleNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>d. Are you a party to a lawsuit?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPartyToLawsuit"
+                                  id="coBorrower-isPartyToLawsuitYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPartyToLawsuitYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPartyToLawsuit"
+                                  id="coBorrower-isPartyToLawsuitNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPartyToLawsuitNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        e. Have you directly or indirectly been obligated on any
+                        loan which resulted in foreclosure, transfer of title in
+                        lieu of foreclosure, or judgment?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedOnAnyLoanWhichResultedForeclosure"
+                                  id="coBorrower-isObligatedOnAnyLoanWhichResultedForeclosureYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isObligatedOnAnyLoanWhichResultedForeclosureYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedOnAnyLoanWhichResultedForeclosure"
+                                  id="coBorrower-isObligatedOnAnyLoanWhichResultedForeclosureNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isObligatedOnAnyLoanWhichResultedForeclosureNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- sixth -->
+                    <tr>
+                      <!-- f -->
+                      <td>
+                        f. Are you presently delinquent or in default on any
+                        Federal debt or any other loan, mortgage, financial
+                        obligation, bond, or loan guarantee?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPresentlyDelinquent"
+                                  id="coBorrower-isPresentlyDelinquentYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPresentlyDelinquentYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPresentlyDelinquent"
+                                  id="coBorrower-isPresentlyDelinquentNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPresentlyDelinquentNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- g -->
+                    <tr>
+                      <td>
+                        g. Are you obligated to pay alimony, child support, or
+                        separate maintenance?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedToPayAlimonyChildSupport"
+                                  id="coBorrower-isObligatedToPayAlimonyChildSupportYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isObligatedToPayAlimonyChildSupportYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isObligatedToPayAlimonyChildSupport"
+                                  id="coBorrower-isObligatedToPayAlimonyChildSupportNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isObligatedToPayAlimonyChildSupportNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- h -->
+                    <tr>
+                      <td>h. Is any part of the down payment borrowed?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isAnyPartOfTheDownPayment"
+                                  id="coBorrower-isAnyPartOfTheDownPaymentYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isAnyPartOfTheDownPaymentYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isAnyPartOfTheDownPayment"
+                                  id="coBorrower-isAnyPartOfTheDownPaymentNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isAnyPartOfTheDownPaymentNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- i -->
+                    <tr>
+                      <td>i. Are you a co-maker or endorser on a note?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isCoMakerOrEndorser"
+                                  id="coBorrower-isCoMakerOrEndorserYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isCoMakerOrEndorserYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isCoMakerOrEndorser"
+                                  id="coBorrower-isCoMakerOrEndorserNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isCoMakerOrEndorserNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- j -->
+                    <tr>
+                      <td>j. Are you a U.S. citizen?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isUSCitizen"
+                                  id="coBorrower-isUSCitizenYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isUSCitizenYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isUSCitizen"
+                                  id="coBorrower-isUSCitizenNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isUSCitizenNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- k -->
+                    <tr>
+                      <td>k. Are you a permanent resident alien?</td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPermanentResidentSlien"
+                                  id="coBorrower-isPermanentResidentSlienYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPermanentResidentSlienYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isPermanentResidentSlien"
+                                  id="coBorrower-isPermanentResidentSlienNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isPermanentResidentSlienNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        l. Do you intend to occupy the property as your primary
+                        residence?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isIntendToOccupyThePropertyAsYourPrimary"
+                                  id="coBorrower-isIntendToOccupyThePropertyAsYourPrimaryYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isIntendToOccupyThePropertyAsYourPrimaryYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isIntendToOccupyThePropertyAsYourPrimary"
+                                  id="coBorrower-isIntendToOccupyThePropertyAsYourPrimaryNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isIntendToOccupyThePropertyAsYourPrimaryNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- m -->
+                    <tr>
+                      <td>
+                        m. Have you had an ownership interest in a property in
+                        the last three years?
+                      </td>
+                      <td>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="float: right"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOwnershipInterestInPropertyInTheLastThreeYears"
+                                  id="coBorrower-isOwnershipInterestInPropertyInTheLastThreeYearsYes"
+                                  [value]="true"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isOwnershipInterestInPropertyInTheLastThreeYearsYes"
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-check-inline">
+                                <input
+                                  style="padding-left: 20px"
+                                  class="form-check-input"
+                                  type="radio"
+                                  formControlName="isOwnershipInterestInPropertyInTheLastThreeYears"
+                                  id="coBorrower-isOwnershipInterestInPropertyInTheLastThreeYearsNo"
+                                  [value]="false"
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="coBorrower-isOwnershipInterestInPropertyInTheLastThreeYearsNo"
+                                >
+                                  No
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                        <div class="form-group mt-3">
+                          <label for="coBorrower-declarationsSection">
+                            For the Declarations section, you are required to
+                            explain any "Yes" answers to questions a through i.
+                          </label>
+                          <div class="input-group">
+                            <textarea
+                              rows="2"
+                              class="form-control"
+                              id="coBorrower-declarationsSection"
+                              formControlName="declarationsSection"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-12">
+                  <button
+                    class="btn btn-secondary"
+                    (click)="proceedToPrevious()"
+                  >
+                    Back
+                  </button>
+                  <button
+                    class="btn btn-secondary float-right"
+                    (click)="proceedToNext('wizardStep')"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+            <ng-wizard-step title="Borrower Demographic Information">
+              <div class="row">
+                <div class="col-12">
+                  <h4>Borrower Demographic Information</h4>
+                  <p>
+                    <span class="text-bold"
+                      >The purpose of collecting this information</span
+                    >
+                    is to help ensure that all applicants are treated fairly and
+                    that the housing needs of communities and neighborhoods are
+                    being fulfilled. For residential mortgage lending, Federal
+                    law requires that we ask applicants for their demographic
+                    information (ethnicity, sex, and race) in order to monitor
+                    our compliance with equal credit opportunity, fair housing,
+                    and home mortgage disclosure laws. You are not required to
+                    provide this information, but are encouraged to do so. You
+                    may select one or more designations for "ethnicity" and one
+                    or more designations for "Race."
+                    <span class="text-bold"
+                      >The law provides that we may not discriminate</span
+                    >
+                    on the basis of this information, or on whether you choose
+                    to provide it. However, if you choose not to provide the
+                    information and you have made this application in person,
+                    Federal regulations require us to note your ethnicity, sex,
+                    and race on the basis of visual observation or surname. The
+                    law also provides that we may not discriminate on the basis
+                    of age or marital status information you provide in this
+                    application. If you do not wish to provide some or all of
+                    this information, please check below.
+                  </p>
+                </div>
+
+                <h6 class="col-12">Ethnicity - Check one or more</h6>
+                <ng-container
+                  *ngFor="let ethnic of borrowerEthnics; let i = index"
+                >
+                  <div class="col-4 mb-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="borrower-ethnic-{{ i }}"
+                        name="borrower-ethnic-{{ i }}"
+                        [(ngModel)]="ethnic.checked"
+                        [ngModelOptions]="{ standalone: true }"
+                        (change)="updateEthnicFormControl('borrower')"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="borrower-ethnic-{{ i }}"
+                      >
+                        {{ ethnic.name }}
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 mb-3" *ngIf="ethnic.hasInput">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="borrower-ethnic-input-{{ i }}"
+                      [ngModelOptions]="{ standalone: true }"
+                      [disabled]="!ethnic.checked"
+                      [(ngModel)]="ethnic.otherValue"
+                      [placeholder]="ethnic.description"
+                      (change)="updateEthnicFormControl('borrower')"
+                    />
+                  </div>
+                </ng-container>
+
+                <h6 class="col-12">Race - Check one or more</h6>
+                <ng-container *ngFor="let race of borrowerRaces; let i = index">
+                  <div class="col-4 mb-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="borrower-race-{{ i }}"
+                        name="borrower-race-{{ i }}"
+                        [(ngModel)]="race.checked"
+                        [ngModelOptions]="{ standalone: true }"
+                        (change)="updateRaceFormControl('borrower')"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="borrower-race-{{ i }}"
+                      >
+                        {{ race.name }}
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 mb-3" *ngIf="race.hasInput">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="borrower-race-input-{{ i }}"
+                      name="borrower-race-input-{{ i }}"
+                      [ngModelOptions]="{ standalone: true }"
+                      [placeholder]="race.description"
+                      [disabled]="!race.checked"
+                      [(ngModel)]="race.otherValue"
+                      (change)="updateRaceFormControl('borrower')"
+                    />
+                  </div>
+                </ng-container>
+
+                <h6 class="col-12">Sex</h6>
+                <ng-container *ngFor="let sex of borrowerSexArr; let i = index">
+                  <div class="col-4 mt-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="borrower-sex-{{ i }}"
+                        name="borrower-sex-{{ i }}"
+                        [(ngModel)]="sex.checked"
+                        [ngModelOptions]="{ standalone: true }"
+                        (change)="updateSexFormControl('borrower')"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="borrower-sex-{{ i }}"
+                      >
+                        {{ sex.name }}
+                      </label>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <div class="col-12 row" *ngIf="isApplyingWithCoBorrower">
+                  <div class="col-12 mt-3 mb-1">
+                    <h5>Co-Borrower Demographic Information</h5>
+                    <p>
+                      <span class="text-bold"
+                        >The purpose of collecting this information</span
+                      >
+                      is to help ensure that all applicants are treated fairly
+                      and that the housing needs of communities and
+                      neighborhoods are being fulfilled. For residential
+                      mortgage lending, Federal law requires that we ask
+                      applicants for their demographic information (ethnicity,
+                      sex, and race) in order to monitor our compliance with
+                      equal credit opportunity, fair housing, and home mortgage
+                      disclosure laws. You are not required to provide this
+                      information, but are encouraged to do so. You may select
+                      one or more designations for "ethnicity" and one or more
+                      designations for "Race."
+                      <span class="text-bold"
+                        >The law provides that we may not discriminate</span
+                      >
+                      on the basis of this information, or on whether you choose
+                      to provide it. However, if you choose not to provide the
+                      information and you have made this application in person,
+                      Federal regulations require us to note your ethnicity,
+                      sex, and race on the basis of visual observation or
+                      surname. The law also provides that we may not
+                      discriminate on the basis of age or marital status
+                      information you provide in this application. If you do not
+                      wish to provide some or all of this information, please
+                      check below.
+                    </p>
+                  </div>
+
+                  <h6 class="col-12">Ethnicity - Check one or more</h6>
+                  <ng-container
+                    *ngFor="let ethnic of coBorrowerEthnics; let i = index"
+                  >
+                    <div class="col-4 mb-3">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="coBorrower-ethnic-{{ i }}"
+                          name="coBorrower-ethnic-{{ i }}"
+                          [(ngModel)]="ethnic.checked"
+                          [ngModelOptions]="{ standalone: true }"
+                          (change)="updateEthnicFormControl('coBorrower')"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="coBorrower-ethnic-{{ i }}"
+                        >
+                          {{ ethnic.name }}
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 mb-3" *ngIf="ethnic.hasInput">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="coBorrower-ethnic-input-{{ i }}"
+                        [ngModelOptions]="{ standalone: true }"
+                        [disabled]="!ethnic.checked"
+                        [(ngModel)]="ethnic.otherValue"
+                        [placeholder]="ethnic.description"
+                        (change)="updateEthnicFormControl('coBorrower')"
+                      />
+                    </div>
+                  </ng-container>
+
+                  <h6 class="col-12">Race - Check one or more</h6>
+                  <ng-container
+                    *ngFor="let race of coBorrowerRaces; let i = index"
+                  >
+                    <div class="col-4 mb-3">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="coBorrower-race-{{ i }}"
+                          name="coBorrower-race-{{ i }}"
+                          [(ngModel)]="race.checked"
+                          [ngModelOptions]="{ standalone: true }"
+                          (change)="updateRaceFormControl('coBorrower')"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="coBorrower-race-{{ i }}"
+                        >
+                          {{ race.name }}
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 mb-3" *ngIf="race.hasInput">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="coBorrower-race-input-{{ i }}"
+                        name="coBorrower-race-input-{{ i }}"
+                        [ngModelOptions]="{ standalone: true }"
+                        [placeholder]="race.description"
+                        [disabled]="!race.checked"
+                        [(ngModel)]="race.otherValue"
+                        (change)="updateRaceFormControl('coBorrower')"
+                      />
+                    </div>
+                  </ng-container>
+
+                  <h6 class="col-12">Sex</h6>
+                  <ng-container
+                    *ngFor="let sex of coBorrowerSexArr; let i = index"
+                  >
+                    <div class="col-4 mt-3">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="coBorrower-sex-{{ i }}"
+                          name="coBorrower-sex-{{ i }}"
+                          [(ngModel)]="sex.checked"
+                          [ngModelOptions]="{ standalone: true }"
+                          (change)="updateSexFormControl('coBorrower')"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="coBorrower-sex-{{ i }}"
+                        >
+                          {{ sex.name }}
+                        </label>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+
+                <div class="col-12">
+                  <button
+                    class="btn btn-secondary"
+                    (click)="proceedToPrevious('wizardStep')"
+                  >
+                    Back
+                  </button>
+                  <button
+                    class="btn btn-secondary float-right"
+                    (click)="proceedToNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+          </ng-wizard>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+a.text-white {
+  color: white !important;
+}
+
+/* Hafiz's CSS */
+
+.text-black {
+  color: black !important;
+}
+a.text-black {
+  color: black !important;
+}
+nav.navbar.navbar-dark.bg-primary.navbar-expand-lg.p-0 {
+  background-color: white !important;
+}
+.text-orange {
+  color: #f47741 !important;
+}
+a.text-orange {
+  color: #f47741 !important;
+}
+.text-black.toptext .text-orange {
+  margin-left: 10px;
+}
+
+.d-lg-none.mobileSearch {
+  margin-top: 30px;
+}
+.d-lg-none.mobileSearch .text-orange.toptext {
+  padding-left: 10px;
+}

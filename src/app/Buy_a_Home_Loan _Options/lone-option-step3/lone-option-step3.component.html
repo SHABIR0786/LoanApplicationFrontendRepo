@@ -1,0 +1,45 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2>And what’s the zip?</h2>
+    <div class="col-lg-4 float-left pl-4">
+      <span class="pt-3 cursor_pointer">
+        <i class="fa fa-angle-left" id="icon"></i>
+        <span id="Back" (click)="proceedToPrevious()" class="pl-1"> Back</span>
+      </span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <form [formGroup]="form">
+          <div class="form-group mt-5">
+            <input
+              class="text-primary bg-white text-center font-weight-bold rounded-2"
+              id="zip"
+              type="text"
+              placeholder="ZIP Code"
+              [(ngModel)]="formData.zipCode"
+              formControlName="zipCode"
+              pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+              [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }"
+            />
+            <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">
+              <div *ngIf="f.zipCode.errors.required">Enter Valid Zip Code.</div>
+            </div>
+            <div
+              *ngIf="submitted && f.zipCode.errors?.pattern"
+              class="invalid-feedback"
+            >
+              This is not a valid zip code
+            </div>
+          </div>
+        </form>
+        <button
+          id="next"
+          class="btn btn-secondary text-uppercase mt-3 text-white btn-next rounded-2"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

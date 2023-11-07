@@ -1,0 +1,24 @@
+h3,
+p {
+  color: #0f2157;
+}
+a {
+  color: #f47747;
+  text-decoration: underline;
+}
+.content {
+  text-align: center;
+}
+button {
+  width: 25%;
+  margin: auto;
+}
+.purchasebtn {
+  background-color: #0f2157;
+  color: white;
+}
+.refinancebtn {
+  background-color: #f47747;
+  color: white;
+  border: none;
+}

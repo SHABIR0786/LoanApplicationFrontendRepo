@@ -1,0 +1,1252 @@
+<section class="content px-2">
+  <div class="container">
+    <div class="card my-5">
+      <div class="card-body">
+        <form [formGroup]="form">
+          <ng-wizard [config]="config">
+            <ng-wizard-step title="Joint Credit" [state]="">
+              <div class="row">
+                <div class="col-12">
+                  <label
+                    >Are you applying for joint credit with a co-borrower?
+                    <span class="text-danger">*</span>
+                  </label>
+                  <i
+                    class="fa fa-info-circle ml-2"
+                    aria-hidden="true"
+                    tooltipPlacement="right"
+                    tooltip="Applicants should complete this form as “Borrower” or “Co-Borrower,” as applicable. Co-Borrower information must also be provided (and the appropriate box checked) when the income or assets of a person other than the Borrower (including the Borrower’s spouse) will be used as a basis for loan qualification or the income or assets of the Borrower’s spouse or other person who has community property or similar rights pursuant to applicable state law will not be used as a basis for loan qualification, but his or her liabilities must be considered because the spouse or other person who has community property or similar rights and the Borrower resides in a community property state, the security property is located in a community property state, or the Borrower is relying on other property located in a community property state as a basis for repayment of the loan."
+                  >
+                  </i>
+                </div>
+                <div class="col-12 mb-2">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="isApplyingWithCoBorrower"
+                      id="isApplyingWithCoBorrowerYes"
+                      formControlName="isApplyingWithCoBorrower"
+                      [value]="true"
+                      [(ngModel)]="data.isApplyingWithCoBorrower"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="isApplyingWithCoBorrowerYes"
+                      >Yes</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="isApplyingWithCoBorrower"
+                      id="isApplyingWithCoBorrowerNo"
+                      formControlName="isApplyingWithCoBorrower"
+                      [value]="false"
+                      [(ngModel)]="data.isApplyingWithCoBorrower"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="isApplyingWithCoBorrowerNo"
+                      >No</label
+                    >
+                  </div>
+                </div>
+                <validation-summary
+                  [control]="form.controls.isApplyingWithCoBorrower"
+                  class="col-12"
+                >
+                </validation-summary>
+                <div class="col-12 row" *ngIf="data.isApplyingWithCoBorrower">
+                  <div class="col-12">
+                    <label
+                      >The income/assets of a person other than the Borrower
+                      (including the borrower’s spouse) will be used for loan
+                      qualification. <span class="text-danger">*</span></label
+                    >
+                  </div>
+                  <div class="col-12 mb-2">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="useIncomeOfPersonOtherThanBorrower"
+                        id="useIncomeOfPersonOtherThanBorrowerYes"
+                        formControlName="useIncomeOfPersonOtherThanBorrower"
+                        [value]="true"
+                        [(ngModel)]="data.useIncomeOfPersonOtherThanBorrower"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="useIncomeOfPersonOtherThanBorrowerYes"
+                        >Yes</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="useIncomeOfPersonOtherThanBorrower"
+                        id="useIncomeOfPersonOtherThanBorrowerNo"
+                        formControlName="useIncomeOfPersonOtherThanBorrower"
+                        [value]="false"
+                        [(ngModel)]="data.useIncomeOfPersonOtherThanBorrower"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="useIncomeOfPersonOtherThanBorrowerNo"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                  <validation-summary
+                    [control]="form.controls.useIncomeOfPersonOtherThanBorrower"
+                    class="col-12"
+                  >
+                  </validation-summary>
+                </div>
+                <div class="col-12">
+                  <button
+                    class="btn btn-secondary"
+                    (click)="proceedToPrevious()"
+                  >
+                    Back
+                  </button>
+                  <button
+                    class="btn btn-secondary float-right"
+                    (click)="proceedToNext('wizardStep', 1)"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+            <ng-wizard-step title="Borrower">
+              <div class="row">
+                <app-borrower-personal-detail
+                  [form]="form.get('borrower')"
+                  [data]="data.borrower"
+                  heading="Borrower"
+                  (onDataChange)="onChange($event, 'borrower')"
+                  class="col-12"
+                >
+                </app-borrower-personal-detail>
+
+                <div class="col-12">
+                  <h6>Privacy Policy <span class="text-danger">*</span></h6>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="agreePrivacyPolicy"
+                      formControlName="agreePrivacyPolicy"
+                      [(ngModel)]="data.agreePrivacyPolicy"
+                    />
+                    <label class="form-check-label" for="agreePrivacyPolicy">
+                      I/We have read and accepted the terms of the Privacy
+                      Policy
+                    </label>
+                    <validation-summary
+                      [control]="form.controls.agreePrivacyPolicy"
+                      class="col-12"
+                    ></validation-summary>
+                  </div>
+
+                  <p class="mt-3">
+                    <span class="text-bold">TCPA Consent Agreement</span>
+                    <br />
+                    By providing your phone number, you consent and agree to
+                    being contacted by us regarding your loan inquiry and
+                    mortgage products and services at the telephone number
+                    provided. You agree that we, or one of our authorized third
+                    parties, may contact you, including through automated means,
+                    via telephone or mobile device, even if your telephone
+                    number is listed on a Do-Not-Call registry. This consent is
+                    not to obtain our goods and services. If you prefer to be
+                    contacted by other means, please contact us via the
+                    information below.
+                  </p>
+                  <span>support@ezonlinemortgage.com</span>
+                  <app-borrower-personal-detail
+                    *ngIf="data.isApplyingWithCoBorrower"
+                    [form]="form.get('coBorrower')"
+                    heading="Co-Borrower"
+                    [data]="data.coBorrower"
+                    (onDataChange)="onChange($event, 'coBorrower')"
+                    class="col-12"
+                  >
+                  </app-borrower-personal-detail>
+                </div>
+
+                <div class="col-12">
+                  <button
+                    class="btn btn-secondary"
+                    (click)="proceedToPrevious('wizardStep')"
+                  >
+                    Back
+                  </button>
+                  <button
+                    class="btn btn-secondary float-right"
+                    (click)="proceedToNext('wizardStep', 2)"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+            <ng-wizard-step title="Residential Address">
+              <div class="row">
+                <div class="col-12 mb-1 mt-3">
+                  <h5>Borrower Residential Address</h5>
+                </div>
+
+                <div class="col-12 row" formGroupName="residentialAddress">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="addressLine1-residential">
+                        {{ "Address Line 1" | localize }}
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="addressLine1-residential"
+                        id="addressLine1-residential"
+                        formControlName="addressLine1"
+                        [(ngModel)]="data.residentialAddress.addressLine1"
+                      />
+                      <validation-summary
+                        [control]="residentialAddressForm.controls.addressLine1"
+                      ></validation-summary>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="addressLine2-residential">
+                        {{ "Address Line 2" | localize }}
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="addressLine2-residential"
+                        id="addressLine2-residential"
+                        formControlName="addressLine2"
+                        [(ngModel)]="data.residentialAddress.addressLine2"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="city-residential">
+                        {{ "City" | localize }}
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="city-residential"
+                        id="city-residential"
+                        formControlName="city"
+                        [(ngModel)]="data.residentialAddress.city"
+                      />
+                      <validation-summary
+                        [control]="residentialAddressForm.controls.city"
+                      ></validation-summary>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="stateId-residential">
+                        {{ "State" | localize }}
+                        <span class="text-danger">*</span>
+                      </label>
+                      <select
+                        class="form-control"
+                        name="stateId-residential"
+                        id="stateId-residential"
+                        formControlName="stateId"
+                        [(ngModel)]="data.residentialAddress.stateId"
+                      >
+                        <option
+                          [ngValue]="state.id"
+                          *ngFor="let state of states"
+                        >
+                          {{ state.name }}
+                        </option>
+                      </select>
+                      <validation-summary
+                        [control]="residentialAddressForm.controls.stateId"
+                      ></validation-summary>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="zipCode-residential">
+                        {{ "Zip Code" | localize }}
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="zipCode-residential"
+                        id="zipCode-residential"
+                        formControlName="zipCode"
+                        [(ngModel)]="data.residentialAddress.zipCode"
+                      />
+                      <validation-summary
+                        [control]="residentialAddressForm.controls.zipCode"
+                      ></validation-summary>
+                    </div>
+                  </div>
+                  <p class="col-12">How long have you been at this address?</p>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="years-residential">
+                        {{ "Years" | localize }}
+                        <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="years-residential"
+                        id="years-residential"
+                        formControlName="years"
+                        [(ngModel)]="data.residentialAddress.years"
+                        maxlength="2"
+                      />
+                      <validation-summary
+                        [control]="residentialAddressForm.controls.years"
+                      ></validation-summary>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="months-residential">
+                        {{ "Months" | localize }}
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="months-residential"
+                        id="months-residential"
+                        formControlName="months"
+                        [(ngModel)]="data.residentialAddress.months"
+                        maxlength="2"
+                        max="11"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 row" formArrayName="previousAddresses">
+                  <div
+                    class="col-12 row"
+                    *ngFor="
+                      let previousAddress of data.previousAddresses;
+                      let i = index;
+                      trackBy: trackByFn
+                    "
+                  >
+                    <div class="col-12 mb-1 mt-3">
+                      <h5>Borrower Previous Address</h5>
+                    </div>
+
+                    <div class="col-12 row">
+                      <div class="col-12">
+                        <button
+                          class="btn btn-danger mr-1 float-right pull-right"
+                          *ngIf="i >= 0"
+                          (click)="removeaddPreviousAddressForm($event, i)"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="col-12 row" [formGroupName]="i">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="addressLine1-{{ i }}">
+                            {{ "Address Line 1" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="addressLine1-{{ i }}"
+                            id="addressLine1-{{ i }}"
+                            formControlName="addressLine1"
+                            [(ngModel)]="previousAddress.addressLine1"
+                          />
+                          <validation-summary
+                            [control]="
+                              getPreviousAddressForm(i).controls.addressLine1
+                            "
+                          >
+                          </validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="addressLine2-{{ i }}">
+                            {{ "Address Line 2" | localize }}
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="addressLine2-{{ i }}"
+                            id="addressLine2-{{ i }}"
+                            formControlName="addressLine2"
+                            [(ngModel)]="previousAddress.addressLine2"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="city-{{ i }}">
+                            {{ "City" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="city-{{ i }}"
+                            id="city-{{ i }}"
+                            formControlName="city"
+                            [(ngModel)]="previousAddress.city"
+                          />
+                          <validation-summary
+                            [control]="getPreviousAddressForm(i).controls.city"
+                          ></validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="stateId-{{ i }}">
+                            {{ "State" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <select
+                            class="form-control"
+                            name="stateId-{{ i }}"
+                            id="stateId-{{ i }}"
+                            formControlName="stateId"
+                            [(ngModel)]="previousAddress.stateId"
+                          >
+                            <option
+                              [ngValue]="state.id"
+                              *ngFor="let state of states"
+                            >
+                              {{ state.name }}
+                            </option>
+                          </select>
+                          <validation-summary
+                            [control]="
+                              getPreviousAddressForm(i).controls.stateId
+                            "
+                          ></validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="zipCode-{{ i }}">
+                            {{ "Zip Code" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            name="zipCode-{{ i }}"
+                            id="zipCode-{{ i }}"
+                            formControlName="zipCode"
+                            [(ngModel)]="previousAddress.zipCode"
+                          />
+                          <validation-summary
+                            [control]="
+                              getPreviousAddressForm(i).controls.zipCode
+                            "
+                          ></validation-summary>
+                        </div>
+                      </div>
+                      <p class="col-12">
+                        How long have you been at this address?
+                      </p>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="years-{{ i }}">
+                            {{ "Years" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="years-{{ i }}"
+                            id="years-{{ i }}"
+                            formControlName="years"
+                            [(ngModel)]="previousAddress.years"
+                            maxlength="2"
+                          />
+                          <validation-summary
+                            [control]="getPreviousAddressForm(i).controls.years"
+                          >
+                          </validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="months-{{ i }}">
+                            {{ "Months" | localize }}
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="months-{{ i }}"
+                            id="months-{{ i }}"
+                            formControlName="months"
+                            [(ngModel)]="previousAddress.months"
+                            maxlength="2"
+                            max="11"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="col-12" *ngIf="previousAddressesFormArray.length < 2">
+                  We recommend entering at least your last 2 years of address
+                  history.
+                </p>
+                <div
+                  class="col-12"
+                  *ngIf="previousAddressesFormArray.length < 2"
+                >
+                  <button
+                    class="btn btn-secondary"
+                    (click)="addPreviousAddress()"
+                  >
+                    Add Previous Address
+                  </button>
+                </div>
+                <div class="col-12 mb-1 mt-3">
+                  <h5>Borrower Mailing Address</h5>
+                </div>
+                <div class="col-12 row">
+                  <div class="col-12">
+                    <label
+                      >Is the mailing address the same as the residential
+                      address?</label
+                    >
+                  </div>
+                  <div class="col-12 mb-2">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="isMailingAddressSameAsResidential"
+                        id="isMailingAddressSameAsResidentialYes"
+                        formControlName="isMailingAddressSameAsResidential"
+                        [value]="true"
+                        [(ngModel)]="data.isMailingAddressSameAsResidential"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="isMailingAddressSameAsResidentialYes"
+                        >Yes</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="isMailingAddressSameAsResidential"
+                        id="isMailingAddressSameAsResidentialNo"
+                        formControlName="isMailingAddressSameAsResidential"
+                        [value]="false"
+                        [(ngModel)]="data.isMailingAddressSameAsResidential"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="isMailingAddressSameAsResidentialNo"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-12 row"
+                  formGroupName="mailingAddress"
+                  *ngIf="data.isMailingAddressSameAsResidential === false"
+                >
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="addressLine1-mailing">
+                        {{ "Address Line 1" | localize }}
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="addressLine1-mailing"
+                        id="addressLine1-mailing"
+                        formControlName="addressLine1"
+                        [(ngModel)]="data.mailingAddress.addressLine1"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="addressLine2-mailing">
+                        {{ "Address Line 2" | localize }}
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="addressLine2-mailing"
+                        id="addressLine2-mailing"
+                        formControlName="addressLine2"
+                        [(ngModel)]="data.mailingAddress.addressLine2"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="city-mailing">
+                        {{ "City" | localize }}
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="city-mailing"
+                        id="city-mailing"
+                        formControlName="city"
+                        [(ngModel)]="data.mailingAddress.city"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="stateId-mailing">
+                        {{ "State" | localize }}
+                      </label>
+                      <select
+                        class="form-control"
+                        name="stateId-mailing"
+                        id="stateId-mailing"
+                        formControlName="stateId"
+                        [(ngModel)]="data.mailingAddress.stateId"
+                      >
+                        <option
+                          [ngValue]="state.id"
+                          *ngFor="let state of states"
+                        >
+                          {{ state.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="zipCode-mailing">
+                        {{ "Zip Code" | localize }}
+                      </label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="zipCode-mailing"
+                        id="zipCode-mailing"
+                        formControlName="zipCode"
+                        [(ngModel)]="data.mailingAddress.zipCode"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row col-12" *ngIf="data.isApplyingWithCoBorrower">
+                  <hr class="col-12 mt-2 mb-3" />
+                  <div class="col-12 mb-1 mt-3">
+                    <h5>Co Borrower Residential Address</h5>
+                  </div>
+
+                  <div class="col-12 row">
+                    <div class="col-12">
+                      <label>Same as the borrower's residential address?</label>
+                    </div>
+                    <div class="col-12 mb-2">
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="coBorrowerResidentialAddressSameAsBorrowerResidential"
+                          id="coBorrowerResidentialAddressSameAsBorrowerResidentialYes"
+                          formControlName="coBorrowerResidentialAddressSameAsBorrowerResidential"
+                          [value]="true"
+                          [(ngModel)]="
+                            data.coBorrowerResidentialAddressSameAsBorrowerResidential
+                          "
+                        />
+                        <label
+                          class="form-check-label"
+                          for="coBorrowerResidentialAddressSameAsBorrowerResidentialYes"
+                          >Yes</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="coBorrowerResidentialAddressSameAsBorrowerResidential"
+                          id="coBorrowerResidentialAddressSameAsBorrowerResidentialNo"
+                          formControlName="coBorrowerResidentialAddressSameAsBorrowerResidential"
+                          [value]="false"
+                          [(ngModel)]="
+                            data.coBorrowerResidentialAddressSameAsBorrowerResidential
+                          "
+                        />
+                        <label
+                          class="form-check-label"
+                          for="coBorrowerResidentialAddressSameAsBorrowerResidentialNo"
+                          >No</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-12"
+                    formGroupName="coBorrowerResidentialAddress"
+                  >
+                    <div
+                      *ngIf="
+                        data.coBorrowerResidentialAddressSameAsBorrowerResidential ===
+                        false
+                      "
+                      class="row"
+                    >
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="addressLine1-residential-coBorrower">
+                            {{ "Address Line 1" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="addressLine1-residential-coBorrower"
+                            id="addressLine1-residential-coBorrower"
+                            formControlName="addressLine1"
+                            [(ngModel)]="
+                              data.coBorrowerResidentialAddress.addressLine1
+                            "
+                          />
+                          <validation-summary
+                            [control]="
+                              residentialAddressForm.controls.addressLine1
+                            "
+                          ></validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="addressLine2-residential-coBorrower">
+                            {{ "Address Line 2" | localize }}
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="addressLine2-residential-coBorrower"
+                            id="addressLine2-residential-coBorrower"
+                            formControlName="addressLine2"
+                            [(ngModel)]="
+                              data.coBorrowerResidentialAddress.addressLine2
+                            "
+                          />
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="city-residential-coBorrower">
+                            {{ "City" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="city-residential-coBorrower"
+                            id="city-residential-coBorrower"
+                            formControlName="city"
+                            [(ngModel)]="data.coBorrowerResidentialAddress.city"
+                          />
+                          <validation-summary
+                            [control]="residentialAddressForm.controls.city"
+                          ></validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="stateId-residential-coBorrower">
+                            {{ "State" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <select
+                            class="form-control"
+                            name="stateId-residential-coBorrower"
+                            id="stateId-residential-coBorrower"
+                            formControlName="stateId"
+                            [(ngModel)]="
+                              data.coBorrowerResidentialAddress.stateId
+                            "
+                          >
+                            <option
+                              [ngValue]="state.id"
+                              *ngFor="let state of states"
+                            >
+                              {{ state.name }}
+                            </option>
+                          </select>
+                          <validation-summary
+                            [control]="residentialAddressForm.controls.stateId"
+                          ></validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="zipCode-residential-coBorrower">
+                            {{ "Zip Code" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            name="zipCode-residential-coBorrower"
+                            id="zipCode-residential-coBorrower"
+                            formControlName="zipCode"
+                            [(ngModel)]="
+                              data.coBorrowerResidentialAddress.zipCode
+                            "
+                          />
+                          <validation-summary
+                            [control]="residentialAddressForm.controls.zipCode"
+                          ></validation-summary>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <p class="col-12">
+                        How long have you been at this address?
+                      </p>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="years-residential-coBorrower">
+                            {{ "Years" | localize }}
+                            <span class="text-danger">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="years-residential-coBorrower"
+                            id="years-residential-coBorrower"
+                            formControlName="years"
+                            [(ngModel)]="
+                              data.coBorrowerResidentialAddress.years
+                            "
+                            maxlength="2"
+                          />
+                          <validation-summary
+                            [control]="residentialAddressForm.controls.years"
+                          ></validation-summary>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label for="months-residential-coBorrower">
+                            {{ "Months" | localize }}
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="months-residential-coBorrower"
+                            id="months-residential-coBorrower"
+                            formControlName="months"
+                            [(ngModel)]="
+                              data.coBorrowerResidentialAddress.months
+                            "
+                            maxlength="2"
+                            max="11"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 row"
+                    formArrayName="coBorrowerPreviousAddresses"
+                  >
+                    <div
+                      class="col-12 row"
+                      *ngFor="
+                        let cBPreviousAddress of data.coBorrowerPreviousAddresses;
+                        let i = index;
+                        trackBy: trackByFn
+                      "
+                    >
+                      <div class="col-12 mb-1 mt-3">
+                        <h5>Co Borrower Previous Address</h5>
+                      </div>
+
+                      <div class="col-12 row">
+                        <div class="col-12">
+                          <button
+                            class="btn btn-danger mr-1 float-right pull-right"
+                            *ngIf="i >= 0"
+                            (click)="
+                              removeCoBorrowerPreviousAddressForm($event, i)
+                            "
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="col-12 row" [formGroupName]="i">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="addressLine1-coBorrower-{{ i }}">
+                              {{ "Address Line 1" | localize }}
+                              <span class="text-danger">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="addressLine1-coBorrower-{{ i }}"
+                              id="addressLine1-coBorrower-{{ i }}"
+                              formControlName="addressLine1"
+                              [(ngModel)]="cBPreviousAddress.addressLine1"
+                            />
+                            <validation-summary
+                              [control]="
+                                getCoBorrowerPreviousAddressForm(i).controls
+                                  .addressLine1
+                              "
+                            >
+                            </validation-summary>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="addressLine2-coBorrower-{{ i }}">
+                              {{ "Address Line 2" | localize }}
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="addressLine2-coBorrower-{{ i }}"
+                              id="addressLine2-coBorrower-{{ i }}"
+                              formControlName="addressLine2"
+                              [(ngModel)]="cBPreviousAddress.addressLine2"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label for="city-coBorrower-{{ i }}">
+                              {{ "City" | localize }}
+                              <span class="text-danger">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="city-coBorrower-{{ i }}"
+                              id="city-coBorrower-{{ i }}"
+                              formControlName="city"
+                              [(ngModel)]="cBPreviousAddress.city"
+                            />
+                            <validation-summary
+                              [control]="
+                                getCoBorrowerPreviousAddressForm(i).controls
+                                  .city
+                              "
+                            ></validation-summary>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label for="stateId-coBorrower-{{ i }}">
+                              {{ "State" | localize }}
+                              <span class="text-danger">*</span>
+                            </label>
+                            <select
+                              class="form-control"
+                              name="stateId-coBorrower-{{ i }}"
+                              id="stateId-coBorrower-{{ i }}"
+                              formControlName="stateId"
+                              [(ngModel)]="cBPreviousAddress.stateId"
+                            >
+                              <option
+                                [ngValue]="state.id"
+                                *ngFor="let state of states"
+                              >
+                                {{ state.name }}
+                              </option>
+                            </select>
+                            <validation-summary
+                              [control]="
+                                getCoBorrowerPreviousAddressForm(i).controls
+                                  .stateId
+                              "
+                            ></validation-summary>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                            <label for="zipCode-coBorrower-{{ i }}">
+                              {{ "Zip Code" | localize }}
+                              <span class="text-danger">*</span>
+                            </label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="zipCode-coBorrower-{{ i }}"
+                              id="zipCode-coBorrower-{{ i }}"
+                              formControlName="zipCode"
+                              [(ngModel)]="cBPreviousAddress.zipCode"
+                            />
+                            <validation-summary
+                              [control]="
+                                getCoBorrowerPreviousAddressForm(i).controls
+                                  .zipCode
+                              "
+                            ></validation-summary>
+                          </div>
+                        </div>
+                        <p class="col-12">
+                          How long have you been at this address?
+                        </p>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="years-coBorrower-{{ i }}">
+                              {{ "Years" | localize }}
+                              <span class="text-danger">*</span>
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="years-coBorrower-{{ i }}"
+                              id="years-coBorrower-{{ i }}"
+                              formControlName="years"
+                              [(ngModel)]="cBPreviousAddress.years"
+                              maxlength="2"
+                            />
+                            <validation-summary
+                              [control]="
+                                getCoBorrowerPreviousAddressForm(i).controls
+                                  .years
+                              "
+                            >
+                            </validation-summary>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="months-coBorrower-{{ i }}">
+                              {{ "Months" | localize }}
+                            </label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="months-coBorrower-{{ i }}"
+                              id="months-coBorrower-{{ i }}"
+                              formControlName="months"
+                              [(ngModel)]="cBPreviousAddress.months"
+                              maxlength="2"
+                              max="11"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p
+                    class="col-12"
+                    *ngIf="coBorrowerPreviousAddressesFormArray.length < 2"
+                  >
+                    We recommend entering at least your last 2 years of address
+                    history.
+                  </p>
+                  <div
+                    class="col-12"
+                    *ngIf="coBorrowerPreviousAddressesFormArray.length < 2"
+                  >
+                    <button
+                      class="btn btn-secondary"
+                      (click)="addCoBorrowerPreviousAddress()"
+                    >
+                      Add Previous Address
+                    </button>
+                  </div>
+                  <div class="col-12 mb-1 mt-3">
+                    <h5>Co Borrower Mailing Address</h5>
+                  </div>
+                  <div class="col-12 row">
+                    <div class="col-12">
+                      <label
+                        >Is the mailing address the same as the residential
+                        address?</label
+                      >
+                    </div>
+                    <div class="col-12 mb-2">
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="coBorrowerIsMailingAddressSameAsResidential"
+                          id="coBorrowerIsMailingAddressSameAsResidentialYes"
+                          formControlName="coBorrowerIsMailingAddressSameAsResidential"
+                          [value]="true"
+                          [(ngModel)]="
+                            data.coBorrowerIsMailingAddressSameAsResidential
+                          "
+                        />
+                        <label
+                          class="form-check-label"
+                          for="coBorrowerIsMailingAddressSameAsResidentialYes"
+                          >Yes</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="coBorrowerIsMailingAddressSameAsResidential"
+                          id="coBorrowerIsMailingAddressSameAsResidentialNo"
+                          formControlName="coBorrowerIsMailingAddressSameAsResidential"
+                          [value]="false"
+                          [(ngModel)]="
+                            data.coBorrowerIsMailingAddressSameAsResidential
+                          "
+                        />
+                        <label
+                          class="form-check-label"
+                          for="coBorrowerIsMailingAddressSameAsResidentialNo"
+                          >No</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 row"
+                    formGroupName="coBorrowerMailingAddress"
+                    *ngIf="
+                      data.coBorrowerIsMailingAddressSameAsResidential === false
+                    "
+                  >
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="addressLine1-mailing-coBorrower">
+                          {{ "Address Line 1" | localize }}
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="addressLine1-mailing-coBorrower"
+                          id="addressLine1-mailing-coBorrower"
+                          formControlName="addressLine1"
+                          [(ngModel)]="
+                            data.coBorrowerMailingAddress.addressLine1
+                          "
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="addressLine2-mailing-coBorrower">
+                          {{ "Address Line 2" | localize }}
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="addressLine2-mailing-coBorrower"
+                          id="addressLine2-mailing-coBorrower"
+                          formControlName="addressLine2"
+                          [(ngModel)]="
+                            data.coBorrowerMailingAddress.addressLine2
+                          "
+                        />
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="city-mailing-coBorrower">
+                          {{ "City" | localize }}
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="city-mailing-coBorrower"
+                          id="city-mailing-coBorrower"
+                          formControlName="city"
+                          [(ngModel)]="data.coBorrowerMailingAddress.city"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="stateId-mailing-coBorrower">
+                          {{ "State" | localize }}
+                        </label>
+                        <select
+                          class="form-control"
+                          name="stateId-mailing-coBorrower"
+                          id="stateId-mailing-coBorrower"
+                          formControlName="stateId"
+                          [(ngModel)]="data.coBorrowerMailingAddress.stateId"
+                        >
+                          <option
+                            [ngValue]="state.id"
+                            *ngFor="let state of states"
+                          >
+                            {{ state.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="zipCode-mailing-coBorrower">
+                          {{ "Zip Code" | localize }}
+                        </label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="zipCode-mailing-coBorrower"
+                          id="zipCode-mailing-coBorrower"
+                          formControlName="zipCode"
+                          [(ngModel)]="data.coBorrowerMailingAddress.zipCode"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button
+                    class="btn btn-secondary"
+                    (click)="proceedToPrevious('wizardStep')"
+                  >
+                    Back
+                  </button>
+                  <button
+                    class="btn btn-secondary float-right"
+                    (click)="proceedToNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+          </ng-wizard>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

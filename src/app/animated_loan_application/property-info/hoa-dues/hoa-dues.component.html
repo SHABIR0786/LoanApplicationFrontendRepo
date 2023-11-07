@@ -1,0 +1,58 @@
+<div class="main-content">
+  <h2>
+    For the properties you’ve been looking at, are there typically HOA fees?
+    <img src="img/info.svg" alt="" />
+  </h2>
+  <h6>if so, what is the approximate amount?</h6>
+  <div class="button-list col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <form [formGroup]="form">
+      <input
+        type="text"
+        class="form-control form-style"
+        name="hoaDues"
+        id="hoaDues"
+        formControlName="hoaDues"
+        [(ngModel)]="data.hoaDues"
+        placeholder="Monthly HOA dues"
+      />
+    </form>
+
+    <div class="row margin-top">
+      <div
+        class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-2 offset-sm-1 col-xs-2 offset-xs-1"
+      >
+        <button
+          type="button"
+          class="btn"
+          id="btn-back"
+          (click)="proceedToPrevious()"
+        >
+          Back
+        </button>
+      </div>
+      <div
+        class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-2 offset-sm-1 col-xs-2 offset-xs-1"
+      >
+        <button
+          type="button"
+          class="btn"
+          id="btn-next"
+          (click)="proceedToNext()"
+        >
+          Next
+        </button>
+      </div>
+      <div
+        class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-2 offset-sm-1 col-xs-2 offset-xs-1"
+      >
+        <button type="button" class="btn" id="btn-back" (click)="skip()">
+          Skip
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

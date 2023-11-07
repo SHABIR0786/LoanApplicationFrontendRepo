@@ -1,0 +1,45 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="pb-5">How did you hear about us?</h1>
+    <h4 class="co-borrower">Tell us how you found New American Funding.</h4>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p (click)="proceedToPrevious()" class="fa fa-angle-left">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0">
+        <div class="BTN px-0">
+          <form class="form" [formGroup]="form">
+            <select
+              formControlName="refferedBy"
+              [(ngModel)]="refferedBy"
+              class="form-control input-special mb-3 mt-8"
+              name=""
+              id=""
+            >
+              <option [ngValue]="refBy" *ngFor="let refBy of refferedByList">
+                {{ refBy }}
+              </option>
+            </select>
+            <button
+              type="button"
+              class="btn btn-outline-orange btn-lg btn-block mb-3"
+              (click)="SubmitForm()"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p100 mt-5 d-lg-flex d-none">
+      <span>100%</span>
+    </div>
+  </div>
+</div>

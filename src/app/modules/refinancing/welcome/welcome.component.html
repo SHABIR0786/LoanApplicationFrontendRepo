@@ -1,0 +1,123 @@
+<div class="main-content" *ngIf="number == 1">
+  <form action="" id="working" #f1="ngForm">
+    <h2>Are you already working with someone from EZ Online Mortgage?</h2>
+    <div class="button-list">
+      <a
+        (click)="isEdit = true; onMorOpt(true)"
+        class="btn btn-primary btn-style btn-blue"
+        [class.blue-active]="model.isWorkingWithEzalready == 1"
+        >Yes</a
+      >
+
+      <a
+        routerLink="/app/refinance/welcome/2"
+        (click)="isEdit = false; onMorOpt(false)"
+        class="btn btn-primary btn-style btn-blue"
+        [class.blue-active]="model.isWorkingWithEzalready == 0"
+        >No</a
+      >
+      <p *ngIf="isEdit || model.isWorkingWithEzalready == 1">
+        Who are you working with?
+      </p>
+      <!-- <input
+      *ngIf="isEdit"
+      type="text"
+      [(ngModel)]="model.workingOfficerName"
+      class="form-control form-style"
+      placeholder="Select your Loan Officer"
+    /> -->
+      <div class="form-group">
+        <select
+          *ngIf="isEdit || model.isWorkingWithEzalready == 1"
+          placeholder="Select your Loan Officer"
+          [(ngModel)]="model.workingOfficerName"
+          style="width: 100%"
+          class="form-control form-style"
+          #workingOfficerNameRef="ngModel"
+          name="workingOfficerName"
+        >
+          <option selected default disabled value="">
+            Select your Loan Officer
+          </option>
+          <option value="Willam Martin">Willam Martin</option>
+        </select>
+
+        <div
+          *ngIf="submitted && !workingOfficerNameRef.valid"
+          class="text-danger d-flex"
+        >
+          Loan Officer is required
+        </div>
+      </div>
+      <a
+        class="btn btn-primary btn-next btn-blue"
+        *ngIf="isEdit || model.isWorkingWithEzalready == 1"
+        (click)="nextClicked(f1, 2)"
+        >Next</a
+      >
+    </div>
+    <div class="content-footer">
+      <p>Already have an account | <a href="">Log in</a></p>
+      <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+    </div>
+  </form>
+</div>
+<div class="main-content" *ngIf="number == 2">
+  <h2 class="little-space">
+    With historically low rates your timing is perfect!
+  </h2>
+  <h6>Select the reason that best fits your objective.</h6>
+  <div
+    class="button-list margin-top"
+  >
+    <a
+      routerLink="/app/refinance/property-info/1"
+      (click)="onReason('lower_monthly_payment')"
+      class="btn btn-primary btn-style btn-blue double-line"
+      [class.blue-active]="model.objectiveReason === 'lower_monthly_payment'"
+      >Lower monthly payment <br />
+      <span class="tiny-font"
+        >Free up monthly cash to spend however you want</span
+      ></a
+    >
+
+    <a
+      routerLink="/app/refinance/property-info/1"
+      class="btn btn-primary btn-style btn-blue double-line"
+      (click)="onReason('lower_rate')"
+      [class.blue-active]="model.objectiveReason === 'lower_rate'"
+      >Lower rate <br />
+      <span class="tiny-font"
+        >Lower the rate, the less interest you pay over the life of the
+        loan</span
+      ></a
+    >
+
+    <a
+      routerLink="/app/refinance/property-info/1"
+      class="btn btn-primary btn-style btn-blue double-line"
+      (click)="onReason('shorter_loan_term')"
+      [class.blue-active]="model.objectiveReason === 'shorter_loan_term'"
+      >Shorter loan term <br />
+      <span class="tiny-font"
+        >Reduce your interest rate and own your home faster</span
+      ></a
+    >
+
+    <a
+      routerLink="/app/refinance/property-info/1"
+      class="btn btn-primary btn-style btn-blue double-line"
+      (click)="onReason('cash_out')"
+      [class.blue-active]="model.objectiveReason === 'cash_out'"
+      >Cash-Out <br />
+      <span class="tiny-font"
+        >Take cash out from the equity you’ve built up in your home to use
+        however you need</span
+      ></a
+    >
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

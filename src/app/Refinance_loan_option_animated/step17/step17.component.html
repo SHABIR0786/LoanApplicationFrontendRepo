@@ -1,0 +1,59 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2>Tell us her or his name. Or not.</h2>
+    <div class="col-lg-4">
+      <span class="pt-3 cursor_pointer">
+        <i class="fa fa-angle-left" id="icon"></i>
+        <span id="Back" (click)="proceedToPrevious()" class="pl-1"> Back</span>
+      </span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="form-group mt-5">
+          <form [formGroup]="form">
+            <label class="text-uppercase text-white float-left pl-4"
+              >Officer Name</label
+            >
+            <input
+              class="form-control form-control-lg-next text-primary bg-white font-weight-bolder pl-4"
+              id="Brine"
+              type="text"
+              required
+              placeholder="Officer name"
+              formControlName="officerName"
+              [(ngModel)]="formData.officerName"
+              [ngClass]="{ 'is-invalid': submitted && f.officerName.errors }"
+            />
+            <div
+              *ngIf="submitted && f.officerName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.officerName.errors.required">
+                Enter Correct Name.
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- <a
+          href=""
+          class="btn btn-secondary text-uppercase mt-4 text-white btn-next"
+          id="next"
+          >Next</a
+        > -->
+        <button
+          id="next"
+          class="btn btn-blue text-uppercase mt-3 text-white btn-next rounded-2"
+          (click)="proceedToNext()"
+          style="width: 275px; height: 65px !important"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+    <div>
+      <p id="button" class="box-fill" (click)="proceedToNextSkip('skipped')">
+        SKIP THIS STEP
+      </p>
+    </div>
+  </div>
+</div>

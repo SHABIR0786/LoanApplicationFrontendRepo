@@ -1,0 +1,311 @@
+<!-- Page no 14 Military Info -->
+
+<div class="main-content" *ngIf="number == 1">
+  <h2>
+    Our sincere thanks for your service.<br />
+    What’s your current military status?
+  </h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/refinance/military-info', 2]"
+      class="btn btn-primary btn-style btn-blue"
+      [class.blue-active]="model.milStatus == 1"
+      (click)="onMilitaryStatusClick(1)"
+      >Active Duty</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 2]"
+      class="btn btn-primary btn-style btn-blue"
+      [class.blue-active]="model.milStatus == 2"
+      (click)="onMilitaryStatusClick(2)"
+      >Reserves / National Guard</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 2]"
+      class="btn btn-primary btn-style btn-blue"
+      [class.blue-active]="model.milStatus == 3"
+      (click)="onMilitaryStatusClick(3)"
+      >Surviving Spouse</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 2]"
+      class="btn btn-primary btn-style btn-blue"
+      [class.blue-active]="model.milStatus == 4"
+      (click)="onMilitaryStatusClick(4)"
+      >Retired / Discharged</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/refinance/property-info', 9]"
+          class="btn btn-blue"
+          id="btn-back-blue"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<!-- No 14A Military Branches -->
+<div class="main-content" *ngIf="number == 2">
+  <h2>Which Branch of the military?</h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/refinance/military-info', 3]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilBranchClick(1)"
+      [class.blue-active]="model.milBranch == 1"
+      >Army</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 3]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilBranchClick(2)"
+      [class.blue-active]="model.milBranch == 1"
+      >Navy</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 3]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilBranchClick(3)"
+      [class.blue-active]="model.milBranch == 1"
+      >Marine Corps</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 3]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilBranchClick(4)"
+      [class.blue-active]="model.milBranch == 1"
+      >Air Force</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 3]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilBranchClick(5)"
+      [class.blue-active]="model.milBranch == 1"
+      >Coast Guard</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 3]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilBranchClick(6)"
+      [class.blue-active]="model.milBranch == 1"
+      >Space Force</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/refinance/military-info', 1]"
+          class="btn"
+          id="btn-back-blue"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<!-- No 14B Military Branches  -Yes -->
+<div class="main-content" *ngIf="number == 3">
+  <h2>Great! Is your ETS date within the next 12 months?</h2>
+  <h6>
+    Active U.S. Military and veterans may be eligible for VA loan options!
+  </h6>
+  <div
+    class="button-list margin-top"
+  >
+    <a
+      [routerLink]="['/app/refinance/military-info', 4]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilETSClick(true)"
+      [class.blue-active]="model.milEts == true"
+      >Yes</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 5]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilETSClick(false)"
+      [class.blue-active]="model.milEts == false"
+      >No</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/refinance/military-info', 4]"
+          class="btn btn-blue"
+          id="btn-next-blue"
+          >Next</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<!-- No 14C Military Branches On clicking any miitary branch from 14B Click yes then go to 14C Yes ETS Date -->
+<div class="main-content" *ngIf="number == 4">
+  <h2>Great! Is your ETS date within the next 12 months?</h2>
+  <h6>ETS stands for expirstion term of service.</h6>
+  <div
+    class="button-list margin-top"
+  >
+    <a
+      [routerLink]="['/app/refinance/military-info', 5]"
+      type="button"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilETSClick(true)"
+      [class.blue-active]="model.milEts == true"
+      >Yes</a
+    >
+    <a
+      [routerLink]="['/app/refinance/military-info', 5]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilETSClick(false)"
+      [class.blue-active]="model.milEts == false"
+      >No</a
+    >
+    <input
+      type="date"
+      class="form-control form-style"
+      [ngModel]="model.etsdate"
+    />
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/refinance/military-info', 5]"
+          class="btn btn-blue"
+          id="btn-next-blue"
+          >Next</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<!-- Click Next or No button on above page it will go to 14D -->
+
+<!-- No 14D Military Branches Purchasing Military Info Click No on 14B and it will land on 14D and Click Next still on 14D-->
+<div class="main-content" *ngIf="number == 5">
+  <h2>Have you had a VA loan previously?</h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/refinance/military-info', 6]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilVaLoanClick(true)"
+      [class.blue-active]="model.milVa == true"
+      >Yes</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/military-info', 6]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilVaLoanClick(false)"
+      [class.blue-active]="model.milVa == false"
+      >No</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/refinance/military-info', 3]"
+          class="btn btn-blue"
+          id="btn-back-blue"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<!-- Click Back on 14D it will land on 14B click Yes or No it will land on 14E -->
+
+<!-- No 14E Military Branches Purchasing Military Info -->
+<div class="main-content" *ngIf="number == 6">
+  <h2>Who will be living in the home?</h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/refinance/property-info', 11]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilLiveClick('vet')"
+      [class.blue-active]="model.milLive == 'vet'"
+      >Veteran will occupy the home</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/property-info', 11]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilLiveClick('spouse')"
+      [class.blue-active]="model.milLive == 'spouse'"
+      >Spouse will occupy the home</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/property-info', 11]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilLiveClick('both')"
+      [class.blue-active]="model.milLive == 'both'"
+      >Veteran and Spouse</a
+    >
+
+    <a
+      [routerLink]="['/app/refinance/property-info', 11]"
+      class="btn btn-primary btn-style btn-blue"
+      (click)="onMilLiveClick('sur-spouce')"
+      [class.blue-active]="model.milLive == 'sur-spouce'"
+      >Surviving Spouse</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/refinance/military-info', 5]"
+          class="btn btn-blue"
+          id="btn-back-blue"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<!-- Click back button it will land on 14D -->
+<!-- Click any other option it will land on 15 purchase-military-personal -->

@@ -1,0 +1,131 @@
+.box-fill {
+  border-radius: 8px !important;
+  background-color: #e5e5e5 !important;
+  border: 0px !important;
+  padding: 20px;
+}
+
+.number {
+  margin-left: 233px;
+  margin-top: 6px;
+}
+
+.box-fill.cursor_pointer:hover {
+  background-color: #f47741 !important;
+  color: white !important;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.card.bg_transparent {
+  background-color: #f47741 !important;
+  color: white !important;
+}
+#icon {
+  color: #f47741;
+}
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 39%;
+  top: 480px;
+}
+.box-fill {
+  font-size: 15px;
+}
+.row.justify-content-center .form-group.mt-5 {
+  margin-top: 6rem !important;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 39%;
+    top: 480px;
+  }
+  .box-fill {
+    font-size: 15px;
+  }
+  .row.justify-content-center .form-group.mt-5 {
+    margin-top: 6rem !important;
+  }
+  .number {
+    margin-left: 233px;
+    margin-top: 6px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 44%;
+    top: 475px;
+  }
+  .box-fill {
+    font-size: 15px;
+  }
+  .row.justify-content-center .form-group.mt-5 {
+    margin-top: 6rem !important;
+  }
+  .number {
+    margin-left: 203px;
+    margin-top: 6px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+  .box-fill {
+    font-size: 18px;
+  }
+  .row.justify-content-center .form-group.mt-5 {
+    margin-top: 6rem !important;
+  }
+  .number {
+    margin-left: 233px;
+    margin-top: 6px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+  .box-fill {
+    font-size: 18px;
+  }
+  .row.justify-content-center .form-group.mt-5 {
+    margin-top: 6rem !important;
+  }
+  .number {
+    margin-left: 203px;
+    margin-top: 6px;
+  }
+}

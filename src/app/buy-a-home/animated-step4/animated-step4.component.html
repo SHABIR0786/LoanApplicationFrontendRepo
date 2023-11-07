@@ -1,0 +1,73 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1>When do you plan to purchase?</h1>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 pt-0 px-0">
+        <div class="px-0">
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Now-I Signed A Contract')"
+            [class.selected]="
+              formData.planToPurchase == 'Now-I Signed A Contract'
+            "
+          >
+            Now-I Signed A Contract
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Soon - I Found A Home')"
+            [class.selected]="
+              formData.planToPurchase == 'Soon - I Found A Home'
+            "
+          >
+            Soon - I Found A Home
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Within 30 Days')"
+            [class.selected]="formData.planToPurchase == 'Within 30 Days'"
+          >
+            Within 30 Days
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('In The Next Few Months')"
+            [class.selected]="
+              formData.planToPurchase == 'In The Next Few Months'
+            "
+          >
+            In The Next Few Months
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Not Sure - Researching')"
+            [class.selected]="
+              formData.planToPurchase == 'Not Sure - Researching'
+            "
+          >
+            Not Sure - Researching
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange d-lg-flex d-none">
+      <span>21%</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,194 @@
+#but {
+  border: 1px solid orange;
+  width: 260px;
+  height: 43px;
+  text-align: center;
+}
+
+#but:hover {
+  border: 1px solid blue;
+}
+
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.hrline {
+  /* width: 100%; */
+  margin-left: 10%;
+  width: 85%;
+}
+.hrline hr {
+  border-top: 1px solid #f47741;
+  width: 99%;
+}
+.firsticon {
+  float: left;
+  margin-left: -9px;
+  margin-top: -10px;
+  color: #f47741;
+}
+.firsticon span {
+  font-size: 12px;
+  position: absolute;
+  margin-top: 26px;
+  margin-left: -48px;
+}
+.stepcircle {
+  border-radius: 100%;
+  border: 1px solid #f47741;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-left: 19.1%;
+  margin-top: -5px;
+  background-color: #f47741;
+}
+
+.stepcircle span {
+  position: absolute;
+}
+
+.secondstep {
+  margin-top: 17px;
+  font-size: 12px;
+  margin-left: -58px;
+}
+
+.thirdstep {
+  position: absolute;
+  margin-top: 17px;
+  margin-left: -22px;
+  font-size: 12px;
+}
+
+.fourthstep {
+  margin-top: 17px;
+  margin-left: -29px;
+  font-size: 12px;
+}
+
+.fivestep {
+  margin-top: 17px;
+  margin-left: -18px;
+  font-size: 12px;
+}
+
+.laststep {
+  margin-top: 17px;
+  margin-left: -26px;
+  font-size: 12px;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.card.bg_transparent {
+  background-color: white !important;
+  color: #f47741;
+  border: 1px solid #f47741 !important;
+}
+.card.bg_transparent:hover {
+  background-color: #f47741 !important;
+  color: white;
+  border: 1px solid #f47741 !important;
+}
+.home-bg-img {
+  /* width: 67px;
+  height: 66px; */
+  width: 121px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/home.png");
+}
+
+.condo-bg-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 108px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/condo-bg.png");
+}
+.multi-bg-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 108px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/multi-bg.png");
+}
+.Content-Step-Body .card:hover .home-bg-img {
+  background-image: url("../../../assets/images/home-white.png");
+}
+.Content-Step-Body .card:hover .condo-bg-img {
+  background-image: url("../../../assets/images/condo-white.png");
+}
+.Content-Step-Body .card:hover .multi-bg-img {
+  background-image: url("../../../assets/images/multi-white.png");
+}
+#icon {
+  color: #f47741;
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 40%;
+  top: 780px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 40%;
+    top: 780px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 44%;
+    top: 290px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 40%;
+    top: 90px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 40%;
+    top: 90px;
+  }
+}

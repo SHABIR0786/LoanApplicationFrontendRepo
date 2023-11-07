@@ -1,0 +1,137 @@
+@import "./variable.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~ng-wizard/themes/ng_wizard.min.css";
+
+@media (min-width: 576px) {
+  .nav-user-menu .user-image {
+    float: none;
+    line-height: 10px;
+    margin-top: -8px;
+  }
+}
+
+.nav-user-menu .user-image {
+  border-radius: 50%;
+  float: left;
+  height: 2rem;
+  margin-top: -4px;
+  width: 2rem;
+}
+
+.form-group.required .col-form-label:after {
+  color: #d00;
+  content: "*";
+  position: absolute;
+  margin-left: 3px;
+}
+
+/* Sweet alert */
+.swal2-title {
+  display: inline-block !important;
+}
+
+body.swal2-height-auto {
+  height: inherit !important;
+}
+
+.swal2-popup.swal2-toast {
+  padding: 10px 12px !important;
+  display: block !important;
+}
+
+.swal2-popup.swal2-toast .swal2-header,
+.swal2-popup.swal2-toast .swal2-title,
+.swal2-popup.swal2-toast .swal2-content {
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+  margin-bottom: 4px !important;
+}
+
+label:not(.form-check-label):not(.custom-file-label) {
+  font-weight: 400;
+}
+
+//@font-size: 12px;
+//
+//.col-form-label {
+//  font-weight: 500 !important;
+//  font-size: @font-size;
+//}
+//
+//body {
+//  font-size: @font-size;
+//}
+//
+//input.table-input {
+//  border: 0;
+//  width: 100%;
+//  height: inherit;
+//}
+
+.ng-wizard-theme-default {
+  box-shadow: unset !important;
+}
+
+.hr {
+  border: none;
+  height: 1px;
+}
+
+.ng-wizard-theme-default.ng-wizard-toolbar,
+.btn-toolbar.ng-wizard-toolbar {
+  display: none;
+}
+
+app-loan-details > div > div > aside > nav > div > ul > li > a {
+  font-size: 1.2rem;
+}
+body {
+  background-color: #f8fafd;
+}
+body
+  > app-root
+  > ng-component
+  > div
+  > app-loan-details
+  > div
+  > div
+  > aside
+  > nav
+  > div
+  > ul
+  > li.nav-item.active {
+  background-color: #0cc4d4;
+  border-left: thick solid #f47741;
+}
+
+label {
+  color: #091a52 !important;
+  font-size: small !important;
+}
+
+input,
+select {
+  // border: 1px solid #545454 !important;
+  // border-radius: 6px !important;
+}
+
+.ng-wizard-theme-default > ul.step-anchor > li > a::after {
+  background: #f47741 !important;
+}
+
+// .form-group {
+//   margin-bottom: 2rem !important;
+// }
+
+.Avenir-black {
+  font-family: "Avenir-Black";
+}
+.Avenir-medium {
+  font-family: "Avenir-Medium";
+}
+.Avenir-heavy {
+  font-family: "Avenir-Heavy";
+}

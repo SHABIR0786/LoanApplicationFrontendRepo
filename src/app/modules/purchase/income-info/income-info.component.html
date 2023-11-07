@@ -1,0 +1,554 @@
+<div class="main-content" *ngIf="number == 1">
+  <h2>Let’s talk about employment.</h2>
+  <h6 class="narrow-padding">
+    We recommend you provide two-years of employment history. Do you have
+    current or past employment history to add?
+  </h6>
+  <div class="button-list margin-top">
+    <a routerLink="/app/purchase/income-info/2" class="btn btn-primary btn-style btn-orange" (click)="EmpHistory(true)"
+      [class.orange-active]="model.currentOrPastEmployementHistory == true">Yes</a>
+
+    <a routerLink="/app/purchase/income-info/5" class="btn btn-primary btn-style btn-orange" (click)="EmpHistory(false)"
+      [class.orange-active]="model.currentOrPastEmployementHistory == false">No</a>
+
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <a routerLink="/app/purchase/personal-info/8" class="btn" id="btn-back">Back</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+
+<!-- By Clicking on Yes button it will move to section 26A -->
+<!-- By clicking on No button it will move to Page 27 purchase-income-source27 -->
+
+<!-- 26A section start -->
+
+<div class="main-content" *ngIf="number == 2">
+  <h2>Tell us about your most current employer.</h2>
+  <div class="button-list">
+    <form action="" #f="ngForm" id="employer-details">
+      <div class="form-group">
+        <select class="form-select form-style w-100 mb-0" [(ngModel)]="model.employeeTypeId" name="employeeType"
+          required #employeeTypeRef="ngModel">
+          <option value="undefined" selected disabled>Employee Type</option>
+          <option *ngFor="let obj of employmentTypes" [ngValue]="obj.id"> {{obj.employementType}} </option>
+        </select>
+        <div *ngIf="submitted && !employeeTypeRef.valid" class="text-danger d-flex">
+          Employee type is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style mb-0" placeholder="Employer Name"
+          [(ngModel)]="model.employerName" name="employerName" required #employerNameRef="ngModel" />
+        <div *ngIf="submitted && !employerNameRef.valid" class="text-danger d-flex">
+          Employer Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style mb-0" placeholder="Address"
+          [(ngModel)]="model.employementAddress" name="employementAddress" required #employementAddressRef="ngModel" />
+        <div *ngIf="submitted && !employementAddressRef.valid" class="text-danger d-flex">
+          Employee Address is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style mb-0" placeholder="Apt / Unit"
+          [(ngModel)]="model.employementSuite" name="employementSuite" required #employementSuiteRef="ngModel" />
+        <div *ngIf="submitted && !employementSuiteRef.valid" class="text-danger d-flex">
+          Unit is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style mb-0" placeholder="City or Town"
+          [(ngModel)]="model.employementCity" name="employementCity" required #employementCityRef="ngModel" />
+        <div *ngIf="submitted && !employementCityRef.valid" class="text-danger d-flex">
+          City is required
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <select class="form-select form-style w-100 mb-0" [(ngModel)]="model.employementTaxeId"
+              name="employementTaxeId" required #employementTaxeIdRef="ngModel" (change)="onStateChange($event)">
+              <option value="undefined" selected disabled>State</option>
+              <option *ngFor="let s of states" [value]="s.id">
+                {{ s.stateName }}
+              </option>
+            </select>
+            <div *ngIf="submitted && !employementTaxeIdRef.valid" class="text-danger d-flex">
+              State is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group">
+            <input type="text" class="form-control form-style mb-0" placeholder="Zip Code"
+              [(ngModel)]="model.employementZip" name="employementZip" required #employementZipRef="ngModel"
+              pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
+            <div *ngIf="submitted" class="text-danger d-flex">
+              <div *ngIf="employementZipRef.errors?.pattern">
+                This is not a valid zip code
+              </div>
+              <div *ngIf="employementZipRef.errors?.required">
+                Zip is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style mb-0" placeholder="Employer Phone Number"
+          [(ngModel)]="model.employerPhoneNumber" name="employerPhoneNumber" required appPhoneMask
+          #employerPhoneNumberRef="ngModel" />
+        <div *ngIf="submitted && !employerPhoneNumberRef.valid" class="text-danger d-flex">
+          Employer Phone Number is required
+        </div>
+      </div>
+      <div class="m-1 p-0 radio-input text-left">
+        <div class="row">
+          <div class="col-md-12">
+            <input type="checkbox" name="isCurrentJob" class="form-style" placeholder=""
+              [(ngModel)]="model.isCurrentJob" />
+            <p>This is my Current Job</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group est_start_date">
+        <label>Estimated Start Date</label>
+        <input type="date" class="form-control form-style mb-0" placeholder="Estimated Start date"
+          [(ngModel)]="model.estimatedStartDate" name="estimatedStartDate" required #estimatedStartDateRef="ngModel" />
+        <div *ngIf="submitted && !estimatedStartDateRef.valid" class="text-danger d-flex">
+          Estimated Start date is required
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 offset-md-3">
+          <a routerLink="/app/purchase/income-info/1" class="btn" id="btn-back">Back</a>
+        </div>
+        <div class="col-md-2">
+          <a (click)="onNextClick(f, 3)" class="btn" id="btn-next">Next</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- 26A section end -->
+<!-- Click Next button and go to section 26B -->
+
+<!-- 26B section start -->
+<div class="main-content" *ngIf="number == 3">
+  <h2>What’s your title and compensation?</h2>
+  <h6>We have to ask! if you’re not exactly sure, your best guess is fine.</h6>
+  <div class="button-list margin-top">
+    <form action="" #f3="ngForm" id="employer-salary">
+      <div class="form-group">
+        <input type="text" class="form-control form-style mb-0" placeholder="Job Title" [(ngModel)]="model.jobTitle"
+          name="jobTitle" required #jobTitleRef="ngModel" />
+        <div *ngIf="submitted && !jobTitleRef.valid" class="text-danger d-flex">
+          Job Title is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style mb-0" placeholder="Estimated Annual Base Salary"
+          [(ngModel)]="model.estimatedAnnualBaseSalary" name="estimatedAnnualBaseSalary" required
+          #estimatedAnnualBaseSalaryRef="ngModel" />
+        <div *ngIf="submitted && !estimatedAnnualBaseSalaryRef.valid" class="text-danger d-flex">
+          Annual Base Salary is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style mb-0" placeholder="Estimated Annual Bonus"
+          [(ngModel)]="model.estimatedAnnualBonus" name="estimatedAnnualBonus" required
+          #estimatedAnnualBonusRef="ngModel" />
+        <div *ngIf="submitted && !estimatedAnnualBonusRef.valid" class="text-danger d-flex">
+          Annual Bonus is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style mb-0" placeholder="Estimated Annual Commission"
+          [(ngModel)]="model.estimatedAnnualCommission" name="estimatedAnnualCommission" required
+          #estimatedAnnualCommissionRef="ngModel" />
+        <div *ngIf="submitted && !estimatedAnnualCommissionRef.valid" class="text-danger d-flex">
+          Annual Commission is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style mb-0" placeholder="Estimated Annual Overtime"
+          [(ngModel)]="model.estimatedAnnualOvertime" name="estimatedAnnualOvertime" required
+          #estimatedAnnualOvertimeRef="ngModel" />
+        <div *ngIf="submitted && !estimatedAnnualOvertimeRef.valid" class="text-danger d-flex">
+          Annual Overtime is required
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/purchase/income-info/2" class="btn" id="btn-back">Back</a>
+      </div>
+      <div class="col-md-2">
+        <a (click)="saveEmpToDb(f3)" class="btn" id="btn-next">Next</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- 26B section end   -->
+
+<!-- Click on next button and go to section 26C -->
+<!-- Click any button in 26C section it will go to the purchase-income-source27 component -->
+<!-- 26C section start -->
+<div class="main-content" *ngIf="number == 4">
+  <h2>Great! do you have any other forms of employment?</h2>
+  <h6 class="narrow-padding">
+    if you have provided two years of employment history that’s all we need.
+  </h6>
+  <div class="button-list margin-top">
+    <a (click)="addanother()" class="btn" class="btn btn-primary btn-style btn-orange">Yes, I have more to add</a>
+    <!-- //(click)="onHaveMoreClick(true)" -->
+
+    <a routerLink="/app/purchase/income-info/5" class="btn" class="btn btn-primary btn-style btn-orange">No, I don’t
+      have more to add</a>
+    <!-- (click)="onHaveMoreClick(false)" -->
+
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <a routerLink="/app/purchase/income-info/3" class="btn" class="btn" id="btn-back">Back</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- 26C section end -->
+
+<div class="main-content" *ngIf="number == 5">
+  <h2>
+    Do you have other sources of income?
+    <img src="../../../../assets/" alt="" />
+  </h2>
+  <h6 class="narrow-padding">
+    Sources of income can include things like alimony, retirement, and social
+    security. Click the info button to see a complete list.
+  </h6>
+  <div class="button-list margin-top">
+    <a routerLink="/app/purchase/income-info/6" class="btn btn-primary btn-style btn-orange">Yes</a>
+
+    <a (click)="ReviewInfo()" class="btn btn-primary btn-style btn-orange">No</a>
+
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <a routerLink="/app/purchase/income-info/4" class="btn" id="btn-back">Back</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+
+<!-- Income Types  -->
+<div class="main-content" *ngIf="number == 6">
+  <h2>
+    Please provide all information about your income types.
+    <img src="../../../../assets/" alt="" />
+  </h2>
+  <h6 class="narrow-padding">
+    Sources of income can include things like alimony, retirement, and social
+    security etc. Please click the dropdown below to edit your information.
+  </h6>
+  <div class="button-list margin-top">
+    <form action="" id="assets" #f55="ngForm">
+      <div class="form-group">
+        <select class="form-select form-style mb-0" [(ngModel)]="incomeDetailsModel.IncomeTypeId" name="incomeTypeId" required
+          #incomeTypeRef="ngModel" style="width: 100%">
+          <option value="undefined" selected disabled>- Income type-</option>
+          <option *ngFor="let obj of incomeTypes" [ngValue]="obj.id"> {{obj.incomeType}} </option>
+        </select>
+        <div *ngIf="incomeformsubmitted && !incomeTypeRef.valid" class="text-danger d-flex">
+          Income type is required
+        </div>
+      </div>
+      <div class="form-group input-box">
+        <input type="number" class="form-control form-style mb-0" placeholder="Monthly Pay" [(ngModel)]="incomeDetailsModel.MonthlyAmount"
+          name="balance" required #monthlyPayRef="ngModel" />
+        <div *ngIf="incomeformsubmitted && !monthlyPayRef.valid" class="text-danger d-flex">
+          Monthly Pay is required
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-4 col-xs-4">
+        <a routerLink="/app/purchase/income-info/5" class="btn" id="btn-back"
+          >Back</a
+        >
+      </div>
+      <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-4 col-xs-4">
+        <a class="btn" id="btn-next" (click)="addIncome(f55)">Add</a>
+      </div>
+      <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-4 col-xs-4">
+        <a (click)="ReviewInfo()" class="btn" id="btn-back"
+          >Skip</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- End of Income Type component  -->
+
+
+<!-- Click back button to go to the purchase-income26 component -->
+<!-- Click No to go to the page no 28 -->
+<!-- click yes togo to the 27A -->
+
+<!-- section 27A start -->
+<div class="main-content" *ngIf="number == 7">
+  <h2>Lets do a quick review of your income. Look good?</h2>
+  <h2 style="text-align:left; margin:0; padding:0 40px;" class="mt-2">Employement</h2>
+  <div class="content-area" *ngFor="let empdt of purchaseEmploymentDetails">
+    <div class="row">
+      <div class="col-md-8">
+        <h6>Borrower Information</h6>
+      </div>
+      <div class="col-md-4 right-align">
+        <a (click)="editEmpoyement(empdt)" class="btn" id="btn-edit">Edit</a>
+        <a (click)="deleteEmployment(empdt.id)" class="btn btn-danger ml-2">Delete</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="profile-details">
+          <p> Employment type:
+            {{
+              empdt.employeeTypeId == "1" ? "W-2 Employee" : "Other Employee"
+            }}
+          </p>
+          <p>Employment Name: {{ empdt.employerName }}</p>
+          <p>Address: {{ empdt.employementAddress }}</p>
+          <p>City: {{ empdt.employementCity }}</p>
+          <p>State: {{ getStateName(empdt.employementTaxeId) }}</p>
+          <p>Zip Code: {{ empdt.employementZip }}</p>
+          <p>Employer Start Date: {{ empdt.estimatedStartDate }}</p>
+          <p>Job Title: {{ empdt.jobTitle }}</p>
+          <p>Estimated Annual Base Salary: ${{ empdt.estimatedAnnualBaseSalary }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 style="text-align:left; margin:0; padding:0 40px;" class="mt-2">Other Income</h2>
+  <div class="content-area" *ngFor="let incomedetail of otherIncomeDetails">
+    <div class="row">
+      <div class="col-md-8">
+        <h6>Income</h6>
+      </div>
+      <div class="col-md-4 right-align">
+        <a (click)="editIncome(incomedetail)" class="btn" id="btn-edit">Edit</a>
+        <a (click)="deleteincome(incomedetail.id)" class="btn btn-danger ml-2">Delete</a>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="profile-details">
+          <p> Income Type: {{ getIncometType(incomedetail.incomeTypeId) }}</p>
+          <p> Monthly Amount: ${{ incomedetail.monthlyAmount }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-list margin-top">
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/purchase/income-info/5" class="btn" id="btn-back">Back</a>
+      </div>
+      <div class="col-md-2">
+        <a routerLink="/app/purchase/assets-info/1" class="btn" id="btn-next" (click)="onIncomeComplete()">Next</a>
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- section 27A end -->
+
+<!-- Click Edit button on 27A then it will go to below section 27B -->
+
+<!-- 27B Starts -->
+<div class="main-content" *ngIf="number == 8">
+  <h2>Let's do a quick review of your income. Look good?</h2>
+  <div class="content-area" *ngIf="editType == 'empdt'">
+    <form action="" #f7="ngForm" id="borrower-info">
+      <div class="row">
+        <div class="col-md-8">
+          <h6>Borrower Information</h6>
+        </div>
+        <div class="col-md-4 right-align">
+          <a (click)="doneClicked(f7)" class="btn" id="btn-edit">Done</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 margin-top">
+          <select class="form-select form-style" [(ngModel)]="editEmploymentdetail.employeeTypeId" name="employeeType"
+          required #employeeTypeRef="ngModel">
+          <option value="undefined" selected disabled>Employee Type</option>
+          <option *ngFor="let obj of employmentTypes" [ngValue]="obj.id"> {{obj.employementType}} </option>
+          </select>
+          <input type="text" class="form-control form-style" placeholder="Employer Name"
+            [(ngModel)]="editEmploymentdetail.employerName" name="employerName" required #employerNameRef="ngModel" />
+          <div *ngIf="!employerNameRef.valid" class="text-danger d-flex">
+            Employer Name is required
+          </div>
+          <input type="text" class="form-control form-style" placeholder="Address"
+            [(ngModel)]="editEmploymentdetail.employementAddress" name="employementAddress" required
+            #employementAddressRef="ngModel" />
+          <div *ngIf="!employementAddressRef.valid" class="text-danger d-flex">
+            Address is required
+          </div>
+          <input type="text" class="form-control form-style" placeholder="Apt / Unit"
+            [(ngModel)]="editEmploymentdetail.employementSuite" name="employementSuite" required #employementSuiteRef="ngModel" />
+          <div *ngIf="!employementSuiteRef.valid" class="text-danger d-flex">
+            Unit is required
+          </div>
+          <input type="text" class="form-control form-style" placeholder="City or Town"
+            [(ngModel)]="editEmploymentdetail.employementCity" name="employementCity" required #employementCityRef="ngModel" />
+          <div *ngIf="!employementCityRef.valid" class="text-danger d-flex">
+            City is required
+          </div>
+
+          <div class="row">
+            <div class="col-md-5">
+              <select class="form-select form-style w-100" [(ngModel)]="editEmploymentdetail.employementTaxeId"
+                name="employementTaxeId" required #employementTaxeIdRef="ngModel" (change)="onStateChange($event)">
+                <option value="undefined" selected disabled>State</option>
+                <option *ngFor="let s of states" [value]="s.id">
+                  {{ s.stateName }}
+                </option>
+              </select>
+              <div *ngIf="!employementTaxeIdRef.valid" class="text-danger d-flex">
+                State is required
+              </div>
+            </div>
+            <div class="col-md-7">
+              <input type="text" class="form-control form-style" placeholder="Zip Code"
+                [(ngModel)]="editEmploymentdetail.employementZip" name="employementZip" required #employementZipRef="ngModel"
+                pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
+              <div class="text-danger d-flex">
+                <div *ngIf="employementZipRef.errors?.pattern">
+                  This is not a valid zip code
+                </div>
+                <div *ngIf="employementZipRef.errors?.required">
+                  Zip is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <input type="text" class="form-control form-style" appPhoneMask placeholder="Employer Phone Number"
+            [(ngModel)]="editEmploymentdetail.employerPhoneNumber" name="employerPhoneNumber" required
+            #employerPhoneNumberRef="ngModel" appPhoneMask minlength="11" />
+
+          <div class="text-danger d-flex">
+            <div *ngIf="employerPhoneNumberRef.errors?.minlength">
+              This is not a valid phone number
+            </div>
+            <div *ngIf="employerPhoneNumberRef.errors?.required">
+              Phone is required
+            </div>
+          </div>
+          <div class="radio-input">
+            <div class="row">
+              <div class="col-md-12">
+                <input type="checkbox" class="form-style" placeholder="" />
+                <p>This is my Current Job</p>
+              </div>
+            </div>
+          </div>
+          <input type="text" class="form-control form-style" placeholder="Estimated Start date"
+            [(ngModel)]="editEmploymentdetail.estimatedStartDate" name="estimatedStartDate" required
+            #estimatedStartDateRef="ngModel" />
+          <div *ngIf="!estimatedStartDateRef.valid" class="text-danger d-flex">
+            Estimated Start date is required
+          </div>
+          <!-- <input
+          type="date"
+          class="form-control form-style"
+          placeholder="Estimated Start date"
+          > -->
+          <!-- [(ngModel)]="model.estimatedStartDate" -->
+          <input type="text" class="form-control form-style" placeholder="Job Title" [(ngModel)]="editEmploymentdetail.jobTitle"
+            name="jobTitle" required #jobTitleRef="ngModel" />
+          <div *ngIf="!jobTitleRef.valid" class="text-danger d-flex">
+            Job Title is required
+          </div>
+          <input type="number" class="form-control form-style" placeholder="Estimated Annual Base Salary"
+            [(ngModel)]="editEmploymentdetail.estimatedAnnualBaseSalary" name="estimatedAnnualBaseSalary" required
+            #estimatedAnnualBaseSalaryRef="ngModel" />
+          <div *ngIf="!estimatedAnnualBaseSalaryRef.valid" class="text-danger d-flex">
+            Estimated Annual Base Salary is required
+          </div>
+          <input type="number" class="form-control form-style" placeholder="Estimated Annual Bonus"
+            [(ngModel)]="editEmploymentdetail.estimatedAnnualBonus" name="estimatedAnnualBonus" required
+            #estimatedAnnualBonusRef="ngModel" />
+          <div *ngIf="!estimatedAnnualBonusRef.valid" class="text-danger d-flex">
+            Estimated Annual Bonus is required
+          </div>
+          <input type="number" class="form-control form-style" placeholder="Estimated Annual Commission"
+            [(ngModel)]="editEmploymentdetail.estimatedAnnualCommission" name="estimatedAnnualCommission" required
+            #estimatedAnnualCommissionRef="ngModel" />
+          <div *ngIf="!estimatedAnnualCommissionRef.valid" class="text-danger d-flex">
+            Estimated Annual Commission is required
+          </div>
+          <input type="number" class="form-control form-style" placeholder="Estimated Annual Overtime"
+            [(ngModel)]="editEmploymentdetail.estimatedAnnualOvertime" name="estimatedAnnualOvertime" required
+            #estimatedAnnualOvertimeRef="ngModel" />
+          <div *ngIf="!estimatedAnnualOvertimeRef.valid" class="text-danger d-flex">
+            Estimated Annual Overtime is required
+          </div>
+        </div>
+      </div>
+      <div class="button-list margin-top">
+        <div class="row">
+          <div class="col-md-6">
+            <a routerLink="/app/purchase/income-info/7" class="btn" id="btn-back">Back</a>
+          </div>
+          <div class="col-md-6">
+            <a *ngIf="editType == 'empdt'" (click)="updateemploymentdetail(f7)" class="btn" id="btn-back">Update</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="content-area" *ngIf="editType == 'incomedetail'">
+    <form action="" id="assets" #f51="ngForm">
+      <div class="form-group">
+        <select class="form-select form-style mb-0" [(ngModel)]="editIncomeDetail.incomeTypeId" name="incomeTypeId" required
+          #incomeTypeRef="ngModel" style="width: 100%">
+          <option value="undefined" selected disabled>- Income type-</option>
+          <option *ngFor="let obj of incomeTypes" [ngValue]="obj.id"> {{obj.incomeType}} </option>
+        </select>
+        <div *ngIf="incomeformsubmitted && !incomeTypeRef.valid" class="text-danger d-flex">
+          Income type is required
+        </div>
+      </div>
+      <div class="form-group input-box">
+        <input type="number" class="form-control form-style mb-0" placeholder="Monthly Pay" [(ngModel)]="editIncomeDetail.monthlyAmount"
+          name="balance" required #monthlyPayRef="ngModel" />
+        <div *ngIf="incomeformsubmitted && !monthlyPayRef.valid" class="text-danger d-flex">
+          Monthly Pay is required
+        </div>
+      </div>
+      <div class="button-list margin-top">
+        <div class="row">
+          <div class="col-md-6">
+            <a routerLink="/app/purchase/income-info/7" class="btn" id="btn-back">Back</a>
+          </div>
+          <div class="col-md-6">
+            <a *ngIf="editType == 'incomedetail'" (click)="updateincomedetail(f51)" class="btn" id="btn-back">Update</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- 27B Ends -->

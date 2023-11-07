@@ -1,0 +1,270 @@
+#button {
+  border: 1px solid #f47741 !important;
+  width: 260px;
+  height: 43px;
+  text-align: center;
+  color: #f47741;
+  background-color: white !important;
+  margin-left: 499px;
+  margin-top: -100px;
+}
+#button:hover {
+  color: white;
+  background-color: #f47741 !important;
+}
+
+.card-title {
+  font-size: 48px;
+}
+
+.card-subtitle {
+  position: absolute;
+  left: 89px;
+  top: 44px;
+  font-size: 20px;
+}
+
+#subtitle {
+  position: absolute;
+  left: 90px;
+  top: 54px;
+  color: gray;
+  font-size: 14px;
+}
+
+.subtitle-two {
+  position: relative;
+  top: 67px;
+  right: 56px;
+  font-size: 11px;
+  color: gray;
+}
+
+.subtitle-three {
+  font-size: 11px;
+  color: gray;
+  position: absolute;
+  top: 106px;
+  left: 31px;
+}
+
+.subtitle-four {
+  font-size: 11px;
+  color: gray;
+  position: absolute;
+  top: 120px;
+  left: 33px;
+}
+
+#text-one {
+  position: relative;
+  top: 44px;
+  right: 81px;
+  color: orange;
+  font-size: 26px;
+}
+
+#text-two {
+  color: gray;
+  position: relative;
+  top: 25px;
+  right: 81px;
+}
+
+.line {
+  margin-top: 41px;
+}
+
+.float-left {
+  margin-left: 16px;
+  color: gray;
+}
+
+#img-one {
+  position: absolute;
+  left: 15px;
+  top: 230px;
+}
+
+#img-two {
+  position: absolute;
+  left: 14px;
+  top: 271px;
+}
+
+#img-three {
+  position: absolute;
+  left: 14px;
+  top: 312px;
+}
+
+#doller-one {
+  position: relative;
+  top: 1px;
+  left: 39px;
+  color: gray;
+}
+
+#doller-two {
+  position: relative;
+  top: 40px;
+  left: 4px;
+  color: gray;
+}
+
+#doller-three {
+  position: relative;
+  top: 56px;
+  left: 10px;
+  color: gray;
+}
+
+.line-one {
+  position: relative;
+  left: 0px;
+  top: 60px;
+}
+
+#rate {
+  position: relative;
+  top: 55px;
+  right: 191px;
+}
+#rate1 {
+  position: relative;
+  top: 55px;
+  right: 103px;
+}
+
+#rate-num {
+  position: relative;
+  top: 14px;
+  right: 93px;
+  color: orange;
+}
+
+#apr {
+  position: relative;
+  top: 13px;
+  left: 99px;
+}
+
+#apr-num {
+  position: relative;
+  left: 91px;
+  bottom: 28px;
+  color: orange;
+}
+
+#fee {
+  position: relative;
+  top: 1px;
+  right: 16px;
+}
+
+#lender {
+  position: relative;
+  top: 1px;
+  right: 16px;
+}
+
+#d-one {
+  margin-left: 52px;
+  color: gray;
+}
+
+#d-two {
+  margin-left: 71px;
+  color: gray;
+}
+
+.box-fill {
+  border-radius: 10px;
+  height: 54px;
+  width: 247px;
+  margin-left: 18px;
+  margin-bottom: 21px;
+}
+
+/* three col  */
+
+#Loan-Details {
+  position: relative;
+  bottom: 16px;
+  right: 85px;
+}
+
+#imges {
+  position: relative;
+  bottom: 58px;
+  left: 120px;
+  height: 19px;
+}
+
+.line-five {
+  border-bottom: 1px solid lightgrey;
+  width: 121%;
+  position: relative;
+  bottom: 49px;
+  right: 24px;
+}
+
+#Purchase {
+  position: relative;
+  bottom: 34px;
+  right: 83px;
+  font-size: 15px;
+  color: gray;
+}
+
+#price {
+  position: relative;
+  bottom: 34px;
+  right: 8px;
+  width: 249px;
+  height: 2px;
+}
+
+.Content-Step-Body .form-control {
+  background-color: #f47741;
+  border-color: #f47741;
+  color: white;
+  padding: 0.475rem 0.75rem;
+  height: 50px !important;
+}
+.form-group {
+  margin-bottom: 1rem !important;
+}
+label {
+  text-align: left;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.card.orange-form {
+  color: white !important;
+}
+.card.orange-form .text-primary {
+  color: #f47741 !important;
+  border: #f47741 !important;
+}
+.card.orange-form .form-group label {
+  color: white !important;
+}
+#update {
+  border-color: white;
+}
+#icon {
+  color: #f47741;
+}
+.percent-sign {
+  position: absolute;
+  margin-left: -24px;
+  color: #f47741;
+  margin-top: 13px;
+}

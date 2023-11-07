@@ -1,0 +1,138 @@
+.fa {
+  margin-right: 10px;
+}
+
+#Family {
+  background-color: #f47741;
+  text-align: left;
+}
+.form-control {
+  height: 65px;
+  margin-top: 30px;
+}
+#num {
+  color: #0cc4d4 !important;
+}
+#Email {
+  color: #0cc4d4 !important;
+}
+
+button.btn:hover {
+  background-color: #f47741;
+}
+
+.Content-Step-Body.text-black {
+  background-color: white !important;
+  color: black;
+}
+.Content-Step-Body .btn-outline-blue {
+  border-color: #091a52;
+  color: #091a52;
+}
+.Content-Step-Body .btn-outline-blue:hover {
+  color: white;
+  background-color: #091a52;
+}
+.Content-Step-Body .form-control {
+  background-color: #091a52 !important;
+}
+.selected {
+  background-color: #091a52 !important;
+  color: white !important;
+}
+
+#back span {
+  font-family: "Avenir";
+  font-size: 20px;
+  cursor: pointer;
+}
+#back {
+  font-family: "Avenir";
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.right-back-btn p {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Avenir";
+  display: none;
+}
+
+.btn {
+  width: 93%;
+}
+.form-control {
+  width: 93%;
+}
+
+h1 {
+  font-size: 36px !important;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .btn {
+    width: 93%;
+  }
+  .form-control {
+    width: 93%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .btn {
+    width: 55%;
+  }
+  .form-control {
+    width: 55%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}
+@media (max-width: 991px) {
+  #back {
+    display: none;
+  }
+  .right-back-btn p {
+    display: block !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .btn {
+    width: 100%;
+  }
+  .form-control {
+    width: 100%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .btn {
+    width: 100%;
+  }
+  .form-control {
+    width: 100%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}
+
+.btn_mwh {
+  margin-top: 20px;
+  width: 100%;
+  height: 70px !important;
+  font-size: 22px;
+}

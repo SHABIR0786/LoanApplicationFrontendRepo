@@ -1,0 +1,41 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1>Can you show proof of income?</h1>
+    <br />
+    <div class="row justify-content-center pt-5">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0 pt-0">
+        <div class="px-0">
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext(true)"
+            [class.selected]="formData.proofOfincome == true"
+          >
+            Yes
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext(false)"
+            [class.selected]="formData.proofOfincome == false"
+          >
+            No
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p58 d-lg-flex d-none">
+      <span>53%</span>
+    </div>
+  </div>
+</div>

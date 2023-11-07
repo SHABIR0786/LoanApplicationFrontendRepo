@@ -1,0 +1,793 @@
+<div class="main-content" *ngIf="number == 1">
+  <h2>OK great! Tell us about your co-borrower.</h2>
+  <div class="button-list">
+    <form action="" id="address" #f="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="Address" [(ngModel)]="model.personalAddress"
+          name="personalAddress" #personalAddressRef="ngModel" required />
+        <div *ngIf="submitted && !personalAddressRef.valid" class="text-danger d-flex">Address is required</div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="Apt / Unit" [(ngModel)]="model.personalUnit"
+          name="personalUnit" #personalUnitRef="ngModel" required />
+        <div *ngIf="submitted && !personalUnitRef.valid" class="text-danger d-flex">Unit is required</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control form-style" placeholder="City or Town"
+              [(ngModel)]="model.personalCity" name="personalCity" #personalCityRef="ngModel" required />
+            <div *ngIf="submitted && !personalCityRef.valid" class="text-danger d-flex">
+              City is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <select style="width: 100%" class="form-select form-style" [(ngModel)]="model.personalStateId"
+              name="personalState" #personalStateRef="ngModel" required (change)="onStateChange($event)">
+              <option value="undefined" selected disabled>State</option>
+
+              <option *ngFor="let s of states" [value]="s.id">
+                {{ s.stateName }}
+              </option>
+            </select>
+            <div *ngIf="submitted && !personalStateRef.valid" class="text-danger d-flex">
+              State is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control form-style" placeholder="Zip Code"
+              [(ngModel)]="model.personalZipCode" name="personalZipCode" #personalZipCodeRef="ngModel" required />
+            <div *ngIf="submitted && !personalZipCodeRef.valid" class="text-danger d-flex">
+              Zip Code is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" style="position: relative">
+        <label style="position: absolute; margin-left: 9px; margin-top: 5px">When did you start living here?</label>
+        <input style="height: 50px; padding-top: 22px" type="date" class="form-control form-style"
+          placeholder="When did you start living here?" [(ngModel)]="model.personalStartLivingDate"
+          name="personalStartLivingDate" #personalStartLivingDateRef="ngModel" required />
+        <div *ngIf="submitted && !personalStartLivingDateRef.valid" class="text-danger d-flex">
+          Date is required
+        </div>
+      </div>
+
+      <p>Is the Co-borrower currently renting, or do they own?</p>
+
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="row margin-top margin-right-btn">
+            <div class="col-md-4">
+              <button type="button" class="btn" id="btn-rent" (click)="model.personalReantingType = 'own'"
+                [ngClass]="{ active: model.personalReantingType == 'own' }">
+                Own
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="btn" id="btn-rent" (click)="model.personalReantingType = 'rent'"
+                [ngClass]="{ active: model.personalReantingType == 'rent' }">
+                Rent
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="btn" id="btn-rent" (click)="model.personalReantingType = 'other'"
+                [ngClass]="{ active: model.personalReantingType == 'other' }">
+                Other
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row margin-top">
+        <div class="col-md-3 offset-md-3">
+          <a routerLink="/app/refinance/personal-info/8" class="btn" id="btn-back-blue">Back</a>
+        </div>
+        <div class="col-md-2">
+          <a class="btn" id="btn-next-blue" (click)="onNextClick(f, 2)">Next</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<!-- click on back button it will goto page 21B section of apply-now-info-review21 -->
+<!-- click on next button it will goto page 23 apply-now-income-employment23 -->
+<div class="main-content" *ngIf="number == 2">
+  <h2>Let’s talk about employment.</h2>
+  <h6 class="narrow-padding">
+    We recommend you provide two-years of employment history. Do you have
+    current or past employment history to add?
+  </h6>
+  <div class="button-list margin-top">
+    <a routerLink="/app/refinance/income/3" class="btn btn-primary btn-style btn-blue"
+      (click)="model.isEmployementHistory = true; saveStep()"
+      [class.blue-active]="model.isEmployementHistory == true">Yes</a>
+    <a routerLink="/app/refinance/income/3" class="btn btn-primary btn-style btn-blue"
+      (click)="model.isEmployementHistory = false; saveStep()"
+      [class.blue-active]="model.isEmployementHistory == false">No</a>
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <a routerLink="/app/refinance/income/1" class="btn" id="btn-back-blue">Back</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<!-- click on back button it will goto apply-now-personal-income22 -->
+<!-- click on any button it will goto page 24 apply-now-current-employer24 -->
+<div class="main-content" *ngIf="number == 3">
+  <h2>Tell us about your most current employer.</h2>
+  <div class="button-list">
+    <form action="" id="employer-details" #f3="ngForm">
+      <div class="form-group">
+        <select style="width: 100%" class="form-select form-style" [(ngModel)]="model.w2Emp" name="w2Emp"
+          #w2EmpRef="ngModel" required>
+          <option value="1">W-2 Employee</option>
+          <option value="2">Self Employed</option>
+        </select>
+        <div *ngIf="submitted && !w2EmpRef.valid" class="text-danger d-flex">
+          Type is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="Employer Name" [(ngModel)]="model.w2EmpName"
+          name="w2EmpName" #w2EmpNameRef="ngModel" required />
+        <div *ngIf="submitted && !w2EmpNameRef.valid" class="text-danger d-flex">
+          Employer Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="Address" [(ngModel)]="model.empAddress"
+          name="empAddress" #empAddressRef="ngModel" required />
+        <div *ngIf="submitted && !empAddressRef.valid" class="text-danger d-flex">
+          Address is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="Apt / Unit" [(ngModel)]="model.empAptUnit"
+          name="empAptUnit" #empAptUnitRef="ngModel" required />
+        <div *ngIf="submitted && !empAptUnitRef.valid" class="text-danger d-flex">
+          Unit is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="City or Town" [(ngModel)]="model.empCity"
+          name="empCity" #empCityRef="ngModel" required />
+        <div *ngIf="submitted && !empCityRef.valid" class="text-danger d-flex">
+          City is required
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <select style="width: 100%" class="form-select form-style" [(ngModel)]="model.empState" name="empState"
+              #empStateRef="ngModel" required (change)="onStateChange($event)">
+              <option value="undefined" selected disabled>State</option>
+
+              <option *ngFor="let s of states" [value]="s.id">
+                {{ s.stateName }}
+              </option>
+            </select>
+            <div *ngIf="submitted && !empStateRef.valid" class="text-danger d-flex">
+              State is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group">
+            <input type="text" class="form-control form-style" placeholder="Zip Code" [(ngModel)]="model.empZip"
+              name="empZip" #empZipRef="ngModel" required />
+            <div *ngIf="submitted && !empZipRef.valid" class="text-danger d-flex">
+              Zip Code is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="Employer Phone Number"
+          [(ngModel)]="model.empPhoneNumber" name="empPhoneNumber" #empPhoneNumberRef="ngModel" appPhoneMask required
+          minlength="11" />
+        <div *ngIf="submitted" class="text-danger d-flex">
+          <div *ngIf="empPhoneNumberRef.errors?.minlength">
+            This is not a valid phone number
+          </div>
+          <div *ngIf="empPhoneNumberRef.errors?.required">
+            Phone is required
+          </div>
+        </div>
+      </div>
+      <div class="radio-input">
+        <div class="row">
+          <div class="col-md-12">
+            <input type="checkbox" class="form-style" placeholder="" name="isCurrentJob"
+              [(ngModel)]="model.isCurrentJob" />
+            <p>This is my Current Job</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group est-date-field">
+        <label>Estimated Start Date</label>
+        <input type="date" class="form-control form-style" placeholder="Estimated Start date"
+          [(ngModel)]="model.empEstDate" name="empEstDate" #empEstDateRef="ngModel" required />
+        <div *ngIf="submitted && !empEstDateRef.valid" class="text-danger d-flex">
+          Estimated Start date is required
+        </div>
+      </div>
+      <!-- </form> -->
+      <div class="row">
+        <div class="col-md-3 offset-md-3">
+          <a (click)="history.back()" routerLink="/app/refinance/income/2" class="btn" id="btn-back-blue">Back</a>
+        </div>
+        <div class="col-md-2">
+          <a (click)="onNextClick(f3, 4)" class="btn" id="btn-next-blue">Next</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<div class="main-content" *ngIf="number == 4">
+  <h2>What’s your title and compensation?</h2>
+  <h6>We have to ask! if you’re not exactly sure, your best guess is fine.</h6>
+  <div class="button-list margin-top">
+    <form action="" id="compensation" #f4="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control form-style" placeholder="Job Title" [(ngModel)]="model.jobTitle"
+          name="jobTitle" #jobTitleRef="ngModel" required />
+        <div *ngIf="submitted && !jobTitleRef.valid" class="text-danger d-flex">
+          Job Title is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style" placeholder="Estimated Annual Base Salery"
+          [(ngModel)]="model.estAnnualBaseSalary" name="estAnnualBaseSalary" #estAnnualBaseSalaryRef="ngModel"
+          required />
+        <div *ngIf="submitted && !estAnnualBaseSalaryRef.valid" class="text-danger d-flex">
+          Estimated Annual Base Salary is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control form-style" placeholder="Estimated Annual Bonus"
+          [(ngModel)]="model.estAnnualBonus" name="estAnnualBonus" #estAnnualBonusRef="ngModel" required />
+        <div *ngIf="submitted && !estAnnualBonusRef.valid" class="text-danger d-flex">
+          Estimated Annual Bonus is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style" placeholder="Estimated Annual Commission"
+          [(ngModel)]="model.estAnnualCommision" name="estAnnualCommision" #estAnnualCommisionRef="ngModel" required />
+        <div *ngIf="submitted && !estAnnualCommisionRef.valid" class="text-danger d-flex">
+          Estimated Annual Commission is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style" placeholder="Estimated Annual Overtime"
+          [(ngModel)]="model.estAnnualOverTime" name="estAnnualOverTime" #estAnnualOverTimeRef="ngModel" required />
+        <div *ngIf="submitted && !estAnnualOverTimeRef.valid" class="text-danger d-flex">
+          Estimated Annual Overtime is required
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 offset-md-3">
+          <a routerLink="/app/refinance/income/3" class="btn" id="btn-back-blue">Back</a>
+        </div>
+        <div class="col-md-2">
+          <!-- routerLink="/app/refinance/income/5" -->
+          <a (click)="saveAfterValidation(f4)" class="btn" id="btn-next-blue">Next</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<div class="main-content" *ngIf="number == 5">
+  <h2>Great! do you have any other forms of employment?</h2>
+  <h6 class="narrow-padding">
+    if you have provided two years of employment history that’s all we need.
+  </h6>
+  <div class="button-list margin-top">
+    <a routerLink="/app/refinance/income/3" class="btn btn-primary btn-style btn-blue"
+      (click)="model.isEmployementHistory = true; saveStep()"
+      [class.blue-active]="model.isEmployementHistory == true">Yes, I have more to add</a>
+
+    <a routerLink="/app/refinance/income/7" class="btn btn-primary btn-style btn-blue">No, I don’t have more to add</a>
+
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <a routerLink="/app/refinance/income/4" class="btn" id="btn-back-blue">Back</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<div class="main-content" *ngIf="number == 6">
+  <h2>What's the co-borrower's title and compensation?</h2>
+  <h6>We have to ask! if you’re not exactly sure, your best guess is fine.</h6>
+  <div class="button-list margin-top">
+    <form action="" id="employer-details">
+      <input type="text" class="form-control form-style" placeholder="Job Title" />
+      <input type="text" class="form-control form-style" placeholder="Estimated Annual Base Salery" />
+      <input type="text" class="form-control form-style" placeholder="Estimated Annual Bonus" />
+      <input type="text" class="form-control form-style" placeholder="Estimated Annual Commission" />
+      <input type="text" class="form-control form-style" placeholder="Estimated Annual Overtime" />
+    </form>
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a routerLink="/app/refinance/income/5" class="btn" id="btn-back-blue">Back</a>
+      </div>
+      <div class="col-md-2">
+        <a routerLink="/app/refinance/income/7" class="btn" id="btn-next-blue">Next</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<div class="main-content" *ngIf="number == 7">
+  <h2>Great! Does the co-borrower have any other forms of employment?</h2>
+  <h6 class="narrow-padding">
+    If you have provided two years of employment history for the co-borrower
+    that's all we need.
+  </h6>
+  <div class="button-list margin-top">
+    <button type="button" routerLink="/app/refinance/income/3" class="btn btn-primary btn-style btn-blue"
+      (click)="model.hasCoboOtherEmp = true" [class.blue-active]="model.hasCoboOtherEmp == true">
+      Yes
+    </button>
+    <button type="button" class="btn btn-primary btn-style btn-blue" routerLink="/app/refinance/income/8"
+      (click)="model.hasCoboOtherEmp = false" [class.blue-active]="model.hasCoboOtherEmp == false">
+      No
+    </button>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<div class="main-content" *ngIf="number == 8">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-left">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <header>Other Sources of Income</header>
+          <h3>Sources of income can include:</h3>
+          <ul>
+            <li>Alimony</li>
+            <li>Child Support</li>
+            <li>Capital Gains</li>
+            <li>Disability</li>
+            <li>Interest and Dividends</li>
+            <li>Retirement</li>
+            <li>Social Security</li>
+            <li>Unemployment Benefits</li>
+            <li>VA Benefits</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>
+    Does the co-borrower have any sources of income to share?
+    <img src="../../../../assets/images/info.png" type="button" data-toggle="modal" data-target="#exampleModal" alt=""
+      alt="" />
+  </h2>
+  <h6 class="narrow-padding">
+    Sources of income can include things like alimony, retirement, and social
+    security. Click the info button to see a complete list.
+  </h6>
+  <div class="button-list margin-top">
+    <a routerLink="/app/refinance/income/9" class="btn btn-primary btn-style btn-blue"
+      (click)="model.hasCoboOtherIncSrc = true; saveStep()"
+      [class.blue-active]="model.hasCoboOtherIncSrc == true">Yes</a>
+
+    <a routerLink="/app/refinance/income/9" class="btn btn-primary btn-style btn-blue"
+      (click)="model.hasCoboOtherIncSrc = false; saveStep()"
+      [class.blue-active]="model.hasCoboOtherIncSrc == false">No</a>
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <a routerLink="/app/refinance/income/7" class="btn" id="btn-back-blue">Back</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<div class="main-content" *ngIf="number == 9">
+  <h2>Which best describes the source of the co-borrower's income?</h2>
+  <div class="button-list">
+    <form action="" id="co-borrower-income" #f9="ngForm">
+      <div class="form-group">
+        <select style="width: 100%" class="form-select form-style" [(ngModel)]="incomeDetailsModel.incomeTypeId"
+          name="coboIncType" #coboIncTypeRef="ngModel" required style="width: 100%">
+          <option *ngFor="let obj of incomeTypes" [ngValue]="obj.id"> {{obj.incomeType}}</option>
+        </select>
+        <div *ngIf="submitted && !coboIncTypeRef.valid" class="text-danger d-flex">Income Type is required</div>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control form-style" placeholder="Monthly Amount"
+          [(ngModel)]="incomeDetailsModel.monthlyAmount" name="coboMonthlyAmount" #coboMonthlyAmountRef="ngModel"
+          required />
+        <div *ngIf="submitted && !coboMonthlyAmountRef.valid" class="text-danger d-flex">
+          Monthly Amount is required
+        </div>
+      </div>
+
+      <div class="row margin-top">
+        <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-2 offset-sm-1 col-xs-2 offset-xs-1">
+          <a routerLink="/app/refinance/income/8" class="btn" id="btn-back-blue">Back</a>
+        </div>
+        <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-2 offset-sm-1 col-xs-2 offset-xs-1">
+          <a class="btn" id="btn-next-blue" (click)="onNextClick(f9, 10)">Next</a>
+        </div>
+        <div class="col-md-2 offset-md-1 col-lg-2 offset-lg-1 col-sm-2 offset-sm-1 col-xs-2 offset-xs-1">
+          <a routerLink="/app/refinance/income/10" class="btn" id="btn-back-blue">Skip</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<div class="main-content" *ngIf="number == 10">
+  <h2>Does the co-borrower have any other sources of income?</h2>
+  <div class="button-list margin-top">
+    <a routerLink="/app/refinance/income/9" class="btn btn-primary btn-style btn-blue"
+      (click)="model.hasCoboOtherIncSrc = true" [class.blue-active]="model.hasCoboOtherIncSrc == true">Yes</a>
+
+    <a routerLink="/app/refinance/income/11" class="btn btn-primary btn-style btn-blue"
+      (click)="model.hasCoboOtherIncSrc = false" [class.blue-active]="model.hasCoboOtherIncSrc == false">No</a>
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <a routerLink="/app/refinance/income/9" class="btn" id="btn-back-blue">Back</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<div class="main-content" *ngIf="number == 11">
+  <h2>Let's do a quick review of your income. Look good?</h2>
+  <div class="content-area">
+    <div *ngFor="let empdt of refinanceEmploymentDetails">
+      <div class="row">
+        <div class="col-md-8">
+          <h6>Co-borrower Employment</h6>
+        </div>
+        <div class="col-md-4 right-align">
+          <a (click)="editEmpoyement(empdt)" class="btn" id="btn-edit">Edit</a>
+          <a (click)="deleteEmployment(empdt.id)" class="btn btn-danger ml-2">Delete</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="profile-details">
+            <p>Employment Type: {{ empdt.employeeTypeId }}</p>
+            <p>Business Name: {{ empdt.employerName }}</p>
+            <p>Address: {{ empdt.employementAddress }}</p>
+            <p>City: {{ empdt.employementCity }}</p>
+            <p>State: {{ empdt.empStateName }}</p>
+            <p>Zip Code: {{ empdt.employementZip }}</p>
+            <p>Business Phone Number: {{ empdt.employerPhoneNumber }}</p>
+            <p>Estimated Start Date: {{ empdt.estimatedStartDate }}</p>
+            <p>Job Title: {{ empdt.jobTitle }}</p>
+            <p>Estimated Annual Base Salary: ${{ empdt.estimatedAnnualBaseSalary }}</p>
+            <p>Estimated Annual Bonus: ${{ empdt.estimatedAnnualBonus }}</p>
+            <p>Estimated Annual Commission: ${{ empdt.estimatedAnnualCommission }}</p>
+            <p>Estimated Annual Overtime: ${{ empdt.estimatedAnnualOvertime }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="seperator-line"></div>
+      </div>
+    </div>
+    <div *ngFor="let incomedetail of otherIncomeDetails">
+      <div class="row">
+        <div class="col-md-8">
+          <h6>Co-borrower Other Income</h6>
+        </div>
+        <div class="col-md-4 right-align">
+          <a (click)="editIncome(incomedetail)" class="btn" id="btn-edit">Edit</a>
+          <a (click)="deleteincome(incomedetail.id)" class="btn btn-danger ml-2">Delete</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="profile-details">
+            <p> Income Type: {{ getIncometType(incomedetail.incomeTypeId) }}</p>
+            <p> Monthly Amount: ${{ incomedetail.monthlyAmount }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-list margin-top">
+    <div class="row">
+      <div class="col-md-3 offset-md-3">
+        <a [routerLink]="['/app/refinance/income/10']" class="btn" id="btn-back-blue">Back</a>
+      </div>
+      <div class="col-md-2">
+        <!-- routerLink="/app/refinance/assets-info/1" -->
+        <a class="btn" id="btn-next-blue" routerLink="/app/refinance/assets-info/1">Next</a>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+
+<!-- click on edit button it will goto section 32A -->
+<!-- click on back button it will goto page 31 apply-now-coborrower-other-source31 -->
+<!-- click next button it will goto page 33 apply-now-assets33 -->
+
+<!-- section 32A starts -->
+<div class="main-content" *ngIf="number == 12">
+
+  <h2>Let's do a quick review of your income. Look good?</h2>
+  <div class="content-area">
+    <form action="" id="address" #f12="ngForm">
+      <div *ngIf="editType == 'empdt'">
+        <div class="row">
+          <div class="col-md-8">
+            <h6>Co-borrower Employment</h6>
+          </div>
+          <div class="col-md-4 right-align">
+            <a type="button" class="btn" (click)="doneClicked(f12)" id="btn-edit">Done</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1 margin-top">
+            <div class="form-group">
+              <select style="width: 100%" class="form-select form-style"
+                [(ngModel)]="editEmploymentdetail.employeeTypeId" name="employeeTypeId" #w2EmpRef="ngModel" required>
+                <option value="1">W-2 Employee</option>
+                <option value="2">Self Employed</option>
+              </select>
+              <div *ngIf="!w2EmpRef.valid" class="text-danger d-flex">
+                Type is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Business Name"
+                [(ngModel)]="editEmploymentdetail.employerName" name="employerName" #w2EmpNameRef="ngModel" required />
+              <div *ngIf="!w2EmpNameRef.valid" class="text-danger d-flex">
+                Employer Name is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Address"
+                [(ngModel)]="editEmploymentdetail.employementAddress" name="employementAddress" #empAddressRef="ngModel"
+                required />
+              <div *ngIf="!empAddressRef.valid" class="text-danger d-flex">
+                Address is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Suit" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="City"
+                [(ngModel)]="editEmploymentdetail.employementCity" name="employementCity" #empCityRef="ngModel"
+                required />
+              <div *ngIf="!empCityRef.valid" class="text-danger d-flex">
+                City is required
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <select style="width: 100%" class="form-select form-style"
+                    [(ngModel)]="editEmploymentdetail.employementTaxeId" name="employementTaxeId" #empStateRef="ngModel"
+                    required (change)="onStateChange($event)">
+                    <option *ngFor="let s of states" [value]="s.id">
+                      {{ s.stateName }}
+                    </option>
+                  </select>
+                  <div *ngIf="!empStateRef.valid" class="text-danger d-flex">
+                    State is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="form-group">
+                  <input type="text" class="form-control form-style" placeholder="Zip Code"
+                    [(ngModel)]="editEmploymentdetail.employementZip" name="coboMonthempZiplyAmount"
+                    #empZipRef="ngModel" required />
+                  <div *ngIf="!empZipRef.valid" class="text-danger d-flex">
+                    Zip Code is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Business Phone Number"
+                [(ngModel)]="editEmploymentdetail.employerPhoneNumber" name="employerPhoneNumber"
+                #empPhoneNumberRef="ngModel" appPhoneMask required minlength="11" />
+              <div class="text-danger d-flex">
+                <div *ngIf="empPhoneNumberRef.errors?.minlength">
+                  This is not a valid phone number
+                </div>
+                <div *ngIf="empPhoneNumberRef.errors?.required">
+                  Phone is required
+                </div>
+              </div>
+            </div>
+            <div class="radio-input">
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="checkbox" class="form-style" [(ngModel)]="editEmploymentdetail.isCurrentJob"
+                    name="isCurrentJob" placeholder="" />
+                  <p>This is my Current Job</p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Estimated Start Date</label>
+              <input type="text" class="form-control form-style" placeholder="Estimated Start date"
+                [(ngModel)]="editEmploymentdetail.estimatedStartDate" name="estimatedStartDate" #empEstDateRef="ngModel"
+                required />
+              <div *ngIf="!empEstDateRef.valid" class="text-danger d-flex">
+                Estimated Start date is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Years in the co-borrower's profession" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Job Title"
+                [(ngModel)]="editEmploymentdetail.jobTitle" name="jobTitle" #jobTitleRef="ngModel" required />
+              <div *ngIf="!jobTitleRef.valid" class="text-danger d-flex">
+                Job Title is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Estimated Annual Base Salery"
+                [(ngModel)]="editEmploymentdetail.estimatedAnnualBaseSalary" name="estimatedAnnualBaseSalary"
+                #estAnnualBaseSalaryRef="ngModel" required />
+              <div *ngIf="!estAnnualBaseSalaryRef.valid" class="text-danger d-flex">
+                Estimated Annual Base Salary is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Estimated Annual Bonus"
+                [(ngModel)]="editEmploymentdetail.estimatedAnnualBonus" name="estimatedAnnualBonus"
+                #estAnnualBonusRef="ngModel" required />
+              <div *ngIf="!estAnnualBonusRef.valid" class="text-danger d-flex">
+                Estimated Annual Bonus is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Estimated Annual Commission"
+                [(ngModel)]="editEmploymentdetail.estimatedAnnualCommission" name="estimatedAnnualCommission"
+                #estAnnualCommisionRef="ngModel" required />
+              <div *ngIf="submitted && !estAnnualCommisionRef.valid" class="text-danger d-flex">
+                Estimated Annual Commission is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-style" placeholder="Estimated Annual Overtime"
+                [(ngModel)]="editEmploymentdetail.estimatedAnnualOvertime" name="estimatedAnnualOvertime"
+                #estAnnualOverTimeRef="ngModel" required />
+              <div *ngIf="!estAnnualOverTimeRef.valid" class="text-danger d-flex">
+                Estimated Annual Overtime is required
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="button-list margin-top">
+        <div class="row">
+          <div class="col-md-6">
+            <a routerLink="/app/refinance/income/12" class="btn" id="btn-back">Back</a>
+          </div>
+          <div class="col-md-6">
+            <a *ngIf="editType == 'empdt'" (click)="updateemploymentdetail(f12)" class="btn" id="btn-back">Update</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+    <form action="" id="address" #f13="ngForm">
+      <div *ngIf="editType == 'incomedetail'">
+        <div class="row">
+          <div class="col-md-8">
+            <h6>Co-borrower Other Income</h6>
+          </div>
+          <div class="col-md-4 right-align">
+            <button (click)="doneClicked(f13)" type="button" class="btn" id="btn-edit">Done</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1 margin-top">
+            <div class="form-group">
+              <select class="form-control form-style" placeholder="- Income Type -"
+                [(ngModel)]="editIncomeDetail.incomeTypeId" name="incomeTypeId" #coboIncTypeRef="ngModel" required
+                style="width: 100%">
+                <option *ngFor="let obj of incomeTypes" [ngValue]="obj.id"> {{obj.incomeType}}</option>
+              </select>
+              <div *ngIf="!coboIncTypeRef.valid" class="text-danger d-flex">
+                Income Type is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control form-style" placeholder="Monthly Amount"
+                [(ngModel)]="editIncomeDetail.monthlyAmount" name="monthlyAmount" #coboMonthlyAmountRef="ngModel"
+                required />
+              <div *ngIf="!coboMonthlyAmountRef.valid" class="text-danger d-flex">
+                Monthly Amount is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-list margin-top">
+          <div class="row">
+            <div class="col-md-6">
+              <a routerLink="/app/refinance/income/11" class="btn" id="btn-back">Back</a>
+            </div>
+            <div class="col-md-6">
+              <a *ngIf="editType == 'incomedetail'" (click)="updateincomedetail(f13)" class="btn"
+                id="btn-back">Update</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a routerLink="/account/login">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>
+<!-- section 32A ends -->

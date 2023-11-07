@@ -1,0 +1,6 @@
+.two-boxes > .col-sm-6 {
+  border: 1px solid black;
+}
+.two-boxes ul {
+  padding-left: 30px;
+}

@@ -1,0 +1,76 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2 class="font-weight-bold">Please enter your contact info</h2>
+    <h4 class="co-borrower">
+      You can always add a co-borrower or edit this entry later.
+    </h4>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4" style="margin-top: -40px">
+        <div class="btn">
+          <form [formGroup]="form">
+            <div id="first_name">
+              <h3 style="width: 191px; font-size: 20px">Your Email Address*</h3>
+              <input
+                class="btn_mwh"
+                type="email"
+                id="Fn"
+                required
+                #email
+                placeholder="Enter Your Email Address "
+                formControlName="email"
+                [(ngModel)]="formData.emailAddress"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Enter Valid Email.</div>
+                <div *ngIf="f.email.errors.email">Enter Valid Email.</div>
+              </div>
+            </div>
+            <div id="last_name">
+              <h3 style="width: 206px; font-size: 20px">Your Mobile Number*</h3>
+              <input
+                class="btn_mwh"
+                type="text"
+                id="Fn"
+                #phone
+                placeholder="Enter Your Mobile  Number "
+                [(ngModel)]="formData.phoneNumber"
+                formControlName="phone"
+                appPhoneMask
+                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+              />
+              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">
+                  Enter Valid PhoneNumber.
+                </div>
+              </div>
+            </div>
+          </form>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn-block mb-3 mt-3"
+            (click)="proceedToNext()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p95 mt-5 d-lg-flex d-none">
+      <span>95%</span>
+    </div>
+  </div>
+</div>

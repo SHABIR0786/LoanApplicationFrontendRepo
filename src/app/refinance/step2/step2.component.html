@@ -1,0 +1,60 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="font-weight-bold">What type of home are you refinancing?</h1>
+    <br />
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0">
+        <div class="px-0">
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn-block mb-3 btn_mwh"
+            (click)="proceedToNext('Single Family Home')"
+            [class.selected]="formData.propertyType == 'Single Family Home'"
+          >
+            Single Family Home
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn-block mb-3 btn_mwh"
+            (click)="proceedToNext('Multi-Family Home')"
+            [class.selected]="formData.propertyType == 'Multi-Family Home'"
+          >
+            Multi-Family Home
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn-block mb-3 btn_mwh"
+            (click)="proceedToNext('Townhouse / Condo')"
+            [class.selected]="formData.propertyType == 'Townhouse / Condo'"
+          >
+            Townhouse / Condo
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn-block mb-3 btn_mwh"
+            (click)="proceedToNext('Other')"
+            [class.selected]="formData.propertyType == 'Other'"
+          >
+            Other
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p11 mt-5 d-lg-flex d-none">
+      <span>11%</span>
+    </div>
+  </div>
+</div>

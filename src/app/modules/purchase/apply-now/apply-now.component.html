@@ -1,0 +1,28 @@
+<div class="main-content">
+  <h2>Whatever your goal, we’ll help you achieve it quickly and easily!</h2>
+  <h4>How can we help?</h4>
+  <div class="button-list">
+    <a
+      [ngClass]="{ active: model?.firstChoice === '1' }"
+      routerLink="/app/purchase/welcome/1"
+      (click)="setChoice(1)"
+      class="btn btn-primary btn-style btn-pur-orange"
+      role="button"
+      >I’m Purchasing</a
+    >
+
+    <a
+      routerLink="/app/refinance"
+      [ngClass]="{ active: model?.firstChoice === '2' }"
+      class="btn btn-primary btn-style btn-ref-blue"
+      (click)="setChoice(2)"
+      role="button"
+      >I’m Refinancing</a
+    >
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+  <div class="contact-mortgage">
+    <p>Conatact a Mortage Expert</p>
+    <img src="../../../../assets/img/chat.svg" />
+  </div>
+</div>

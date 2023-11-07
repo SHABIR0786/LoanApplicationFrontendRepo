@@ -1,0 +1,21 @@
+.active {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+.active {
+  background: #091a52 !important;
+  color: white !important;
+  border-color: #091a52 !important;
+}
+.est-date-field {
+  position: relative;
+}
+.est-date-field label {
+  position: absolute;
+  margin-left: 9px;
+  margin-top: 5px;
+}
+.est-date-field input {
+  height: 50px;
+  padding-top: 22px !important;
+}

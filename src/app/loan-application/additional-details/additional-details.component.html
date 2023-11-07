@@ -1,0 +1,55 @@
+<section class="content px-2">
+  <div>
+    <div class="card my-5">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <h4>Other Disclosures and Details</h4>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="nameOfIndividualsOnTitle">
+                {{
+                  "List names of all individuals who will be on Title"
+                    | localize
+                }}
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="nameOfIndividualsOnTitle"
+                id="nameOfIndividualsOnTitle"
+                [(ngModel)]="data.nameOfIndividualsOnTitle"
+              />
+            </div>
+          </div>
+          <div class="col" *ngIf="isApplyingWithCoBorrower">
+            <div class="form-group">
+              <label for="nameOfIndividualsCoBorrowerOnTitle">
+                {{ "Co-borrower name (optional)" | localize }}
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="nameOfIndividualsCoBorrowerOnTitle"
+                id="nameOfIndividualsCoBorrowerOnTitle"
+                [(ngModel)]="data.nameOfIndividualsCoBorrowerOnTitle"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-secondary" (click)="proceedToPrevious()">
+              Back
+            </button>
+            <button
+              class="btn btn-secondary float-right"
+              (click)="proceedToNext()"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

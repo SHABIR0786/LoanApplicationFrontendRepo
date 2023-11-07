@@ -1,0 +1,430 @@
+<main>
+  <section class="bg-section-light py-4 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1
+            class="display-3 heading-border font-weight-bold text-primary mb-2 mt-2"
+          >
+            Get a Free
+            <br class="d-none d-sm-block" />
+            Consultation
+          </h1>
+          <h4 class="text-muted font-weight-normal pb-4">
+            If you aren’t sure which loan options are best for you, our
+            consultants can help. EZ Online Mortgage offers free consultation
+            for our applicants so you can be sure you get the right home loan
+            for your needs.
+          </h4>
+          <a
+            class="btn btn-secondary btn-lg ref-btn animbtn btn-animate"
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            role="button"
+            >pre - qualify now <i class="fas fa-long-arrow-alt-right"></i
+          ></a>
+        </div>
+        <div class="col-lg-4">
+          <img
+            class="special-img d-lg-block d-none"
+            src="assets/images/loan-img-7.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="page-order-sec py-3 mb-5">
+      <a [routerLink]="['/app/home']" class="text-decoration-none">Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a [routerLink]="['/app/buying-home-guide']" class="text-decoration-none">
+        Buying a Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a
+        [routerLink]="['/app/home-buying-free-consultation']"
+        class="text-decoration-none"
+      >
+        Home Buying Free Consultation
+      </a>
+    </section>
+  </div>
+
+  <div class="container text-justify mb-4">
+    <h5 class="text-secondary">Know About</h5>
+    <h2 class="font-weight-bold text-primary mb-2">
+      Home Buying Free Consultation
+    </h2>
+    <p class="">
+      Buying a new home can be a daunting process, particularly if you’re a new
+      homebuyer. But don’t let lack of experience, an unstable market, or
+      confusion about the home buying process stop you from achieving your
+      dreams. At EZ Online Mortgage, we provide a free mortgage consultation to
+      all new clients. We’re available to help you embark upon your journey in
+      buying a new home.
+    </p>
+    <p>
+      Our home buying consultants are eager to assist you with all your
+      questions and concerns, and will happily guide you through the entire
+      mortgage process. You’ll find that getting a mortgage with EZ Online
+      Mortgage is simple, easy, and effective! In fact, apply online and get a
+      free instant quote today! One of our dedicated home buying consultants
+      will contact you about scheduling a further home buying free consultation.
+      Whether you’re a first time homebuyer or have home buying experience, we
+      can help you smooth out the kinks in the process and get you the best
+      mortgage at the lowest rates possible! Schedule a Free Consultation With a
+      Professional Oscar Wilde said that “the only thing to do with good advice
+      is to pass it on.” We at EZ Online Mortgage agree—advice is never any use
+      only to oneself.
+    </p>
+    <ng-container *ngIf="visible">
+      <div>
+        <p>
+          Our home buying free consultants are eager to put their passion and
+          expertise to good use by assisting you with purchasing your new home.
+          No matter what your financial situation, our experience brokers can
+          help you secure a mortgage to help you buy for your new dream home.
+          Contact EZ Online Mortgage’s Expert Home Buying Consultants Have
+          questions, confusion, or doubts? Stop stressing, let go of your
+          worries, and contact our team of expert home buying consultants at EZ
+          Online Mortgage. Our home buying free consultants have answers to all
+          your questions and concerns! With over 30 years of experience in the
+          industry, extremely affordable rates, a range of online tools, and
+          24/7 mortgage assistance, we provide you the best mortgage solutions
+          to meet your needs.
+        </p>
+      </div>
+    </ng-container>
+    <a
+      (click)="readmore()"
+      class="text-uppercase text-secondary featanimbtn"
+      role="button"
+    >
+      {{ ReadMore ? "Read More" : "Read
+        Less" }}
+      <i class="fas fa-long-arrow-alt-right"></i>
+    </a>
+  </div>
+
+  <div class="container bg-section-light mb-4">
+    <h5 class="text-secondary text-center pt-5">Know About</h5>
+    <h3 class="font-weight-bold text-primary text-center">
+      Want To Explore Your Options?
+    </h3>
+    <div class="row px-5 py-5">
+      <div class="col-sm-6 mb-3">
+        <div class="pre-box">
+          <p class="text-white">
+            At EZ Online, you can apply for a mortgage right from your laptop.
+            Our simple online application lets you start and finish the process
+            at your convenience, whenever you are ready.You don't have to talk
+            to a loan officer--you can get our preliminary assessment of your
+            eligibility right away using our high-speed technology.
+          </p>
+          <a
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            style="text-decoration: none"
+          >
+            <button class="btn btn-primary text-white text-uppercase">
+              Apply Now
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="pre-box">
+          <p class="text-white">
+            If you would rather talk to a human than a computer,we
+            understand.While we use the fatest and most up-to-date technology
+            available,we also appreciate that a personal touch can sometime make
+            a difference. You can talk to our friendly loan officers to ask
+            about loan products and qualifications and ask all the question you
+            want.
+          </p>
+          <a
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            style="text-decoration: none"
+          >
+            <button class="btn btn-primary text-white text-uppercase">
+              Request a call <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="long-term text-center">
+    <span
+      class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block position-absolute"
+    >
+      <a href="#section-submit">
+        <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+      >
+    </span>
+
+    <div class="container mx-auto px-2 px-md-4">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="col-lg-8">
+          <video
+            id="my_video_1"
+            class="yimVideo video-js vjs-default-skin"
+            style="width: 100%; height: 368px"
+            height="368px"
+            controls
+            preload="none"
+            data-setup='{ "aspectRatio":"630:360", "playbackRates": [1, 1.5, 2] }'
+          >
+            <source
+              src="https://vjs.zencdn.net/v/oceans.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://vjs.zencdn.net/v/oceans.webm"
+              type="video/webm"
+            />
+          </video>
+        </div>
+        <img
+          class="img-fluid img-poster"
+          (click)="playVideo()"
+          style="
+            position: absolute;
+            width: 794px;
+            height: 368px;
+            cursor: pointer;
+          "
+          src="assets/images/videoThumbnail.png"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h5 class="text-secondary">Know About</h5>
+      <h2 class="text-primary">FAQ’s</h2>
+      <div
+        class="panel-group faq-panel"
+        id="accordion"
+        role="tablist"
+        aria-multiselectable="true"
+      >
+        <div class="panel panel-default">
+          <div class="panel-heading border-0" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a
+                class="text-primary collapsed"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <i class="more-less fa fa-minus"></i>
+                <i class="more-less fa fa-plus"></i>
+                Does Pre-approval mean I am guaranteed to get a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseOne"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingOne"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Not necessarily. Pre-approval is a thorough investigation of
+                your application for a mortgage loan. The result (if successful)
+                will be a letter that indicates you are qualified for a mortgage
+                at the amount you have requested. That doesn't always mean you
+                will get final approval for the mortgage. Lots of other factors
+                impact the mortgage approval process—the value of the home is
+                key, as well as potential changes to your credit or employment
+                status between pre-approval and final determination.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <i class="more-less fa fa-minus"></i>
+                <i class="more-less fa fa-plus"></i>
+                How can I improve my chances of getting approved?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseTwo"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingTwo"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Great question. One smart move is to check your credit reports
+                before you start the application. If there is any incorrect
+                information, you can begin the process of getting it resolved.
+                Also, don’t open or close any credit accounts if you can avoid
+                it—those actions can cause a temporary decrease in your score.
+                The other thing that helps is to give us as much information as
+                possible—fill out everything completely.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-minus"></i>
+                <i class="more-less fa fa-plus"></i>
+                What are points on a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseThree"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingThree"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A point on a loan is a price the borrower pays to lower the
+                interest rate. A lender may offer a loan with a specific
+                interest rate and a one-point fee. The "point" equals one
+                percent of the loan total, paid in advance. It might make sense
+                to pay the point to bring down the interest rate, especially if
+                you plan to remain in the home over a long period.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                <i class="more-less fa fa-minus"></i>
+                <i class="more-less fa fa-plus"></i>
+                Are interest rates and points the only things to consider when
+                choosing a lender?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFour"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFour"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                No. There are numerous factors to evaluate when choosing your
+                lender. Reputation is essential, and the costs of applying and
+                completing the mortgage process. Also, look out for questionable
+                practices like pre-payment penalties, which means the lender
+                will charge you a fee if you pay the loan off early or
+                refinance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                How do I get a rate lock?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFive"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFive"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A rate lock promises that the lender can complete the processing
+                of your loan with the interest rate and points available on a
+                particular day. The "lock" is valid for a period of time—usually
+                30 or 60 days. Sometimes you can lock in the rate just by asking
+                while you navigate through the approval process. Depending on
+                the loan program, you might have to pay a fee to guarantee the
+                rate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- panel-group -->
+    </div>
+  </section>
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/monitor.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Apply Now</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/smartphone-call.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Start Online</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/messaging.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Chat Now</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

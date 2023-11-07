@@ -1,0 +1,204 @@
+<main>
+  <section class="home-guides-sec py-5 text-center">
+    <div class="container">
+      <h3 class="font-weight-bold text-white">Refinance Guide</h3>
+    </div>
+  </section>
+  <h1 class="font-weight-bold text-primary text-center py-4 border-bottom">
+    Close on the Loan
+  </h1>
+  <div class="container">
+    <section class="page-order-sec py-2">
+      <p class="m-0 text-muted">
+        <a
+          [routerLink]="['/app/home']"
+          class="text-decoration-none text-primary"
+          >Home </a
+        ><i class="fa fa-angle-right"></i>
+        <a
+          [routerLink]="['/app/refinance-guide']"
+          class="text-decoration-none text-muted"
+        >
+          Refinance
+        </a>
+        <i class="fa fa-angle-right"></i>
+        <a
+          [routerLink]="['/app/refinance-guide']"
+          class="text-decoration-none text-muted"
+        >
+          Refinance Guide
+        </a>
+      </p>
+    </section>
+
+    <section class="py-2">
+      <div class="d-flex justify-content-between">
+        <h5 class="font-weight-bold text-primary py-4">
+          Refinancing Step-by-Step
+        </h5>
+        <div class="text-center">
+          <img height="40" src="assets/images/guides.svg" />
+          <p class="small">View All Guides</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 mb-3 mb-lg-0">
+          <div
+            class="nav flex-column nav-pills border nav-guides rounded"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="['/app/prepare-for-your-mortgage-refinance']"
+              role="tab"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+              >1. Prepare for Your Mortgage
+              <span class="ml-3 d-block">Refinance</span></a
+            >
+            <a
+              class="nav-link"
+              [routerLink]="['/app/explore-your-refinance-options']"
+              >2. Explore Your Refinance
+              <span class="ml-3 d-block">Options</span>
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/apply-for-a-refinance-loan']"
+              role="tab"
+              aria-controls="v-pills-messages"
+              aria-selected="false"
+              >3. Apply for a Refinance Loan
+              <span class="ml-3 d-block">Loan</span></a
+            >
+            <a
+              class="nav-link"
+              [routerLink]="['/app/the-appraisal-underwriting-process']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >4. The Appraisal and Underwriting
+              <span class="ml-3 d-block">Process</span>
+            </a>
+            <a
+              class="nav-link active"
+              [routerLink]="['/app/close-on-the-loan']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >5. Close on the Loan
+            </a>
+            <a
+              class="nav-link"
+              [routerLink]="['/app/manage-your-refinance']"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+              >6. Manage Your Refinance
+              <span class="ml-3 d-block">Offer</span>
+            </a>
+          </div>
+
+          <div
+            class="border border-primary px-3 py-4 rounded mt-4 d-none d-lg-block"
+          >
+            <h6 class="font-weight-bold text-primary py-2">
+              Find answers quickly online
+            </h6>
+            <a
+              href=""
+              class="text-uppercase text-secondary d-block featanimbtn pt-2"
+              >GET STARTED <i class="fas fa-long-arrow-alt-right ml-2"></i
+            ></a>
+          </div>
+          <div class="bg-gray px-3 py-4 rounded mt-4 d-none d-lg-block">
+            <h3 class="text-primary pb-2">Talk to a Home Loan Expert</h3>
+            <button
+              type="submit"
+              class="btn btn-secondary text-uppercase text-white px-5"
+            >
+              Talk Now
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="v-pills-home"
+              role="tabpanel"
+              aria-labelledby="v-pills-home-tab"
+            >
+              <h6 class="font-weight-bold text-primary pb-4">
+                Close on Your Mortgage Refinance Loan
+              </h6>
+              <p class="text-muted">
+                Talk to your lender about ways to finance closing costs with a
+                refinance loan. You can usually finance these into conventional
+                loans or pay them with a rebate by selecting a slightly higher
+                interest rate. If you can pay for closing costs this way, you
+                may not owe much on the day of closing, if anything.
+              </p>
+
+              <ul>
+                <li>
+                  <b>Who needs to be present at the closing? </b>
+                  <p>
+                    Any borrower on the loan needs to be present at the closing.
+                    If you cannot be present, you may be able to arrange for a
+                    power of attorney to sign for you. You must make sure your
+                    lender is aware if you plan on using a power of attorney.
+                  </p>
+                </li>
+                <li>
+                  <b>What should I bring to closing? </b>
+                  <p>
+                    Bring your photo ID and a certified check for any funds due
+                    at closing (unless the funds are being wired).
+                  </p>
+                </li>
+                <li>
+                  <b
+                    >Will I receive the funds for a cash out refinance at
+                    closing?
+                  </b>
+                  <p>
+                    No, you will not receive the funds until 3-5 days after your
+                    refinance closes. Federal regulation requires lenders to
+                    give you a three-day waiting period after closing to
+                    terminate the refinance if you reconsider.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="border-bottom py-4 mb-4"></div>
+          <div class="flex-lg-row Mortgage-talk rounded flex-column">
+            <div class="mr-4">
+              <div class="small-box mb-3">
+                <img src="assets/images/support.png" />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-primary font-weight-normal mb-3">
+                Mortgage Rate Updates & Featured<br />
+                Mortgage Or
+                <span class="text-secondary">Request A Call Back Today</span>
+              </h3>
+              <button
+                type="submit"
+                class="btn btn-secondary text-uppercase text-white px-5"
+              >
+                Talk Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

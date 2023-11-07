@@ -1,0 +1,84 @@
+#Brine {
+  width: 361px;
+  height: 78px;
+  font-size: 40px;
+  background-color: #e5e5e5 !important;
+}
+
+#button {
+  border: 1px solid #091a52 !important;
+  width: 285px;
+  height: 43px;
+  text-align: center;
+  color: #091a52;
+  background-color: white;
+  margin-left: 483px;
+  margin-top: 33px;
+  cursor: pointer;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+.btn-blue {
+  background-color: #091a52;
+}
+
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 39%;
+  top: 250px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 39%;
+    top: 250px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 385px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 10%;
+    top: 120px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 10%;
+    top: 120px;
+  }
+}

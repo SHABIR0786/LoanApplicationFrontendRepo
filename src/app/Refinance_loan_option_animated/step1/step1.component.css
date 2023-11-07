@@ -1,0 +1,130 @@
+#button {
+  border: 1px solid #091a52 !important;
+  text-align: center;
+  color: #091a52;
+  background-color: white;
+  cursor: pointer;
+  width: 100%;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 500;
+}
+#button:hover {
+  color: white;
+  background-color: #091a52;
+}
+
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black,
+.text-black {
+  background-color: white !important;
+  color: black;
+}
+#Back {
+  position: relative;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#icon {
+  top: 28px;
+  font-size: 26px;
+  position: relative;
+  /* top: 141px; */
+  /* right: 300px; */
+}
+.pt-3.cursor_pointer {
+  position: absolute;
+  left: 39%;
+  top: 855px;
+}
+.card.bg_transparent {
+  background-color: white !important;
+  color: #091a52;
+  border: 1px solid #091a52 !important;
+}
+.card.bg_transparent:hover {
+  background-color: #091a52 !important;
+  color: white;
+  border: 1px solid #091a52 !important;
+}
+.lowest-interest-img {
+  /* width: 67px;
+  height: 66px; */
+  width: 100px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/intrest-rate-icon-blue.png");
+}
+
+.dollar-bg-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 63px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/big-dollar-blue.png");
+}
+.shortest-loan-img {
+  /* width: 60px;
+  height: 65px; */
+  width: 135px;
+  height: 116px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: cover;
+  background-image: url("../../../assets/images/loan-term-icon-blue.png");
+}
+.Content-Step-Body .card:hover .lowest-interest-img {
+  background-image: url("../../../assets/images/intrest-rate-icon.png");
+}
+.Content-Step-Body .card:hover .dollar-bg-img {
+  background-image: url("../../../assets/images/big-dollar.png");
+}
+.Content-Step-Body .card:hover .shortest-loan-img {
+  background-image: url("../../../assets/images/loan-term-icon.png");
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 39%;
+    top: 855px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 385px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .pt-3.cursor_pointer {
+    position: absolute;
+    left: 20%;
+    top: 120px;
+  }
+}

@@ -1,0 +1,268 @@
+<!-- Page no 14 Military Info -->
+
+<div class="main-content" *ngIf="number == 1">
+  <h2>
+    Our sinccere thanks for your service. What’s your current militery status?
+  </h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 2]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilitaryStatusClick(1)"
+      >Active Duty</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilitaryStatusClick(2)"
+      >Reserves / National Guard</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 4]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilitaryStatusClick(3)"
+      >Surviving Spouse</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilitaryStatusClick(4)"
+      >Retired / Discharged</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/purchase-yes-mil']"
+          class="btn btn-orange"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+
+<!-- No 14A Military Branches -->
+<div class="main-content" *ngIf="number == 2">
+  <h2>Which Branch of the military?</h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilBranchClick(1)"
+      >Army</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilBranchClick(2)"
+      >Navy</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilBranchClick(3)"
+      >Marine Corps</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilBranchClick(4)"
+      >Air Force</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilBranchClick(5)"
+      >Coast Guard</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilBranchClick(6)"
+      >Space Force</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/purchase-mil-info', 1]"
+          class="btn"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+
+<!-- No 14B Military Branches  -Yes -->
+<div class="main-content" *ngIf="number == 3">
+  <h2>Great! Is your ETS date within the next 12 months?</h2>
+  <h6>
+    Active U.S. Military and veterans may be eligible for VA loan options!
+  </h6>
+  <div
+    class="button-list margin-top"
+  >
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 4]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilETSClick(true)"
+      >Yes</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilETSClick(false)"
+      >No</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/purchase-mil-info', 4]"
+          class="btn btn-orange"
+          id="btn-next"
+          >Next</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+
+<!-- No 14C Military Branches On clicking any miitary branch from 14B Click yes then go to 14C Yes ETS Date -->
+<div class="main-content" *ngIf="number == 4">
+  <h2>Great! Is your ETS date within the next 12 months?w</h2>
+  <h6>ETS stands for expirstion term of service.</h6>
+  <div
+    class="button-list margin-top"
+  >
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 5]"
+      type="button"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilETSClick(true)"
+      >Yes</a
+    >
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 5]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilETSClick(false)"
+      >No</a
+    >
+    <input type="date" class="form-control form-style" />
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/purchase-mil-info', 5]"
+          class="btn btn-orange"
+          id="btn-next"
+          >Next</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- Click Next or No button on above page it will go to 14D -->
+
+<!-- No 14D Military Branches Purchasing Military Info Click No on 14B and it will land on 14D and Click Next still on 14D-->
+<div class="main-content" *ngIf="number == 5">
+  <h2>Have you had a VA loan previously?</h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 6]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilVaLoanClick(true)"
+      >Yes</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-info', 6]"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilVaLoanClick(false)"
+      >No</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/purchase-mil-info', 3]"
+          class="btn btn-orange"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+<!-- Click Back on 14D it will land on 14B click Yes or No it will land on 14E -->
+
+<!-- No 14E Military Branches Purchasing Military Info -->
+<div class="main-content" *ngIf="number == 6">
+  <h2>Who will be living in the home?</h2>
+
+  <div class="button-list">
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-personal-info']"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilLiveClick('vet')"
+      >Veteran will occopy the home</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-personal-info']"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilLiveClick('spouse')"
+      >Spouse will occopy the home</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-personal-info']"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilLiveClick('both')"
+      >Veteran and Spouse</a
+    >
+
+    <a
+      [routerLink]="['/app/purchase/purchase-mil-personal-info']"
+      class="btn btn-primary btn-style btn-orange"
+      (click)="onMilLiveClick('sur-spouce')"
+      >Surviving Spouse</a
+    >
+
+    <div class="row">
+      <div class="col-md-12">
+        <a
+          [routerLink]="['/app/purchase/purchase-mil-info', 5]"
+          class="btn btn-orange"
+          id="btn-back"
+          >Back</a
+        >
+      </div>
+    </div>
+  </div>
+  <app-applynow-footer></app-applynow-footer>
+</div>
+
+<!-- Click back button it will land on 14D -->
+<!-- Click any other option it will land on 15 purchase-military-personal -->

@@ -1,0 +1,57 @@
+.Content-Step-Footer p {
+  font-size: 13px;
+  color: #091a52;
+}
+
+/* Hafiz's CSS  Start*/
+
+.Content-Step-Body.text-white {
+  background-color: white !important;
+  color: black !important;
+}
+.Content-Step-Footer p .legal-b {
+  font-weight: bold;
+}
+.Content-Step-Footer p .legal-orange {
+  color: #f47741;
+  font-weight: bold;
+}
+.Content-Step-Footer h2 {
+  color: #091a52;
+  font-size: 26px;
+  font-weight: 800;
+}
+.Content-Step-Footer {
+  margin-top: 3rem;
+}
+.Content-Step-Footer {
+  padding: 0px 20px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .Content-Step-Footer {
+    padding: 0px 20px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .Content-Step-Footer {
+    padding: 0px 20px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .Content-Step-Footer {
+    padding: 0px 0px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .Content-Step-Footer {
+    padding: 0px 0px;
+  }
+}

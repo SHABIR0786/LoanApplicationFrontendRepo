@@ -1,0 +1,45 @@
+/* @import url('../../../../assets/css/main.css'); */
+/* @import url('../../../assets/new/css/normalize.css');
+@import url('../../../assets/new/css/main.css');
+@import url('../../../assets/new/css/bootstrap.min.css');
+
+@import url('../../../assets/new/css/all.min.css'); */
+/* @import url("../../../assets/new/css/fontawesome.min.css"); */
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: rgba(0, 0, 0, 0.9) !important;
+  font-family: "Avenir-Medium";
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1380px;
+  }
+}
+.navbar {
+  padding-left: 0 !important;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+.logo-head {
+  cursor: pointer;
+}
+.sidebar:hover {
+  overflow-y: hidden;
+}
+section {
+  padding: 0rem 0rem !important;
+}
+.tel-contact p,
+.email-contact p {
+  color: #f47741;
+}
+.logo-head {
+  width: 131px;
+  height: 117.678px;
+  flex-shrink: 0;
+}
+.innerpages-applynow {
+  font-family: "Avenir-Medium" !important;
+  font-style: normal;
+}

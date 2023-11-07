@@ -1,0 +1,321 @@
+<div class="section">
+  <span class="app-page-title">My Loan Application # {{ adminLoanDetails?.loanNo }}
+    <span class="LoanNumber">{{ loanApplicationNumber }}</span></span>
+  <div class="row ml-0 mr-3 pt-2">
+    <div class="col-md-4 col-sm-12 pl-sm-0 pl-md-0 py-md-2">
+      <div class="loan-card-body">
+        <h5 class="card-title h6">Loan Status</h5>
+        <a href="javascript:void(0)" class="btn float-right mr-2" style="
+                background-color: #dff9ec !important;
+                color: #1bd27a !important;
+              ">{{ adminLoanStatus }}</a>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 pl-sm-0 py-md-2">
+      <div class="loan-card-body">
+        <h5 class="card-title h6">Loan Lock Status</h5>
+        <a href="javascript:void(0)" class="btn float-right mr-2" style="
+                background-color: #dff9ec !important;
+                color: #f5a623 !important;
+              ">Not Locked</a>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 pl-sm-0 pr-sm-0 py-md-2">
+      <div class="loan-card-body">
+        <h5 class="card-title h6">
+          {{ adminLoanDetails?.propertyAddress }}
+        </h5>
+        <a href="javascript:void(0)" class="btn float-right mr-2" style="
+                background-color: #e6e9f0 !important;
+                color: #384b8e !important;
+              ">{{ adminLoanDetails?.loanNo }}</a>
+      </div>
+    </div>
+  </div>
+  <div class="row ml-0 mr-3 bg_primary rounded text-white border_radius_10px" style="height:127px; padding:33px;">
+    <div class="col-md-7 col-sm-12">
+      <span class="h4" style="font-size:22px; font-weight: normal;">My pending Task</span>
+      <p class="pt-2" style="font-size:14px;">
+        Click this button to review and upload required document for your
+        Application.
+      </p>
+    </div>
+    <div class="col-md-5 col-sm-12">
+      <input type="file" name="document" id="document" class="d-none" />
+      <!-- <button
+            class="btn bg-white m-4 text_primary float-right p-2 rounded border-0 px-3"
+          > -->
+      <label for="document" class="btn bg-white text_primary float-right rounded border_radius_10px uploadbtn">
+        <img src="../../../assets/img/upload.svg" alt="Upload Documents Image" style="margin-top:-7px;"/>
+        <span class="h6 pl-2"> Upload Loan Documents</span>
+      </label>
+      <!-- </button> -->
+    </div>
+    <div></div>
+  </div>
+  <div class="row ml-0 mr-3 mt-3">
+    <div class="col-md-6 col-sm-12 p-1 m-0 pr-md-3">
+      <div class="card border_radius_10px">
+        <div class="card-body">
+          <h5 class="font-weight-bold h5 p-2">My Loan Summary</h5>
+          <div class="card-text">
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Loan Number</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.loanNo
+                  }}</span>
+              </div>
+            </div>
+            <!-- {{adminLoanDetails|json}} -->
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Mortgage Consultant</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.mortageConsultant
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">NMLS ID</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.nmlsId
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Borrower Name</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.borrowerName
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Property Address</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right text-right">{{
+                  adminLoanDetails?.propertyAddress
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Loan Program</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanProgramName
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Loan Amount</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.loanAmount
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Loan Purpose</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.loanPurpose
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Interest Rate</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.interestRate
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Application Date</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.applicationDate
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Rate Lock Date</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.rateLockDate
+                  }}</span>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Rate Lock Expiration Date</span>
+              </div>
+              <div class="col float-right">
+                <span class="LoanNumber float-right">{{
+                  adminLoanDetails?.rateLockExpirationDate
+                  }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 p-1 m-0 pl-md-3">
+      <div class="card border_radius_10px">
+        <div class="card-body">
+          <h5 class="font-weight-bold h5 p-2">My Disclousers</h5>
+          <div class="card-text">
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Rate Lock Confirmation</span>
+              </div>
+              <div *ngIf="rateLock == false" class="col float-right">
+                <input type="file" class="form-control custom-file-inputs" name="fileName" id="fileName"
+                  (change)="uploadFile($event.target.files, '1')" #fileNameEl />
+              </div>
+              <div *ngIf="rateLock != false" class="col float-right">
+                <button class="btn btn-primary">
+                  <a href="http://localhost:21021/documents/Rate_Lock_Confirmation/{{
+                        rateLock?.documentPath
+                      }}" target="_blank">Download File</a></button>&nbsp;
+                <button (click)="deleteFile(rateLock.disclosureId)" class="button">
+                  Delete
+                </button>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Disclousers</span>
+              </div>
+              <div class="col float-right" *ngIf="disclousersDoc == false">
+                <input type="file" class="form-control custom-file-inputs" name="fileName" id="fileName"
+                  (change)="uploadFile($event.target.files, '2')" #fileNameEl />
+              </div>
+              <div class="col float-right" *ngIf="disclousersDoc != false">
+                <button class="btn btn-primary">
+                  <a href="http://localhost:21021/documents/Disclousers/{{
+                        disclousersDoc?.documentPath
+                      }}" target="_blank">Download File</a></button>&nbsp;
+                <button (click)="deleteFile(disclousersDoc.disclosureId)" class="button">
+                  Delete
+                </button>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Borrower's Certificate and Authorization</span>
+              </div>
+              <div *ngIf="borrowerCerti == false" class="col float-right">
+                <input type="file" class="form-control custom-file-inputs" name="fileName" id="fileName"
+                  (change)="uploadFile($event.target.files, '3')" #fileNameEl />
+              </div>
+              <div class="col float-right" *ngIf="borrowerCerti != false">
+                <button class="btn btn-primary">
+                  <a href="http://localhost:21021/documents/Borrower's_Certificate_and_Authorization/{{
+                        borrowerCerti?.documentPath
+                      }}" target="_blank">Download File</a></button>&nbsp;
+                <button (click)="deleteFile(borrowerCerti.disclosureId)" class="button">
+                  Delete
+                </button>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">1003 Application</span>
+              </div>
+              <div *ngIf="doc1003 == false" class="col float-right">
+                <input type="file" class="form-control custom-file-inputs" name="fileName" id="fileName"
+                  (change)="uploadFile($event.target.files, '4')" #fileNameEl />
+              </div>
+              <div *ngIf="doc1003 != false" class="col float-right">
+                <button class="btn btn-primary">
+                  <a href="http://localhost:21021/documents/1003_Application/{{
+                        doc1003?.documentPath
+                      }}" target="_blank">Download File</a></button>&nbsp;
+                <button (click)="deleteFile(doc1003.disclosureId)" class="button">
+                  Delete
+                </button>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">Loan Documents</span>
+              </div>
+              <div *ngIf="loanDoc == false" class="col float-right">
+                <input type="file" class="form-control custom-file-inputs" name="fileName" id="fileName"
+                  (change)="uploadFile($event.target.files, '5')" #fileNameEl />
+              </div>
+              <div *ngIf="loanDoc != false" class="col float-right">
+                <button class="btn btn-primary">
+                  <a href="http://localhost:21021/documents/Loan_Documents/{{
+                        loanDoc?.documentPath
+                      }}" target="_blank">Download File</a></button>&nbsp;
+                <button (click)="deleteFile(loanDoc.disclosureId)" class="button">
+                  Delete
+                </button>
+              </div>
+            </div>
+            <div class="divider m-2 w-100"></div>
+            <div class="row px-2">
+              <div class="col float-left">
+                <span class="float-left name">FICO Finding</span>
+              </div>
+              <div *ngIf="fICO == false" class="col float-right">
+                <input type="file" class="form-control custom-file-inputs" name="fileName" id="fileName"
+                  (change)="uploadFile($event.target.files, '6')" #fileNameEl />
+              </div>
+              <div *ngIf="fICO != false" class="col float-right">
+                <button class="btn btn-primary">
+                  <a href="http://localhost:21021/documents/FICO_Finding/{{
+                        fICO?.documentPath
+                      }}" target="_blank">Download File</a></button>&nbsp;
+                <button (click)="deleteFile(fICO.disclosureId)" class="button">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1 class="font-weight-bold">How would you rate your credit?</h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-4" id="back">
+        <p
+          class="fa fa-angle-left cursor_pointer"
+          (click)="proceedToPrevious()"
+        >
+          <span style="margin-left: 5px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <div class="btn">
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mt-4"
+            (click)="proceedToNext('Excellent (720+)')"
+            [class.selected]="formData.rateCredit == 'Excellent (720+)'"
+          >
+            Excellent (720+)
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('Good (680 – 719)')"
+            [class.selected]="formData.rateCredit == 'Good (680 – 719)'"
+          >
+            Good (680 – 719)
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('Fair (620 – 679)')"
+            [class.selected]="formData.rateCredit == 'Fair (620 – 679)'"
+          >
+            Fair (620 – 679)
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('Poor (580 - 619)')"
+            [class.selected]="formData.rateCredit == 'Poor (580 - 619)'"
+          >
+            Poor (580 - 619)
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-blue btn-lg btn_mwh btn-block mb-3 mt-3"
+            (click)="proceedToNext('Below < 580')"
+            [class.selected]="formData.rateCredit == 'Below < 580'"
+          >
+            Below < 580
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-blue p84 mt-5 d-lg-flex d-none">
+      <span>84%</span>
+    </div>
+  </div>
+</div>

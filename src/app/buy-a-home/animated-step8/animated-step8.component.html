@@ -1,0 +1,49 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h1>Are you currently employed?</h1>
+    <br />
+    <div class="row justify-content-center pt-5">
+      <div class="col-lg-4" id="back">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+      <div class="col-lg-4 px-0 pt-0">
+        <div class="px-0">
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Emlpoyed')"
+            [class.selected]="formData.currentEmployed == 'Emlpoyed'"
+          >
+            Emlpoyed
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Self-Employed')"
+            [class.selected]="formData.currentEmployed == 'Self-Employed'"
+          >
+            Self-Employed
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-lg btn-block mb-3"
+            (click)="proceedToNext('Other')"
+            [class.selected]="formData.currentEmployed == 'Other'"
+          >
+            Other
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4 right-back-btn pt-5">
+        <p class="fa fa-angle-left" (click)="proceedToPrevious()">
+          <span style="margin-left: 10px">Back</span>
+        </p>
+      </div>
+    </div>
+    <div class="gage-chart-orange p47 d-lg-flex d-none">
+      <span>42%</span>
+    </div>
+  </div>
+</div>

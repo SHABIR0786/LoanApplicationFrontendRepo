@@ -1,0 +1,571 @@
+<header>
+  <nav class="navbar navbar-dark bg-primary navbar-expand-lg p-0">
+    <div class="container px-0">
+      <div class="d-flex mx-3 mx-sm-0 px-lg-0 w-100">
+        <a class="navbar-brand" [routerLink]="['/app/home']">
+          <img src="assets/images/headLogo.svg" alt="" />
+        </a>
+        <div
+          class="w-100 text-right d-flex flex-column responsive-menu d-lg-none mt-1"
+        >
+          <div class="d-none mobileSearch">
+            <strong class="text-white mx-2"
+              ><a href="tel:800930-8195" class="text-white"
+                >(800) 930-8195</a
+              ></strong
+            >
+          </div>
+          <div class="mb-2 mt-3">
+            <a
+              class="btn btn-outline-info text-white text-uppercase mx-1 d-none d-md-inline-block"
+              >Check loan status</a
+            >
+            <a (click)="applyNow()" class="btn btn-info text-uppercase"
+              >Apply Now</a
+            >
+          </div>
+          <!-- Toggler/collapsibe Button -->
+          <div
+            class="align-items-end col d-flex justify-content-end ml-auto px-0 mb-2 mobileMenu"
+          >
+            <a href="tel:8009308195" class="text-white"
+              ><strong class="text-white toptext mr-2"
+                ><i class="fa fa-phone mr-1"></i>(800) 930-8195</strong
+              ></a
+            >
+            <button
+              class="navbar-toggler p-0"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapsibleNavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="align-self-stretch d-flex flex-column ml-auto overflow-auto"
+        >
+          <div
+            class="align-items-center d-lg-flex d-none justify-content-end mt-3 text-right w-100"
+          >
+            <div class="searchtop dsktopsearch">
+              <span class="p-1 btn btn-search btn-primary"
+                ><img src="assets/images/search.svg" alt=""
+              /></span>
+              <div class="inpSearch">
+                <input
+                  type="text"
+                  name="search"
+                  class="form-control"
+                  placeholder="Search.."
+                />
+                <i class="fa fa-times searchcross"></i>
+              </div>
+            </div>
+
+            <strong class="text-white toptext"
+              ><a href="tel:8009308195" class="text-white"
+                >(800) 930-8195</a
+              ></strong
+            >
+            <a
+              (click)="loanStatus()"
+              class="btn btn-outline-info text-white text-uppercase cls"
+              >Check loan status</a
+            >
+            <a (click)="applyNow()" class="btn btn-info text-uppercase aplbtn"
+              >Apply Now</a
+            >
+          </div>
+          <div
+            class="collapse navbar-collapse flex-column ml-auto align-items-end ml-auto justify-content-end mb-0"
+            id="collapsibleNavbar"
+          >
+            <!-- Links -->
+
+            <ul class="navbar-nav ml-auto">
+              <!-- Dropdown -->
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  >Buying a home</a
+                >
+                <div class="dropdown-menu w-100" id="buyinghome">
+                  <div class="container">
+                    <div class="row p-3 w-100">
+                      <div class="col-lg-3">
+                        <h5 class="navHead">Buying a Home</h5>
+                        <p class="pt-3">
+                          The best Home Loan is the <br />
+                          one that’s best for you
+                        </p>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/buying-home-guide']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Buying a Home Guide</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/pre-approval']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Pre Approval</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/first-time-home-buyer']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>First-time Home Buyer</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/buying-second-home']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Buying a Second Home</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/buying-vacation-home']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Buying a Vacation Home</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/real-state-investor']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Real Estate Investor</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/moving-and-buying-home']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Moving and Buying a Home</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              [routerLink]="[
+                                '/app/home-buying-free-consultation'
+                              ]"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>Home Buying Free Consultation</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  >Refinance</a
+                >
+                <div class="dropdown-menu w-100">
+                  <div class="container">
+                    <div class="row p-3 w-100">
+                      <div class="col-lg-3">
+                        <h5 class="navHead">Refinance</h5>
+                        <p class="pt-2">
+                          Home mortgage refinance <br />
+                          options to achieve your <br />
+                          financial goals
+                        </p>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/refinance-guide']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Refinance Guide</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/lower-your-payment']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Lower Your Payment</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/get-cash-from-home']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Get Cash From Your Home</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/consolidate-your-debt']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Consolidate Your Debt</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a
+                              [routerLink]="[
+                                '/app/pay-off-your-mortgage-faster'
+                              ]"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>Pay Off Your Mortgage Faster</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/refinance-with-harp']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Refinance with HARP 2.0</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              [routerLink]="['/app/keep-your-payment-raising']"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>Keep Your Payment From Rising</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a
+                              [routerLink]="[
+                                '/app/refinance-investment-property'
+                              ]"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>Refinance Investment Property</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              [routerLink]="[
+                                '/app/refinance-free-consultation'
+                              ]"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>Refinance free consultation</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  >Loan Options</a
+                >
+                <div class="dropdown-menu w-100">
+                  <div class="container">
+                    <div class="row p-3 w-100">
+                      <div class="col-lg-3">
+                        <h5 class="navHead">Loan Options</h5>
+                        <p class="pt-3">
+                          Explore potential home <br />
+                          mortgage options that <br />
+                          meet your needs
+                        </p>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/loan-options']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Loan Options</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              [routerLink]="['/app/thirty-year-fixed-mortgage']"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>30 Year Fixed Mortgage</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              [routerLink]="[
+                                '/app/fifteen-year-fixed-mortgage'
+                              ]"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>15 Year Fixed Mortgage</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/adjustable-rate-mortgage']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Adjustable Rate Mortgage</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/harp-refinance']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>HARP Refinance</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/fha-loans']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>FHA Loans</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/jumbo-loan']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Jumbo Loan</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/va-loan']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Va Loan</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  >Mortgage Rates</a
+                >
+                <div class="dropdown-menu w-100">
+                  <div class="container">
+                    <div class="row p-3 w-100">
+                      <div class="col-lg-3">
+                        <h5 class="navHead">Mortgage Rates</h5>
+                        <p class="pt-3">
+                          Explore current mortgage <br />
+                          rates in California
+                        </p>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/mortgage-glossary']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Mortgage Rates</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/email-and-text-updates']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Email and Text Updates</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/current-home-loan-rates']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Current Home Loan Rates</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  >Calculators</a
+                >
+                <div class="dropdown-menu w-100">
+                  <div class="container">
+                    <div class="row p-3 w-100">
+                      <div class="col-lg-3">
+                        <h5 class="navHead">Calculators</h5>
+                        <p class="pt-3">
+                          Calculate your home loan <br />
+                          payment, affordability <br />and more
+                        </p>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/mortgage-calculator']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Mortgage Calculator</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              [routerLink]="[
+                                '/app/home-affordability-calculator'
+                              ]"
+                            >
+                              <i class="fa fa-check-circle"></i>
+                              <p>Home Affordability Calculator</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/refinance-calculator']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Refinance Calculator</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/rent-vs-buy-calculator']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Rent vs Buy Calculator</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/amortization']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>amortization</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown position-static">
+                <a
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  >About us</a
+                >
+                <div class="dropdown-menu w-100">
+                  <div class="container">
+                    <div class="row p-3 w-100">
+                      <div class="col-lg-3">
+                        <h5 class="navHead">About us</h5>
+                        <p class="pt-3">
+                          Discover why we rock with <br />
+                          home loans
+                        </p>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/about-us']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>About Us</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/license-info']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Licensing</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/request-a-mortgage']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Request a Mortgage</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled dropList">
+                          <li>
+                            <a [routerLink]="['/app/contact-us']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Contact Us</p>
+                            </a>
+                          </li>
+                          <li>
+                            <a [routerLink]="['/app/mortgage-glossary']">
+                              <i class="fa fa-check-circle"></i>
+                              <p>Mortgage Glossary</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/app/blog']">Blog</a>
+              </li>
+            </ul>
+            <a
+              href=""
+              class="btn btn-outline-info d-md-none mb-2 mr-2 text-uppercase text-white"
+              >Check loan status</a
+            >
+            <div class="searchtop dsktopsearch d-lg-none">
+              <span class="p-1 btn btn-search btn-primary"
+                ><img src="assets/images/search.svg" alt=""
+              /></span>
+              <div class="inpSearch">
+                <input
+                  type="text"
+                  name="search"
+                  class="form-control"
+                  placeholder="Search.."
+                />
+                <i class="fa fa-times searchcross"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Brand -->
+    </div>
+  </nav>
+</header>

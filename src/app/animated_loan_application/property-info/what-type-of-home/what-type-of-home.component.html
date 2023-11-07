@@ -1,0 +1,65 @@
+<div class="main-content">
+  <h2 class="little-space">
+    What type of home is it? <img src="img/info.svg" alt="" />
+  </h2>
+
+  <div class="button-list col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.TypeOfHome == 1 }"
+      (click)="proceedToNext(1)"
+    >
+      Single Family
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.TypeOfHome == 2 }"
+      (click)="proceedToNext(2)"
+    >
+      Condo
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.TypeOfHome == 3 }"
+      (click)="proceedToNext(3)"
+    >
+      Co-op
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.TypeOfHome == 4 }"
+      (click)="proceedToNext(4)"
+    >
+      Townhome
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-style"
+      [ngClass]="{ 'btn-active': data.TypeOfHome == 5 }"
+      (click)="proceedToNext(5)"
+    >
+      Multi-Family
+    </button>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button
+          type="button"
+          class="btn"
+          id="btn-back"
+          (click)="proceedtoPrevious()"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content-footer">
+    <p>Already have an account | <a href="">Log in</a></p>
+    <h5>You have Questions? <span>|</span> We’ll have answers.</h5>
+  </div>
+</div>

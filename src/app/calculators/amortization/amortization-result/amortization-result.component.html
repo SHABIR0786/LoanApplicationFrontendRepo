@@ -1,0 +1,46 @@
+<main>
+  <div class="container">
+    <div class="align-items-center d-flex mb-4">
+      <h3 class="font-weight-bold m-0 text-primary">Amortization Results</h3>
+    </div>
+    <p class="text-muted pr-6-md" style="margin-top: -25px">
+      (not including taxes and insurance)
+    </p>
+  </div>
+  <section>
+    <div class="container section-left">
+      <div class="row">
+        <div class="col-sm-3">
+          <p>Your Loan Amount</p>
+          <h4>{{ data.LoanAmount }}</h4>
+          <br />
+          <p>Rate</p>
+          <h4>{{ data.interestRate }}</h4>
+          <br />
+          <p>Monthly Payment</p>
+          <p>(Not including taxes and insurance)</p>
+          <h4>${{ data.monthlyPaymentNotIncludingTaxes }}</h4>
+          <br />
+          <p>Total Interest Paid</p>
+          <h4>${{ data.totalInterestPaid }}</h4>
+        </div>
+        <div class="col-sm-6">
+          <div class="graph">
+            <div style="width: 100%">
+              <canvas id="myChart" width="700" height="250" #mychart></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 section-right">
+          <!-- <div class="">
+            <p>Interest Saved with Extra Payments</p>
+            <h4>$250000</h4>
+            <br />
+            <p>Months of Payments Saved</p>
+            <h4>$250000</h4>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

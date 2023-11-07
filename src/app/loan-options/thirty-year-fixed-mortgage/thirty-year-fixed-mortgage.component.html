@@ -1,0 +1,368 @@
+<main>
+  <div class="inner-heading-sec position-relative">
+    <div class="container">
+      <div class="row pt-5">
+        <div class="col-lg-8">
+          <h1
+            class="border-left-2px text-primary font-weight-bold display-3 mb-4"
+          >
+            30 Year Fixed <br class="d-none d-sm-block" />
+            Mortgage Rate
+          </h1>
+          <h4
+            class="text-muted font-weight-normal pb-4"
+            style="margin-left: 20px"
+          >
+            Always the most popular loan—this traditional product offers
+            stability and a payment that doesn’t change. This is a great choice
+            for people with steady income.
+          </h4>
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+    </div>
+    <img
+      class="special-img d-lg-block d-none"
+      src="assets/images/30-years-img.png"
+      alt=""
+    />
+  </div>
+
+  <div class="container">
+    <section class="page-order-sec py-3">
+      <a href="#" class="text-decoration-none text-dark">Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a routerLink="/app/loan-options" class="text-decoration-none text-dark">
+        Loan Options
+      </a>
+      <span class="text-muted mr-3 d-inline-block text-dark">
+        <i class="fa fa-angle-right"></i>
+        <a href="#" class="text-decoration-none text-dark"
+          >30 year Fixed Mortgage
+        </a>
+      </span>
+    </section>
+  </div>
+
+  <section class="martgage-second-sec">
+    <div class="p-r">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="box-30">
+              <div class="small-box mb-3">
+                <img src="assets/images/cash-payment.png" />
+              </div>
+              <h5 class="text-primary mb-3 font-weight-bold">
+                Is a 30 year fixed rate loan <br />
+                right for me?
+              </h5>
+              <p class="text-muted mb-3">
+                The 30 year fixed rate loan is always among the most popular
+                choices for borrowers. If you need lower payments, and the
+                security of an interest rate that won’t change, the 30-year
+                fixed rate may be the right loan for you.
+              </p>
+              <ng-container *ngIf="visible">
+                <div>
+                  <p class="text-muted">
+                    If you are making a down payment of 20% or more, you won’t
+                    need private mortgage insurance. The federal government
+                    doesn’t guarantee conventional loans (30-year loans are one
+                    of several types of loan that fall into the conventional
+                    loan category), but it does set the limits for how much a
+                    conforming loan can be. The Federal Housing Finance Agency
+                    sets a baseline limit. In 2021 that limit is $548,250. Some
+                    parts of the country have higher limits, since housing
+                    prices are higher. A maximum conforming loan amount in these
+                    areas can reach $822,375.
+                  </p>
+                </div>
+              </ng-container>
+
+              <a
+                (click)="onclick()"
+                class="text-uppercase text-secondary featanimbtn"
+                role="button"
+              >
+                {{ ReadMore ? "More" : "Less" }}
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="box-30">
+              <div class="small-box mb-3">
+                <img src="assets/images/loan.png" />
+              </div>
+              <h5 class="text-primary mb-3 font-weight-bold">
+                What are the advantages of <br />a 30 year fixed loan?
+              </h5>
+              <p class="text-muted mb-3">
+                A 30-year fixed rate mortgage may offer the best way for a
+                borrower to “buy more house.” Because the length of the loan is
+                longer, the payments are lower than with some other loan types.
+              </p>
+
+              <ng-container *ngIf="visibleOne">
+                <div>
+                  <p class="text-muted">
+                    This allows you to manage a higher loan payment or leave
+                    some room in your budget for other things. This loan product
+                    is ideal for a borrower who plans to stay in the home for a
+                    long period and doesn’t want the risk of a rising interest
+                    rate.
+                  </p>
+                </div>
+              </ng-container>
+
+              <a
+                (click)="onclickOne()"
+                class="text-uppercase text-secondary featanimbtn"
+                role="button"
+              >
+                {{ ReadMoreOne ? "More" : "Less" }}
+
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="box-30">
+              <div class="small-box mb-3">
+                <img src="assets/images/mortgage4.png" />
+              </div>
+              <h5 class="text-primary mb-3 font-weight-bold">
+                How do I qualify for A 30-Year <br />Fixed Loan?
+              </h5>
+              <p class="text-muted mb-3">
+                To get approved for a 30-year fixed rate mortgage, you need a
+                good credit score, proof of income, and money saved for a down
+                paymen0t. You should also have a debt-to-income ratio of 50% or
+                less. Debt-to-income ratio is the amount of your monthly income
+                that is going to debts like credit cards, car loans, and student
+                loans.
+              </p>
+              <!-- <a
+                (click)="onclicktwo()"
+                class="text-uppercase text-secondary featanimbtn"
+                role="button"
+              >
+                More
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block"
+      >
+        <a href="#approved-section">
+          <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+        >
+      </span>
+    </div>
+  </section>
+
+  <section class="approved-sec" id="approved-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-6 mb-4 mb-md-0">
+          <div class="approved-box">
+            <h3 class="text-primary font-weight-bold mb-4">
+              Take The First Steps Toward <br />
+              The Right Quicken<br />
+              Mortgage®.
+            </h3>
+            <p class="text-muted">
+              Apply online with Rocket Mortgage® by Quicken Loans® or enter some
+              info to get a call from a Home Loan Expert. You’ll get a
+              personalized recommendation on which loan option is <br />
+              best for you.
+            </p>
+            <button
+              type="submit"
+              class="btn btn-secondary text-uppercase text-white px-5 mt-4"
+              [routerLink]="['/app/buy-a-home-loan-options-animated-step1']"
+            >
+              get approved to buy a home
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="approved-box px-0">
+            <h3 class="text-primary font-weight-bold mb-4">
+              30-Year Fixed <br />
+              Mortgage Rates
+            </h3>
+            <div class="table-responsive">
+              <table
+                class="table"
+                style="border-bottom: 1px solid #dee2e6; text-align: left"
+              >
+                <tr>
+                  <th>Product</th>
+                  <th>Rate</th>
+                  <th>APR</th>
+                </tr>
+                <tr>
+                  <td>Confirming 30 year fixed</td>
+                  <td>3.125%</td>
+                  <td>3.373%</td>
+                </tr>
+              </table>
+            </div>
+            <p class="text-muted px-5">
+              30-year Fixed-Rate Loan: <br />
+              The payment on a $200,000 30-year Fixed-Rate Loan at 3.125%
+              (3.373% APR) is $856.76 for the cost of 2.00 point(s) due at
+              closing
+            </p>
+            <a
+              href=""
+              class="text-uppercase text-secondary featanimbtn d-block py-3"
+              >more <i class="fas fa-long-arrow-alt-right ml-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="loan-benefits">
+    <div class="p-r">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="loan-left">
+              <h3 class="text-primary font-weight-bold mb-4">
+                Why choose a 30-year fixed rate loan?
+              </h3>
+              <ul class="text-muted arrow-list">
+                <li>
+                  Choose a 30-year fixed rate mortgage if you want to make the
+                  same payment each month.
+                </li>
+                <li>
+                  Choose a 30-year fixed rate mortgage if you want to spread the
+                  loan out for the longest period, for the lowest payment.
+                </li>
+                <li>
+                  Choose this loan type if you plan to stay in the same home for
+                  a long time.
+                </li>
+                <li>
+                  Your interest rate is fixed for the life of the loan, so you
+                  don’t have worry about rates rising.
+                </li>
+                <li>
+                  Choose this loan type if you don’t anticipate large income
+                  increases in the future.
+                </li>
+                <li>
+                  You may be able to refinance this loan later if things change.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="loan-right">
+              <h3 class="text-primary font-weight-bold mb-4">
+                How Does Mortgage Insurance Work
+              </h3>
+              <p class="text-muted">
+                You’ll have to pay primary mortgage insurance (PMI) if your down
+                payment is less than 20%.
+              </p>
+              <ul class="text-muted arrow-list">
+                <li>
+                  Mortgage insurance is required on almost every new loan with a
+                  down payment of less than twenty percent.
+                </li>
+                <li>
+                  Mortgage insurance protects the lender from losses, and this
+                  allows them to offer loans they might not otherwise.
+                </li>
+                <li>
+                  Most conventional loans qualify for private mortgage
+                  insurance, paid monthly along with the principal and interest.
+                </li>
+                <li>
+                  In some cases with a conventional loan, you can request to
+                  have the mortgage insurance dropped when your equity in the
+                  loan reaches twenty percent, but in other cases you may need
+                  to refinance the loan.
+                </li>
+                <li>
+                  FHA loans have mortgage insurance that you pay to the Federal
+                  Housing Administration. For these loans there is a fee at the
+                  loan closing plus a monthly charge.
+                </li>
+                <li>
+                  FHA loans must maintain the mortgage insurance, so to stop
+                  paying the MI, you need to refinance into a conventional loan
+                  type.
+                </li>
+                <li>
+                  VA (Veteran’s Administration) loans don’t need mortgage
+                  insurance, because the VA guarantees the loan for you. But
+                  there is an upfront funding fee that varies depending on
+                  several factors, including:
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 float-right">
+        <div class="ml-5">
+          <ul class="text-muted">
+            <li>Your service type</li>
+            <li>Your down payment</li>
+            <li>Whether you are buying or refinancing</li>
+            <li>Whether you are disabled</li>
+            <li>If this is your first VA loan</li>
+          </ul>
+        </div>
+      </div>
+      <span
+        class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block"
+        style="left: 2%"
+      >
+        <a href="#rate-updates">
+          <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+        >
+      </span>
+    </div>
+  </section>
+
+  <section id="rate-updates">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="flex-lg-row Mortgage-talk rounded flex-column">
+            <div class="mr-4">
+              <div class="small-box mb-3">
+                <img src="assets/images/support.png" />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-primary font-weight-normal mb-3">
+                Mortgage Rate Updates & Featured<br />
+                Mortgage Or
+                <span class="text-secondary">Request A Call Back Today</span>
+              </h3>
+              <button
+                type="submit"
+                class="btn btn-secondary text-uppercase text-white px-5"
+              >
+                Talk Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

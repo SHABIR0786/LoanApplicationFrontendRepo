@@ -1,0 +1,445 @@
+<main>
+  <section class="bg-section-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1
+            class="display-3 heading-border font-weight-bold text-primary mb-2 mt-2"
+          >
+            Buy a Second
+            <br class="d-none d-sm-block" />
+            Home
+          </h1>
+          <h4 class="text-muted font-weight-normal pb-4">
+            Buying your second home means you need a mortgage lender that has
+            the best rates for a home purchase in California. Get a head start
+            on that second property loan at EZ Online Mortgage.
+          </h4>
+
+          <a
+            class="btn btn-secondary btn-lg ref-btn animbtn btn-animate"
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            role="button"
+            >pre - qualify now <i class="fas fa-long-arrow-alt-right"></i
+          ></a>
+        </div>
+        <div class="col-lg-4">
+          <img class="" src="assets/images/load-img-3.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="page-order-sec py-3 mb-5">
+      <a [routerLink]="['/app/home']" class="text-decoration-none">Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a [routerLink]="['/app/buying-home-guide']" class="text-decoration-none">
+        Buying a Home </a
+      ><i class="fa fa-angle-right"></i>
+      <a
+        [routerLink]="['/app/buying-second-home']"
+        class="text-decoration-none"
+      >
+        Buying a Second Home
+      </a>
+    </section>
+  </div>
+
+  <div class="container text-justify mb-4">
+    <h5 class="text-secondary">Know About</h5>
+    <h2 class="font-weight-bold text-primary">
+      Work with One of California’s Top Second Home Mortgage Lenders
+    </h2>
+    <p class="">
+      Have you been dreaming about purchasing a second home, but you’re not
+      quite sure where to start? Whether it’s your first or fifth home, the
+      experts at EZ Online Mortgage can help you find the right mortgage for
+      your second home. We can help you get the second property mortgage you
+      need with terms you can feel comfortable with and have you signing for
+      your additional home in no time!
+    </p>
+    <h2 class="font-weight-bold text-primary">
+      Considerations for a Second Home Mortgage
+    </h2>
+    <p class="">
+      Buying a second home and having another mortgage loan is a big
+      responsibility. You’ll want to make sure you’ve considered all the
+      relevant factors and that you’ve chosen the right mortgage professional
+      before taking on an additional loan for a second home. Remember to
+      consider the additional expenses associated with home ownership, such as
+      taxes and utilities. Then, assess your monthly cash flow to determine
+      whether you will be able to comfortably afford a mortgage for a second
+      home.
+    </p>
+    <h2 class="font-weight-bold text-primary">
+      Why Choose EZ Online Mortgage for Your Second Home Loan?
+    </h2>
+    <p class="">
+      The experienced team at EZ Online Mortgage can help you work through all
+      of the important considerations and make the process for getting a
+      mortgage loan for a second home simple and straightforward.
+    </p>
+    <ng-container *ngIf="visible">
+      <div>
+        <p>
+          We’ll help you find the best rate available and match you with a
+          lender that meets all of your needs and criteria. We believe that the
+          dream of buying a second home has never been easier!
+        </p>
+        <h2 class="font-weight-bold text-primary">
+          Additional Services Beyond Second Home Loans
+        </h2>
+        <p>
+          If you’ve already have a mortgage for your second home and are
+          interested in refinancing to take advantage of today’s great interest
+          rates, we can help with that as well! Simply contact us and start a
+          conversation today. We’ll gladly walk you through refinance process on
+          your second home mortgage loan, helping you save time and money.
+        </p>
+        <h2 class="font-weight-bold text-primary">
+          How Do I Get Started with a Loan for a Second Home?
+        </h2>
+        <p>
+          The first step in the process to buy a second house with another
+          mortgage is determining how much you can comfortably afford to spend.
+          Our convenient mortgage calculators can help with this. Then, simply
+          reach out and get in touch. We’ll assign you a dedicated consultant
+          who will assist with the entire process, from start to finish. <br />
+          But don’t wait! Home loan rates won’t stay this low forever. Apply
+          today or contact EZ Online Mortgage for a free, expert consultation.
+        </p>
+      </div>
+    </ng-container>
+    <a
+      (click)="readmore()"
+      class="text-uppercase text-secondary featanimbtn"
+      role="button"
+    >
+      {{ ReadMore ? "Read
+      More" : "Read
+      Less" }}
+      <i class="fas fa-long-arrow-alt-right"></i>
+    </a>
+  </div>
+
+  <div class="container bg-section-light mb-4 mt-5">
+    <h5 class="text-secondary text-center pt-5">Know About</h5>
+    <h3 class="font-weight-bold text-primary text-center">
+      Want To Explore Your Options?
+    </h3>
+    <div class="row px-5 py-5">
+      <div class="col-sm-6 mb-3">
+        <div class="pre-box">
+          <p class="text-white">
+            With ast, powerful and completely online way to get a mortgage, you
+            can adjust your mortgage options to find the lowest payment
+            possible.With ast, powerful and completely online way to get a
+            mortgage, you can adjust your mortgage options to find the
+          </p>
+          <a
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            style="text-decoration: none"
+          >
+            <button class="btn btn-primary text-white text-uppercase">
+              Apply Now
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="pre-box">
+          <p class="text-white">
+            Not comfortable starting online? Answer a few questions, and we’ll
+            have a Home Loan Expert call you. With ast, powerful and completely
+            online way to get a mortgage, you can adjust your mortgage options
+            to find the
+          </p>
+          <a
+            [routerLink]="['/app/buy-a-home-loan-options-animated']"
+            style="text-decoration: none"
+          >
+            <button class="btn btn-primary text-white text-uppercase">
+              pre - qualify now <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="long-term text-center">
+    <span
+      class="text-white text-muted text-uppercase banner-scroll d-none d-lg-block position-absolute"
+    >
+      <a href="#section-submit">
+        <i class="fa fa-long-arrow-left mr-4"></i>Get to Know Us</a
+      >
+    </span>
+
+    <div class="container mx-auto px-2 px-md-4">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="col-lg-8">
+          <video
+            id="my_video_1"
+            class="yimVideo video-js vjs-default-skin"
+            style="width: 100%; height: 368px"
+            height="368px"
+            controls
+            preload="none"
+            data-setup='{ "aspectRatio":"630:360", "playbackRates": [1, 1.5, 2] }'
+          >
+            <source
+              src="https://vjs.zencdn.net/v/oceans.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://vjs.zencdn.net/v/oceans.webm"
+              type="video/webm"
+            />
+          </video>
+        </div>
+
+        <img
+          class="img-fluid img-poster"
+          (click)="playVideo()"
+          style="
+            position: absolute;
+            width: 794px;
+            height: 368px;
+            cursor: pointer;
+          "
+          src="assets/images/videoThumbnail.png"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h5 class="text-secondary">Know About</h5>
+      <h2 class="text-primary">FAQ’s</h2>
+      <div
+        class="panel-group faq-panel"
+        id="accordion"
+        role="tablist"
+        aria-multiselectable="true"
+      >
+        <div class="panel panel-default">
+          <div class="panel-heading border-0" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a
+                class="text-primary collapsed"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                Does Pre-approval mean I am guaranteed to get a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseOne"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingOne"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Not necessarily. Pre-approval is a thorough investigation of
+                your application for a mortgage loan. The result (if successful)
+                will be a letter that indicates you are qualified for a mortgage
+                at the amount you have requested. That doesn't always mean you
+                will get final approval for the mortgage. Lots of other factors
+                impact the mortgage approval process—the value of the home is
+                key, as well as potential changes to your credit or employment
+                status between pre-approval and final determination.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                How can I improve my chances of getting approved?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseTwo"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingTwo"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                Great question. One smart move is to check your credit reports
+                before you start the application. If there is any incorrect
+                information, you can begin the process of getting it resolved.
+                Also, don’t open or close any credit accounts if you can avoid
+                it—those actions can cause a temporary decrease in your score.
+                The other thing that helps is to give us as much information as
+                possible—fill out everything completely.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                What are points on a loan?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseThree"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingThree"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A point on a loan is a price the borrower pays to lower the
+                interest rate. A lender may offer a loan with a specific
+                interest rate and a one-point fee. The "point" equals one
+                percent of the loan total, paid in advance. It might make sense
+                to pay the point to bring down the interest rate, especially if
+                you plan to remain in the home over a long period.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                Are interest rates and points the only things to consider when
+                choosing a lender?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFour"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFour"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                No. There are numerous factors to evaluate when choosing your
+                lender. Reputation is essential, and the costs of applying and
+                completing the mortgage process. Also, look out for questionable
+                practices like pre-payment penalties, which means the lender
+                will charge you a fee if you pay the loan off early or
+                refinance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+              <a
+                class="collapsed text-primary"
+                role="button"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <i class="more-less fa fa-plus"></i>
+                <i class="more-less fa fa-minus"></i>
+                How do I get a rate lock?
+              </a>
+            </h4>
+          </div>
+          <div
+            id="collapseFive"
+            class="panel-collapse collapse"
+            role="tabpanel"
+            aria-labelledby="headingFive"
+          >
+            <div class="panel-body">
+              <p class="text-muted">
+                A rate lock promises that the lender can complete the processing
+                of your loan with the interest rate and points available on a
+                particular day. The "lock" is valid for a period of time—usually
+                30 or 60 days. Sometimes you can lock in the rate just by asking
+                while you navigate through the approval process. Depending on
+                the loan program, you might have to pay a fee to guarantee the
+                rate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- panel-group -->
+    </div>
+  </section>
+
+  <section class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/monitor.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Apply Now</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/smartphone-call.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Start Online</h3>
+        </div>
+        <div class="col-sm-4 text-center py-4">
+          <div class="small-box m-auto">
+            <img src="assets/images/messaging.png" />
+          </div>
+          <h3 class="text-primary font-weight-bold mt-4">Chat Now</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

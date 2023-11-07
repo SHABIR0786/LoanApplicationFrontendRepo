@@ -1,0 +1,108 @@
+.selected {
+  background-color: #f47741;
+  color: white !important;
+}
+
+#num {
+  color: #0cc4d4 !important;
+}
+#Email {
+  color: #0cc4d4 !important;
+}
+.gage-chart {
+  margin-top: 42px !important;
+}
+.gage-chart-orange {
+  margin-top: 42px !important;
+}
+button.btn:hover {
+  background-color: #f47741;
+}
+#back span {
+  font-family: "Avenir";
+  font-size: 20px;
+  cursor: pointer;
+}
+#back {
+  font-family: "Avenir";
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.right-back-btn p {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Avenir";
+  display: none;
+}
+/* Hafiz's CSS */
+
+.Content-Step-Body.text-black {
+  background-color: white !important;
+  color: black;
+}
+.Content-Step-Body .btn-outline-orange {
+  border-color: #f47741;
+  color: #f47741;
+}
+.Content-Step-Body .btn-outline-orange:hover {
+  color: white;
+}
+.Content-Step-Body.Content-Step-Footer {
+  background-color: white !important;
+}
+#back.fa::before {
+  color: #f47741;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (max-width: 768px) {
+  .btn {
+    width: 93%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .btn {
+    width: 70%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  #back {
+    display: none;
+  }
+  .right-back-btn p {
+    display: block !important;
+  }
+}
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .btn {
+    width: 100%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .btn {
+    width: 100%;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+}

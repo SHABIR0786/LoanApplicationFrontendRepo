@@ -1,0 +1,102 @@
+<div class="Content-Step-Body text-black">
+  <div class="container">
+    <h2>Tell us her or his name. Or not.</h2>
+    <p style="font-size: 12px">
+      Have a Loan Expert get in touch so we can work something out.
+    </p>
+    <div class="col-lg-4">
+      <span class="pt-3 cursor_pointer">
+        <i class="fa fa-angle-left" id="icon"></i>
+        <span id="Back" (click)="proceedToPrevious()" class="pl-1"> Back</span>
+      </span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <form
+            class="form"
+            [formGroup]="form"
+            (keydown.enter)="$event.preventDefault()"
+          >
+            <!-- <label class="text-uppercase text-left">Property Value</label> -->
+            <input
+              class="form-control form-control-lg-next text-primary bg-white font-weight-bolder mt-3 pl-4"
+              id="step"
+              type="text"
+              required
+              placeholder="First name"
+              formControlName="firstname"
+              [(ngModel)]="formData.firstName"
+              [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+            />
+            <div
+              *ngIf="submitted && f.firstname.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.firstname.errors.required">
+                Enter Your First Name.
+              </div>
+            </div>
+
+            <input
+              class="form-control form-control-lg-next text-primary bg-white font-weight-bolder mt-3"
+              id="step"
+              required
+              type="text"
+              placeholder="Last name"
+              formControlName="lasttname"
+              [(ngModel)]="formData.lastName"
+              [ngClass]="{ 'is-invalid': submitted && f.lasttname.errors }"
+            />
+            <div
+              *ngIf="submitted && f.lasttname.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.lasttname.errors.required">
+                Enter Your Last Name.
+              </div>
+            </div>
+            <input
+              class="form-control form-control-lg-next text-primary bg-white font-weight-bolder mt-3"
+              id="step"
+              required
+              type="text"
+              placeholder="Email"
+              formControlName="email"
+              [(ngModel)]="formData.emailAddress"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Enter Valid Email.</div>
+              <div *ngIf="f.email.errors.email">Enter Valid Email.</div>
+            </div>
+            <input
+              class="form-control form-control-lg-next text-primary bg-white font-weight-bolder mt-3"
+              id="step"
+              type="text"
+              required
+              placeholder="Phone"
+              [(ngModel)]="formData.phoneNumber"
+              formControlName="phone"
+              appPhoneMask
+              [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+            />
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required">
+                Enter Valid PhoneNumber.
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-blue text-uppercase mt-4 text-white btn-next"
+              id="next"
+              (click)="SubmitForm()"
+            >
+              LET'S TALK
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<section class="pt-3">
+  <div class="container-fluid p-0">
+    <h1 class="top_heading">Portfolio</h1>
+    <div class="content">
+      <div class="table_content p-4">
+        <h2 class="table_heading text-dark mb-3">Loan Applications</h2>
+        <!-- {{Custom| json}} -->
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Loan Number</th>
+              <th scope="col" class="pl-0">Loan Amount</th>
+              <th scope="col" class="pl-0">Property Address</th>
+              <th scope="col" class="pl-0"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of allLoanApplications">
+              <td class="pl-0">{{ item.loanNo }}</td>
+              <td class="pl-0">{{ item.loanAmount }}</td>
+              <td class="pl-0">{{ item.propertyAddress }}</td>
+              <!-- <td class="pl-3">3718317</td>
+              <td class="pl-0">$730,000,00</td>
+              <td class="pl-0">5154 White Oak AVE, Enclno, CA 91316</td> -->
+              <td class="pl-0 text-right pr-0">
+                <button
+                  (click)="checkLoanStatus()"
+                  class="btn chek_btn text-white px-4 py-2"
+                >
+                  Check Loan Status
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="copy_right text-right px-3 mt-4">
+      Current Login: {{ CurrentLoginInfo?.releaseDate | date }} at
+      {{ CurrentLoginInfo?.releaseDate | date: "shortTime" }} on Chrome
+      {{ CurrentLoginInfo?.version }} browser
+    </p>
+  </div>
+</section>

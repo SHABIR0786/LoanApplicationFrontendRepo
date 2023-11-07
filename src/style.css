@@ -1,0 +1,31 @@
+.navbar-dark .navbar-nav .nav-link {
+  color: #091a52;
+}
+.section-slider .card p {
+  color: #0cc4d4;
+}
+.headsecondary {
+  font-size: 32px;
+}
+.section-tips .mortgage-list li a h4 {
+  font-size: 20px;
+}
+/* .input-box {
+  background-color: #caf0f8 !important;
+} */
+/* .instruction-box {
+  background-color: #caf0f8 !important;
+} */
+.pera {
+  font-size: 16px !important;
+}
+.main-content h2 {
+  font-size: 32px;
+}
+.p-left-25 {
+  padding-left: 25px;
+}
+.input-group-text {
+  background-color: #ffffff;
+  border: 1px solid #c4c4c4;
+}

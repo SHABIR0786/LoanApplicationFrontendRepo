@@ -1,0 +1,39 @@
+@import url("../style.css");
+.slidecontainer {
+  font-size: 20px;
+  width: 50%;
+  justify-content: center;
+  margin-left: 25%;
+}
+.form-control {
+  height: 65px;
+  margin-top: 50px;
+  padding-left: 25px;
+}
+#myRange {
+  border: solid 1px #f47741;
+  border-radius: 8px;
+  height: 10px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+.estimate {
+  font-size: 25px;
+}
+
+.dollar_sign {
+  position: absolute;
+  margin-top: 58px;
+  margin-left: -157px;
+  color: white;
+  font-size: 20px;
+}
+.invalid-feedback {
+  padding: 5px;
+}
+
+button.btn:hover {
+  background-color: #f47741;
+}

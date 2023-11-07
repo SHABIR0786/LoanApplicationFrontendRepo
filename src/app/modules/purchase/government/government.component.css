@@ -1,0 +1,77 @@
+@import url("../../../../assets/new/css/main.css");
+
+.yes-no-active {
+  background: #f47741 !important;
+  color: white !important;
+  border-color: #f47741 !important;
+}
+
+.content-area h6 {
+  font-size: 22px;
+  font-family: "Avenir" !important;
+}
+.yes-no-area p {
+  font-size: 22px;
+  font-family: "Avenir" !important;
+  font-weight: 200 !important;
+}
+.button-list p {
+  font-size: 22px;
+  text-align: left;
+  font-weight: 600;
+  font-family: avenir-medium !important;
+}
+.thanks {
+  font-size: 22px;
+  font-family: "Helvetica Neue" !important;
+}
+.terms {
+  margin-top: 33px !important;
+}
+
+/* Hide the default radio button */
+input[type="radio"] {
+  display: none;
+}
+
+/* Style the custom radio button */
+.radio-label {
+  position: relative !important;
+  padding-left: 25px !important; /* To create space for the custom symbol */
+  cursor: pointer !important;
+  color: #091a52 !important;
+  font-family: Avenir-Medium !important;
+  font-size: 20px !important;
+  margin-bottom: 15px;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+}
+
+/* Create the custom symbol using ::before pseudo-element */
+.radio-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #e4e4e4;
+  left: 0;
+  width: 22px; /* Adjust the size of the radio button */
+  height: 22px; /* Adjust the size of the radio button */
+  /* border: 2px solid #E4E4E4;  */
+  border-radius: 50%; /* To create a circle */
+  margin-left: -4px;
+  margin-top: 3px;
+}
+
+/* Style the custom symbol when the radio button is checked */
+input[type="radio"]:checked + .radio-label::before {
+  background-color: #52c41a; /* Fill color for the radio button when checked */
+}
+
+/* Optional: Add a tick/checkmark inside the radio button */
+input[type="radio"]:checked + .radio-label::before {
+  content: url("../../../../assets/img/checkmark.svg") "\0020\0020\0020"; /* Unicode for checkmark symbol */
+  color: #fff; /* Checkmark color */
+  text-align: center;
+  line-height: 21px; /* To center the checkmark vertically */
+}

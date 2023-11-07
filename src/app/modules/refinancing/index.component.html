@@ -1,0 +1,178 @@
+<div class="wrapper">
+  <header id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
+          <div class="logo-head" routerLink="/app/home">
+            <img src="assets/new/img/logo.png" alt="" srcset="" />
+          </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-sm-12 col-xs-12">
+          <div class="contact-head">
+            <div class="right-content">
+              <a href="tel:+15452663333"
+                ><span class="tel-contact"
+                  ><img src="assets/img/telephone-blue.svg" alt="" />
+                  <p>(800) 930-8195</p></span
+                ></a
+              >
+              <a href="mailto:support@admin.com"
+                ><span class="email-contact"
+                  ><img src="assets/img/email-blue.svg" alt="" />
+                  <p>Email Us</p></span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="main-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <div class="sidebar">
+            <h3 class="title">My Loan Application</h3>
+            <nav
+              class="navbar navbar-expand-lg navbar-light form-stat bg-white"
+              style="padding-left: 0px"
+            >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <ul>
+                    <li
+                      class="nav-item nav-link active"
+                      [ngClass]="{ active: a == 0 }"
+                    >
+                      <i
+                        class="fas fa-solid fa-circle"
+                        [ngClass]="{
+                          'fa-circle-check active': a > 0,
+                          'yes-blue': a == 0
+                        }"
+                      ></i
+                      ><span>Welcome</span>
+                    </li>
+                    <li class="nav-item nav-link">
+                      <img src="assets/img/seperator.svg" alt="" />
+                    </li>
+                    <li
+                      class="nav-item nav-link"
+                      [ngClass]="{ active: a == 2 }"
+                    >
+                      <i
+                        class="fas fa-solid fa-circle yes"
+                        [ngClass]="{
+                          'fa-circle-check active': a > 1,
+                          'yes-blue': a == 1
+                        }"
+                      ></i
+                      ><span>Property Info</span>
+                    </li>
+                    <li class="nav-item nav-link">
+                      <img src="assets/img/seperator.svg" alt="" />
+                    </li>
+                    <li
+                      class="nav-item nav-link"
+                      [ngClass]="{ active: a == 3 }"
+                    >
+                      <i
+                        class="fas fa-solid fa-circle"
+                        [ngClass]="{
+                          'fa-circle-check active': a > 2,
+                          'yes-blue': a == 2
+                        }"
+                      ></i
+                      ><span>Personal Info</span>
+                    </li>
+                    <li class="nav-item nav-link">
+                      <img src="assets/img/seperator.svg" alt="" />
+                    </li>
+                    <li
+                      class="nav-item nav-link"
+                      [ngClass]="{ active: a == 4 }"
+                    >
+                      <i
+                        class="fas fa-solid fa-circle"
+                        [ngClass]="{
+                          'fa-circle-check active': a > 3,
+                          'yes-blue': a == 3
+                        }"
+                      ></i
+                      ><span>Income</span>
+                    </li>
+                    <li class="nav-item nav-link">
+                      <img src="assets/img/seperator.svg" alt="" />
+                    </li>
+                    <li
+                      class="nav-item nav-link"
+                      [ngClass]="{ active: a == 5 }"
+                    >
+                      <i
+                        class="fas fa-solid fa-circle"
+                        [ngClass]="{
+                          'fa-circle-check active': a > 4,
+                          'yes-blue': a == 4
+                        }"
+                      ></i
+                      ><span>Assets</span>
+                    </li>
+                    <li class="nav-item nav-link">
+                      <img src="assets/img/seperator.svg" alt="" />
+                    </li>
+                    <li
+                      class="nav-item nav-link"
+                      [ngClass]="{ active: a == 6 }"
+                    >
+                      <i
+                        class="fas fa-solid fa-circle"
+                        [ngClass]="{
+                          'fa-circle-check active': a > 5,
+                          'yes-blue': a == 5
+                        }"
+                      ></i
+                      ><span>Government</span>
+                    </li>
+                    <li class="nav-item nav-link">
+                      <img src="assets/img/seperator.svg" alt="" />
+                    </li>
+                    <li
+                      class="nav-item nav-link"
+                      [ngClass]="{ active: a == 7 }"
+                    >
+                      <i
+                        class="fas fa-solid fa-circle"
+                        [ngClass]="{
+                          'fa-circle-check active': a > 6,
+                          'yes-blue': a == 6
+                        }"
+                      ></i
+                      ><span>Credit Scores</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-12 col-xs-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- checking the commit -->
