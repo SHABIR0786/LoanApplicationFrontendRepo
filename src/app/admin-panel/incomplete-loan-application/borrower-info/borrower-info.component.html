@@ -1106,529 +1106,163 @@
         </div>
       </div>
 
-      <div class="div-main-grp m-b-30">
-        <div class="row div-sub-grp">
-          <div class="col-sm-12 col-12 p-1">
-            <div class="div-border">
-              <label class="frm-label" style="margin-left: -10px"
-                >Current Address</label
-              >
-
-              <div class="row mt-2 pr-3">
-                <div class="col-sm-1 pr-0">
-                  <label class="gray-text">Street</label>
-                </div>
-                <div
-                  class="col-sm-8 input-border-bottom ml-sm-0 ml-1 pl-sm-3 pl-2 mb-sm-0 mb-2"
-                  [ngClass]="{
-                    error_bb: borrowForm.submitted && creditItemsStreet.errors
-                  }"
-                  [ngClass]="{
-                    error_bb:
-                      creditItemsStreet.touched && creditItemsStreet.errors
-                  }"
-                >
-                  <input
-                    ngx-google-places-autocomplete
-                    [(ngModel)]="
-                      borrowerInfo.personalInformation.address[0].street
-                    "
-                    id="creditItemsStreet"
-                    name="creditItemsStreet"
-                    [options]="options"
-                    #creditItemsStreet="ngModel"
-                    (onAddressChange)="handleAddressChange($event, 0)"
-                  />
-                </div>
-
-                <div class="col-sm-1 pr-0">
-                  <label class="gray-text">Unit #</label>
-                </div>
-                <div class="col-sm-2 pr-1 input-border-bottom">
-                  <input
-                    type="text"
-                    name="ZIP"
-                    id="ZIP"
-                    #ZIP="ngModel"
-                    [(ngModel)]="
-                      borrowerInfo.personalInformation.address[0].unit
-                    "
-                    name="creditItemsUnit"
-                    id="creditItemsUnit"
-                    #creditItemsUnit="ngModel"
-                    [min]="0"
-                    maxlength="10"
-                  />
-                </div>
-              </div>
-
-              <div class="row mt-2 pr-3">
-                <div class="col-sm-1 pr-0 mt-2">
-                  <label class="gray-text">City</label>
-                </div>
-                <div
-                  class="col-sm-3 input-border-bottom"
-                  [ngClass]="{
-                    error_bb: borrowForm.submitted && creditItemscityId.errors
-                  }"
-                  [ngClass]="{
-                    error_bb:
-                      creditItemscityId.touched && creditItemscityId.errors
-                  }"
-                >
-                  <div
-                    class=""
-                    style="
-                      border: 0px solid !important;
-                      padding-left: 0px !important;
-                      padding-right: 0px !important;
-                    "
-                  >
-                    <div
-                      class="frm-fld-input_sml"
-                      style="
-                        border-bottom: 1px solid #696969 !important ;
-                        margin: 0px;
-                      "
-                    >
-                      <select
-                        required
-                        [(ngModel)]="
-                          borrowerInfo.personalInformation.address[0].cityId
-                        "
-                        name="creditItemscityId"
-                        id="creditItemscityId"
-                        #creditItemscityId="ngModel"
-                      >
-                        <option
-                          [ngValue]="undefined"
-                          selected
-                          [disabled]="
-                            creditItemscityId.value > 0 &&
-                            creditItemscityId.value != null
-                          "
-                        >
-                          Select City
-                        </option>
-                        <option
-                          *ngFor="let obj of cityListAddress0"
-                          [ngValue]="obj.id"
-                        >
-                          {{ obj.cityName }}
-                        </option>
-                      </select>
-                    </div>
+            <!-- Current Address Section  -->
+            <div class="current-address-section">
+              <h4 class="section-heading">Current Address</h4>
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="form-group" [ngClass]="{ error_bb: borrowForm.submitted && creditItemsStreet.errors}" [ngClass]="{error_bb:creditItemsStreet.touched && creditItemsStreet.errors}">
+                    <label for="creditItemsStreet">Street</label>
+                      <input ngx-google-places-autocomplete [(ngModel)]="borrowerInfo.personalInformation.address[0].street"
+                        id="creditItemsStreet" name="creditItemsStreet" [options]="options" #creditItemsStreet="ngModel"
+                        (onAddressChange)="handleAddressChange($event, 0)" required/>
                   </div>
                 </div>
-
-                <div class="col-sm-1 pr-0 mt-2">
-                  <label class="gray-text">State</label>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="creditItemsUnit" style="min-width: 50px;">Unit #</label>
+                    <input type="text" [(ngModel)]="borrowerInfo.personalInformation.address[0].unit" name="creditItemsUnit"
+                      id="creditItemsUnit" #creditItemsUnit="ngModel" [min]="0" maxlength="10" />
+                  </div>
                 </div>
-                <div
-                  class="col-sm-2 p input-border-bottom"
-                  [ngClass]="{
-                    error_bb: borrowForm.submitted && creditItemsState.errors
-                  }"
-                  [ngClass]="{
-                    error_bb:
-                      creditItemsState.touched && creditItemsState.errors
-                  }"
-                >
-                  <div
-                    class=""
-                    style="
-                      border: 0px solid !important;
-                      padding-left: 0px !important;
-                      padding-right: 0px !important;
-                    "
-                  >
-                    <div
-                      class="frm-fld-input_sml"
-                      style="
-                        border-bottom: 1px solid #696969 !important ;
-                        margin: 0px;
-                      "
-                    >
-                      <select
-                        required
-                        [(ngModel)]="
-                          borrowerInfo.personalInformation.address[0].stateId
-                        "
-                        (change)="
-                          getCityByStateId(creditItemsState.value, 'Address', 0)
-                        "
-                        name="creditItemsState"
-                        id="creditItemsState"
-                        #creditItemsState="ngModel"
-                      >
-                        <option
-                          [ngValue]="undefined"
-                          selected
-                          [disabled]="
-                            creditItemsState.value > 0 &&
-                            creditItemsState.value != null
-                          "
-                        >
+              </div>
+      
+              <div class="row second-row">
+                <div class="col-sm-6 col-md-6">
+                  <div class="form-group" [ngClass]="{error_bb: (borrowForm.submitted && creditItemscityId.errors) || (creditItemscityId.touched && creditItemscityId.errors)}" [ngClass]="{error_bb:creditItemscityId.touched && creditItemscityId.errors}">
+                    <label for="creditItemscityId">City</label>
+                        <select required [(ngModel)]="borrowerInfo.personalInformation.address[0].cityId"
+                          name="creditItemscityId" id="creditItemscityId" #creditItemscityId="ngModel">
+                          <option [ngValue]="undefined" selected [disabled]="
+                                  creditItemscityId.value > 0 &&
+                                  creditItemscityId.value != null">
+                            Select City
+                          </option>
+                          <option *ngFor="let obj of cityListAddress0" [ngValue]="obj.id">
+                            {{ obj.cityName }}
+                          </option>
+                        </select>
+                  </div>
+                </div>
+      
+                <div class="col-sm-6 col-md-2">
+                  <div class="form-group" [ngClass]="{error_bb: (borrowForm.submitted && creditItemsState.errors) || (creditItemsState.touched && creditItemsState.errors)}">
+                    <label for="creditItemsState">State</label>
+                      <select required [(ngModel)]="borrowerInfo.personalInformation.address[0].stateId"
+                        (change)="getCityByStateId(creditItemsState.value, 'Address', 0)" name="creditItemsState"
+                        id="creditItemsState" #creditItemsState="ngModel">
+                        <option [ngValue]="undefined" selected
+                          [disabled]="creditItemsState.value > 0 && creditItemsState.value != null">
                           Select State
                         </option>
-                        <option
-                          *ngFor="let obj of stateListAddress0"
-                          [ngValue]="obj.id"
-                        >
+                        <option *ngFor="let obj of stateListAddress0" [ngValue]="obj.id">
                           {{ obj.stateName }}
                         </option>
                       </select>
+                  </div>
+                </div>
+      
+                <div class="col-md-2 col-sm-6">
+                  <div class="form-group" [ngClass]="{ error_bb: (borrowForm.submitted && ZIP.errors) ||  (ZIP.touched && ZIP.errors )}">
+                    <label for="ZIP">ZIP</label>
+                    <div class="input-border-bottom">
+                      <input type="text" type="text" maxlength="10" name="ZIP" id="ZIP" #ZIP="ngModel"
+                        [(ngModel)]="borrowerInfo.personalInformation.address[0].zip" required/>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-sm-1 pr-0 mt-2">
-                  <label class="gray-text">ZIP</label>
-                </div>
-                <div
-                  class="col-sm-1 input-border-bottom mt-1"
-                  [ngClass]="{ error_bb: borrowForm.submitted && ZIP.errors }"
-                  [ngClass]="{ error_bb: ZIP.touched && ZIP.errors }"
-                >
-                  <input
-                    type="text"
-                    type="text"
-                    maxlength="10"
-                    name="ZIP"
-                    id="ZIP"
-                    #ZIP="ngModel"
-                    [(ngModel)]="
-                      borrowerInfo.personalInformation.address[0].zip
-                    "
-                  />
-                </div>
-
-                <div class="col-sm-1 mt-2">
-                  <label class="gray-text">Country</label>
-                </div>
-                <div
-                  class="col-sm-2 pr-1 input-border-bottom"
-                  [ngClass]="{
-                    error_bb: borrowForm.submitted && Country.errors
-                  }"
-                  [ngClass]="{ error_bb: Country.touched && Country.errors }"
-                >
-                  <div
-                    class=""
-                    style="
-                      border: 0px solid !important;
-                      padding-left: 0px !important;
-                      padding-right: 0px !important;
-                    "
-                  >
-                    <div
-                      class="frm-fld-input_sml"
-                      style="
-                        border-bottom: 1px solid #696969 !important ;
-                        margin: 0px;
-                      "
-                    >
-                      <select
-                        required
-                        name="Country"
-                        id="Country"
-                        #Country="ngModel"
-                        style="text-align: center"
-                        (change)="
-                          getStateByCountryId(Country.value, 'Address', 0)
-                        "
-                        [(ngModel)]="
-                          borrowerInfo.personalInformation.address[0].countryId
-                        "
-                      >
-                        <option
-                          [ngValue]="undefined"
-                          selected
-                          [disabled]="
-                            Country.value > 0 && Country.value != null
-                          "
-                        >
+      
+                <div class="col-md-2 col-sm-6">
+                  <div class="form-group" [ngClass]="{error_bb: (borrowForm.submitted && Country.errors) || (Country.touched && Country.errors)}">
+                    <label for="Country">Country</label>
+                      <select required name="Country" id="Country" #Country="ngModel"
+                        (change)="getStateByCountryId(Country.value, 'Address', 0)"
+                        [(ngModel)]="borrowerInfo.personalInformation.address[0].countryId">
+                        <option [ngValue]="undefined" selected [disabled]=" Country.value > 0 && Country.value != null">
                           Select Country
                         </option>
-                        <option
-                          *ngFor="let obj of countryList"
-                          [ngValue]="obj.id"
-                        >
+                        <option *ngFor="let obj of countryList" [ngValue]="obj.id">
                           {{ obj.countryName }}
                         </option>
                       </select>
-                    </div>
                   </div>
                 </div>
               </div>
-
-              <div class="row mt-1 pl-1">
-                <div class="col-sm-5 p-0 form-inline">
-                  <label
-                    class="gray-text pt-sm-0 pt-2"
-                    style="white-space: nowrap !important"
-                    >How Long at Current Address?</label
-                  >
-                  <div
-                    class="div-border"
-                    [ngClass]="{
-                      error_bb: borrowForm.submitted && year.errors
-                    }"
-                    [ngClass]="{ error_bb: year.touched && year.errors }"
-                    style="
-                      border: 0px solid !important;
-                      padding-left: 0px !important;
-                      padding-right: 0px !important;
-                    "
-                  >
-                    <div
-                      class="frm-fld-input-no-arrow"
-                      style="
-                        border-bottom: 1px solid #696969 !important;
-                        margin-top: 3px !important;
-                      "
-                    >
-                      <select
-                        name="year"
-                        style="min-width: 60px; text-align: center"
-                        id="year"
-                        #year="ngModel"
-                        [(ngModel)]="
-                          borrowerInfo.personalInformation.address[0].year
-                        "
-                        [ngClass]="{
-                          error_bb: borrowForm.submitted && year.errors
-                        }"
-                        [ngClass]="{ error_bb: year.touched && year.errors }"
-                        (change)="onYearChange(year.value, month.value)"
-                      >
-                        <option
-                          [ngValue]="undefined"
-                          selected
-                          [disabled]="year.value > 0 && year.value != null"
-                        >
-                          Years
-                        </option>
-                        <option *ngFor="let obj of yearList" [ngValue]="obj.id">
-                          {{ obj.label }}
-                        </option>
-                      </select>
-                    </div>
+      
+      
+              <div class="row">
+                <div class="current-address-years col-sm-5">
+                  <h4>How Long at Current Address?</h4>
+                  <div class="form-group" [ngClass]="{error_bb: (borrowForm.submitted && year.errors) || (year.touched && year.errors)}">
+                      <div class="frm-fld-input-no-arrow">
+                        <select name="year" id="year" #year="ngModel"
+                          [(ngModel)]="borrowerInfo.personalInformation.address[0].year"
+                          (change)="onYearChange(year.value, month.value)" required>
+                          <option [ngValue]="undefined" selected [disabled]="year.value > 0 && year.value != null">
+                            Years
+                          </option>
+                          <option *ngFor="let obj of yearList" [ngValue]="obj.id">
+                            {{ obj.label }}
+                          </option>
+                        </select>
+                      </div>
+                    <label for="year">Years</label>
                   </div>
-                  <label class="gray-text pl-2 pr-2 pt-sm-0 pt-2">Years</label>
-                  <div
-                    class="div-border"
-                    [ngClass]="{
-                      error_bb: borrowForm.submitted && month.errors
-                    }"
-                    [ngClass]="{ error_bb: month.touched && month.errors }"
-                    style="
-                      border: 0px solid !important;
-                      padding-left: 0px !important;
-                      padding-right: 0px !important;
-                    "
-                  >
-                    <div
-                      class="frm-fld-input-no-arrow"
-                      style="
-                        border-bottom: 1px solid #696969 !important ;
-                        margin-top: 3px !important;
-                      "
-                    >
-                      <select
-                        name="month"
-                        style="min-width: 60px; text-align: center"
-                        id="month"
-                        #month="ngModel"
-                        [(ngModel)]="
-                          borrowerInfo.personalInformation.address[0].month
-                        "
-                        [ngClass]="{
-                          error_bb: borrowForm.submitted && month.errors
-                        }"
-                        [ngClass]="{ error_bb: month.touched && month.errors }"
-                        (change)="onYearChange(year.value, month.value)"
-                      >
-                        <option
-                          [ngValue]="undefined"
-                          selected
-                          [disabled]="month.value > 0 && month.value != null"
-                        >
+                  <div class="form-group" [ngClass]="{error_bb: (borrowForm.submitted && month.errors) || (month.touched && month.errors)}">
+                      <select name="month" id="month" #month="ngModel"
+                        [(ngModel)]="borrowerInfo.personalInformation.address[0].month"
+                        (change)="onYearChange(year.value, month.value)" required>
+                        <option [ngValue]="undefined" selected [disabled]="month.value > 0 && month.value != null">
                           Months
                         </option>
-                        <option
-                          *ngFor="let obj of monthList"
-                          [ngValue]="obj.id"
-                        >
+                        <option *ngFor="let obj of monthList" [ngValue]="obj.id">
                           {{ obj.label }}
                         </option>
                       </select>
+                    <label for="month">Months</label>
+                  </div>
+                </div>
+                <div class="housing-expenses col-sm-7">
+                  <div class="form-group" [ngClass]="{'error-checkbox': (borrowForm.submitted && housingType.errors) || (housingType.touched && housingType.errors)}">
+                    <h4>Housing</h4>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" name="credit1" [value]="1" name="housingType1"
+                        id="housingType1" #housingType1="ngModel" [(ngModel)]="
+                                  borrowerInfo.personalInformation.address[0]
+                                    .housingType
+                                "  (change)="clearRentValue(housingType1.value)" />
+                      <label  class="custom-control-label radio-label" for="housingType1">No primary housing expense</label>
                     </div>
                   </div>
-                  <label class="gray-text pl-2 pt-sm-0 pt-2">Months</label>
-                </div>
-
-                <div class="col-sm-7 p-0">
-                  <div class="row">
-                    <div class="col-sm-2 col-12">
-                      <label class="gray-text" style="color: #585858"
-                        ><b>Housing</b></label
-                      >
-                    </div>
-                    <div class="col-sm-4 col-12">
-                      <div class="custom-control custom-radio">
-                        <input
-                          type="radio"
-                          class="custom-control-input"
-                          name="credit1"
-                          [value]="1"
-                          name="housingType1"
-                          id="housingType1"
-                          #housingType1="ngModel"
-                          [(ngModel)]="
-                            borrowerInfo.personalInformation.address[0]
-                              .housingType
-                          "
-                          [ngClass]="{
-                            'error-checkbox':
-                              borrowForm.submitted && housingType.errors
-                          }"
-                          [ngClass]="{
-                            'error-checkbox':
-                              housingType.touched && housingType.errors
-                          }"
-                          (change)="clearRentValue(housingType1.value)"
-                        />
-                        <label
-                          class="custom-control-label radio-label"
-                          for="housingType1"
-                          >No primary housing expense</label
-                        >
-                      </div>
-                    </div>
-
-                    <div class="col-sm-1 col-12">
-                      <div class="custom-control custom-radio">
-                        <input
-                          type="radio"
-                          class="custom-control-input"
-                          name="credit1"
-                          [value]="2"
-                          name="housingType"
-                          id="housingType"
-                          #housingType="ngModel"
-                          [(ngModel)]="
-                            borrowerInfo.personalInformation.address[0]
-                              .housingType
-                          "
-                          [ngClass]="{
-                            'error-checkbox':
-                              borrowForm.submitted && housingType.errors
-                          }"
-                          [ngClass]="{
-                            'error-checkbox':
-                              housingType.touched && housingType.errors
-                          }"
-                          [disabled]="
-                            borrowerInfo.personalInformation.address[0]
-                              .housingType == '1'
-                          "
-                        />
-                        <label
-                          class="custom-control-label radio-label"
-                          for="housingType"
-                          >Own</label
-                        >
-                      </div>
-                    </div>
-                    <div class="col-sm-1 col-6">
-                      <div class="custom-control custom-radio">
-                        <input
-                          type="radio"
-                          class="custom-control-input"
-                          [value]="3"
-                          name="housingType2"
-                          id="housingType2"
-                          #housingType2="ngModel"
-                          [(ngModel)]="
-                            borrowerInfo.personalInformation.address[0]
-                              .housingType
-                          "
-                          style="margin-right: 8px; width: 15px; height: 15px"
-                          [ngClass]="{
-                            'error-checkbox':
-                              borrowForm.submitted && housingType2.errors
-                          }"
-                          [ngClass]="{
-                            'error-checkbox':
-                              housingType2.touched && housingType2.errors
-                          }"
-                          [disabled]="
-                            borrowerInfo.personalInformation.address[0]
-                              .housingType == '1'
-                          "
-                        />
-                        <label
-                          class="custom-control-label radio-label"
-                          for="housingType2"
-                          >Rent</label
-                        >
-                      </div>
-                    </div>
-
-                    <div class="col-sm-4 col-6 form-inline">
-                      <span class="gray-text pl-1">($</span>
-                      <span
-                        style="
-                          border-bottom: 1px #696969 solid;
-                          margin-bottom: 5px !important;
-                        "
-                      >
-                        <input
-                          type="text"
-                          class="number-text"
-                          onFocus="this.select();"
-                          (blur)="fixDecimals($event)"
-                          (keypress)="numberOnly(this, $event)"
-                          pattern="^\d+(?:\.\d{1,2})?$"
-                          [min]="0"
-                          maxlength="9"
-                          style="
-                            border: 0px !important;
-                            padding-left: 5px;
-                            border: 0px !important;
-                            font-size: 14px;
-                            margin-bottom: 0px;
-                            padding-left: 5px !important;
-                            padding-right: 5px !important;
-                            width: 100%;
-                            color: #a5a5a5;
-                            font-weight: 500;
-                          "
-                          [(ngModel)]="
-                            borrowerInfo.personalInformation.address[0].rent
-                          "
-                          id="MonthRent1"
-                          name="MonthRent1"
-                          #txtMonthRent1="ngModel"
-                          [disabled]="
-                            borrowerInfo.personalInformation.address[0]
-                              .housingType == '1'
-                          "
-                          ng-pattern="/^[0-9]+(\.[0-9]{1,2})/"
-                          step="0.1"
-                          (keydown)="scroll($event)"
-                        />
-                      </span>
-                      <span class="gray-text pr-2">/month)</span>
-                    </div>
+      
+      
+                  <div class="form-group custom-control custom-radio" [ngClass]="{'error-checkbox': (borrowForm.submitted && housingType.errors) || (housingType.touched && housingType.errors)}">
+                    <input type="radio" name="credit1" class="custom-control-input" [value]="2" name="housingType" id="housingType" #housingType="ngModel"
+                      [(ngModel)]="borrowerInfo.personalInformation.address[0].housingType"
+                      [disabled]="borrowerInfo.personalInformation.address[0].housingType == '1'" required/>
+                    <label class="custom-control-label radio-label" for="housingType">Own</label>
+                  </div>
+      
+                  <div class="form-group custom-control custom-radio" [ngClass]="{'error-checkbox': (borrowForm.submitted && housingType2.errors) || (housingType2.touched && housingType2.errors)}">
+                    <input type="radio" [value]="3" class="custom-control-input" name="housingType2" id="housingType2" #housingType2="ngModel"
+                      [(ngModel)]="borrowerInfo.personalInformation.address[0].housingType"
+                       [disabled]="borrowerInfo.personalInformation.address[0].housingType == '1'" required/>
+                    <label class="custom-control-label radio-label" for="housingType2">Rent</label>
+                    <span>($</span>
+                    <span>
+                      <input type="text" class="number-text" onFocus="this.select();" (blur)="fixDecimals($event)"
+                        (keypress)="numberOnly(this, $event)" pattern="^\d+(?:\.\d{1,2})?$" [min]="0" maxlength="9"
+                        [(ngModel)]="borrowerInfo.personalInformation.address[0].rent" id="MonthRent1" name="MonthRent1"
+                        #txtMonthRent1="ngModel" [disabled]="borrowerInfo.personalInformation.address[0].housingType == '1'"
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})/" step="0.1" (keydown)="scroll($event)" required/>
+                    </span>
+                    <span>/month)</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+      
+            <!-- End of Current Address Section  -->
 
       <div class="div-main-grp">
         <div class="row div-sub-grp">
